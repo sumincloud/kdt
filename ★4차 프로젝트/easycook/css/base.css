@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+:root{
+  --fs-xsmall: 0.75rem; /* 12px */
+  --fs-small: 0.875rem; /* 14px */
+  --fs-medium: 1rem;    /* 16px */
+  --fs-medium-large: 1.125rem;    /* 18px */
+  --fs-large: 1.25rem;  /* 20px */
+  --fs-xlarge: 1.5rem;  /* 24px */
+
+  --fw-normal: 500;
+  --fw-bold: 700;
+}

@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+li{
+  list-style: none;
+}
+img{
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+main{
+  margin-top: 70px; /* 헤더 높이만큼 띄우기 */
+}
+
+
+
+
+/* 패딩 20px */
+.pad{
+  padding: 0 20px;
+}
+.pad-left{
+  padding: 0 0 0 20px;
+}
+
+/* 찜 아이콘 */
+.pick{
+  position: absolute;
+  top: 20px; right: 20px;
+  cursor: pointer;
+}
+.pick i{
+  font-size: var(--fs-xlarge);
+}

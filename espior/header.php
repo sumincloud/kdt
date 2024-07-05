@@ -1,5 +1,8 @@
 <?php
-  session_start();
+	// 세션이 시작되지 않은 경우에만 session_start() 호출
+	if (session_status() == PHP_SESSION_NONE) {
+		session_start();
+	}
   include('./db/dbconn.php');
 
   // 사용자가 로그인한 경우, 세션에서 가져옴

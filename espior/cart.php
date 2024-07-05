@@ -1,6 +1,12 @@
 <?php
-  session_start();
+  // 세션이 시작되지 않은 경우에만 session_start() 호출
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  //session_start();
   include('./db/dbconn.php');
+
+  
 ?>
 
 <html lang="ko">

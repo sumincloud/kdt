@@ -2,16 +2,18 @@
   session_start();
   include('../db/dbconn.php');
 
+  
   // 세션정보를 가져온다.
   if (!isset($_SESSION['userid'])) {
     http_response_code(401); // 401 Unauthorized 상태 코드 반환
     echo json_encode(array("message" => "로그인이 필요합니다."));
     exit();
   }
-
+  
   //세션정보를 가져온다.
   $userid = $_SESSION['userid'];
   $username = $_SESSION['username'];
+
 
   $no = $_GET['no'];
 
