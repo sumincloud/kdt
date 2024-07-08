@@ -50,7 +50,61 @@
   <!-- 메인서식 -->
   <main>
     <section id="sec01">
-      <div></div>
+      <!-- Swiper -->
+      <div class="swiper mySwiper1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <div>
+              <span>바리스타</span>
+              <p>당신의 첫 번째<br>
+              커피 커리어</p>
+              <p>바리스타 자격증에서 카페창업까지<br>
+              120가지 커리큘럼을 경험하세요.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <div>
+              <span>바리스타</span>
+              <p>당신의 첫 번째<br>
+              커피 커리어</p>
+              <p>바리스타 자격증에서 카페창업까지<br>
+              120가지 커리큘럼을 경험하세요.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <div>
+              <span>바리스타</span>
+              <p>당신의 첫 번째<br>
+              커피 커리어</p>
+              <p>바리스타 자격증에서 카페창업까지<br>
+              120가지 커리큘럼을 경험하세요.</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <div>
+              <span>바리스타</span>
+              <p>당신의 첫 번째<br>
+              커피 커리어</p>
+              <p>바리스타 자격증에서 카페창업까지<br>
+              120가지 커리큘럼을 경험하세요.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slide-btn">
+          <i class="bi bi-pause swiper-button-play-pause"></i>
+          <i class="bi bi-chevron-left swiper-button-prev"></i>
+          <div class="swiper-pagination swiper-pagination-fraction">
+            <span class="swiper-pagination-current"></span>
+            /
+            <span class="swiper-pagination-total"></span>
+          </div>
+          <i class="bi bi-chevron-right swiper-button-next"></i>
+        </div>
+      </div>
     </section>
     <section id="sec02">
       <div class="pad">
