@@ -29,6 +29,9 @@ main{
 .pad-left{
   padding: 0 0 0 20px;
 }
+.pad-right{
+  padding: 0 20px 0 0;
+}
 
 /* 찜 아이콘 */
 .pick{
@@ -39,3 +42,14 @@ main{
 .pick i{
   font-size: var(--fs-xlarge);
 }
+
+/* 별점 */
+.star i{
+  color: var(--m-color-red);
+  opacity: 0.2;
+}
+.star i.active{
+  opacity: 1;
+}
+
+

@@ -1,15 +1,6 @@
 @charset "utf-8";
 
-div{
-  background: #aaa;
-}
 
-
-/* -------공통 서식 -------*/
-section{
-  margin-top: 50px;
-  background: pink;
-}
 
 /* 타이틀 서식 */
 .title{
@@ -73,6 +64,7 @@ section{
   bottom: 0;
   color: white;
   padding: 40px 20px;
+  width: 100%;
 }
 #sec01 .swiper-slide > div > span{
   display: inline-block;
@@ -97,11 +89,11 @@ section{
   width: 100%;
   height: 40px;
   line-height: 40px;
-  bottom: 0;
+  bottom: 20px;
   display: flex;
   justify-content: flex-end;
   gap: 2px;
-  font-size: var(--fs-large);
+  font-size: var(--fs-medium-large);
 }
 #sec01 .swiper-button-play-pause {
   display: block;
@@ -113,6 +105,7 @@ section{
   z-index: 10;
   cursor: pointer;
   margin-right: 5px;
+  font-size: var(--fs-large);
 }
 #sec01 .swiper-button-prev, #sec01 .swiper-button-next{
   position: initial;
@@ -123,6 +116,9 @@ section{
   text-align: center;
   color: #fff;
 }
+#sec01 .swiper-button-next:after, #sec01 .swiper-button-prev:after{
+  display: none;
+}
 #sec01 .swiper-button-prev{
   border-radius: 50% 0 0 50%;
 }
@@ -131,7 +127,7 @@ section{
 }
 #sec01 .swiper-pagination-fraction{
   position: initial;
-  width: 100px;
+  width: 60px;
   background-color: rgba(28, 29, 31, 0.4);
   color: #fff;
 }
@@ -160,14 +156,20 @@ section{
 }
 
 /* -------3. 실시간 인기수강------ */
+#sec03 .mySwiper2{
+  height: 400px;
+}
 #sec03 .swiper-slide{
   position: relative;
+  border-radius: 10px;
+  overflow: hidden;
 }
 #sec03 .con-text{
   position: absolute;
   bottom: 0;
   width: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  padding: 20px;
 }
 #sec03 .con-title{
   font-size: var(--fs-large);
@@ -185,8 +187,148 @@ section{
   font-weight: var(--fw-bold);
 }
 
+/* -------4. 마감임박 수강 ------ */
+#sec04 .mySwiper3 .swiper-slide img{height: 150px;}
 
-/* -------4. 마감임박 수강------ */
-#sec04 .swiper-slide img{
+
+/* ---------5. 광고배너-------- */
+#sec05 .mySwiper4{
+  height: 150px;
+}
+#sec05 .swiper-pagination-fraction{
+  width: 80px;
+  left: inherit;
+  right: 20px;
+}
+
+
+/* --------6. 수강생 후기-------- */
+#sec06 .mySwiper5{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#sec06 .swiper-slide{
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+#sec06 .profile{
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  align-items: center;
+}
+#sec06 .profile > img{
+  width: 50px; height: 50px;
+  border-radius: 50%;
+}
+#sec06 .profile > div{
+  margin-left: 10px;
+}
+#sec06 .profile > div > p{
+  padding-top: 5px;
+}
+#sec06 .con-text{
+  margin-top: 16px;
+  background: #fff;
+}
+#sec06 .con-text p:first-of-type{
+  color:red;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+}
+#sec06 .con-title{
+  font-size: var(--fs-medium-large);
+  -webkit-line-clamp: 1;
+  margin-top: 4px;
+}
+#sec06 .con-sub{
+  line-height: 140%;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* 3줄 이상 말줄임 표시 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+/* ------7, 8, 9. 인기수강 -----*/
+.mySwiper3 .swiper-slide img{
+  height: 150px;
+  border-radius: 10px;
+}
+
+
+/* --------10. 모바일앱 띠배너------- */
+#sec10{
+  height: 50px;
+}
+
+/* --------11. 국비과정 베스트-------- */
+#sec11 .col-xl{
+  display: flex;
   height: 200px;
+  width: 100%;
+}
+#sec11 .col-xl > img{
+  width: 50%;
+}
+#sec11 .col-xl > div{
+  width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------공통 서식 -------*/
+
+div{
+  background: #aaa;
+}
+section{
+  margin-top: 50px;
+  background: pink;
+}
+.swiper-button-next, .swiper-button-prev {
+  display: none;
+}
+
+/* 1400px 이상일때 요소배치 */
+@media (min-width: 1400px) {
+  #sec02, #sec03, #sec04, #sec06, #sec07, #sec08, #sec09{
+    width: 1400px;
+    margin: 50px auto 0 auto;
+  }
+  #sec01 .swiper-slide > div{
+    width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+  #sec01 .slide-btn{
+    width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    display: block;
+    color: #000;
+  }
+  .swiper-button-prev::after{
+    display: block;
+  }
 }

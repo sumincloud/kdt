@@ -3,8 +3,9 @@
 ?>
 <style>
 	/* 상단 헤더 */
+  
 	header{
-		position: fixed;
+    position: fixed;
 		width: 100%; height: 70px;
 		background: #fff;
 		border-bottom: 1px solid #eee;
@@ -12,7 +13,7 @@
 		z-index: 100;
 	}
 	header > div{
-		position: absolute;
+    position: absolute;
 		width: 100%; height: 40px;
 		display: flex;
 		align-items: center;
@@ -20,6 +21,16 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
+  /* 1400px 이상일때 헤더크기 */
+  @media (min-width: 1400px) {
+    header > div{
+      width: 1400px;
+      left:50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
   header > div h1{
     width: 100px; height: 100%;
   }
