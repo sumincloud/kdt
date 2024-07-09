@@ -718,12 +718,11 @@
       </div>
       <div class="mt-3 row pad">
         <div class="col-xl">
-          <img src="https://dummyimage.com/600x300" alt="이미지">
           <div>
             <p>커피 제조마스터<br>
             1급 자격증</p>
             <p>
-              커피의 기본원리 이해와 에스프레소 추출 스티밍 훈련과 제반기술을 교육하는 과정
+              커피의 기본원리 이해와 에스프레소 추출 스티밍 훈련과 제반기술을 교육하는 과정입니다. 총 3주간 교육프로그램이 예정되어 있으며 커피의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
             </p>
             <a href="#" title="자세히보기">
               자세히 보기
@@ -732,12 +731,11 @@
           </div>
         </div>
         <div class="col-xl">
-          <img src="https://dummyimage.com/600x300" alt="이미지">
           <div>
-            <p>커피 제조마스터<br>
-            1급 자격증</p>
+            <p>한식 조리 기능사<br>
+            자격증</p>
             <p>
-              커피의 기본원리 이해와 에스프레소 추출 스티밍 훈련과 제반기술을 교육하는 과정
+            한식의 기본원리 이해와 한식 메뉴계획에따라 식재료를 선정,구매,검수,보관 및 저장하고 조리할 수 있습니다. 총 5주간 교육프로그램이 예정되어 있으며 한식의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
             </p>
             <a href="#" title="자세히보기">
               자세히 보기
@@ -746,12 +744,11 @@
           </div>
         </div>
         <div class="col-xl">
-          <img src="https://dummyimage.com/600x300" alt="이미지">
           <div>
-            <p>커피 제조마스터<br>
-            1급 자격증</p>
+            <p>베이킹 마스터<br>
+            패키지</p>
             <p>
-              커피의 기본원리 이해와 에스프레소 추출 스티밍 훈련과 제반기술을 교육하는 과정
+              베이킹 기초와 심화교육까지 올인원으로 배우는 마스터 패키지 과정입니다. 총 5주간 교육프로그램이 예정되어 있으며 베이킹의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
             </p>
             <a href="#" title="자세히보기">
               자세히 보기
@@ -768,9 +765,107 @@
 
 
     </section>
-  
+    <!-- 12. 커뮤니티 -->
+    <section id="sec12">
+      <div class="title pad">
+        <h2>커뮤니티</h2>
+        <a href="#" title="더 보기">+ 더 보기</a>
+      </div>
+      <div class="container mt-3 pad">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#notice" type="button">공지사항</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews" type="button">수강생 후기</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faq" type="button">자주 묻는 질문</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="notice">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span>07.01</span>
+                <span>새로운 공지사항입니다</span>
+                <span class="active">N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.25</span>
+                <span>중요 업데이트 안내</span>
+                <span class="active">N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>서비스 점검 예정</span>
+                <span>N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>서비스 점검 예정</span>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="reviews">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span>07.01</span>
+                <span>수강생 후기 1</span>
+                <span class="active">N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.25</span>
+                <span>수강생 후기 2</span>
+                <span>N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>수강생 후기 3</span>
+                <span>N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>수강생 후기 3</span>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="faq">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span>07.01</span>
+                <span>자주 묻는 질문 1</span>
+                <span class="active">N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.25</span>
+                <span>자주 묻는 질문 2</span>
+                <span class="active">N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>자주 묻는 질문 3</span>
+                <span>N</span>
+              </li>
+              <li class="list-group-item">
+                <span>06.15</span>
+                <span>자주 묻는 질문 3</span>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+
+
+  <!-- 공통푸터삽입 -->
+  <?php include('./footer.php')?>
 
 
 

@@ -9,6 +9,7 @@
 
 body{
   font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
 }
 
 :root{
@@ -21,6 +22,8 @@ body{
   --fs-xlarge: 1.5rem;  /* 24px */
 
   /* 폰트 두께 */
+  --fw-thin: 100;
+  --fw-light: 300;
   --fw-normal: 500;
   --fw-bold: 700;
 
@@ -28,5 +31,7 @@ body{
   --m-color-red: #FF3418;
   --m-color-yellow: #FFCC18;
   --m-color-green: #85EE1C;
-  --m-color-darkbrown: #281A12;
+  --s-color-darkbrown: #281A12;
+  --s-color-gray: #D8D6D6;
+  --s-color-white: #ffffff;
 }
