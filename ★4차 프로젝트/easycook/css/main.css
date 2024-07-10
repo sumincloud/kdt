@@ -1,4 +1,12 @@
 @charset "utf-8";
+/* -------공통 서식 -------*/
+
+section{
+  margin-top: 50px;
+}
+.swiper-button-next, .swiper-button-prev {
+  display: none;
+}
 
 
 
@@ -70,7 +78,7 @@
 #sec01 .swiper-slide > div > span{
   display: inline-block;
   background: orangered;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 40px;
 }
 #sec01 .swiper-slide > div > p:first-of-type{
@@ -81,6 +89,7 @@
 }
 #sec01 .swiper-slide > div > p:last-of-type{
   font-size: var(--fs-small);
+  font-weight: var(--fw-light);
   line-height: 120%;
   margin-top: 10px;
 }
@@ -109,41 +118,26 @@
 #sec01 .swiper-button-play-pause {
   display: block;
   width: 40px; height: inherit;
-  border-radius: 50%;
   background-color: rgba(28, 29, 31, 0.4);
   text-align: center;
   color: var(--s-color-white);
   z-index: 10;
   cursor: pointer;
-  margin-right: 5px;
+  margin-left: 5px;
   font-size: var(--fs-large);
-}
-#sec01 .swiper-button-prev, #sec01 .swiper-button-next{
-  position: initial;
-  display: block;
-  width: 40px; height: inherit;
-  margin-top: 0;
-  background-color: rgba(28, 29, 31, 0.4);
-  text-align: center;
-  color: var(--s-color-white);
-}
-#sec01 .swiper-button-next:after, #sec01 .swiper-button-prev:after{
-  display: none;
-}
-#sec01 .swiper-button-prev{
-  border-radius: 50% 0 0 50%;
-}
-#sec01 .swiper-button-next{
-  border-radius: 0 50% 50% 0;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
 }
 #sec01 .swiper-pagination-fraction{
   position: initial;
-  width: 60px;
+  width: 80px;
   background-color: rgba(28, 29, 31, 0.4);
   color: var(--s-color-white);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
 }
-#sec01 .swiper-button-next:after, .swiper-button-prev:after{
-  display: none;
+#sec01 .swiper-pagination-fraction span{
+  font-weight: var(--fw-thin);
 }
 
 /* ----------2. 카테고리------------ */
@@ -153,7 +147,6 @@
 }
 #sec02 > div > div{
   width: 80px;
-  background: skyblue;
 }
 #sec02 > div > div > a{
   display: block;
@@ -161,9 +154,13 @@
 }
 #sec02 > div > div > a > img{
   width: 80px; height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 #sec02 > div > div > a > p{
   text-align: center;
+  margin-top: 10px;
 }
 
 /* -------3. 실시간 인기수강------ */
@@ -179,11 +176,13 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  padding: 30px 20px 20px 20px;
+  color: var(--s-color-white);
 }
 #sec03 .con-title{
   font-size: var(--fs-large);
+  font-weight: var(--fw-normal);
 }
 /* 순위 플래그 */
 .flag{
@@ -193,13 +192,15 @@
 .flag span{
   position: absolute;
   top: 4px; left: 8px;
-  color: var(--s-color-white);
   font-size: var(--fs-medium-large);
   font-weight: var(--fw-bold);
 }
+.flag path{
+  fill:var(--m-color-yellow);
+}
 
 /* -------4. 마감임박 수강 ------ */
-#sec04 .mySwiper3 .swiper-slide img{height: 150px;}
+#sec04 .mySwiper3 .swiper-slide > img{height: 150px;}
 
 
 /* ---------5. 광고배너-------- */
@@ -207,9 +208,15 @@
   height: 150px;
 }
 #sec05 .swiper-pagination-fraction{
-  width: 80px;
+  width: 60px;
+  padding: 5px 0;
+  border-radius: 20px;
   left: inherit;
   right: 20px;
+  color: var(--s-color-white);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-thin);
+  background: rgba(28, 29, 31, 0.4);
 }
 
 
@@ -266,7 +273,7 @@
 }
 
 /* ------7, 8, 9. 인기수강 -----*/
-.mySwiper3 .swiper-slide img{
+.mySwiper3 .swiper-slide > img{
   height: 150px;
   border-radius: 10px;
 }
@@ -274,7 +281,7 @@
 
 /* --------10. 모바일앱 띠배너------- */
 #sec10{
-  height: 50px;
+  height: 65px;
 }
 
 /* --------11. 국비과정 베스트-------- */
@@ -293,7 +300,7 @@
   height: 200px;
   border-radius: 10px;
   overflow: hidden;
-  background-image: url("https://dummyimage.com/600x300");
+  background-image: url("../images/index_sec11_1.png");
   background-size: cover;
   background-position: center;
 }
@@ -323,8 +330,9 @@
 
 #sec11 .col-xl > div >*{
   color: var(--s-color-white);
+  font-size: var(--fs-small);
   font-weight: var(--fw-thin);
-  line-height: 120%;
+  line-height: 140%;
 }
 #sec11 .col-xl > div > p:first-of-type{
   font-size: var(--fs-medium-large);
@@ -340,10 +348,9 @@
   white-space: normal;
 }
 #sec11 .col-xl > div > a{
-  border: 1px solid var(--s-color-white);
-  text-align: center;
-  width: 120px;
   padding: 5px 0;
+  font-size: var(--fs-medium);
+  color: var(--m-color-yellow);
 }
 
 /* ----------12. 커뮤니티---------- */
@@ -404,30 +411,6 @@
   opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/* -------공통 서식 -------*/
-
-div{
-  /* background: #aaa; */
-}
-section{
-  margin-top: 50px;
-  background: pink;
-}
-.swiper-button-next, .swiper-button-prev {
-  display: none;
-}
 
 
 

@@ -11,10 +11,6 @@ var swiper1 = new Swiper(".mySwiper1", {
     type: "fraction", // 페이지네이션을 번호로 표시
     clickable: true,
   },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
 });
 
 var pauseBtn = document.querySelector("#sec01 .swiper-button-play-pause");
@@ -26,7 +22,6 @@ pauseBtn.addEventListener("click", function() {
     pauseBtn.classList.add("bi-play-fill");
   } else {
     swiper1.autoplay.start();
-    pauseBtn.textContent = "Pause";
     pauseBtn.classList.remove("bi-play-fill");
     pauseBtn.classList.add("bi-pause");
   }

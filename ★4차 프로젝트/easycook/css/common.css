@@ -14,7 +14,9 @@ img{
 }
 
 
-
+body{
+  margin-bottom: 60px; /* 바텀바 높이만큼 띄우기 */
+}
 main{
   margin-top: 70px; /* 헤더 높이만큼 띄우기 */
 }
@@ -38,10 +40,14 @@ main{
   position: absolute;
   top: 20px; right: 20px;
   cursor: pointer;
+  width: 10%;
+  min-width: 30px;
+  
 }
-.pick i{
+/* .pick i{
   font-size: var(--fs-xlarge);
-}
+} */
+
 
 /* 별점 */
 .star i{

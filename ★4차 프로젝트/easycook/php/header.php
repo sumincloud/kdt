@@ -32,7 +32,7 @@
 
 
   header > div h1{
-    width: 100px; height: 100%;
+    height: 100%;
   }
   header > div h1 img{
     width: 100%; height: 100%;
@@ -116,7 +116,7 @@
   <div class="pad">
     <h1>
       <a href="#" title="메인페이지로 이동">
-        <img src="https://dummyimage.com/300x200" alt="로고">
+        <img src="../images/common/logo.png" alt="로고">
       </a>
     </h1>
     <ul>

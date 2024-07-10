@@ -55,7 +55,7 @@
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <img src="../images/index_sec01_1.png" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -65,27 +65,27 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <img src="../images/index_sec01_2.png" alt="이미지">
             <div>
-              <span>바리스타</span>
-              <p>당신의 첫 번째<br>
-              커피 커리어</p>
-              <p>바리스타 자격증에서 카페창업까지<br>
-              120가지 커리큘럼을 경험하세요.</p>
+              <span>제과제빵</span>
+              <p>세상의 모든<br>
+              디저트</p>
+              <p>제과제빵 원데이부터 전문가 과정까지<br>
+              150가지 커리큘럼을 경험하세요.</p>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <img src="../images/index_sec01_3.png" alt="이미지">
             <div>
-              <span>바리스타</span>
-              <p>당신의 첫 번째<br>
-              커피 커리어</p>
-              <p>바리스타 자격증에서 카페창업까지<br>
-              120가지 커리큘럼을 경험하세요.</p>
+              <span>창업</span>
+              <p>외식 창업을 위한<br>
+              메뉴개발 프로그램</p>
+              <p>성공과 실패는 이유가 있습니다. <br>
+              창업 전 전문화된 컨설팅을 받아보세요.</p>
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/1000x1500" alt="이미지">
+            <img src="../images/index_sec01_4.png" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -96,14 +96,12 @@
           </div>
         </div>
         <div class="slide-btn pad-right">
-          <i class="bi bi-pause swiper-button-play-pause"></i>
-          <i class="bi bi-chevron-left swiper-button-prev"></i>
           <div class="swiper-pagination swiper-pagination-fraction">
             <span class="swiper-pagination-current"></span>
             /
             <span class="swiper-pagination-total"></span>
           </div>
-          <i class="bi bi-chevron-right swiper-button-next"></i>
+          <i class="bi bi-pause swiper-button-play-pause"></i>
         </div>
       </div>
     </section>
@@ -112,128 +110,128 @@
       <div class="pad">
         <div>
           <a href="#" title="요리">
-            <img src="https://dummyimage.com/300x200" alt="요리">
+            <img src="../images/index_sec02_1.png" alt="요리">
             <p>요리</p>
           </a>
         </div>
         <div>
           <a href="#" title="커피">
-            <img src="https://dummyimage.com/300x200" alt="커피">
+            <img src="../images/index_sec02_2.png" alt="커피">
             <p>커피</p>
           </a>
         </div>
         <div>
           <a href="#" title="제과제빵">
-            <img src="https://dummyimage.com/300x200" alt="제과제빵">
+            <img src="../images/index_sec02_3.png" alt="제과제빵">
             <p>제과제빵</p>
           </a>
         </div>
       </div>
 
     </section>
-    <!-- 3. 실시간 인기수강 -->
+    <!-- 3. 실시간 인기 강의 -->
     <section id="sec03">
       <div class="title pad">
-        <h2>실시간 인기수강</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <h2>실시간 인기 강의</h2>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper2 pad-left">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_1.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[여름학기] 바리스타 자격증 취득반 (4주)</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_r.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
                 <span>1</span>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_2.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
-                <span>1</span>
+                <span>2</span>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_3.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[여름학기] 일식조리 기능사 자격증 취득반(12주)</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
-                <span>1</span>
+                <span>3</span>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_4.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
-                <span>1</span>
+                <span>4</span>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_5.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[여름학기] 한식조리 기능사 자격증 취득반(8주)</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
-                <span>1</span>
+                <span>5</span>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_6.png" alt="이미지">
               <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
+                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
+                <p class="con-sub">강사명</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
               <div class="flag">
                 <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
                 </svg>
-                <span>1</span>
+                <span>6</span>
               </div>
             </div>
           </div>
@@ -242,73 +240,73 @@
         </div>
       </div>
     </section>
-    <!-- 4. 마감임박 수강 -->
+    <!-- 4. 마감임박 강의 -->
     <section id="sec04">
       <div class="title pad">
-        <h2>마감임박 수강</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <h2>마감임박 강의</h2>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3 pad-left">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_4.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_5.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_6.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_6.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_6.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec03_6.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
           </div>
@@ -323,16 +321,16 @@
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/900x300" alt="이미지">
+            <img src="../images/index_sec05_1.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/900x300" alt="이미지">
+            <img src="../images/index_sec05_2.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/900x300" alt="이미지">
+            <img src="../images/index_sec05_3.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="https://dummyimage.com/900x300" alt="이미지">
+            <img src="../images/index_sec05_4.png" alt="이미지">
           </div>
 
         </div>
@@ -349,7 +347,7 @@
     <section id="sec06">
       <div class="title pad">
         <h2>수강생 후기</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper5 pad-left">
@@ -481,73 +479,73 @@
       </div>
 
     </section>
-    <!-- 7. 요리 인기 수강 -->
+    <!-- 7. 인기 요리 강의 -->
     <section id="sec07">
       <div class="title pad">
-        <h2>요리인기 수강</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <h2>인기 요리 강의</h2>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3 pad-left">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_1.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
           </div>
@@ -556,73 +554,73 @@
         </div>
       </div>
     </section>
-    <!-- 8. 커피 인기 수강 -->
+    <!-- 8. 인기 커피 수강 -->
     <section id="sec08">
       <div class="title pad">
-        <h2>커피인기 수강</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <h2>인기 커피 수강</h2>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3 pad-left">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_2.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
           </div>
@@ -631,73 +629,73 @@
         </div>
       </div>
     </section>
-    <!-- 9. 베이커리 인기 수강 -->
+    <!-- 9. 인기 베이커리 수강 -->
     <section id="sec09">
       <div class="title pad">
-        <h2>베이커리 인기 수강</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <h2>인기 베이커리 수강</h2>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3 pad-left">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="https://dummyimage.com/400x600" alt="이미지">
+              <img src="../images/index_sec07_3.png" alt="이미지">
               <div class="con-text">
                 <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
               <div class="pick">
-                <i class="bi bi-heart"></i>
+                <img src="../images/common/heart_w.png" alt="찜버튼">
               </div>
             </div>
           </div>
@@ -708,13 +706,13 @@
     </section>
     <!-- 10. 모바일앱 띠배너 -->
     <section id="sec10">
-      <img src="https://dummyimage.com/1000x100" alt="이미지">
+      <img src="../images/index_sec10_1.png" alt="이미지">
     </section>
     <!-- 11. 국비과정 베스트 -->
     <section id="sec11">
       <div class="title pad">
         <h2>국비과정 베스트</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3 row pad">
         <div class="col-xl">
@@ -756,20 +754,14 @@
             </a>
           </div>
         </div>
-
       </div>
-
-
-
-
-
 
     </section>
     <!-- 12. 커뮤니티 -->
     <section id="sec12">
       <div class="title pad">
         <h2>커뮤니티</h2>
-        <a href="#" title="더 보기">+ 더 보기</a>
+        <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="container mt-3 pad">
         <ul class="nav nav-tabs">

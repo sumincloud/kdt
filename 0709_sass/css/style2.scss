@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'CHOGOONCHICKENSCRATCHV3';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/CHOGOONCHICKENSCRATCHV3.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//변수선언(변수명 : 값)
+$bg-color:#ff0;
+$bg-color-m:rgb(95,0,128);
+
+
+$txt-color1:#f00;
+$txt-color2:#00f;
+$txt-color-b:#333;
+$txt-color-w:#fff;
+
+$line-color-g:#ccc;
+
+
+$f_size1:20px;
+
+
+
+@mixin h3txt{
+  font-family: 'CHOGOONCHICKENSCRATCHV3', '맑은 고딕', Arial, Helvetica, sans-serif;
+  font-size: $f_size1;
+  background: $bg-color;
+  color: $txt-color2;
+}
+
+.title01{
+  background: $bg-color;
+  color: $txt-color1;
+}
+.title02{
+  @include h3txt();
+}
+
+//말줄임 나오는 믹스인 함수
+@mixin txt_over{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.p01{
+  @include txt_over();
+  -webkit-line-clamp: 3;
+  background: $bg-color;
+}
+
+
+//1. 버튼 글자서식
+@mixin btnFont{
+  font-family: 'CHOGOONCHICKENSCRATCHV3';
+  font-weight: bold;
+  font-size: $f_size1;
+}
+
+//2. 버튼 모양서식
+@mixin btnShape{
+  border: 1px solid $line-color-g;
+  padding: 0 10px;
+  width: 200px;
+  height: 56px;
+}
+
+//3. 버튼 서식 결합
+@mixin btn{
+  @include btnFont;
+  @include btnShape;
+}
+
+.reset_btn{
+  @include btn;
+}
+.cart_btn{
+  @include btn;
+  background: $bg-color-m;
+  color: $txt-color-w;
+}
+
+
+//토글버튼 서식
+@mixin toggle_btn{
+  width: 40px; height: 40px;
+  display: block;
+  border: 1px solid $line-color-g;
+  position: relative;
+}
+@mixin bar{
+  position: absolute;
+  display: inline-block;
+  width: 36px; height: 3px;
+  left: 2px;
+  background: $txt-color-b;
+}
+
+$time : 0.3s;
+
+.toggle_btn{
+  @include toggle_btn;
+}
+.toggle{
+  @include toggle_btn;
+}
+.bar{
+  @include bar;
+  transition: $time;
+}
+.bar1{top: 5px;}
+.bar2{top: 18px;}
+.bar3{bottom: 5px;}
+
+#toggle:checked + label > .bar1{
+  transform: rotate(45deg) translate(10px, 10px);
+}
+#toggle:checked + label > .bar2{
+  display: none;
+}
+#toggle:checked + label > .bar3{
+  transform: rotate(-45deg) translate(10px, -10px);
+}

@@ -1,7 +1,1 @@
-{
-  "version":3,
-  "sources":["style.scss","style.css"],
-  "names":[],
-  "mappings":"AAQA;EACE,WALS;ACFX;;ADUA;EACE,gBARU;ACCZ",
-  "file":"style.css"
-}
+{"version":3,"sources":["style.scss","style.css"],"names":[],"mappings":"AAQA;EACE,WALS;ACFX;;ADUA;EACE,gBARU;ACCZ","file":"style.css"}
