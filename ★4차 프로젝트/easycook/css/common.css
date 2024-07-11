@@ -1,61 +1,49 @@
-@charset "utf-8";
-
-a{
-  text-decoration: none;
-  color: #000;
+@charset "UTF-8";
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
-li{
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+li {
   list-style: none;
 }
-img{
+
+img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-
-body{
+body {
+  font-family: "Pretendard", Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
   margin-bottom: 60px; /* 바텀바 높이만큼 띄우기 */
 }
-main{
+
+main {
   margin-top: 70px; /* 헤더 높이만큼 띄우기 */
 }
 
-
-
-
-/* 패딩 20px */
-.pad{
-  padding: 0 20px;
-}
-.pad-left{
-  padding: 0 0 0 20px;
-}
-.pad-right{
-  padding: 0 20px 0 0;
-}
-
-/* 찜 아이콘 */
-.pick{
+.cart {
   position: absolute;
-  top: 20px; right: 20px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
   width: 10%;
   min-width: 30px;
-  
 }
-/* .pick i{
-  font-size: var(--fs-xlarge);
-} */
 
-
-/* 별점 */
-.star i{
-  color: var(--m-color-red);
+.star i {
+  color: #FF3418;
   opacity: 0.2;
 }
-.star i.active{
+.star i.active {
   opacity: 1;
-}
-
-
+}/*# sourceMappingURL=common.css.map */

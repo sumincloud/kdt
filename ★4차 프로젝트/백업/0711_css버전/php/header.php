@@ -1,14 +1,14 @@
 <?php
   include('../db/dbconn.php');
 ?>
-
 <style>
 	/* 상단 헤더 */
+  
 	header{
     position: fixed;
 		width: 100%; height: 70px;
-		background: var(--white);
-		border-bottom: 1px solid var(--gray);
+		background: #fff;
+		border-bottom: 1px solid #eee;
 		top:0;
 		z-index: 100;
 	}
@@ -20,7 +20,6 @@
 		justify-content: space-between;
 		top: 50%;
 		transform: translateY(-50%);
-    padding: 0 var(--p_20);
 	}
   /* 1400px 이상일때 헤더크기 */
   @media (min-width: 1400px) {
@@ -114,7 +113,7 @@
 
 </style>
 <header>
-  <div>
+  <div class="pad">
     <h1>
       <a href="#" title="메인페이지로 이동">
         <img src="../images/common/logo.png" alt="로고">

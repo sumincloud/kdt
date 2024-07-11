@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  font-family: 'Pretendard', Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+:root{
+  /* 폰트 사이즈 */
+  --fs-xsmall: 0.75rem; /* 12px */
+  --fs-small: 0.875rem; /* 14px */
+  --fs-medium: 1rem;    /* 16px */
+  --fs-medium-large: 1.125rem;    /* 18px */
+  --fs-large: 1.25rem;  /* 20px */
+  --fs-xlarge: 1.5rem;  /* 24px */
+
+  /* 폰트 두께 */
+  --fw-thin: 100;
+  --fw-light: 300;
+  --fw-normal: 500;
+  --fw-bold: 700;
+
+  /* 색상 */
+  --m-color-red: #FF3418;
+  --m-color-yellow: #FFCC18;
+  --m-color-green: #85EE1C;
+  --s-color-darkbrown: #281A12;
+  --s-color-gray: #D8D6D6;
+  --s-color-white: #ffffff;
+}

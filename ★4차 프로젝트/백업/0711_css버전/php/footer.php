@@ -4,21 +4,17 @@
 <style>
   /* 푸터서식 */
   footer{
-    background: var(--darkbrown);
+    background: var(--s-color-darkbrown);
     color: rgba(255,255,255,0.6);
     font-size: var(--fs-small);
     font-weight: var(--fw-thin);
-  }
-  footer .container{
-    padding: 0 var(--p_20);
-
   }
   footer .link{
     display: flex;
     justify-content: space-around;
   }
   footer .link a{
-    color: var(--white);
+    color: var(--s-color-white);
     font-weight: var(--fw-light);
     text-align: center;
   }
@@ -27,37 +23,33 @@
 
   /* 하단 로고랑 sns */
   .logo-box{
-    display: flex;
     justify-content: space-between;
-    margin-top: 0;
+    margin-top: 1.5rem;
   }
   .footer-logo {
     width: 150px;
     height: 50px;
   }
   .social-icons{
+    width: 220px;
     height: 50px;
     font-size: var(--fs-xlarge);
-    margin-top: 0;
-    text-align: right;
+    text-align: left;
+    margin-top: 20px;
   }
   .social-icons a {
     color: rgba(255,255,255,0.6);
     margin: 0 5px;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
   .logo-box{
-    margin-top: 1.5rem;
-    flex-wrap:wrap;
-    flex-direction: column;
-    justify-content:right;
-  }
-  .logo-img{
-    text-align: right;
+    display: flex;
+    margin-top: 0;
   }
   .social-icons{
-    margin-top: 20px;
+    text-align: right;
+    margin-top: 0;
   }
 }
 
@@ -67,7 +59,7 @@
 
 
 <!-- 푸터영역 -->
-<footer>
+<footer class="pad">
   <div class="container">
     <div class="row">
       <div class="col-12 link mt-4">
@@ -87,10 +79,8 @@
         <p>Copyright ⓒ Easy Cook, All Rights Reserved.</p>
       </div>
       <div class="col-12 col-md-6 logo-box">
-        <div class="logo-img">
-          <img src="../images/common/logo_w.png" alt="하단로고" class="footer-logo">
-        </div>
-        <div class="social-icons mb-4">
+        <img src="https://dummyimage.com/300x200" alt="하단로고" class="footer-logo col-6 col-md-6">
+        <div class="social-icons mb-4 col-6  col-md-6">
           <a href="#"><i class="bi bi-chat-dots"></i></a>
           <a href="#"><i class="bi bi-twitter"></i></a>
           <a href="#"><i class="bi bi-youtube"></i></a>
