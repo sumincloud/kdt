@@ -95,7 +95,7 @@
             </div>
           </div>
         </div>
-        <div class="slide-btn-right">
+        <div class="slide-btn">
           <div class="swiper-pagination swiper-pagination-fraction">
             <span class="swiper-pagination-current"></span>
             /

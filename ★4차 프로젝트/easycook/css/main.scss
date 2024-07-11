@@ -93,6 +93,7 @@ section{
   justify-content: flex-end;
   gap: 2px;
   font-size: $fs-medium-large;
+  padding: 0 $p_20 0 0;
 }
 /* 375px 이하일때 버튼크기와 위치 */
 @media (max-width: 375px) {

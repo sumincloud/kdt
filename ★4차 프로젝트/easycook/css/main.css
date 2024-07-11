@@ -41,7 +41,7 @@ main {
 }
 
 .star i {
-  color: var(--m-color-red);
+  color: #FF3418;
   opacity: 0.2;
 }
 .star i.active {
@@ -160,6 +160,7 @@ section {
   justify-content: flex-end;
   gap: 2px;
   font-size: 1.125rem;
+  padding: 0 20px 0 0;
 }
 
 /* 375px 이하일때 버튼크기와 위치 */
