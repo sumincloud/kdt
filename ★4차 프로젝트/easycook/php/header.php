@@ -10,7 +10,7 @@
 		background: var(--white);
 		border-bottom: 1px solid var(--gray);
 		top:0;
-		z-index: 100;
+		z-index: 1000;
 	}
 	header > div{
     position: absolute;
@@ -31,13 +31,15 @@
     }
   }
 
-
   header > div h1{
     height: 100%;
   }
-  header > div h1 img{
-    width: 100%; height: 100%;
-    object-fit:cover;
+  header > div h1 > a{
+    display: block;
+  }
+  header > div h1 > a img{
+    width: 115px;
+    height: 40px;
   }
 	header > div ul{
 		display:flex;
@@ -116,7 +118,7 @@
 <header>
   <div>
     <h1>
-      <a href="#" title="메인페이지로 이동">
+      <a href="./index.php" title="메인페이지로 이동">
         <img src="../images/common/logo.png" alt="로고">
       </a>
     </h1>

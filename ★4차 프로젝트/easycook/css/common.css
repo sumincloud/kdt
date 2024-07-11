@@ -14,13 +14,6 @@ li {
   list-style: none;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 body {
   font-family: "Pretendard", Arial, Helvetica, sans-serif;
   text-rendering: geometricPrecision;
