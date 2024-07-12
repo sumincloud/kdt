@@ -44,6 +44,41 @@ main {
   opacity: 1;
 }
 
+.tab {
+  width: 100%;
+}
+.tab > ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.tab > ul li {
+  width: 100%;
+}
+.tab > ul li button {
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid #D8D6D6;
+  background: #D8D6D6;
+  cursor: pointer;
+}
+.tab > ul li button.active {
+  background: #ffffff;
+  border-bottom: none;
+}
+.tab .tab_con {
+  border-top: 1px solid #D8D6D6;
+  background: #ffffff;
+}
+.tab .tab_con div {
+  display: none;
+}
+.tab .tab_con div.active {
+  display: block;
+}
+
 .list {
   border-radius: 0;
   width: 100%;

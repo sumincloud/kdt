@@ -93,6 +93,48 @@ main{
   }
 }
 
+//탭 컨텐츠
+.tab {
+  width: 100%;
+  > ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+
+    li{
+      width: 100%;
+
+      button{
+        width: 100%;
+        padding: 10px 20px;
+        border: 1px solid $gray;
+        background: $gray;
+        cursor: pointer;
+
+        &.active{
+          background: $white;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .tab_con{
+    border-top: 1px solid $gray;
+    background: $white;
+    
+    div{
+      display: none;
+
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
+
+
 //리스트 목록 스타일
 .list{
   border-radius: 0;
