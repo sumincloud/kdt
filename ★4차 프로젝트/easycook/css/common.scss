@@ -22,11 +22,12 @@ $fw-normal: 500;
 $fw-bold: 700;
 
 // 색상
-$red: #FF3418;
+$red: #EF2F15;
 $yellow: #FFCC18;
-$green: #85EE1C;
+$green: #26A450;
 $darkbrown: #281A12;
-$gray: #D8D6D6;
+$gray: #D9D9D9;
+$light-gray: #EFEFEF;
 $white: #ffffff;
 $black: #000000;
 
@@ -73,11 +74,15 @@ main{
 // 찜 아이콘
 .cart {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
   width: 10%;
   min-width: 30px;
+
+  img{
+    width: 100%;
+  }
 }
 
 // 별점

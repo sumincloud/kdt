@@ -3,7 +3,7 @@
 ?>
 
 <style>
-	/* 상단 헤더 */
+	/* ----------------상단 헤더------------ */
 	header{
     position: fixed;
 		width: 100%; height: 70px;
@@ -62,58 +62,149 @@
   }
 
 
-	/* 사이드바 메뉴 */
+	/* ----------------사이드바 메뉴------------ */
 	.side{
-		width:400px; height: 100vh;
+		width:100%; height: 100vh;
 		position: absolute;
 		z-index: 100;
 		right:-100%;
 		transition: 0.5s;
-    background: pink;
+    background: #fff;
 	}
   .side.open{
     right:0;
   }
-  .side img{
-    height: 60px;
-  }
+  /* 닫기 버튼 */
 	#toggle_close{
 		position: absolute;
-		top:20px; right: 20px;
+		top:30px; right: 30px;
 		cursor: pointer;
 	}
+  #toggle_close i{
+    font-size: var(--fs-xlarge);
+  }
+  /* -------------로그인 타이틀 부분--------- */
+  .side .info{
+    padding: 80px 20px 30px 20px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  .side .info dd{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .side .info img{
+    width: 50px; height: 50px;
+    border-radius:50%;
+  }
+  .side .info a{
+    color:#666;
+  }
+  .side .info dd a:first-of-type{
+    color: var(--black);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-large);
+    margin-right: auto;
+  }
+
+  /* -------------카테고리 부분------------ */
+  .side .depth{
+    position: relative;
+    background: var(--light-gray);
+    padding: 30px 20px;
+    height: 100vh;
+  }
+  /* 큰 카테고리 */
 	.side .depth1 {
-		margin-bottom:50px;
+		margin-bottom:40px;
 	}
 	.side .depth1 > a{
-		font-weight:500;
-		font-size:25px;
+    position: relative;
+    z-index: 500;
+		font-size:var(--fs-medium-large);
+    background: none;
+    color: #000;
+    padding: 15px 20px;
+    width: calc(40% + 20px);
+    border-radius: 50px
 	}
-	.side .depth1 .depth2{
-		margin-top: 30px;
+  .side .depth1 > a.active{
+    display:block;
+    background: var(--red);
+    color: #fff;
+  }
+  /* 작은 카테고리 */
+	.side .depth2{
+    display: none;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 40%;
+    padding: 45px 0 0 60px;
+    background: #fff;
 	}
-	.side .depth1 .depth2 li{
-		margin-top: 20px;
+	.side .depth2 li{
+    margin-bottom: 40px;
 	}
-	.side .depth1 .depth2 a {
-		padding:6px 0;
-		font-size:18px;
+	.side .depth2 a {
+    padding: 15px 0;
+		font-size:var(--fs-medium-large);
 	}
-	.side .depth1 .depth2 a:active {
-		color:#cf1317;
-	}
-	.side .depth1 .depth2 a:hover {
-		color:#cf1317;
+	.side .depth2 a:hover {
+		color: var(--red);
 	}
 
-  /* 모바일 버전일때 */
-  @media (max-width: 767px) {
-		.side {
-			width: 70%;
-		}
-	}
+  /* -----------로그인 밑에 아이콘들----------- */
+  .icon_menu{
+    width: 100%;
+    background: #fff;
+    margin-top: 20px;
+  }
+  .icon_menu ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+  }
+  .icon_menu ul li{
+    text-align: center;
+    width: 60px; height: 60px;
+    list-style: none;
+  }
+  .icon_menu a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    color: #666;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  /* 아이콘 크기 조정 */
+  .icon_menu ul li i{
+    font-size: 1.5rem;
+    color: var(--black);
+  }
+  .bi-heart::before{
+    transform: scale(0.9);
+  }
+  .bi-person::before{
+    transform: scale(1.1);
+  }
 
-
+  /* 글씨 스타일 조정 */
+  .icon_menu ul li span{
+    text-align: center;
+    font-size: var(--fs-small);
+    font-weight: var(--fw-light);
+    color: var(--black);
+    text-wrap: nowrap;
+    margin-top: 5px;
+  }
 </style>
 <header>
   <div>
@@ -129,90 +220,139 @@
         </a>
       </li>
       <li id="list">
-        <a href="#" title="메뉴">
-          <i class="bi bi-list"></i>
-        </a>
+        <i class="bi bi-list"></i>
       </li>
     </ul>
   </div>
 
   <!-- 사이드바 -->
-  <nav class="side p-4">
+  <nav class="side">
     <div class="clearfix">
       <div>
-        <a href="#" title="로고">
-          <img src="https://dummyimage.com/300x200" alt="로고">
-        </a>
         <div id="toggle_close">
-          <i class="bi bi-x-lg fs-4"></i>
+          <i class="bi bi-x-lg"></i>
         </div>
-        <dl class="mt-3">
+        <dl class="info">
           <dd>
             <?php
               if (isset($_SESSION['userid'])) {
-                echo "<a href='./php/logout.php' title='로그아웃' style='margin-right:10px'>로그아웃</a>";
-                echo "<a href='#' title='마이페이지'>마이페이지</a>";
+                echo "
+                <img src='https://dummyimage.com/100x100' alt='프로필이미지'>
+                <a href='./mypage.php' title='마이페이지'>(이름)님 환영합니다.</a>
+                <a href='./php/logout.php' title='로그아웃'>로그아웃</a>
+                ";
               }else{
-                echo "<a href='./login.php' title='로그인' style='margin-right:10px'>로그인</a>";
-                echo "<a href='./join.php' title='회원가입'>회원가입</a>";
+                echo "
+                <img src='https://dummyimage.com/100x100' alt='프로필이미지'>
+                <a href='./login.php' title='로그인'>로그인을 해주세요.</a>
+                <a href='./login.php' title='로그인'>로그인</a>
+                <a href='./join.php' title='회원가입'>회원가입</a>
+                ";
               }
               ?>
           </dd>
           <?php
             if (isset($_SESSION['userid'])) {
-              echo "<dd class='mt-3'>" . 
-              $_SESSION['username'].'('. $_SESSION['userid'].')'
-              ."</dd>";
-            }?>
+              echo "
+              <nav class='icon_menu'>
+                <ul>
+                  <li>
+                    <a href='#' title='나의 정보'>
+                      <i class='bi bi-person'></i>
+                      <span class=''>나의 정보</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#' title='신청목록'>
+                      <i class='bi bi-bag-check'></i>
+                      <span>신청목록</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#' title='찜목록'>
+                      <i class='bi bi-heart'></i>
+                      <span>찜목록</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#' title='나의 문의'>
+                      <i class='bi bi-chat-square-dots'></i>
+                      <span>나의 문의</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#' title='나의 후기'>
+                      <i class='bi bi-pencil-square'></i>
+                      <span>나의 후기</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>";
+            }
+          ?>
         </dl>
       </div>
       <!-- 카테고리 목록 -->
-      <ul class="mt-5">
+      <ul class="depth">
         <li class="depth1">
-          <a href="#" title="depth1">depth1</a>
+          <a href="#" title="depth1" class="active">요리</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate02" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate03" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate04" title="depth2">depth2</a></li>
+              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
+              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
+              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
+              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
+              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="depth1">depth1</a>
+          <a href="#" title="바리스타">바리스타</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate02" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate03" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate04" title="depth2">depth2</a></li>
+              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
+              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
+              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
+              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
+              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="depth1">depth1</a>
+          <a href="#" title="제과제빵">제과제빵</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate02" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate03" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate04" title="depth2">depth2</a></li>
+              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
+              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
+              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
+              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
+              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="depth1">depth1</a>
+          <a href="#" title="소개">소개</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate02" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate03" title="depth2">depth2</a></li>
-              <li><a href="./cate.php?cate=cate04" title="depth2">depth2</a></li>
+              <li><a href="./cate.php?cate=cate01" title="소개">소개</a></li>
+              <li><a href="./cate.php?cate=cate02" title="강사진">강사진</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="depth1">
+          <a href="#" title="커뮤니티">커뮤니티</a>
+          <div class="depth2">
+            <ul>
+              <!-- 카테고리 페이지로 이동 -->
+              <li><a href="./cate.php?cate=cate01" title="후기">후기</a></li>
+              <li><a href="./cate.php?cate=cate02" title="FAQ">FAQ</a></li>
+              <li><a href="./cate.php?cate=cate03" title="Q&A">Q&A</a></li>
+              <li><a href="./cate.php?cate=cate04" title="상담신청">상담신청</a></li>
+              <li><a href="./cate.php?cate=cate05" title="공지사항">공지사항</a></li>
             </ul>
           </div>
         </li>
@@ -234,6 +374,28 @@
     $('#toggle_close').click(function(){
       $('.side').removeClass('open');
     })
+
+    // depth1 클릭 이벤트
+    $('.depth1 > a').click(function(e) {
+      e.preventDefault();
+
+      $('.depth1 > a').removeClass('active');
+      $(this).addClass('active');
+      
+      $('.depth2').hide();
+      var nextDepth2 = $(this).next('.depth2');
+      nextDepth2.show();
+
+      //depth2 글씨 숨김
+      nextDepth2.find('a').hide();
+      // depth2 글씨 반짝임 효과
+      nextDepth2.find('a').fadeOut(50).fadeIn(50);
+    });
+
+    // 초기 활성화된 depth2 표시
+    $('.depth1 > a.active').next('.depth2').show();
+
+
 
 
 

@@ -26,8 +26,6 @@
   <link rel="stylesheet" href="../css/reset.css">
   <!-- 베이스서식 연결 -->
   <link rel="stylesheet" href="../css/base.css">
-  <!-- 공통서식 연결 -->
-  <link rel="stylesheet" href="../css/common.css">
   <!-- 메인서식 연결 -->
   <link rel="stylesheet" href="../css/main.css">
 
