@@ -82,12 +82,45 @@ main{
 
 // 별점
 .star {
+  text-wrap: nowrap;
   i {
     color: $red;
     opacity: 0.2;
     
     &.active {
       opacity: 1;
+    }
+  }
+}
+
+//리스트 목록 스타일
+.list{
+  border-radius: 0;
+  width: 100%;
+  li{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    span:first-child{
+      width: 60px;
+    }
+    span:last-child{
+      opacity: 0;
+      background: $red;
+      color: $white;
+      font-size: $fs-small;
+      width: 20px; height: 20px;
+      line-height: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin-left: auto; /* N표시 오른쪽 정렬 */
+
+      &.active{
+        opacity: 1;
+      }
     }
   }
 }

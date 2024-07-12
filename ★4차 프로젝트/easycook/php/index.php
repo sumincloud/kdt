@@ -777,73 +777,73 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="notice">
-            <ul class="list-group">
-              <li class="list-group-item">
+            <ul class="list">
+              <li>
                 <span>07.01</span>
-                <span>새로운 공지사항입니다</span>
+                <a href="#" title="제목">새로운 공지사항입니다</a>
                 <span class="active">N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.25</span>
-                <span>중요 업데이트 안내</span>
+                <a href="#" title="제목">중요 업데이트 안내</a>
                 <span class="active">N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>서비스 점검 예정</span>
+                <a href="#" title="제목">서비스 점검 예정</a>
                 <span>N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>서비스 점검 예정</span>
+                <a href="#" title="제목">서비스 점검 예정</a>
                 <span>N</span>
               </li>
             </ul>
           </div>
           <div class="tab-pane" id="reviews">
-            <ul class="list-group">
-              <li class="list-group-item">
+            <ul class="list">
+              <li>
                 <span>07.01</span>
-                <span>수강생 후기 1</span>
+                <a href="#" title="제목">수강생 후기 1</a>
                 <span class="active">N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.25</span>
-                <span>수강생 후기 2</span>
+                <a href="#" title="제목">수강생 후기 2</a>
                 <span>N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>수강생 후기 3</span>
+                <a href="#" title="제목">수강생 후기 3</a>
                 <span>N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>수강생 후기 3</span>
+                <a href="#" title="제목">수강생 후기 3</a>
                 <span>N</span>
               </li>
             </ul>
           </div>
           <div class="tab-pane" id="faq">
-            <ul class="list-group">
-              <li class="list-group-item">
+            <ul class="list">
+              <li>
                 <span>07.01</span>
-                <span>자주 묻는 질문 1</span>
+                <a href="#" title="제목">자주 묻는 질문 1</a>
                 <span class="active">N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.25</span>
-                <span>자주 묻는 질문 2</span>
+                <a href="#" title="제목">자주 묻는 질문 2</a>
                 <span class="active">N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>자주 묻는 질문 3</span>
+                <a href="#" title="제목">자주 묻는 질문 3</a>
                 <span>N</span>
               </li>
-              <li class="list-group-item">
+              <li>
                 <span>06.15</span>
-                <span>자주 묻는 질문 3</span>
+                <a href="#" title="제목">자주 묻는 질문 3</a>
                 <span>N</span>
               </li>
             </ul>

@@ -41,6 +41,36 @@ main {
   opacity: 1;
 }
 
+.list {
+  border-radius: 0;
+  width: 100%;
+}
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.list li span:first-child {
+  width: 60px;
+}
+.list li span:last-child {
+  opacity: 0;
+  background: #FF3418;
+  color: #ffffff;
+  font-size: 0.875rem;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: auto; /* N표시 오른쪽 정렬 */
+}
+.list li span:last-child.active {
+  opacity: 1;
+}
+
 /* -------공통 서식 -------*/
 img {
   width: 100%;
@@ -494,39 +524,6 @@ section {
   border: none;
   color: #000000;
   border-bottom: 2px solid #000000;
-}
-
-/* 탭 내용 */
-#sec12 .list-group {
-  border-radius: 0;
-}
-
-#sec12 .list-group-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 1rem;
-  align-items: center;
-}
-
-.list-group-item span:nth-child(1) {
-  width: 60px;
-}
-
-.list-group-item span:nth-child(3) {
-  opacity: 0;
-  background: #000;
-  color: #ffffff;
-  font-size: 0.875rem;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  border-radius: 5px;
-  text-align: center;
-  margin-left: auto; /* N표시 오른쪽 정렬 */
-}
-
-.list-group-item span:nth-child(3).active {
-  opacity: 1;
 }
 
 /* 1400px 이상일때 요소배치 */

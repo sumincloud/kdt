@@ -33,10 +33,43 @@ main {
   min-width: 30px;
 }
 
+.star {
+  text-wrap: nowrap;
+}
 .star i {
   color: #FF3418;
   opacity: 0.2;
 }
 .star i.active {
+  opacity: 1;
+}
+
+.list {
+  border-radius: 0;
+  width: 100%;
+}
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.list li span:first-child {
+  width: 60px;
+}
+.list li span:last-child {
+  opacity: 0;
+  background: #FF3418;
+  color: #ffffff;
+  font-size: 0.875rem;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: auto; /* N표시 오른쪽 정렬 */
+}
+.list li span:last-child.active {
   opacity: 1;
 }/*# sourceMappingURL=common.css.map */
