@@ -5,10 +5,11 @@
 /* -------공통 서식 -------*/
 img{
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 section{
-  margin-top: 60px;
+  margin-top: $m_50;
 }
 .swiper-button-next, .swiper-button-prev {
   display: none;
@@ -56,11 +57,9 @@ section{
   }
 }
 #sec01 > div{
+  position: absolute;
   width: 100%;
   height: 100%;
-}
-#sec01 > .swiper-wrapper{
-  height: unset !important;
 }
 #sec01 .swiper-slide > div{
   position: absolute;
@@ -123,9 +122,6 @@ section{
   border: 1px solid rgba(255,255,255,0.5);
   border-radius: 50%;
 }
-#sec01 .swiper-button-play-pause:before{
-  line-height: 40px;
-}
 #sec01 .swiper-pagination-fraction{
   position: initial;
   width: 80px;
@@ -164,10 +160,8 @@ section{
 
 /* -------3. 실시간 인기 강의------ */
 #sec03 .mySwiper2{
+  height: 400px;
   padding: 0 0 0 $p_20;
-}
-#sec03 .swiper-wrapper{
-  height: auto;
 }
 #sec03 .swiper-slide{
   position: relative;
@@ -205,9 +199,6 @@ section{
 #sec04 .mySwiper3{
   padding: 0 0 0 $p_20;
 }
-#sec04 .swiper-wrapper{
-  height: auto;
-}
 #sec04 .mySwiper3 .swiper-slide > img{height: 150px;}
 
 /* ---------5. 광고배너-------- */
@@ -229,9 +220,6 @@ section{
 /* --------6. 수강생 후기-------- */
 #sec06 .mySwiper5{
   padding: 10px 0 10px $p_20;
-}
-#sec06 .swiper-wrapper{
-  height: auto;
 }
 #sec06 .swiper-slide{
   padding: 20px;
@@ -279,9 +267,6 @@ section{
 .mySwiper3{
   padding: 0 0 0 $p_20;
 }
-.mySwiper3 .swiper-wrapper{
-  height: auto;
-}
 .mySwiper3 .swiper-slide > img{
   height: 150px;
   border-radius: 10px;
@@ -309,7 +294,7 @@ section{
   height: 200px;
   border-radius: 10px;
   overflow: hidden;
-  background-image: url("../images/main/index_sec11_1.png");
+  background-image: url("../images/index_sec11_1.png");
   background-size: cover;
   background-position: center;
 }
