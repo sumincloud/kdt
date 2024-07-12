@@ -3,6 +3,7 @@
 ?>
 
 <style>
+
 	/* ----------------상단 헤더------------ */
 	header{
     position: fixed;
@@ -100,6 +101,7 @@
   }
   .side .info a{
     color:#666;
+    text-wrap:nowrap;
   }
   .side .info dd a:first-of-type{
     color: var(--black);
@@ -186,7 +188,7 @@
   }
   /* 아이콘 크기 조정 */
   .icon_menu ul li i{
-    font-size: 1.5rem;
+    font-size: var(--fs-xlarge);
     color: var(--black);
   }
   .bi-heart::before{
@@ -204,6 +206,13 @@
     color: var(--black);
     text-wrap: nowrap;
     margin-top: 5px;
+  }
+
+  /* 화면 크기가 375px 미만일 때 기본 폰트 크기를 14px로 조정 */
+  @media (max-width: 374px) {
+    html {
+      font-size: 14px;
+    }
   }
 </style>
 <header>
