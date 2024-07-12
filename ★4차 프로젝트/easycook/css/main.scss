@@ -346,29 +346,19 @@ section{
 #sec12{
   padding-bottom: 100px;
 }
-#sec12 .container{
-  width: 100%;
-  max-width: inherit;
+#sec12 .tab{
   padding: 0 $p_20;
 }
-/* 탭 메뉴 */
-#sec12 .nav-tabs{
-  width: 100%;
-  --bs-nav-tabs-border-width:0;
+#sec12 .tab > ul{
+  gap: 0;
 }
-#sec12 .nav-tabs .nav-item{
-  flex-grow: 1;
-}
-#sec12 .nav-tabs .nav-link{
-  width: 100%;
+#sec12 .tab button{
   color: #666;
-  font-size: $fs-medium-large;
-  font-weight: $fw-normal;
-  border-bottom: 2px solid #ccc;
-  padding: 15px 0;
-}
-#sec12 .nav-tabs .nav-link.active{
   border: none;
+  border-bottom: 2px solid #ccc;
+  background: $white;
+}
+#sec12 .tab button.active{
   color: $black;
   border-bottom: 2px solid $black;
 }

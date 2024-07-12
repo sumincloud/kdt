@@ -763,7 +763,111 @@
         <h2>커뮤니티</h2>
         <a href="#" title="더 보기">더 보기 +</a>
       </div>
-      <div class="container mt-3">
+      <div class="tab mt-3">
+        <ul>
+          <li class="tab-item">
+            <button class="tab-link active" data-tab-target="#tab1" type="button">탭1</button>
+          </li>
+          <li class="tab-item">
+            <button class="tab-link" data-tab-target="#tab2" type="button">탭2</button>
+          </li>
+          <li class="tab-item">
+            <button class="tab-link" data-tab-target="#tab3" type="button">탭3</button>
+          </li>
+        </ul>
+        <div class="tab_con">
+          <div class="active" id="tab1">
+            <ul class="list">
+              <li>
+                <span>07.01</span>
+                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
+                <span class="active">N</span>
+              </li>
+              <li>
+                <span>06.25</span>
+                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
+                <span class="active">N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+          <div id="tab2">
+            <ul class="list">
+              <li>
+                <span>07.01</span>
+                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
+                <span class="active">N</span>
+              </li>
+              <li>
+                <span>06.25</span>
+                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+          <div id="tab3">
+            <ul class="list">
+              <li>
+                <span>07.01</span>
+                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
+                <span class="active">N</span>
+              </li>
+              <li>
+                <span>06.25</span>
+                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
+                <span class="active">N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+              <li>
+                <span>06.15</span>
+                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
+                <span>N</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <script>
+          $(document).ready(function() {
+            $('.tab-link').on('click', function() {
+              $('.tab-link').removeClass('active');
+              $(this).addClass('active');
+              
+              // 모든 탭 콘텐츠 숨기기
+              $('.tab_con > div').removeClass('active');
+              // 데이터 속성으로 타겟팅된 탭 콘텐츠 보이기
+              var target = $(this).data('tab-target');
+              $(target).addClass('active');
+            });
+          });
+        </script>
+      </div>
+
+
+
+      <!-- <div class="container mt-3">
         <ul class="nav nav-tabs">
           <li class="nav-item">
             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#notice" type="button">공지사항</button>
@@ -849,7 +953,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
   </main>
