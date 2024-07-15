@@ -116,6 +116,32 @@ html {
   opacity: 1;
 }
 
+.btn-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn-box .btn-s {
+  width: 50%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.btn-box .btn-s:hover {
+  background-color: #5faee3;
+}
+.btn-box .btn-l {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  margin-bottom: 20px;
+}
+.btn-box .btn-l:hover {
+  background-color: #217dbb;
+}
+
 /* -------공통 서식 -------*/
 img {
   width: 100%;

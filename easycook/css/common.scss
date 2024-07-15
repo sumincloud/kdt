@@ -64,7 +64,7 @@ html {
 
 
 
-//----------------minin 서식-----------------
+//----------------mixin 서식-----------------
 
 //말줄임 (1줄)
 @mixin text-over($line: 1) {
@@ -177,5 +177,56 @@ html {
         opacity: 1;
       }
     }
+  }
+}
+
+
+//버튼 스타일
+$button-height: 40px;
+$button-gap: 10px;
+
+// 공통 버튼 스타일
+.button {
+  width: 100%;
+  height: $button-height;
+  text-align: center;
+  line-height: $button-height;
+  border: none;
+  border-radius: 5px;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+  &:nth-child(1) {
+    background: $red;
+    color: $white;
+  }
+  &:nth-child(2) {
+    background: $gray;
+    color: $black;
+  }
+}
+
+// 버튼 - 크기 50%
+.btn-box-s {
+  width: 100%;
+  display: flex;
+  gap: $button-gap;
+
+  .btn-s {
+    @extend .button;
+    width: 50%;
+  }
+}
+
+// 버튼 - 크기 100%
+.btn-box-l {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $button-gap;
+
+  .btn-l {
+    @extend .button;
   }
 }
