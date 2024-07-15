@@ -362,8 +362,7 @@
             </ul>
           </div>
         </li>
-
-      </div>
+      </ul>
     </div>
   </nav>
 </header>
