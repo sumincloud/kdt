@@ -852,7 +852,7 @@
   <!-- 스와이퍼 js -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- 메인스크립트 연결 -->
-  <script src="./js/main.js"></script>
+  <script src="./script/main.js"></script>
 
 
 
