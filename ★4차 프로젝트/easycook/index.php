@@ -15,7 +15,14 @@
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header.php');?>
+  <!-- <?php include('./php/include/header.php');?> -->
+
+  <!-- 절대경로 공통헤더삽입 -->
+  <?php include($_SERVER['DOCUMENT_ROOT'].'/php/include/header.php'); ?>
+
+  <?php
+echo $_SERVER['DOCUMENT_ROOT'].'/php/include/header.php';
+?>
 
   <!-- 메인서식 -->
   <main>

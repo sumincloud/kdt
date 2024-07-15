@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+// style2.scss
+$max_width:1180;
+
+//12개의 그리드 컬럼
+//박스가 가지는 컬럼에 따라 가로크기가 지정되는 함수 작성하기
+@function column($number:1, $all:12){
+  @return $max-width*($number/$all);
+}
+
+/*
+  function 함수명(a, b){
+    return '매개변수가 있는 함수입니다.';
+  }
+*/
+.box01{width:column()}
+.box02{}
+.box03{}
