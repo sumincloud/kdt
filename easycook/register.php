@@ -254,6 +254,22 @@
           $(this).removeClass('is-invalid');
           isValid = true; 
         }
+
+        // AJAX를 이용한 아이디 중복 확인
+        $.ajax({
+          url: './php/register_id_check.php',
+          type: 'POST',
+          data: { id: id },
+          success: function(response) {
+            if (response === '사용중') {
+              $('#id').addClass('is-invalid');
+              $('#id').next('.invalid-feedback').text('이미 사용중인 아이디입니다.');
+              isValid = false;
+            } else {
+              isValid = true;
+            }
+          }
+        });
       });
 
       // 패스워드 필드 실시간 검사
