@@ -205,12 +205,7 @@
     margin-top: 5px;
   }
 
-  /* 화면 크기가 375px 미만일 때 기본 폰트 크기를 14px로 조정 */
-  @media (max-width: 374px) {
-    html {
-      font-size: 14px;
-    }
-  }
+
 </style>
 <header>
   <div>
