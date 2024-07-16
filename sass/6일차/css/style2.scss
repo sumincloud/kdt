@@ -40,6 +40,7 @@ $fontSize : ('large':30px, 'medium':16px, 'small':10px);
 section{
   h2:nth-child(1){
     font-size: map-get($fontSize, 'large');
+    color: nth($color, 1);
   }
   h3:nth-of-type(1){
     font-size: map-get($fontSize, 'medium');

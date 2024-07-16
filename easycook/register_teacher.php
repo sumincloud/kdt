@@ -1,3 +1,6 @@
+<?php
+  session_start(); // 세션 시작
+?>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -70,13 +73,17 @@
         $.post('./php/register_teacher_check.php', formData)
           .done(function(response) {
             if (response.trim() === '사번이 일치합니다.') {
+              //회원가입 폼 이동
               window.location.href = './register.php';
             } else {
               // 에러 메시지 표시
               $('#teacher_code').addClass('is-invalid');
             }
           })
-
+          .fail(function() {
+            // 실패 시 에러 처리
+            console.log('요청 실패');
+          });
       });
     });
   </script>

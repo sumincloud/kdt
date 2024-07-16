@@ -36,6 +36,7 @@ article h2:nth-child(3) {
 
 section h2:nth-child(1) {
   font-size: 30px;
+  color: red;
 }
 section h3:nth-of-type(1) {
   font-size: 16px;
