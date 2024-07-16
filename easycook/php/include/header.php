@@ -247,7 +247,7 @@
                 <img src='https://dummyimage.com/100x100' alt='프로필이미지'>
                 <a href='./login.php' title='로그인'>로그인을 해주세요.</a>
                 <a href='./login.php' title='로그인'>로그인</a>
-                <a href='./join.php' title='회원가입'>회원가입</a>
+                <a href='./register_pre.php' title='회원가입'>회원가입</a>
                 ";
               }
               ?>

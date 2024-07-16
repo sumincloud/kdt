@@ -58,7 +58,7 @@
     <section>
       <h2>회원가입</h2>
       <div class="row">
-        <a href="#" class="col-md-6 mb-md-0">
+        <a href="./register.php" class="col-md-6 mb-md-0">
           <div class="card-body">
             <img src="./images/sub/register_pre_1.png" alt="일반 회원">
             <p class="mt-4">일반 회원</p>
