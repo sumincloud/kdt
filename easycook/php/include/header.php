@@ -1,4 +1,14 @@
-
+<?php
+  // 세션이 이미 시작되었는지 확인
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+  // 사용자가 로그인한 경우, 값을 세션에서 가져옴
+  if (isset($_SESSION['id'])){
+    $name = htmlspecialchars($_SESSION['name']);
+    $profile = htmlspecialchars($_SESSION['profile']);
+  }
+?>
 <style>
 
 	/* ----------------상단 헤더------------ */
@@ -236,13 +246,13 @@
         <dl class="info">
           <dd>
             <?php
-              if (isset($_SESSION['userid'])) {
+              if (isset($_SESSION['id'])) {
                 echo "
-                <img src='https://dummyimage.com/100x100' alt='프로필이미지'>
-                <a href='./mypage.php' title='마이페이지'>(이름)님 환영합니다.</a>
+                <img src='./uploads/profile/$profile' alt='프로필이미지'>
+                <a href='./mypage.php' title='마이페이지'>$name 님 환영합니다.</a>
                 <a href='./php/logout.php' title='로그아웃'>로그아웃</a>
                 ";
-              }else{
+              } else {
                 echo "
                 <img src='./images/common/profile.png' alt='프로필이미지'>
                 <a href='./login.php' title='로그인'>로그인을 해주세요.</a>
@@ -250,10 +260,10 @@
                 <a href='./register_pre.php' title='회원가입'>회원가입</a>
                 ";
               }
-              ?>
+            ?>
           </dd>
           <?php
-            if (isset($_SESSION['userid'])) {
+            if (isset($_SESSION['id'])) {
               echo "
               <nav class='icon_menu'>
                 <ul>
