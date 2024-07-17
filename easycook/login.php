@@ -7,22 +7,28 @@
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
 
+  <!-- 자바스크립트 쿠키파일 연결 -->
+  <script src="./script/javascript_cookie.js"></script>
+
   <style>
     /* 로그인페이지 서식 */
+    main{
+      padding: 0 20px;
+    }
     section{
       max-width: 600px;
       margin: 0 auto;
-      padding: 0 20px;
     }
-    section > h2{
+    #Login > h2{
       text-align: center;
       font-size: var(--fs-large);
       font-weight: var(--fw-bold);
-      padding: 50px 0 10px 0;
+      padding: 50px 0 20px 0;
     }
     form label{
       font-size: var(--fs-medium);
       font-weight: 600;
+      display: none;
     }
     input{
       height: 40px;
@@ -32,9 +38,40 @@
       font-weight: var(--fs-light);;
     }
 
-    #easy_login{
-      margin-bottom: 100px;
+    /* 간편 로그인 서식 */
+    #easyLogin{
+      border-top: 1px solid #eee;
     }
+    #easyLogin > h2{
+      text-align: center;
+      font-size: var(--fs-medium-large);
+      font-weight: var(--fw-bold);
+      padding: 30px 0;
+    }
+    #easyLogin .btn-l{
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      gap: 10px;
+      color: #000;
+      font-weight: 400;
+      font-size: var(--fs-small);
+    }
+    #easyLogin .btn-l:nth-of-type(1){
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #888;
+    }
+    #easyLogin .btn-l:nth-of-type(2){
+      background: #FAE300;
+    }
+    #easyLogin .btn-l:nth-of-type(3){
+      background: #03C75A;
+    }
+    #easyLogin img{
+      height: 100%;
+    }
+
 
   </style>
 </head>
@@ -43,79 +80,181 @@
   <?php include('./php/include/header_sub.php');?>
 
   <main>
-    <section>
+    <section id="Login">
       <h2>로그인</h2>
-      <div class="login_form">
-        <form action="./login_check.php" id="loginForm" name="loginForm" method="post" class="needs-validation" novalidate>
-          <div class="mt-4 mb-2">
+      <form action="./php/login_check.php" id="loginForm" name="loginForm" method="post">
+        <div class="login_form">
+          <div class="mt-3 mb-2">
             <label for="id" class="form-label">아이디</label>
-            <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요" required>
+            <input type="text" class="form-control" name="id" id="id" placeholder="아이디를 입력해주세요">
             <div class="invalid-feedback">
               아이디를 입력해주세요.
             </div>
-            <input type="checkbox" id="id_save" name="id_save" class="form-check-input mt-2">
-            <label for="id_save" class="form-check-label mt-2" style="font-size: var(--fs-small); font-weight: var(--fw-light);">아이디 저장</label>
           </div>
-          <div class="mt-4 mb-2">
+          <div class="mt-3 mb-2">
             <label for="password" class="form-label">비밀번호</label>
             <div style="position: relative;">
-              <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해 주세요" required>
+              <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호를 입력해 주세요">
               <div class="invalid-feedback">
                 비밀번호를 입력해주세요.
               </div>
             </div>
           </div>
-        </form>
-      </div>
-      <div class="container text-center mt-4 mb-4">
-        <div class="row" style="text-wrap: nowrap; font-size:var(--fs-small);">
-          <div class="col border-end"><a href="#" class="link-secondary">아이디 찾기</a></div>
-          <div class="col border-end"><a href="#" class="link-secondary">비밀번호 찾기</a></div>
-          <div class="col"><a href="./register.php" class="link-secondary">회원가입</a></div>
         </div>
-      </div>
-
-      <div class="mb-5 btn-box-l">
-        <button id="login" class="btn-l" type="submit">로그인</button>
-      </div>
-
-
-      <div class="fs-6 mb-3">
-        <div class="text-center text-secondary mb-2">간편로그인</div>
-      </div>
-      <div class="container text-center fs-5" id="easy_login">
-        <div class="row">
-          <div class="col">
-            <a href="javascript:void(0);" class="link-secondary" onclick="kakaoLogin()">
-              <img src="../images/login_kakao.png" alt="카카오톡 로그인">
-            </a>
+        <!-- 아이디 저장 체크 -->
+        <input type="checkbox" id="id_save" name="id_save" class="form-check-input mt-2">
+        <label for="id_save" class="form-check-label mt-2 mb-3" style="font-size: var(--fs-small); font-weight: var(--fw-light); display: inline-block;">아이디 저장</label>
+        <!-- 로그인 버튼 -->
+        <div class="btn-box-l">
+          <button id="login" class="btn-l" type="submit">로그인</button>
+        </div>
+        <!-- 아이디 찾기 -->
+        <div class="container text-center mt-4 mb-5">
+          <div class="row" style="text-wrap: nowrap; font-size:var(--fs-small);">
+            <div class="col border-end"><a href="#" class="link-secondary">아이디 찾기</a></div>
+            <div class="col border-end"><a href="#" class="link-secondary">비밀번호 찾기</a></div>
+            <div class="col"><a href="./register_pre.php" class="link-secondary">회원가입</a></div>
           </div>
-          <div class="col">
-            <a href="#" class="link-secondary">
-              <img src="../images/login_naver.png" alt="네이버 로그인">
-            </a>
-          </div>
-          <div class="col">
-            <a href="#" class="link-secondary">
-              <img src="../images/icon_goggle.png" alt="구글 로그인">
-            </a>
-          </div>
-      </div>
+        </div>
+      </form>
+    </section>
+      
+    <!-- 간편 로그인 -->
+    <section id="easyLogin">
+      <h2>간편 로그인</h2>
+      <div class="btn-box-l">
+        <button class="btn-l">
+          <img src="./images/common/icon_google.png" alt="구글 로그인">
+          <span>구글로 로그인</span>
+        </button>
+        <button class="btn-l">
+          <img src="./images/common/icon_kakao.png" alt="카카오 로그인" onclick="kakaoLogin()">
+          <span>카카오로 로그인</span>
+        </button>
+        <button class="btn-l">
+          <img src="./images/common/icon_naver.png" alt="네이버 로그인">
+          <span>네이버로 로그인</span>
+        </button>
 
+      </div>
 
     </section>
+
+
+
 
 
   </main>
 
 
+  <script>
+    $(document).ready(function(){
+
+      // -----------폼 제출 시 빈값 검사----------
+      $('#loginForm').submit(function(event) {
+        event.preventDefault(); // 기본 제출 동작 막기
+
+        var isFormValid = true;
+
+        // 각 필드를 검사하여 빈값이면 is-invalid 클래스 추가
+        $('#id, #password').each(function() {
+          var $this = $(this);
+          if ($this.val().trim() === '') {
+            $this.addClass('is-invalid');
+            isFormValid = false;
+          } else {
+            $this.removeClass('is-invalid');
+          }
+        });
+        // 유효성 검사 통과 시 폼 제출
+        if (isFormValid) {
+          this.submit();
+        }
+      });
+
+      // ------------빈칸 실시간 검사-----------
+      $('#id').on('input', function() {
+        var id = $(this).val().trim();
+        var isValid = true;
+        if (id === '') {
+          $(this).addClass('is-invalid');
+          isValid = false; 
+        } else {
+          $(this).removeClass('is-invalid');
+          isValid = true; 
+        }
+      });
+      $('#password').on('input', function() {
+        var password = $(this).val().trim();
+        var isValid = true;
+        if (password === '') {
+          $(this).addClass('is-invalid');
+          isValid = false; 
+        } else {
+          $(this).removeClass('is-invalid');
+          isValid = true; 
+        }
+      });
+
+
+
+      // 빈칸 유효성 검사 함수
+      function validateCheck() {
+        const id = $('#id').val();
+        const password = $('#password').val();
+        let isValid = true;
+
+        if (id === '') {
+          $('#id').addClass('is-invalid');
+          isValid = false;
+        } else {
+          $('#id').removeClass('is-invalid');
+        }
+
+        if (password === '') {
+          $('#password').addClass('is-invalid');
+          isValid = false;
+        } else {
+          $('#password').removeClass('is-invalid');
+        }
+        return isValid;
+      }
+
+
+      //--------아이디 저장하는 쿠키 함수----------
+      let key = getCookie('idCookie'); //쿠키이름 저장
+
+      if(key!=""){ //만약에 key값이 있다면
+        $('#id').val(key); //id값을 저장
+      }
+
+      if($('#id').val() !=""){ //만약에 id값이 있다면
+        $('#id_save').attr('checked',true); //체크박스에 체크를 해준다.
+      }
+
+      $('#id_save').change(function(){ //체크박스의 상태가 바뀌면 아래내용 실행
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idCookie', $('#id').val(), 7); //쿠키를 생성하고
+        }else{ //그렇지 않으면
+          deleteCookie('idCookie'); //쿠키를 삭제한다.
+        }
+      })
+      
+      $('#id').keyup(function(){ //아이디 입력창에 키를 눌렀을 경우
+        if($('#id_save').is(':checked')){ //체크박스에 체크가 된 경우라면
+          setCookie('idCookie', $('#id').val(), 7); //쿠키를 생성한다.
+        }
+      })
+
+    })
+  </script>
 
 
 
   <!-- 카카오 로그인 -->
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script>
-    Kakao.init('eae1a42f5aae28538a34a719867bc196');
+    Kakao.init('인증주소링크');
     // sdk초기화여부판단 
     console.log(Kakao.isInitialized());
     //카카오로그인 
