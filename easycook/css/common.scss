@@ -19,6 +19,7 @@ $fs-xlarge: 1.5rem; // 24px
 $fw-thin: 100;
 $fw-light: 300;
 $fw-normal: 500;
+$fw-semi-bold: 600;
 $fw-bold: 700;
 
 // 색상
@@ -121,7 +122,7 @@ html {
     display: flex;
     justify-content: space-between;
     gap:10px;
-
+    margin-bottom: 0;
     li{
       width: 100%;
 
@@ -140,9 +141,7 @@ html {
     }
   }
   .tab_con{
-    border-top: 1px solid $gray;
     background: $white;
-    
     div{
       display: none;
 
@@ -158,6 +157,7 @@ html {
 .list{
   border-radius: 0;
   width: 100%;
+  padding: 0;
   li{
     display: flex;
     justify-content: space-between;
@@ -222,6 +222,12 @@ $button-gap: 10px;
   .btn-s {
     @extend .button;
     width: 50%;
+
+    &.line {
+      border: 1px solid $red;
+      background: $white;
+      color: $red; // 추가로 텍스트 색상 변경
+    }
   }
 }
 
@@ -234,5 +240,11 @@ $button-gap: 10px;
 
   .btn-l {
     @extend .button;
+    
+    &.line {
+      border: 1px solid $red;
+      background: $white;
+      color: $red; // 추가로 텍스트 색상 변경
+    }
   }
 }

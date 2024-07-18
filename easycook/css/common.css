@@ -61,6 +61,7 @@ html {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  margin-bottom: 0;
 }
 .tab > ul li {
   width: 100%;
@@ -77,7 +78,6 @@ html {
   border-bottom: none;
 }
 .tab .tab_con {
-  border-top: 1px solid #D9D9D9;
   background: #ffffff;
 }
 .tab .tab_con div {
@@ -90,6 +90,7 @@ html {
 .list {
   border-radius: 0;
   width: 100%;
+  padding: 0;
 }
 .list li {
   display: flex;
@@ -145,10 +146,20 @@ html {
 .btn-box-s .btn-s {
   width: 50%;
 }
+.btn-box-s .btn-s.line {
+  border: 1px solid #EF2F15;
+  background: #ffffff;
+  color: #EF2F15;
+}
 
 .btn-box-l {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.btn-box-l .btn-l.line {
+  border: 1px solid #EF2F15;
+  background: #ffffff;
+  color: #EF2F15;
 }/*# sourceMappingURL=common.css.map */

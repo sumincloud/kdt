@@ -28,6 +28,7 @@ html {
   font-size: 16px;
 }
 
+/* 화면 크기가 375px 미만일 때 기본 폰트 크기를 14px로 조정 */
 .cart {
   position: absolute;
   top: 10px;
