@@ -254,7 +254,7 @@
                 ";
               } else {
                 echo "
-                <img src='./images/common/profile.png' alt='프로필이미지'>
+                <img src='./uploads/profile/profile.png' alt='프로필이미지'>
                 <a href='./login.php' title='로그인'>로그인을 해주세요.</a>
                 <a href='./login.php' title='로그인'>로그인</a>
                 <a href='./register_pre.php' title='회원가입'>회원가입</a>
@@ -310,11 +310,11 @@
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
-              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
-              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
-              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
-              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
+              <li><a href="./cook_academy.php?catagory2=국비" title="국비">국비</a></li>
+              <li><a href="./cook_academy.php?catagory2=일반" title="일반">일반</a></li>
+              <li><a href="./cook_academy.php?catagory2=창업" title="창업">창업</a></li>
+              <li><a href="./cook_academy.php?catagory2=취미" title="취미">취미</a></li>
+              <li><a href="./cook_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
@@ -323,11 +323,11 @@
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
-              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
-              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
-              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
-              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
+              <li><a href="./coffee_academy.php?catagory2=국비" title="국비">국비</a></li>
+              <li><a href="./coffee_academy.php?catagory2=일반" title="일반">일반</a></li>
+              <li><a href="./coffee_academy.php?catagory2=창업" title="창업">창업</a></li>
+              <li><a href="./coffee_academy.php?catagory2=취미" title="취미">취미</a></li>
+              <li><a href="./coffee_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
@@ -336,11 +336,11 @@
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="국비">국비</a></li>
-              <li><a href="./cate.php?cate=cate02" title="일반">일반</a></li>
-              <li><a href="./cate.php?cate=cate03" title="창업">창업</a></li>
-              <li><a href="./cate.php?cate=cate04" title="취미">취미</a></li>
-              <li><a href="./cate.php?cate=cate05" title="자격증">자격증</a></li>
+              <li><a href="./bread_academy.php?catagory2=국비" title="국비">국비</a></li>
+              <li><a href="./bread_academy.php?catagory2=일반" title="일반">일반</a></li>
+              <li><a href="./bread_academy.php?catagory2=창업" title="창업">창업</a></li>
+              <li><a href="./bread_academy.php?catagory2=취미" title="취미">취미</a></li>
+              <li><a href="./bread_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
@@ -349,8 +349,8 @@
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="소개">소개</a></li>
-              <li><a href="./cate.php?cate=cate02" title="강사진">강사진</a></li>
+              <li><a href="./intro.php?cata=소개" title="소개">소개</a></li>
+              <li><a href="./intro.php?cata=강사진" title="강사진">강사진</a></li>
             </ul>
           </div>
         </li>
@@ -359,11 +359,11 @@
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cate.php?cate=cate01" title="후기">후기</a></li>
-              <li><a href="./cate.php?cate=cate02" title="FAQ">FAQ</a></li>
-              <li><a href="./cate.php?cate=cate03" title="Q&A">Q&A</a></li>
-              <li><a href="./cate.php?cate=cate04" title="상담신청">상담신청</a></li>
-              <li><a href="./cate.php?cate=cate05" title="공지사항">공지사항</a></li>
+              <li><a href="./community.php?comu=후기" title="후기">후기</a></li>
+              <li><a href="./community.php?comu=FAQ" title="FAQ">FAQ</a></li>
+              <li><a href="./community.php?comu=Q&A" title="Q&A">Q&A</a></li>
+              <li><a href="./community.php?comu=상담신청" title="상담신청">상담신청</a></li>
+              <li><a href="./community.php?comu=공지사항" title="공지사항">공지사항</a></li>
             </ul>
           </div>
         </li>

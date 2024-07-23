@@ -8,6 +8,9 @@
     $name = htmlspecialchars($_SESSION['name']);
     $profile = htmlspecialchars($_SESSION['profile']);
   }
+
+  include('./php/include/dbconn.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -134,6 +137,13 @@
       border-bottom: 3px solid var(--red);
       color: var(--red);
     }
+    .tab_con{
+      padding: 20px;
+    }
+    .tab_con .btn-s.line{
+      border: 1px solid #888;
+      color: #888;
+    }
 
   </style>
 </head>
@@ -161,7 +171,7 @@
           echo "
           <div class='mytitle'>
             <div>
-              <img id='profile_img' src='./images/common/profile.png' alt='프로필이미지'>
+              <img id='profile_img' src='./uploads/profile/profile.png' alt='프로필이미지'>
               <div>
                 <p class='fs-5'>로그인이 필요합니다.</p>
               </div>
@@ -213,52 +223,121 @@
         </ul>
         <div class="tab_con">
           <div class="active" id="tab1">
-            <ul class="list">
+            <!-- 상품목록 카드 스타일 -->
+            <ul class="card-list">
+              <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 -->
+              <?php
+                $sql = "select * from academy_list where category2='자격증'";
+                $result = mysqli_query($conn, $sql);
+
+                while ($row = mysqli_fetch_array($result)) {
+              ?>
               <li>
-                <span>07.01</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span class="active">N</span>
+                <div>
+                  <!-- 강의 썸네일 이미지 -->
+                  <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                    <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                  </a>
+                  <!-- 강의 이름 -->
+                  <div>
+                    <h2>
+                      <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                        <?php echo $row['name']; ?>
+                      </a>
+                    </h2>
+
+                    <!-- 강의 # 태그 -->
+                    <p>
+                      <span>#<?php echo $row['category2']; ?></span>
+                      <span>#<?php echo $row['category1']; ?></span>
+                      <span>#<?php echo $row['category3']; ?></span>
+                    </p>
+
+                    <!-- 기간 / 강사이름 -->
+                    <div>
+                      <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
+                      <span><?php echo $row['teacher']; ?></span>
+                    </div>
+                  </div>
+                  <!-- 찜버튼 -->
+                  <div class="cart">
+                    <img src="./images/common/heart_w.png" alt="찜버튼">
+                  </div>
+                </div>
+
+                <!-- 버튼이 들어가는 경우에만 삽입 -->
+                <div>
+                  <div class="btn-box-s mt-4">
+                    <button class="btn-s line">실습실 예약</button>
+                    <button class="btn-s line">문의하기</button>
+                  </div>
+                  <div class="btn-box-l mt-2 mb-2">
+                    <button class="btn-l">출석체크</button>
+                  </div>
+                </div>
+
               </li>
-              <li>
-                <span>06.25</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span class="active">N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
+              <?php } ?>
             </ul>
           </div>
           <div id="tab2">
-            <ul class="list">
+            <!-- 상품목록 카드 스타일 -->
+            <ul class="card-list">
+              <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 (수정필요)-->
+              <?php
+                $sql = "select * from academy_list where category2='자격증'";
+                $result = mysqli_query($conn, $sql);
+
+                while ($row = mysqli_fetch_array($result)) {
+              ?>
               <li>
-                <span>07.01</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span class="active">N</span>
+                <div>
+                  <!-- 강의 썸네일 이미지 -->
+                  <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                    <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                  </a>
+                  <!-- 강의 이름 -->
+                  <div>
+                    <h2>
+                      <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                        <?php echo $row['name']; ?>
+                      </a>
+                    </h2>
+
+                    <!-- 강의 # 태그 -->
+                    <p>
+                      <span>#<?php echo $row['category2']; ?></span>
+                      <span>#<?php echo $row['category1']; ?></span>
+                      <span>#<?php echo $row['category3']; ?></span>
+                    </p>
+
+                    <!-- 기간 / 강사이름 -->
+                    <div>
+                      <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
+                      <span><?php echo $row['teacher']; ?></span>
+                    </div>
+                  </div>
+                  <!-- 찜버튼 -->
+                  <div class="cart">
+                    <img src="./images/common/heart_w.png" alt="찜버튼">
+                  </div>
+                </div>
+
+                <!-- 버튼이 들어가는 경우에만 삽입 -->
+                <div>
+                  <div class="btn-box-s mt-4">
+                    <button class="btn-s line">실습실 예약</button>
+                    <button class="btn-s line">문의하기</button>
+                  </div>
+                  <div class="btn-box-l mt-2 mb-2">
+                    <button class="btn-l">출석체크</button>
+                  </div>
+                </div>
+
               </li>
-              <li>
-                <span>06.25</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
+              <?php } ?>
             </ul>
+
           </div>
 
         </div>
@@ -294,11 +373,10 @@
       // 프로필 타이틀 클릭 이벤트
       $('.mytitle').click(function() {
         if (sessionId) {
-          // 로그인된 경우 회원수정페이지로
-          window.location.href = './register_edit.php';
+          // 로그인된 경우 비밀번호 확인 페이지로
+          window.location.href = './register_edit_password.php';
         } else {
           // 로그인 안된경우 로그인페이지로
-          alert('로그인이 필요합니다.');
           window.location.href = './login.php';
         }
       });

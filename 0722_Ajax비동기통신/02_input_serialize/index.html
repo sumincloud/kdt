@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_input-비동기 통신을 활용한 데이터 post방식으로 넘기기</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      //전송버튼 눌렀을 때 내용이 실행
+      $('#member').on('submit',function(){
+        let d = $(this).serialize();//데이터를 보내기 위해 폼 요소 집합을 문자열로 인코딩
+        $.ajax({
+          url:"member.php",
+          type:"post",
+          data:d,
+          // dataType:"요청한데이터타입(html, xml, json, text, script)",
+          success:function(result){
+            $('#txt1').text(result);
+          }
+          })
+          return false; //action페이지로 전환되는 것을 방지
+        });
+    });
+  </script>
+</head>
+<body>
+  <h2>01_input-비동기 통신을 활용한 데이터 post방식으로 넘기기</h2>
+  <p>폼태그에 입력한 데이터를 전송시 페이지가 새로고침되지 않도록 한다.</p>
+
+  <form name="member" id="member" method="post" action="member.php">
+    <fieldset>
+      <legend>회원가입</legend>
+      <p>
+        <label for="user_name">이름</label>
+        <input type="text" id="user_name" name="user_name">
+      </p>
+      <p><input type="submit" value="확인"></p>
+    </fieldset>
+  </form>
+
+  <!-- 위에서 입력한 이름 데이터값이 출력되는 부분 -->
+  <p>
+    <span id="txt1"></span>
+  </p>
+
+</body>
+</html>
