@@ -178,11 +178,13 @@ html {
 .card-list li > div:first-of-type > a {
   display: block;
   width: 30%;
-  aspect-ratio: 1/1; /* 1:1 비율 설정 */
-  max-width: 120px;
+  max-width: 400px;
+  max-height: 150px;
+  min-height: 100px;
 }
 .card-list li > div:first-of-type img {
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;

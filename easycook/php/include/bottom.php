@@ -65,7 +65,7 @@
     <nav>
       <ul>
         <li>
-          <a href="./index.php" title="홈">
+          <a href="index.php" title="홈">
             <i class="bi bi-house"></i>
             <span class="">홈</span>
           </a>
@@ -89,7 +89,7 @@
           </a>
         </li>
         <li>
-          <a href="./mypage.php" title="마이페이지">
+          <a href="mypage.php" title="마이페이지">
             <i class="bi bi-person"></i>
             <span>마이페이지</span>
           </a>
@@ -100,35 +100,21 @@
 
 
   <script>
-  $(document).ready(function() {
-    // 페이지가 로드될 때 localStorage에서 active 정보를 가져와 설정
-    const activeLink = localStorage.getItem("activeLink");
-    if (activeLink) {
+    $(document).ready(function() {
+      // 현재 페이지의 URL 경로 가져오기
+      const currentPath = window.location.pathname;
+
+      // 각 링크에 대해 반복
       $("footer nav ul li a").each(function() {
-        if ($(this).attr("href") === activeLink) {
+        // 링크의 href 속성에서 경로를 가져오기
+        const href = $(this).attr("href");
+
+        // 현재 페이지 URL과 링크의 href 비교
+        if (currentPath.endsWith(href)) {
           $(this).addClass("active");
         } else {
           $(this).removeClass("active");
-          
         }
       });
-    }
-    // 각 링크에 클릭 이벤트 추가
-    $("footer nav ul li a").click(function(event) {
-      event.preventDefault();
-
-      // 기존 active 클래스 제거
-      $("footer nav ul li a.active").removeClass("active");
-
-      // 클릭된 링크에 active 클래스 추가
-      $(this).addClass("active");
-
-      // localStorage에 activeLink 저장
-      const href = $(this).attr("href");
-      localStorage.setItem("activeLink", href);
-
-      // 페이지 이동
-      window.location.href = href;
     });
-  });
-</script>
+  </script>
