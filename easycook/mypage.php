@@ -3,13 +3,29 @@
   if (session_status() === PHP_SESSION_NONE) {
     session_start();
   }
-  // 사용자가 로그인한 경우, 값을 세션에서 가져옴
+  include('./php/include/dbconn.php');
+
+  //사용자가 로그인한 경우, 데이터베이스에서 정보 가져옴
   if (isset($_SESSION['id'])){
-    $name = htmlspecialchars($_SESSION['name']);
-    $profile = htmlspecialchars($_SESSION['profile']);
+    $id = $_SESSION['id'];
+    
+    $sql = "SELECT * FROM register WHERE id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $name = htmlspecialchars($row['name']);
+    $profile = htmlspecialchars($row['profile']);
+
+    // 세션 정보를 업데이트
+    $_SESSION['name'] = $name;
+    $_SESSION['profile'] = $profile;
+  } else {
+    echo "<script>
+          alert('로그인이 필요합니다.');
+          window.location.href = './login.php';
+          </script>";
   }
 
-  include('./php/include/dbconn.php');
 
 ?>
 <!DOCTYPE html>

@@ -5,7 +5,7 @@
   include('./include/dbconn.php');
 
   // 사용자가 제출한 데이터
-  $file = uniqid() . '_' . $_FILES['myfile']['name']; //파일이름 중복 방지
+  $file = uniqid() . '_' . $_FILES['profile']['name']; //파일이름 중복 방지
   $name = $_POST['name']; // 이름
   $id = $_POST['id']; // 아이디
   $password = $_POST['password']; // 비밀번호
@@ -18,60 +18,54 @@
   // 비밀번호 해시화 처리
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-  // 회원정보 업데이트
-  $sql = "INSERT INTO register (name, id, password, phone, email, profile, datetime)
-          VALUES ('$name', '$id', '$hashed_password', '$phone', '$email', '$profile_img', '$datetime')";
-
   // 기존 이미지 파일 경로 가져오기
   $sql_profile = "SELECT profile FROM register WHERE id = '$id'";
-  $result_new_profile = mysqli_query($conn, $sql_profile);
-  $row_new_profile = mysqli_fetch_assoc($result_new_profile);
-  $profile = $row_new_profile['profile'];
+  $result_sql_profile = mysqli_query($conn, $sql_profile);
+  $row_sql_profile = mysqli_fetch_assoc($result_sql_profile);
+  $profile = $row_sql_profile['profile'];
+
+  $upload_directory = '../uploads/profile/';
+  $new_profile_path = $upload_directory . $file;
 
     // 이미지 파일이 없을 경우 파일 업로드를 제외하고 업데이트
-    if (empty($file)) {
-      $sql = "UPDATE shop_data
-              SET cate = '$cate',
-                  name = '$name',
-                  parent = '$parent',
-                  price = '$price',
-                  comment = '$comment',
-                  memo = '$memo',
-                  datetime = '$datetime'
-              WHERE no = '$no'";
+    if (empty($_FILES['profile']['name'])) {
+      $sql = "UPDATE register
+              SET name = '$name',
+                  password = '$hashed_password',
+                  phone = '$phone',
+                  email = '$email'
+              WHERE id = '$id'";
     } else {
-      // 기존 파일 삭제
-      if (!empty($existing_image)) {
-        $existing_file_path = $folder . $existing_image;
-        if (file_exists($existing_file_path)) {
-          unlink($existing_file_path); // 파일 삭제
-        }
-      }
-      //파일 업데이트
-      $sql = "UPDATE shop_data
-              SET cate = '$cate',
-                  img = '$file',
-                  name = '$name',
-                  parent = '$parent',
-                  price = '$price',
-                  comment = '$comment',
-                  memo = '$memo',
-                  datetime = '$datetime'
-              WHERE no = '$no'";
+    // 새로운 파일이 업로드되었을 경우
+    // 기존 파일이 profile.png가 아닌 경우에만 삭제
+    if ($sql_profile !== 'profile.png' && file_exists($upload_directory . $profile)) {
+      unlink($upload_directory . $profile);
     }
-  
+    // 파일 업로드 처리
+    if (move_uploaded_file($_FILES['profile']['tmp_name'], $new_profile_path)) {
+      $sql = "UPDATE register
+              SET name = '$name',
+                  password = '$hashed_password',
+                  phone = '$phone',
+                  email = '$email',
+                  profile = '$file'
+              WHERE id = '$id'";
+      } else {
+        // 파일 업로드 실패 시 오류 처리
+        die("파일 업로드 중 오류가 발생했습니다.");
+      }
+    }
 
-    // 쿼리 실행 여부 확인
+    // 쿼리 실행
     if (mysqli_query($conn, $sql)) {
-      // 강사코드 세션 변수 삭제
-      unset($_SESSION['teacher_code']);
       echo "<script>
-              alert('회원가입이 완료되었습니다.');
-              window.location.href = '../login.php';
+              alert('회원정보가 수정되었습니다.');
+              window.location.href = '../mypage.php';
             </script>";
     } else {
-      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      echo "오류가 발생했습니다: " . mysqli_error($conn);
     }
+
 
     // 데이터베이스 연결 종료
     mysqli_close($conn);

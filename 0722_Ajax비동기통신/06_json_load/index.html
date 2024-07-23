@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>06_php로 데이터베이스 자료를 json데이터파일로 저장(backend)하고 비동기로 출력(frontend)하기</h2>
+  <ul>
+    <li>product 데이터베이스 자료를 php문법을 사용하여 json데이터로 변환하여 저장</li>
+    <li>json파일에 {"list":[ 배열객체의 이름을 지정함.</li>
+    <li>html문서에 jquery와 ajax비동기 통신을 활용하여 연관배열인 json데이터 파일을 불러와 #wrap table태그안에 데이터를 삽입하여 출력한다.</li>
+  </ul>
+
+  <h3>아래 링크주소를 클릭시 json데이터파일 자동 생성하기</h3>
+  <a href="dbprint.php" title="">json데이터 파일생성</a>
+
+  <!-- json데이터 내용이 출력할 영역 -->
+  <div id="wrap">
+    <ul></ul>
+    <table></table>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $.ajax({
+        url:'data.json',
+        dataType:'json',
+        success:function(result){
+          $('#wrap table').append("<caption>시승예약현황</caption><tr><th>No.</th><th>이름</th><th>연락처</th><th>수신여부</th><th>이메일</th><th>지점</th><th>시승차량</th><th>보유차량</th><th>시승일</th></tr>"
+          );
+
+          //each함수(개별적으로 각각 개수만큼 반복적용)
+          $.each(result.list, function(i, d){
+            if(i<10){
+              $('#wrap table').append(`<tr><td>${i+1}</td><td>${d['name']}</td><td>${d['phone']}</td><td>${d['sms']}</td><td>${d['email']}</td><td>${d['region']}</td><td>${d['s_car']}</td><td>${d['my_car']}</td><td>${d['e_date']}</td></tr>`);
+            }
+          });
+        }
+      })
+    })
+  </script>
+</body>
+</html>

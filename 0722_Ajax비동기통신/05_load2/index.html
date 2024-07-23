@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+</head>
+<body>
+  <!-- 헤더 -->
+  <header>
+    <h1><a href="index.html" title="메인페이지로">상단로고</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" title="홈으로">홈으로</a></li>
+        <li><a href="a.html" title="강좌관리">강좌관리</a></li>
+        <li><a href="b.html" title="수강생관리">수강생관리</a></li>
+        <li><a href="c.html" title="게시판관리">게시판관리</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 메인 -->
+  <main>
+    <section>
+
+    </section>
+  </main>
+
+  <!-- 푸터 -->
+  <footer>
+    <address>
+      Copyright&copy; 2024 000학습사이트
+    </address>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      //메뉴변수 선언
+      let nav = $('header nav a');
+      $('section').load('i.html');
+
+      //메뉴 클릭시 해당 메뉴에 on서식 적용하고 선택안한 메뉴는 on서식 제거하기
+      nav.on('click', function(){
+        nav.removeClass('on');
+        $(this).addClass('on');
+        
+        //클릭한 a태그의 href속성값을 변수에 담아
+        let url = $(this).attr('href');
+        
+        //출력해본다.
+        console.log(url);
+
+        //해당영역에 주소값을 로딩하여 페이지표시
+        $('section').load(url).hide().fadeIn();
+
+        return false;
+      })
+    })
+  </script>
+</body>
+</html>

@@ -90,7 +90,7 @@
   <main>
     <section>
       <h2>회원정보 수정</h2>
-      <form id="register_form" action="./php/register_input.php" method="post" enctype="multipart/form-data">
+      <form id="register_form" action="./php/register_edit_update.php" method="post" enctype="multipart/form-data">
         <!-- 프로필 사진 -->
         <div class="mt-4 mb-2">
           <label for="profile" class="form-label">프로필 사진</label>
@@ -115,6 +115,8 @@
           <div class="mt-4 mb-2">
             <label for="teacher_code" class="form-label">강사코드<span style="color:var(--red);">*</span></label>
             <input type="text" class="form-control text-secondary" id="teacher_code" name="teacher_code" value="<?php echo $row['teacher_code']; ?>" disabled>
+            <!-- 폼 전송용 숨겨진 필드 추가 -->
+            <input type="hidden" name="teacher_code" value="<?php echo $row['teacher_code']; ?>">
             <div class="invalid-feedback">
               올바른 강사코드를 입력해주세요.
             </div>
@@ -125,6 +127,8 @@
           <label for="id" class="form-label">아이디<span style="color:var(--red);">*</span></label>
           <small class="d-block text-secondary mb-2" style="font-size: 14px;">4자 이상 20자 이내의 영문,숫자 사용</small>
           <input type="text" class="form-control text-secondary" id="id" name="id" value="<?php echo $row['id']; ?>" disabled>
+          <!-- 폼 전송용 숨겨진 필드 추가 -->
+          <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
           <div class="invalid-feedback">
             영문, 숫자를 조합하여 4~20자로 작성해주세요.
           </div>
@@ -160,20 +164,11 @@
           <input type="email" class="form-control" id="email" name="email" placeholder="email@example.com" value="<?php echo $row['email']; ?>">
         </div>
 
-      </div>
-
-
-
-
-
         <!-- 버튼 형식 -->
         <div class="btn-box-l" style="margin-top: 50px;">
           <button type="submit" class="btn-l">수정완료</button>
           <button type="button" class="btn-l" onclick="location.href='./mypage.php'">수정취소</button>
         </div>
-
-
-        
       </form>
 
 
@@ -199,23 +194,6 @@
         }
       });
 
-      // Ajax를 이용한 프로필 사진 업로드
-      // $('#profile').on('change', function() {
-      //   var formData = new FormData();
-      //   formData.append('profile', $('#profile')[0].files[0]);
-      //   formData.append('name', $('#name').val());
-
-      //   $.ajax({
-      //     url: './php/register_input.php',
-      //     type: 'POST',
-      //     data: formData,
-      //     processData: false,
-      //     contentType: false,
-      //     success: function(response) {
-      //       $('#profile').append(response);
-      //     }
-      //   });
-      // });
 
       // -----------회원가입 입력 폼 실시간 검사--------------
       var isValid = true;
