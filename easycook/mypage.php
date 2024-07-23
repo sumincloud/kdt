@@ -269,10 +269,9 @@
                       <span>#<?php echo $row['category3']; ?></span>
                     </p>
 
-                    <!-- 기간 / 강사이름 -->
+                    <!-- 기간 -->
                     <div>
                       <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
-                      <span><?php echo $row['teacher']; ?></span>
                     </div>
                   </div>
                   <!-- 찜버튼 -->
@@ -327,10 +326,9 @@
                       <span>#<?php echo $row['category3']; ?></span>
                     </p>
 
-                    <!-- 기간 / 강사이름 -->
+                    <!-- 기간 -->
                     <div>
                       <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
-                      <span><?php echo $row['teacher']; ?></span>
                     </div>
                   </div>
                   <!-- 찜버튼 -->
