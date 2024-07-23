@@ -268,7 +268,7 @@
               <nav class='icon_menu'>
                 <ul>
                   <li>
-                    <a href='#' title='나의 정보'>
+                    <a href='./mypage.php' title='나의 정보'>
                       <i class='bi bi-person'></i>
                       <span class=''>나의 정보</span>
                     </a>

@@ -19,11 +19,44 @@
     // 세션 정보를 업데이트
     $_SESSION['name'] = $name;
     $_SESSION['profile'] = $profile;
+
+    // --------------내 강의 정보 불러오는 부분----------------
+    // order 테이블에서 세션ID와 일치하는 class_no 값을 가져오기
+    $order_sql = "SELECT class_no FROM `order` WHERE id='$id'";
+    $order_result = mysqli_query($conn, $order_sql);
+
+    // class_no 값을 배열로 저장
+    $class_no = array();
+    while ($order_row = mysqli_fetch_array($order_result)) {
+      $class_no[] = $order_row['class_no'];
+    }
+
+    // 현재 날짜
+    $today = date('Y-m-d');
+
+    // 현재 강의와 지난 강의를 구분하여 배열에 저장
+    $class_no_list = implode(",", $class_no);  // 배열을 콤마로 구분된 문자열로 변환
+
+    // 현재 강의 쿼리
+    $now_class_list = [];
+    if (!empty($class_no_list)) {
+      $now_class = "SELECT * FROM academy_list WHERE class_no IN ($class_no_list) AND start_date <= '$today' AND end_date >= '$today'";
+      $now_class_result = mysqli_query($conn, $now_class);
+      while ($row = mysqli_fetch_array($now_class_result)) {
+        $now_class_list[] = $row;
+      }
+
+      // 지난 강의 쿼리
+      $past_class_list = [];
+      $past_class = "SELECT * FROM academy_list WHERE class_no IN ($class_no_list) AND end_date < '$today'";
+      $past_class_result = mysqli_query($conn, $past_class);
+      while ($row = mysqli_fetch_array($past_class_result)) {
+        $past_class_list[] = $row;
+      }
+    }
   } else {
-    echo "<script>
-          alert('로그인이 필요합니다.');
-          window.location.href = './login.php';
-          </script>";
+    $now_class_list = [];
+    $past_class_list = [];
   }
 
 
@@ -242,114 +275,120 @@
             <!-- 상품목록 카드 스타일 -->
             <ul class="card-list">
               <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 -->
-              <?php
-                $sql = "select * from academy_list where category2='자격증'";
-                $result = mysqli_query($conn, $sql);
+              <?php if (isset($_SESSION['id'])): ?>
+                <?php if (empty($now_class_list)): ?>
+                  <li>현재 강의가 없습니다.</li>
+                <?php else: ?>
+                  <?php foreach ($now_class_list as $row): ?>
+                    <li>
+                      <div>
+                        <!-- 강의 썸네일 이미지 -->
+                        <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                          <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                        </a>
+                        <!-- 강의 이름 -->
+                        <div>
+                          <h2>
+                            <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                              <?php echo $row['name']; ?>
+                            </a>
+                          </h2>
 
-                while ($row = mysqli_fetch_array($result)) {
-              ?>
-              <li>
-                <div>
-                  <!-- 강의 썸네일 이미지 -->
-                  <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                    <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
-                  </a>
-                  <!-- 강의 이름 -->
-                  <div>
-                    <h2>
-                      <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                        <?php echo $row['name']; ?>
-                      </a>
-                    </h2>
+                          <!-- 강의 # 태그 -->
+                          <p>
+                            <span>#<?php echo $row['category2']; ?></span>
+                            <span>#<?php echo $row['category1']; ?></span>
+                            <span>#<?php echo $row['category3']; ?></span>
+                          </p>
 
-                    <!-- 강의 # 태그 -->
-                    <p>
-                      <span>#<?php echo $row['category2']; ?></span>
-                      <span>#<?php echo $row['category1']; ?></span>
-                      <span>#<?php echo $row['category3']; ?></span>
-                    </p>
+                          <!-- 기간 -->
+                          <div>
+                            <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
+                          </div>
+                        </div>
+                        <!-- 찜버튼 -->
+                        <div class="cart">
+                          <img src="./images/common/heart_w.png" alt="찜버튼">
+                        </div>
+                      </div>
 
-                    <!-- 기간 -->
-                    <div>
-                      <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
-                    </div>
-                  </div>
-                  <!-- 찜버튼 -->
-                  <div class="cart">
-                    <img src="./images/common/heart_w.png" alt="찜버튼">
-                  </div>
-                </div>
-
-                <!-- 버튼이 들어가는 경우에만 삽입 -->
-                <div>
-                  <div class="btn-box-s mt-4">
-                    <button class="btn-s line">실습실 예약</button>
-                    <button class="btn-s line">문의하기</button>
-                  </div>
-                  <div class="btn-box-l mt-2 mb-2">
-                    <button class="btn-l">출석체크</button>
-                  </div>
-                </div>
-
-              </li>
-              <?php } ?>
+                      <!-- 버튼이 들어가는 경우에만 삽입 -->
+                      <div>
+                        <div class="btn-box-s mt-4">
+                          <button class="btn-s line">실습실 예약</button>
+                          <button class="btn-s line">문의하기</button>
+                        </div>
+                        <div class="btn-box-l mt-2 mb-2">
+                          <button class="btn-l">출석체크</button>
+                        </div>
+                      </div>
+                    </li>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+                <?php else: ?>
+                  <!-- 세션 ID가 없을 때 출력할 메시지 -->
+                  <li>로그인이 필요한 서비스입니다.</li>
+              <?php endif; ?>
             </ul>
           </div>
           <div id="tab2">
             <!-- 상품목록 카드 스타일 -->
             <ul class="card-list">
-              <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 (수정필요)-->
-              <?php
-                $sql = "select * from academy_list where category2='자격증'";
-                $result = mysqli_query($conn, $sql);
+              <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 -->
+              <?php if (isset($_SESSION['id'])): ?>
+                <?php if (empty($past_class_list)): ?>
+                  <li>지난 강의가 없습니다.</li>
+                <?php else: ?>
+                  <?php foreach ($past_class_list as $row): ?>
+                    <li>
+                      <div>
+                        <!-- 강의 썸네일 이미지 -->
+                        <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                          <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                        </a>
+                        <!-- 강의 이름 -->
+                        <div>
+                          <h2>
+                            <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                              <?php echo $row['name']; ?>
+                            </a>
+                          </h2>
 
-                while ($row = mysqli_fetch_array($result)) {
-              ?>
-              <li>
-                <div>
-                  <!-- 강의 썸네일 이미지 -->
-                  <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                    <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
-                  </a>
-                  <!-- 강의 이름 -->
-                  <div>
-                    <h2>
-                      <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                        <?php echo $row['name']; ?>
-                      </a>
-                    </h2>
+                          <!-- 강의 # 태그 -->
+                          <p>
+                            <span>#<?php echo $row['category2']; ?></span>
+                            <span>#<?php echo $row['category1']; ?></span>
+                            <span>#<?php echo $row['category3']; ?></span>
+                          </p>
 
-                    <!-- 강의 # 태그 -->
-                    <p>
-                      <span>#<?php echo $row['category2']; ?></span>
-                      <span>#<?php echo $row['category1']; ?></span>
-                      <span>#<?php echo $row['category3']; ?></span>
-                    </p>
+                          <!-- 기간 -->
+                          <div>
+                            <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
+                          </div>
+                        </div>
+                        <!-- 찜버튼 -->
+                        <div class="cart">
+                          <img src="./images/common/heart_w.png" alt="찜버튼">
+                        </div>
+                      </div>
 
-                    <!-- 기간 -->
-                    <div>
-                      <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
-                    </div>
-                  </div>
-                  <!-- 찜버튼 -->
-                  <div class="cart">
-                    <img src="./images/common/heart_w.png" alt="찜버튼">
-                  </div>
-                </div>
-
-                <!-- 버튼이 들어가는 경우에만 삽입 -->
-                <div>
-                  <div class="btn-box-s mt-4">
-                    <button class="btn-s line">실습실 예약</button>
-                    <button class="btn-s line">문의하기</button>
-                  </div>
-                  <div class="btn-box-l mt-2 mb-2">
-                    <button class="btn-l">출석체크</button>
-                  </div>
-                </div>
-
-              </li>
-              <?php } ?>
+                      <!-- 버튼이 들어가는 경우에만 삽입 -->
+                      <div>
+                        <div class="btn-box-s mt-4">
+                          <button class="btn-s line">실습실 예약</button>
+                          <button class="btn-s line">문의하기</button>
+                        </div>
+                        <div class="btn-box-l mt-2 mb-2">
+                          <button class="btn-l">후기작성</button>
+                        </div>
+                      </div>
+                    </li>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+                <?php else: ?>
+                  <!-- 세션 ID가 없을 때 출력할 메시지 -->
+                  <li>로그인이 필요한 서비스입니다.</li>
+              <?php endif; ?>
             </ul>
 
           </div>
