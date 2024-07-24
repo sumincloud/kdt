@@ -239,12 +239,20 @@ img {
      object-fit: cover;
 }
 
+.swiper-slide > a > img {
+  border-radius: 10px;
+}
+
 section {
   margin-top: 60px;
 }
 
 .swiper-button-next, .swiper-button-prev {
   display: none;
+}
+
+.cart img {
+  height: unset;
 }
 
 /* 타이틀 서식 */
@@ -585,7 +593,7 @@ section {
   height: auto;
 }
 
-.mySwiper3 .swiper-slide > img {
+.mySwiper3 .swiper-slide > a > img {
   height: 150px;
   border-radius: 10px;
 }

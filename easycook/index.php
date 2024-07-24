@@ -2,6 +2,7 @@
   session_start();
   include('./php/include/dbconn.php');
 ?>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -362,216 +363,102 @@
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
+            <?php
+              /* 해당 카테고리의 상품 10개 */
+              $sql = "SELECT * FROM academy_list WHERE category1 = '요리' LIMIT 10";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
               <div class="cart">
                 <img src="./images/common/heart_w.png" alt="찜버튼">
               </div>
+              <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <div class="con-text">
+                  <p class="con-title"><?php echo $row['name']; ?></p>
+                  <p class="con-sub"><?php echo $row['detail']; ?></p>
+                </div>
+              </a>
             </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
+            <?php
+              }
+            ?>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
-    <!-- 8. 인기 커피 수강 -->
+    <!-- 8. 인기 바리스타 강의 -->
     <section id="sec08">
       <div class="title">
-        <h2>인기 커피 수강</h2>
+        <h2>인기 바리스타 강의</h2>
         <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
+            <?php
+              /* 해당 카테고리의 상품 10개 */
+              $sql = "SELECT * FROM academy_list WHERE category1 = '바리스타' LIMIT 10";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
               <div class="cart">
                 <img src="./images/common/heart_w.png" alt="찜버튼">
               </div>
+              <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <div class="con-text">
+                  <p class="con-title"><?php echo $row['name']; ?></p>
+                  <p class="con-sub"><?php echo $row['detail']; ?></p>
+                </div>
+              </a>
             </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
+            <?php
+              }
+            ?>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
-    <!-- 9. 인기 베이커리 수강 -->
+    <!-- 9. 인기 제과제빵 강의 -->
     <section id="sec09">
       <div class="title">
-        <h2>인기 베이커리 수강</h2>
+        <h2>인기 제과제빵 강의</h2>
         <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
+            <?php
+              /* 해당 카테고리의 상품 10개 */
+              $sql = "SELECT * FROM academy_list WHERE category1 = '제과제빵' LIMIT 10";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
               <div class="cart">
                 <img src="./images/common/heart_w.png" alt="찜버튼">
               </div>
+              <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <div class="con-text">
+                  <p class="con-title"><?php echo $row['name']; ?></p>
+                  <p class="con-sub"><?php echo $row['detail']; ?></p>
+                </div>
+              </a>
             </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec07_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
+            <?php
+              }
+            ?>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
