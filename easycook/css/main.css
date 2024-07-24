@@ -622,7 +622,6 @@ section {
   height: 200px;
   border-radius: 10px;
   overflow: hidden;
-  background-image: url("../images/main/index_sec11_1.png");
   background-size: cover;
   background-position: center;
 }
@@ -674,7 +673,7 @@ section {
   /* 3줄 말줄임 */
 }
 
-#sec11 .col-xl > div > a {
+#sec11 .col-xl > div > span {
   padding: 5px 0;
   font-size: 1rem;
   color: #FFCC18;

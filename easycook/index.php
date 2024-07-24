@@ -476,45 +476,32 @@
         <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3 row">
-        <div class="col-xl">
-          <div>
-            <p>커피 제조마스터<br>
-            1급 자격증</p>
-            <p>
-              커피의 기본원리 이해와 에스프레소 추출 스티밍 훈련과 제반기술을 교육하는 과정입니다. 총 3주간 교육프로그램이 예정되어 있으며 커피의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
-            </p>
-            <a href="#" title="자세히보기">
-              자세히 보기
-              <i class="bi bi-chevron-right"></i>
-            </a>
+        <?php
+          /* 해당 카테고리의 상품 3개 */
+          $sql = "SELECT * FROM academy_list WHERE category2 = '국비' LIMIT 3";
+          $result = mysqli_query($conn, $sql);
+
+          while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <style>
+          #sec11 .col-xl{
+            background-image: url("<?php echo './uploads/class_main/' . $row['thumnail_img']; ?>");
+          }
+        </style>
+          <div class="col-xl" onclick="location.href='./detail.php?class_no=<?php echo $row['class_no']; ?>';" style="cursor: pointer;">
+            <div>
+              <p><?php echo $row['name']; ?></p>
+              <p><?php echo $row['detail']; ?>
+              </p>
+              <span>
+                자세히 보기
+                <i class="bi bi-chevron-right"></i>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="col-xl">
-          <div>
-            <p>한식 조리 기능사<br>
-            자격증</p>
-            <p>
-            한식의 기본원리 이해와 한식 메뉴계획에따라 식재료를 선정,구매,검수,보관 및 저장하고 조리할 수 있습니다. 총 5주간 교육프로그램이 예정되어 있으며 한식의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
-            </p>
-            <a href="#" title="자세히보기">
-              자세히 보기
-              <i class="bi bi-chevron-right"></i>
-            </a>
-          </div>
-        </div>
-        <div class="col-xl">
-          <div>
-            <p>베이킹 마스터<br>
-            패키지</p>
-            <p>
-              베이킹 기초와 심화교육까지 올인원으로 배우는 마스터 패키지 과정입니다. 총 5주간 교육프로그램이 예정되어 있으며 베이킹의 기본 베이스부터 전문가 수준까지 양성가능한 코스입니다.
-            </p>
-            <a href="#" title="자세히보기">
-              자세히 보기
-              <i class="bi bi-chevron-right"></i>
-            </a>
-          </div>
-        </div>
+        <?php
+          }
+        ?>
       </div>
 
     </section>
