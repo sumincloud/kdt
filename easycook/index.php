@@ -1,6 +1,17 @@
 <?php
   session_start();
   include('./php/include/dbconn.php');
+  $id = $_SESSION['id'];
+
+  // 사용자가 카트에 담은 상품 목록 가져오기
+  $cart_class_no = [];
+  if ($id) {
+    $cart_sql = "SELECT class_no FROM cart WHERE id = '$id'";
+    $cart_result = mysqli_query($conn, $cart_sql);
+    while ($cart_row = mysqli_fetch_assoc($cart_result)) {
+      $cart_class_no[] = $cart_row['class_no'];
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -121,8 +132,8 @@
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
               <div class="swiper-slide">
-                <div class="cart">
-                  <img src="./images/common/heart_r.png" alt="찜버튼">
+                <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+                  <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
                 </div>
                 <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
                   <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
@@ -170,8 +181,8 @@
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="swiper-slide">
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
+              <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+                <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
                 <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
@@ -371,8 +382,8 @@
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="swiper-slide">
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
+              <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+                <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
                 <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
@@ -408,8 +419,8 @@
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="swiper-slide">
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
+              <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+                <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
                 <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
@@ -445,8 +456,8 @@
               while ($row = mysqli_fetch_assoc($result)) {
             ?>
             <div class="swiper-slide">
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
+              <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+                <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
                 <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
@@ -628,6 +639,8 @@
 
   <!-- 스와이퍼 js -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- 공통스크립트 연결 -->
+  <script src="./script/common.js"></script>
   <!-- 메인스크립트 연결 -->
   <script src="./script/main.js"></script>
 

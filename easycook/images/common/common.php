@@ -1,5 +1,17 @@
 <?php
+  session_start();
   include('../../php/include/dbconn.php');
+  $id = $_SESSION['id'];
+
+  // 사용자가 카트에 담은 상품 목록 가져오기
+  $cart_class_no = [];
+  if ($id) {
+    $cart_sql = "SELECT class_no FROM cart WHERE id = '$id'";
+    $cart_result = mysqli_query($conn, $cart_sql);
+    while ($cart_row = mysqli_fetch_assoc($cart_result)) {
+      $cart_class_no[] = $cart_row['class_no'];
+    }
+  }
 ?>
 
 
@@ -41,12 +53,34 @@
     <div class="cart">
       <img src="./heart_w.png" alt="찜버튼">
     </div>
-  </div class="cart_box">
+  </div>
   <div class="cart_box">
     <div class="cart">
       <img src="./heart_r.png" alt="찜버튼">
     </div>
-  </div class="cart_box">
+  </div>
+
+
+  <div>실제 찜버튼 기능되는 찜버튼</div>
+  <!-- 실제 찜버튼 기능 되는 찜버튼 -->
+  <?php
+    /* 해당 카테고리의 상품 10개 */
+    $sql = "SELECT * FROM academy_list WHERE class_status = '개설' LIMIT 10";
+    $result = mysqli_query($conn, $sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+  ?>
+  <div class="cart_box">
+    <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+      <img src="../common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
+
+      <!-- 쓸때는 아래 주소로 쓰기 -->
+      <!-- <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼"> -->
+    </div>
+  </div>
+  <?php
+    }
+  ?>
 
   <!-- 별점 -->
   <div class="star">
