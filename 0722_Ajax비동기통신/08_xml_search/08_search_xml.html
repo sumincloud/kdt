@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08_검색어 입력시 xml데이터 표시하기</title>
+</head>
+<body>
+  <h2>08_검색어 입력시 xml데이터 표시하기</h2>
+  <p>사용자(클라이언트)가 검색창에 검색어 입력시 서버에서 데이터를 받아 검색어 표시하기</p>
+
+  <p>대한민국의 도시명을 검색으로 찾아보세요.</p>
+  <form>
+    <input type="text" id="search_box" name="city">
+
+    <!-- 검색단어가 표시될 영역 -->
+    <div id="suggestion_box"></div>
+
+    <ul>
+      <li>사용자가 검색입력폼에 도시명을 입력</li>
+      <li>단어의 첫글자라도 동일한 값이 있다면 suggestion_box에 출력한다.</li>
+    </ul>
+  </form>
+
+  <!-- 제이쿼리 라이브러리 연결 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      //사용자가 키를 누르고 뗐을 때 함수를 실행한다.
+      $('#search_box').keyup(function(){
+        $.ajax({ //비동기통신을 통해 서버로 데이터를 받아옴.
+          url:'ajax_request.php',
+          data:{keyword:$(this).val()}, //사용자가 누른 키정보
+          method:'get'
+        }) //ajax응답이 정상적으로 받아지면 아래 내용 실행한다.
+
+        .done(function(result){
+          $('#suggestion_box').html(result); //검색창 아래 박스에 추천 지역명을 출력한다.
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<students>
+  <student>
+    <id>1001</id><name>홍길동</name>
+  </student>
+  <student>
+    <id>1002</id><name>이순신</name>
+  </student>
+  <student>
+    <id>1003</id><name>강감찬</name>
+  </student>
+</students>

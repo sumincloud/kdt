@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- city.xml -->
+<korean_cities>
+  <city><name>서울</name></city>
+  <city><name>경기</name></city>
+  <city><name>대전</name></city>
+  <city><name>대구</name></city>
+  <city><name>부산</name></city>
+</korean_cities>

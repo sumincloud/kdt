@@ -110,102 +110,38 @@
       <div class="mt-3">
         <div class="swiper mySwiper2">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_1.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[여름학기] 바리스타 자격증 취득반 (4주)</p>
-                <p class="con-sub">강사명</p>
+            <?php
+              /* 해당 카테고리의 상품 10개 */
+              $sql = "SELECT * FROM academy_list WHERE class_status = '개설' LIMIT 10";
+              $result = mysqli_query($conn, $sql);
+              // 카운터 변수 초기화
+              $counter = 1;
+
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+              <div class="swiper-slide">
+                <div class="cart">
+                  <img src="./images/common/heart_r.png" alt="찜버튼">
+                </div>
+                <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+                  <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                  <div class="con-text">
+                    <p class="con-title"><?php echo $row['name']; ?></p>
+                    <p class="con-sub"><?php echo $row['teacher']; ?></p>
+                  </div>
+                  <div class="flag">
+                    <svg width="28" height="33" fill="none">
+                      <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
+                    </svg>
+                    <span><?php echo $counter; ?></span>
+                  </div>
+                </a>
               </div>
-              <div class="cart">
-                <img src="./images/common/heart_r.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>1</span>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_2.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-sub">강사명</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>2</span>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_3.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[여름학기] 일식조리 기능사 자격증 취득반(12주)</p>
-                <p class="con-sub">강사명</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>3</span>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_4.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-sub">강사명</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>4</span>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_5.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[여름학기] 한식조리 기능사 자격증 취득반(8주)</p>
-                <p class="con-sub">강사명</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>5</span>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_6.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">[4회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-sub">강사명</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-              <div class="flag">
-                <svg width="28" height="33" fill="none">
-                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z"></path>
-                </svg>
-                <span>6</span>
-              </div>
-            </div>
+            <?php
+              // 카운터 증가
+              $counter++;
+              }
+            ?>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -221,66 +157,32 @@
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
+            <?php
+              /* 현재 날짜부터 start_date까지 얼마 안남은 순으로 상품 10개 */
+              $sql = "SELECT *, DATEDIFF(start_date, NOW()) AS days_left 
+                      FROM academy_list 
+                      WHERE class_status = '개설' 
+                      ORDER BY days_left ASC 
+                      LIMIT 10";
+              $result = mysqli_query($conn, $sql);
+
+              while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="swiper-slide">
-              <img src="./images/main/index_sec03_4.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
               <div class="cart">
                 <img src="./images/common/heart_w.png" alt="찜버튼">
               </div>
+              <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <div class="con-text">
+                  <p class="con-title"><?php echo $row['name']; ?></p>
+                  <p class="con-sub"><?php echo $row['detail']; ?></p>
+                </div>
+              </a>
             </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_5.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_6.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_6.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_6.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <img src="./images/main/index_sec03_6.png" alt="이미지">
-              <div class="con-text">
-                <p class="con-title">수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목수강제목</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-              <div class="cart">
-                <img src="./images/common/heart_w.png" alt="찜버튼">
-              </div>
-            </div>
+            <?php
+              }
+            ?>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>

@@ -83,7 +83,7 @@
           </a>
         </li>
         <li>
-          <a href="#" title="찜">
+          <a href="cart.php" title="찜">
             <i class="bi bi-heart"></i>
             <span>찜</span>
           </a>
