@@ -34,17 +34,22 @@
     // 강의목록
     $class_list = [];
     if (!empty($class_no)) {
-      // 배열을 문자열로 변환하여 쿼리 작성
-      $class_no_str = implode(',', array_map('intval', $class_no));
 
-      // 강의 목록 쿼리 작성
+      $class_no_str = implode(',', array_map('intval', $class_no));
       $class_sql = "SELECT * FROM academy_list WHERE class_no IN ($class_no_str)";
-      
-      // 쿼리 실행
       $class_result = mysqli_query($conn, $class_sql);
       
       // 결과를 배열로 저장
       while ($row = mysqli_fetch_assoc($class_result)) {
+          // 각 강의의 결제 정보 가져오기
+          $class_no = intval($row['class_no']);
+          $order_info_sql = "SELECT name, datetime FROM `order` WHERE class_no = $class_no AND id = '$id'";
+          $order_info_result = mysqli_query($conn, $order_info_sql);
+          $order_info = mysqli_fetch_assoc($order_info_result);
+          $row['order_name'] = $order_info['name'];
+          $row['order_datetime'] = $order_info['datetime'];
+
+          // 강의목록 저장
           $class_list[] = $row;
       }
     }
@@ -78,6 +83,54 @@
       height: 100%;
       min-height: 100vh;
     }
+
+    /* ---------모달 스타일--------- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #888;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      min-height: 300px;
+    }
+    .modal-content h2{
+      margin: 10px 0;
+      text-align: center;
+      font-size: var(--fs-medium-large);
+    }
+    .modal-content p{
+      line-height: 160%;
+    }
+    .close {
+      color: #aaa;
+      font-size: 30px;
+      font-weight: bold;
+      width: 40px;height: 40px;
+      text-align: center;
+      position: absolute;
+      top: 10px; right:10px;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -95,7 +148,9 @@
             <li>신청한 강의가 없습니다.</li>
           <?php else: ?>
             <?php foreach ($class_list as $row): ?>
-              <li id="class-<?= $row['class_no']; ?>">
+              <li id="class-<?= $row['class_no']; ?>" 
+                data-order-name="<?= $row['order_name'] ?>" 
+                data-order-datetime="<?= $row['order_datetime'] ?>">
                 <div>
                   <!-- 강의 썸네일 이미지 -->
                   <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
@@ -139,10 +194,21 @@
         <?php endif; ?>
       </ul>
     </section>
-
-
   </main>
   
+  
+  <!-- 결제정보 모달 -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>결제 정보</h2>
+      <p id="orderName">이름: <span></span></p>
+      <p id="orderDateTime">결제시간: <span></span></p>
+    </div>
+  </div>
+
+
+
   <!-- 공통푸터삽입 -->
   <?php include('./php/include/footer.php');?>
 
@@ -155,10 +221,30 @@
       // 결제정보 버튼 기능
       $('.order_info').on('click', function() {
         var classNo = $(this).data('class-no');
+        var classElement = $('#class-' + classNo);
 
-        window.location.href = './php/order_info.php?class_no=' + encodeURIComponent(classNo);
+        // 선택한 강의 항목에서 결제 정보를 가져옴
+        var orderName = classElement.data('order-name');
+        var orderDateTime = classElement.data('order-datetime');
+
+        // 모달에 결제 정보 표시
+        $('#orderName span').text(orderName);
+        $('#orderDateTime span').text(orderDateTime);
+
+        // 모달 표시
+        $('#paymentModal').show();
       });
+
+      // 모달 닫기 버튼
+      $('.close').on('click', function() {
+        $('#paymentModal').hide();
+      });
+
+
     });
+
+
+
 
     //신청취소 누르면 삭제하는 기능
     function removeOrder(classNo) {
