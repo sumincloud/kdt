@@ -123,7 +123,7 @@
                 <!-- 버튼이 들어가는 경우에만 삽입 -->
                 <div>
                   <div class="btn-box-s mt-4">
-                    <button class="btn-s">수강신청</button>
+                    <button class="btn-s order_btn" data-class-no="<?= $row['class_no']; ?>">수강신청</button>
                     <button class="btn-s" onclick="removeCart('<?= $row['class_no']; ?>')">삭제</button>
                   </div>
                 </div>
@@ -145,6 +145,17 @@
 
 
   <script>
+    $(document).ready(function() {
+      // 수강신청 버튼 기능
+      $('.order_btn').on('click', function() {
+        var classNo = $(this).data('class-no');
+
+        window.location.href = 'order.php?class_no=' + encodeURIComponent(classNo);
+      });
+    });
+
+
+
     //찜목록에서 삭제하는 기능
     function removeCart(classNo) {
       $.ajax({

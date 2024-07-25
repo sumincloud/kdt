@@ -13,12 +13,13 @@
   $class_no = $_POST['class_no'];
   $action = $_POST['action']; // 'add' 또는 'remove'
   $id = $_SESSION['id'];
+  $name = $_SESSION['name'];
   date_default_timezone_set('Asia/Seoul');
   $datetime = date('Y-m-d H:i:s', time());
 
   if ($action == 'add') {
     // 장바구니에 추가
-    $sql = "INSERT INTO cart (class_no, id, datetime) VALUES ('$class_no', '$id', '$datetime')";
+    $sql = "INSERT INTO cart (class_no, id, name, datetime) VALUES ('$class_no', '$id', '$name', '$datetime')";
     if (mysqli_query($conn, $sql)) {
       echo "성공: 장바구니에 추가되었습니다.";
     } else {
