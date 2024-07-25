@@ -231,7 +231,7 @@
       <nav class='icon_menu'>
         <ul>
           <li>
-            <a href='#' title='신청목록'>
+            <a href='./order_list.php' title='신청목록'>
               <i class='bi bi-bag-check'></i>
               <span>신청목록</span>
             </a>
@@ -283,7 +283,7 @@
                       <div>
                         <!-- 강의 썸네일 이미지 -->
                         <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                          <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                          <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
                         </a>
                         <!-- 강의 이름 -->
                         <div>
@@ -339,7 +339,7 @@
                       <div>
                         <!-- 강의 썸네일 이미지 -->
                         <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                          <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                          <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
                         </a>
                         <!-- 강의 이름 -->
                         <div>
@@ -370,7 +370,8 @@
                           <button class="btn-s line">문의하기</button>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
-                          <button class="btn-l">후기작성</button>
+                          <!--후기작성으로 이동-->
+                          <a href="./review_write.php?class_no=<?= $row['class_no']; ?>" class="btn-l">후기작성</a>
                         </div>
                       </div>
                     </li>
