@@ -320,3 +320,48 @@ $button-gap: 10px;
     }
   }
 }
+
+//체크되는 애니메이션 아이콘
+.checkmark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+
+  svg {
+    width: 100px;
+    height: 100px;
+
+    .circle {
+      fill: none;
+      stroke: $red;
+      stroke-width: 7;
+    }
+
+    .checkmark {
+      width: 100px;
+      height: 100px;
+      stroke-width: 7;
+      stroke: $red;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: drawCheck 1s ease-out forwards;
+      transform: scale(0.9);
+      transform-origin: center;
+    }
+  }
+}
+@keyframes drawCheck {
+  0% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+  }
+  100% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 0;
+  }
+}
+
+

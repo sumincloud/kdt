@@ -229,4 +229,44 @@ html {
 }
 .card-list li > div:first-of-type .cart img {
   width: 100%;
+}
+
+.checkmark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+.checkmark-container svg {
+  width: 100px;
+  height: 100px;
+}
+.checkmark-container svg .circle {
+  fill: none;
+  stroke: #EF2F15;
+  stroke-width: 7;
+}
+.checkmark-container svg .checkmark {
+  width: 100px;
+  height: 100px;
+  stroke-width: 7;
+  stroke: #EF2F15;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: drawCheck 1s ease-out forwards;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
+@keyframes drawCheck {
+  0% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+  }
+  100% {
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 0;
+  }
 }/*# sourceMappingURL=common.css.map */

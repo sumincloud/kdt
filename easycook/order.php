@@ -113,8 +113,8 @@
             <span>결제 금액</span>
             <span><?php echo number_format($row_price['price']); ?>원</span>
           </p>
-          <div class="btn-box-l">
-            <a href="<?=$row['class_no'];?>" class="btn-l">결제하기</a>
+          <div class="btn-box-l mb-5">
+            <a href="./php/order_input.php?class_no=<?= $row['class_no']; ?>" class="btn-l">결제하기</a>
             <button class="btn-l" onclick="history.back();">이전으로</button>
           </div>
         </li>
@@ -123,6 +123,9 @@
 
 
   </main>
+
+  <!-- 공통푸터삽입 -->
+  <?php include('./php/include/footer.php');?>
 
   <!-- 공통 바텀바삽입 -->
   <?php include('./php/include/bottom.php');?>

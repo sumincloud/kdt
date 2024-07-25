@@ -286,5 +286,17 @@
     </li>
     <?php } ?>
   </ul>
+
+  <!-- 체크되는 애니메이션 아이콘 -->
+  <div class="checkmark-container">
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <circle class="circle" cx="50" cy="50" r="45" />
+      <path class="checkmark" d="M20,50 L45,75 L75,35" />
+    </svg>
+  </div>
+
+
+
+
 </body>
 </html>

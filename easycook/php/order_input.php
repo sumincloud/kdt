@@ -5,7 +5,9 @@
   include('./include/dbconn.php');
   // 세션 ID 확인
   if (!isset($_SESSION['id'])) {
-    echo "로그인";
+    echo "<script>
+          alert('로그인이 필요합니다.');
+          </script>";
     exit(); // 스크립트 종료
   }
 
@@ -16,12 +18,29 @@
   date_default_timezone_set('Asia/Seoul');
   $datetime = date('Y-m-d H:i:s', time());
 
-  //order 테이블에 데이터 추가
-  $sql = "INSERT INTO `order` (class_no, id, datetime) VALUES ('$class_no', '$id', '$datetime')";
-  if (mysqli_query($conn, $sql)) {
-    echo "성공: 장바구니에 추가되었습니다.";
+  // 동일한 class_no가 있는지 확인
+  $check_sql = "SELECT * FROM `order` WHERE class_no = '$class_no' AND id = '$id'";
+  $result = mysqli_query($conn, $check_sql);
+
+  if (mysqli_num_rows($result) > 0) {
+    // 이미 신청한 강의인 경우
+    echo "<script>
+          alert('이미 신청한 강의입니다.');
+          window.location.href = '../order_list.php';
+          </script>";
   } else {
-    echo "실패: 오류가 발생했습니다: " . mysqli_error($conn);
+    // order 테이블에 데이터 추가
+    $sql = "INSERT INTO `order` (class_no, id, name, datetime) VALUES ('$class_no', '$id', '$name', '$datetime')";
+    if (mysqli_query($conn, $sql)) {
+      echo "<script>
+            window.location.href = '../order_complete.php';
+            </script>";
+    } else {
+      echo "<script>
+            alert('결제실패 : " . mysqli_error($conn) . "');
+            history.back();
+            </script>";
+    }
   }
   // 데이터베이스 연결 종료
   mysqli_close($conn);
