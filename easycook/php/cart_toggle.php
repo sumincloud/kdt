@@ -17,23 +17,23 @@
   $datetime = date('Y-m-d H:i:s', time());
 
   if ($action == 'add') {
-      // 장바구니에 추가
-      $sql = "INSERT INTO cart (class_no, id, datetime) VALUES ('$class_no', '$id', '$datetime')";
-      if (mysqli_query($conn, $sql)) {
-          echo "성공: 장바구니에 추가되었습니다.";
-      } else {
-          echo "실패: 오류가 발생했습니다: " . mysqli_error($conn);
-      }
+    // 장바구니에 추가
+    $sql = "INSERT INTO cart (class_no, id, datetime) VALUES ('$class_no', '$id', '$datetime')";
+    if (mysqli_query($conn, $sql)) {
+      echo "성공: 장바구니에 추가되었습니다.";
+    } else {
+      echo "실패: 오류가 발생했습니다: " . mysqli_error($conn);
+    }
   } else if ($action == 'remove') {
-      // 장바구니에서 삭제
-      $sql = "DELETE FROM cart WHERE class_no = '$class_no' AND id = '$id'";
-      if (mysqli_query($conn, $sql)) {
-          echo "성공: 장바구니에서 삭제되었습니다.";
-      } else {
-          echo "실패: 오류가 발생했습니다: " . mysqli_error($conn);
-      }
+    // 장바구니에서 삭제
+    $sql = "DELETE FROM cart WHERE class_no = '$class_no' AND id = '$id'";
+    if (mysqli_query($conn, $sql)) {
+      echo "성공: 장바구니에서 삭제되었습니다.";
+    } else {
+      echo "실패: 오류가 발생했습니다: " . mysqli_error($conn);
+    }
   } else {
-      echo "실패: 잘못된 요청입니다.";
+    echo "실패: 잘못된 요청입니다.";
   }
   // 데이터베이스 연결 종료
   mysqli_close($conn);

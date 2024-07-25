@@ -22,20 +22,20 @@
 
     // --------------내 강의 정보 불러오는 부분----------------
     // order 테이블에서 세션ID와 일치하는 class_no 값을 가져오기
-    $order_sql = "SELECT class_no FROM `order` WHERE id='$id'";
-    $order_result = mysqli_query($conn, $order_sql);
+    $sql_my = "SELECT class_no FROM `order` WHERE id='$id'";
+    $result_my = mysqli_query($conn, $sql_my);
 
     // class_no 값을 배열로 저장
     $class_no = array();
-    while ($order_row = mysqli_fetch_array($order_result)) {
-      $class_no[] = $order_row['class_no'];
+    while ($row_my = mysqli_fetch_array($result_my)) {
+      $class_no[] = $row_my['class_no'];
     }
 
     // 현재 날짜
     $today = date('Y-m-d');
 
     // 현재 강의와 지난 강의를 구분하여 배열에 저장
-    $class_no_list = implode(",", $class_no);  // 배열을 콤마로 구분된 문자열로 변환
+    $class_no_list = implode(",", $class_no);
 
     // 현재 강의 쿼리
     $now_class_list = [];
@@ -58,7 +58,6 @@
     $now_class_list = [];
     $past_class_list = [];
   }
-
 
 ?>
 <!DOCTYPE html>
@@ -306,10 +305,6 @@
                             <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
                           </div>
                         </div>
-                        <!-- 찜버튼 -->
-                        <div class="cart">
-                          <img src="./images/common/heart_w.png" alt="찜버튼">
-                        </div>
                       </div>
 
                       <!-- 버튼이 들어가는 경우에만 삽입 -->
@@ -365,10 +360,6 @@
                           <div>
                             <span><?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?></span>
                           </div>
-                        </div>
-                        <!-- 찜버튼 -->
-                        <div class="cart">
-                          <img src="./images/common/heart_w.png" alt="찜버튼">
                         </div>
                       </div>
 
