@@ -1,11 +1,16 @@
 <?php
   session_start();
   include('./php/include/dbconn.php');
-  $id = $_SESSION['id'];
+
+  if (isset($_SESSION['id'])) {
+    $id = $_SESSION['id'];
+  }else{
+    $id = null;
+  }
 
   // 사용자가 카트에 담은 상품 목록 가져오기
   $cart_class_no = [];
-  if ($id) {
+  if ($id !== null) {
     $cart_sql = "SELECT class_no FROM cart WHERE id = '$id'";
     $cart_result = mysqli_query($conn, $cart_sql);
     while ($cart_row = mysqli_fetch_assoc($cart_result)) {
@@ -638,7 +643,10 @@
 
 
   <!-- 스와이퍼 js -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+
+  
   <!-- 공통스크립트 연결 -->
   <script src="./script/common.js"></script>
   <!-- 메인스크립트 연결 -->

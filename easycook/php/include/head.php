@@ -12,7 +12,8 @@
 <!-- 부트스트랩 아이콘폰트 연결 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!-- 스와이퍼 css -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.css" />
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
