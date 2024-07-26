@@ -274,13 +274,13 @@
                     </a>
                   </li>
                   <li>
-                    <a href='#' title='신청목록'>
+                    <a href='./order_list.php' title='신청목록'>
                       <i class='bi bi-bag-check'></i>
                       <span>신청목록</span>
                     </a>
                   </li>
                   <li>
-                    <a href='#' title='찜목록'>
+                    <a href='./cart.php' title='찜목록'>
                       <i class='bi bi-heart'></i>
                       <span>찜목록</span>
                     </a>

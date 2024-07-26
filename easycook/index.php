@@ -243,6 +243,20 @@
       <div class="mt-3">
         <div class="swiper mySwiper5">
           <div class="swiper-wrapper">
+            <!-- <?php 
+              //리뷰 불러오는곳
+              $sql = "SELECT * FROM review WHERE id='$id'";
+              $result = mysqli_query($conn,$sql);
+              $total_review= mysqli_num_rows($result);
+
+              while($row = mysqli_fetch_array($result)){ 
+                $class_no = $row['class_no'];
+                $arry_img = $row['img'];
+                
+                $sql2 = "select * from academy_list where class_no = '$class_no'";
+                $result2 = mysqli_query($conn,$sql2);
+                $row2 = mysqli_fetch_array($result2);
+            ?> -->
             <div class="swiper-slide">
               <div class="profile">
                 <img src="https://dummyimage.com/300x300" alt="이미지">
@@ -263,6 +277,10 @@
                 <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
               </div>
             </div>
+            <!-- <?php } ?> -->
+
+
+
             <div class="swiper-slide">
               <div class="profile">
                 <img src="https://dummyimage.com/300x300" alt="이미지">

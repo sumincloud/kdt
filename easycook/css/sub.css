@@ -1,0 +1,412 @@
+@charset "UTF-8";
+
+.hide{display: none;}
+
+/*--------------------------------------*/
+/*탭컨텐츠 내용 .con 에서 개별로 지정해줘야하는거 서식*/
+/*기본 top 40px 헤더 바로 아래에 딱붙게 나옴*/
+.intro .con{ 
+  top: 40px ; left: 0px;
+  /* background: cornflowerblue; */
+}
+
+/* .cook .con{} */
+
+/*footer내리기위해 높이주는 곳*/
+/* .intro{position: relative;}
+.cook{position: relative;} */
+/*-------------------------------------*/
+
+
+
+/*-------------------------------------------------*/
+/*카테고리 헤더 부분*/
+.sub_header{
+  width: 100%;
+  position: relative;
+  margin-top: 70px;
+}
+.sub_header select{
+  width: 100%; height: 40px;
+  text-align: center;
+  border: none;
+}
+
+
+.tab_con > ul{
+  display: flex; 
+  justify-content: space-between;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0px !important;
+}
+.tab_con >ul >li{
+  width: 100%;
+}
+.tab_con >ul >li>a{
+  width: 100%; 
+  height: 100%;
+  line-height: 40px;
+  background: #EDEDED;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: #161616;
+  font-size: var(--font_title_20);
+  border-top: 2px solid #D9D9D9 ;
+}
+
+.tab_con{
+  position: relative;
+}
+
+.tab_con .con{ 
+  width: 100%;
+  position: absolute; top: 40px ; left: 0px;
+  /* background: cornflowerblue; */
+}
+
+/*오류 해결을 위해*/
+.tab_con > ul>li:nth-child(2)>div{display: none;}
+
+.tab_con .on{
+  border-top: 2px solid var(--red) !important;
+  background: #fff !important;
+  color: var(--red) !important ;
+}
+
+/*---------------------------------------------------------*/
+/*t_con  상세페이지 탭메뉴 서식*/
+.t_con > ul{
+  display: flex; 
+  justify-content: space-between;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0px !important;
+}
+.t_con >ul >li{
+  width: 100%;
+}
+.t_con >ul >li>a{
+  width: 100%; 
+  height: 100%;
+  line-height: 40px;
+  background:  var(--white);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: #161616;
+  font-size: var(--font_title_20);
+  border-bottom: 2px solid var(--gray) ;
+}
+
+.t_con{
+  position: relative;
+}
+
+
+/*오류 해결을 위해*/
+.t_con > ul>li:nth-child(2)>div{display: none;}
+
+.t_con .on2{
+  border-bottom: 2px solid var(--yellow) !important;
+  background: var(--yellow) !important;
+  color: #000000 !important ;
+}
+/*---------------------------------------------------------*/
+/*준비중입니다 서식*/
+.intro_teacher{
+  width: 90%;
+  padding-top:15%;
+  text-align: center;
+  padding-bottom:16%;
+}
+
+.intro_teacher a{
+  color:#fff;
+  font-weight:var(--fw-normal);
+}
+.intro_teacher i{
+  font-size:84px;
+  color:#a8a8a8;
+}
+.intro_teacher h2{
+  font-size:var(--fs-xlarge);
+  font-weight:var(--fw-bold);
+  margin-top:28px;
+  margin-bottom:28px;
+}
+.intro_teacher span{
+  color:var(--green);
+}
+.intro_teacher p{
+  font-size:var(--fs-medium-large);
+  margin-bottom:62px;
+}
+@media (min-width: 1400px) {
+  .intro_teacher {
+    width: 1400px;
+  }
+  .intro_teacher article{
+    width:50%;
+    margin:0 auto;
+    text-align:center;
+    padding-top:180px;
+  }
+}
+/*---------------------------------------------------------*/
+/*여기부터는 학원소개 페이지 안에 내용*/
+.intro_con img{
+  width: 100%;
+  height: 220px;
+}
+.intro_con div{
+  width: 90%;
+  margin: 0 auto
+}
+.intro_con h2{
+  margin: 40px 0px;
+  font-size: var(--fs-large);
+  font-weight: var(--fw-bold);
+}
+.intro_con p{
+  line-height: 20px;
+  font-size: var(--fs-small);
+  font-weight: var( --fw-light);
+  margin-bottom: 50px;
+}
+
+
+/*-------------------------------------------------------*/
+/*여기서부터는 카테고리 요리의 강의 리스트 서식*/
+.cook_con{margin-top: 35px;margin-bottom: 20px;}
+
+.cook_con > ul> li{
+  width: 95%; 
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+/*--------------------------------------------------*/
+/*cook_detail 여기서부터는 강의 상세페이지*/
+
+.cook_tail{
+  width: 90%;
+  margin:  0 auto;
+  padding-top: 56px;
+  padding-bottom: 16px;
+}
+
+.cook_tail ul{
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 24px;
+}
+
+.cook_tail ul li{
+  margin:7px 0px;
+}
+
+.cook_hr{
+  width: 100%;
+  height: 15px;
+  background: var(--gray);
+}
+
+.cook_review{
+  width: 90%;
+  margin: 50px auto;
+}
+
+.cook_review p:first-child{}
+.cook_review p:first-child > img{
+  width: 42px;
+  transform: translatey(13px);
+  margin-right: 15px;
+}
+.cook_review p:nth-child(2){margin-top: 15px; color: #686868;}
+.cook_review p:nth-child(2) >span{margin-right: 10px;}
+.cook_review p:nth-child(3){
+  margin-top: 20px;
+}
+
+/*해당과정 바로 상담 신청 (이메일) 부분 서식*/
+.inquire{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.inquire h2{
+  font-size: var(--fs-medium-large);
+  font-weight: var(--fw-bold);
+  margin-bottom: 80px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.inquire input[type=text]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  margin-bottom: 40px;
+  margin-top: 5px;
+}
+.inquire input[type=submit]{
+  width: 100%; background: var(--red);
+  border: none; color: var(--white);
+  height: 40px; border-radius: 5px;
+  margin-bottom: 70px;
+}
+
+/*----------------------------------------------------------*/
+/*---------------------------------------------------------*/
+/*여기는 후기 작성 페이지 서식*/
+.review_write{
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.review_write > h2{
+  font-size: var(--fs-xlarge);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  margin-top: 24px ;
+  margin-bottom: 30px;
+}
+
+.academy_view, .review_star, .review_photo {
+  margin-bottom: 36px;
+}
+
+.review_star h2, .review_photo h2,.re_view h2{
+  margin-bottom: 5px;
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-bold);
+}
+
+/*별점*/
+.review_star .star_size{
+  font-size: 34px !important;
+}
+
+.review_write .review_photo{
+  position: relative;
+}
+
+.review_photo .photo{
+  border:1px solid #333;
+  width: 60px; height: 60px;
+  border-radius: 5px;
+}
+
+/*사진*/
+.review_photo .camera{
+  font-size: 25px;
+  position: absolute; 
+  bottom:30px; left: 30px;
+  transform: translate(-50%,0%);
+}
+.review_photo p{
+  font-size: var(--fs-medium);
+  position: absolute;
+  bottom: 3px; left: 30px;
+  transform: translate(-50%,-50%);
+}
+
+
+.review_photo #image_preview{
+  height: 60px;
+  overflow: hidden;
+  position: absolute;
+  bottom:0px !important; left: 70px;
+}
+
+.review_photo #image_preview >img{
+  width: 60px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/*리뷰 내용*/
+
+.re_view{
+  margin-bottom: 30px;
+}
+
+.re_view textarea{
+  width: 100%; height: 242px;
+  border-radius: 10px;
+  border: 1px solid var(--red);
+}
+
+/*----------------------------------------------------------*/
+/*내 후기 서식 여기*/
+.review_list{width: 90%; margin: 0 auto;}
+
+
+.review_list .review_detail{}
+
+
+.review_list > h2{
+  margin-top: 28px;
+  font-size: var(--fs-large);font-weight: var(--fw-semi-bold);
+}
+.review_list > p:first-child{
+  font-size: var(--fs-xsmall); 
+  font-weight: var(--fw-light); 
+  padding-top: 13px;
+}
+.review_list > p:first-child b{font-weight: var(--fw-bold);}
+.review_list > p:nth-child(3){
+  font-size: var(--fs-xsmall); 
+  font-weight: var(--fw-light); 
+  color: var(--gray);
+  margin-bottom: 34px;
+}
+
+
+.review_list .review_detail  h2{
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-semi-bold);
+  margin-bottom: 5px;
+}
+/*이건 p 공통서식 간격*/
+.review_list .review_detail p{
+  margin-bottom: 20px;
+}
+/*이미지 서식*/
+.review_list .review_detail .review_img{
+  display: flex;
+}
+.review_list .review_detail img{
+  width: 100px; height: 100px;
+  border-radius: 5px; margin-right: 12px;
+}
+
+.review_list .review_detail li{
+  position: relative;
+}
+
+
+/*이건 0일전 서식*/
+.review_list .review_detail .day_gray{color: var(--gray);}
+
+
+/*이건 수정삭제 버튼*/
+.review_list .review_detail .ud_btn{
+  position: absolute;
+  right: 0px; top: 30px;
+}
+.review_list .review_detail .ud_btn a{
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-size: var(--fs-xsmall);
+  font-weight: var(--light);
+}
+
+.review_list .review_detail .ud_btn a:first-child{background-color: var(--yellow);}
+.review_list .review_detail .ud_btn a:last-child{background-color: var(--gray);}
+
+

@@ -280,15 +280,15 @@
                 <?php else: ?>
                   <?php foreach ($now_class_list as $row): ?>
                     <li>
-                      <div>
+                      <div onclick="location.href='./myclass_info.php?class_no=<?= $row['class_no']; ?>'" style="cursor:pointer;">
                         <!-- 강의 썸네일 이미지 -->
-                        <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                        <a href="./myclass_info.php?class_no=<?= $row['class_no']; ?>" title="나의 강의정보">
                           <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
                         </a>
                         <!-- 강의 이름 -->
                         <div>
                           <h2>
-                            <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                            <a href="./myclass_info.php?class_no=<?= $row['class_no']; ?>" title="강의이름">
                               <?php echo $row['name']; ?>
                             </a>
                           </h2>
@@ -314,7 +314,7 @@
                           <button class="btn-s line">문의하기</button>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
-                          <button class="btn-l">출석체크</button>
+                          <button class="btn-l" id="attend">출석체크</button>
                         </div>
                       </div>
                     </li>
@@ -336,15 +336,15 @@
                 <?php else: ?>
                   <?php foreach ($past_class_list as $row): ?>
                     <li>
-                      <div>
+                      <div onclick="location.href='./myclass_info.php?class_no=<?= $row['class_no']; ?>'" style="cursor:pointer;">
                         <!-- 강의 썸네일 이미지 -->
-                        <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                        <a href="./myclass_info.php?class_no=<?= $row['class_no']; ?>" title="나의 강의정보">
                           <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
                         </a>
                         <!-- 강의 이름 -->
                         <div>
                           <h2>
-                            <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
+                            <a href="./myclass_info.php?class_no=<?= $row['class_no']; ?>" title="강의 이름">
                               <?php echo $row['name']; ?>
                             </a>
                           </h2>
@@ -441,6 +441,42 @@
       });
 
 
+      // ----------출석체크 버튼 클릭 이벤트 처리---------
+      $('#attend').click(function() {
+        if (sessionId) {
+          var classNo = $(this).closest('li').find('a').data('class-no');
+          
+          // AJAX 요청 보내기
+          $.ajax({
+            url: './php/attendance_input.php',
+            type: 'POST',
+            data: {
+              class_no: classNo,
+              id: sessionId
+            },
+            success: function(response) {
+              // JSON 응답을 파싱
+              var php = JSON.parse(response);
+
+              // 서버 응답 처리
+              if (php.status === 'success') {
+                alert(php.message);
+                // 필요에 따라 페이지 리프레시 또는 추가 처리
+                // location.reload(); // 예를 들어, 페이지를 새로고침할 경우
+              } else {
+                alert(php.message);
+              }
+            },
+            error: function(xhr, status, error) {
+              alert('서버 오류: ' + error);
+            }
+          });
+
+        } else {
+          alert('로그인이 필요합니다.');
+          window.location.href = './login.php';
+        }
+      });
 
 
     });
