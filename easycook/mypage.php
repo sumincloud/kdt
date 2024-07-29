@@ -481,7 +481,7 @@
               // 서버 응답 처리
               if (php.status === 'success') {
                 alert(php.message);
-                // button.text('출석완료').attr('disabled', true);
+                button.text('출석완료').attr('disabled', true).css('background', '#aaa');
               } else {
                 alert(php.message);
               }
