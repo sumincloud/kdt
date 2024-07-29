@@ -54,9 +54,20 @@
         $past_class_list[] = $row;
       }
     }
+
+    // 출석 여부 확인
+    $attend_check = [];
+    if (!empty($class_no_list)) {
+      $check_attendance = "SELECT class_no FROM attendance WHERE id='$id' AND DATE(datetime)='$today'";
+      $check_result = mysqli_query($conn, $check_attendance);
+      while ($row = mysqli_fetch_array($check_result)) {
+        $attend_check[] = $row['class_no'];
+      }
+    }
   } else {
     $now_class_list = [];
     $past_class_list = [];
+    $attend_check = [];
   }
 
 ?>
@@ -314,8 +325,15 @@
                           <button class="btn-s line">문의하기</button>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
-                          <button class="btn-l" id="attend">출석체크</button>
+                          <button class="btn-l attend" data-class-no="<?= $row['class_no']; ?>" 
+                          <?php if (in_array($row['class_no'], $attend_check)): ?> 
+                            disabled style="background:#aaa;">출석완료
+                          <?php else: ?>
+                            >출석체크
+                          <?php endif; ?>
+                          </button>
                         </div>
+                        
                       </div>
                     </li>
                   <?php endforeach; ?>
@@ -442,10 +460,12 @@
 
 
       // ----------출석체크 버튼 클릭 이벤트 처리---------
-      $('#attend').click(function() {
-        if (sessionId) {
-          var classNo = $(this).closest('li').find('a').data('class-no');
-          
+      $('.attend').click(function() {
+        var button = $(this);
+        var classNo = button.data('class-no');
+
+
+        if (sessionId && (button.text().trim() === '출석체크')) {
           // AJAX 요청 보내기
           $.ajax({
             url: './php/attendance_input.php',
@@ -461,8 +481,7 @@
               // 서버 응답 처리
               if (php.status === 'success') {
                 alert(php.message);
-                // 필요에 따라 페이지 리프레시 또는 추가 처리
-                // location.reload(); // 예를 들어, 페이지를 새로고침할 경우
+                // button.text('출석완료').attr('disabled', true);
               } else {
                 alert(php.message);
               }

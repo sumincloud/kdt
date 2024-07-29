@@ -266,7 +266,7 @@
             ?>
             <div class="swiper-slide">
               <div class="profile">
-                <img src="<?php echo $profile_review; ?>" alt="프로필 이미지">
+                <img src="./uploads/profile/<?php echo $profile_review; ?>" alt="프로필 이미지">
                 <div>
                   <!--별점-->
                   <div>
