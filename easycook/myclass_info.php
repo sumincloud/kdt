@@ -14,6 +14,56 @@
     $sql = "select * from academy_list where class_no = '$class_no'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($result);
+
+    // 출석 현황 조회
+    $sql_attendance = "
+        SELECT
+        a.class_no,
+        a.id,
+        a.datetime AS attendance_time,
+        al.start_time,
+        al.end_time,
+        CASE
+          WHEN TIME(a.datetime) <= TIME(al.start_time) THEN '출석' -- 수업 시작 전 출석
+          WHEN TIME(a.datetime) <= TIME(al.start_time) + INTERVAL 10 MINUTE THEN '출석' -- 수업 시작 후 10분 이내 출석
+          WHEN TIME(a.datetime) <= TIME(al.end_time) THEN '지각' -- 수업 종료 전 지각
+          ELSE '결석' -- 수업 종료 후 결석
+        END AS status
+    FROM
+        attendance a
+    JOIN
+        academy_list al ON a.class_no = al.class_no
+    WHERE
+        a.id = '$id'
+    AND
+        a.class_no = '$class_no';
+    ";
+    $result_attendance = mysqli_query($conn, $sql_attendance);
+
+    // 출석 상태 카운트
+    $attendance_count = ['출석' => 0, '지각' => 0, '결석' => 0];
+    while ($attendance_row = mysqli_fetch_array($result_attendance)) {
+        $attendance_count[$attendance_row['status']]++;
+    }
+
+    // 강의 전체 기간 계산
+    $start_date = new DateTime($row['start_date']);
+    $end_date = new DateTime($row['end_date']);
+    $current_date = new DateTime(); // 현재 날짜
+    $interval = $start_date->diff($end_date);
+    $total_days = $interval->days + 1; // 전체 기간 (포함)
+
+    // 진행된 기간 계산
+    $progress_interval = $start_date->diff($current_date);
+    $progress_days = $progress_interval->days + 1; // 현재 날짜까지의 기간 (포함)
+
+    // 날짜가 현재 날짜보다 이후인 경우 진행된 기간을 전체 기간으로 설정
+    if ($current_date > $end_date) {
+        $progress_days = $total_days;
+    }
+
+
+
   } else {
     echo "<script>
             alert('로그인이 필요한 서비스입니다.');
@@ -102,7 +152,7 @@
             <div class="card-body">
               <p class="card-title text-center"><strong>나의 출석현황</strong></p>
               <div class="d-flex">
-                <div>출석률 그래프 영역</div>
+                <div>출석률 그래프 영역 <?php echo $attendance_count['출석']; ?> / <?php echo $total_days; ?></div>
                 <table>
                   <tr>
                     <th>출석</th>
@@ -110,12 +160,12 @@
                     <th>결석</th>
                   </tr>
                   <tr>
-                    <td>1일</td>
-                    <td>0일</td>
-                    <td>3일</td>
+                    <td><?php echo $attendance_count['출석']; ?>일</td>
+                    <td><?php echo $attendance_count['지각']; ?>일</td>
+                    <td><?php echo $attendance_count['결석']; ?>일</td>
                   </tr>
                   <tr>
-                    <td colspan="3">강의진행률 20 / 120일</td>
+                    <td colspan="3">강의진행률 <?php echo $progress_days; ?> / <?php echo $total_days; ?>일</td>
                   </tr>
                 </table>
               </div>
