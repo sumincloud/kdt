@@ -278,6 +278,7 @@ section{
   line-height: 140%;
   @include text-over(3); /* 3줄 말줄임 */
   margin-top: 10px;
+  min-height: 4.2em;
 }
 
 /* ------7, 8, 9. 인기수강 -----*/
@@ -380,6 +381,10 @@ section{
 #sec12 .tab button.active{
   color: $black;
   border-bottom: 2px solid $black;
+}
+#sec12 .tab_con li a{
+  @include text-over(1); /* 1줄 말줄임 */
+  width: 70%;
 }
 
 

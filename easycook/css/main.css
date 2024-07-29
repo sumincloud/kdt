@@ -244,14 +244,14 @@ html {
 }
 .checkmark-container svg .circle {
   fill: none;
-  stroke: #000;
+  stroke: #EF2F15;
   stroke-width: 7;
 }
 .checkmark-container svg .checkmark {
   width: 100px;
   height: 100px;
   stroke-width: 7;
-  stroke: #000;
+  stroke: #EF2F15;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -621,6 +621,7 @@ section {
   white-space: normal;
   /* 3줄 말줄임 */
   margin-top: 10px;
+  min-height: 4.2em;
 }
 
 /* ------7, 8, 9. 인기수강 -----*/
@@ -741,6 +742,17 @@ section {
 #sec12 .tab button.active {
   color: #000000;
   border-bottom: 2px solid #000000;
+}
+
+#sec12 .tab_con li a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: normal;
+  /* 1줄 말줄임 */
+  width: 70%;
 }
 
 /* 1400px 이상일때 요소배치 */

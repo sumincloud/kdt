@@ -129,7 +129,7 @@
           <div class="swiper-wrapper">
             <?php
               /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE class_status = '개설' LIMIT 10";
+              $sql = "SELECT * FROM academy_list WHERE class_status = '현재강의' LIMIT 10";
               $result = mysqli_query($conn, $sql);
               // 카운터 변수 초기화
               $counter = 1;
@@ -178,7 +178,7 @@
               /* 현재 날짜부터 start_date까지 얼마 안남은 순으로 상품 10개 */
               $sql = "SELECT *, DATEDIFF(start_date, NOW()) AS days_left 
                       FROM academy_list 
-                      WHERE class_status = '개설' 
+                      WHERE class_status = '현재강의' 
                       ORDER BY days_left ASC 
                       LIMIT 10";
               $result = mysqli_query($conn, $sql);
@@ -243,144 +243,57 @@
       <div class="mt-3">
         <div class="swiper mySwiper5">
           <div class="swiper-wrapper">
-            <!-- <?php 
+            <?php 
               //리뷰 불러오는곳
-              $sql = "SELECT * FROM review WHERE id='$id'";
+              $sql = "SELECT * FROM review LIMIT 10"; //WHERE star='5'"
               $result = mysqli_query($conn,$sql);
               $total_review= mysqli_num_rows($result);
 
               while($row = mysqli_fetch_array($result)){ 
                 $class_no = $row['class_no'];
-                $arry_img = $row['img'];
+                $review_id = $row['id']; // 리뷰 테이블의 ID를 가져옵니다.
                 
+                // academy_list에서 해당 class_no에 대한 정보 가져오기
                 $sql2 = "select * from academy_list where class_no = '$class_no'";
                 $result2 = mysqli_query($conn,$sql2);
                 $row2 = mysqli_fetch_array($result2);
-            ?> -->
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
-            <!-- <?php } ?> -->
 
+                // register 테이블에서 해당 리뷰 ID에 대한 프로필 이미지 경로 가져오기
+                $sql3 = "SELECT profile FROM register WHERE id = '$review_id'";
+                $result3 = mysqli_query($conn, $sql3);
+                $row3 = mysqli_fetch_array($result3);
+                $profile_review = $row3['profile']; // 프로필 이미지 경로
+            ?>
+            <div class="swiper-slide">
+              <div class="profile">
+                <img src="<?php echo $profile_review; ?>" alt="프로필 이미지">
+                <div>
+                  <!--별점-->
+                  <div>
+                  <?php
+                    $review_star = "";
+                    $star = $row["star"];
+                    for($i = 0; $i < 5; $i++){
+                      if($i < $star){
+                        $review_star .= '<i class="bi bi-star-fill active"></i>' ;
+                      }else{
+                        $review_star .= '<i class="bi bi-star-fill"></i>' ;
+                      }
+                    }
+                  ?>
+                  <span class="star"><?php echo $review_star; ?></span>
+                  </div>
+                  <p><?php echo $row['name'] ?></p>
+                </div>
+              </div>
+              <div class="con-text">
+                <p><?php echo $row2['name'] ?></p>
+                <p class="con-title"><?php echo $row['review'] ?></p>
+                <p class="con-sub"><?php echo $row['review'] ?></p>
+              </div>
+            </div>
+            <?php } ?>
 
-
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="profile">
-                <img src="https://dummyimage.com/300x300" alt="이미지">
-                <div>
-                  <div class="star">
-                    <i class="bi bi-star-fill active"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>작성자 명</p>
-                </div>
-              </div>
-              <div class="con-text">
-                <p>[3회차] 제과제빵 기능사 자격증 취득과정</p>
-                <p class="con-title">자격증 취득했어요 !! 너무너무 행복합니다.</p>
-                <p class="con-sub">수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용수강내용</p>
-              </div>
-            </div>
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -399,7 +312,7 @@
           <div class="swiper-wrapper">
             <?php
               /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE category1 = '요리' LIMIT 10";
+              $sql = "SELECT * FROM academy_list WHERE category1 LIKE '%기능사%' LIMIT 10";
               $result = mysqli_query($conn, $sql);
 
               while ($row = mysqli_fetch_assoc($result)) {
@@ -462,10 +375,10 @@
         </div>
       </div>
     </section>
-    <!-- 9. 인기 제과제빵 강의 -->
+    <!-- 9. 인기 베이커리 강의 -->
     <section id="sec09">
       <div class="title">
-        <h2>인기 제과제빵 강의</h2>
+        <h2>인기 베이커리 강의</h2>
         <a href="#" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
@@ -473,7 +386,7 @@
           <div class="swiper-wrapper">
             <?php
               /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE category1 = '제과제빵' LIMIT 10";
+              $sql = "SELECT * FROM academy_list WHERE category1 = '베이커리' LIMIT 10";
               $result = mysqli_query($conn, $sql);
 
               while ($row = mysqli_fetch_assoc($result)) {
@@ -517,12 +430,7 @@
 
           while ($row = mysqli_fetch_assoc($result)) {
         ?>
-        <style>
-          #sec11 .col-xl{
-            background-image: url("<?php echo './uploads/class_main/' . $row['thumnail_img']; ?>");
-          }
-        </style>
-          <div class="col-xl" onclick="location.href='./detail.php?class_no=<?php echo $row['class_no']; ?>';" style="cursor: pointer;">
+          <div class="col-xl" onclick="location.href='./detail.php?class_no=<?php echo $row['class_no']; ?>';" style="cursor: pointer; background-image: url('<?php echo './uploads/class_main/' . $row['thumnail_img']; ?>');">
             <div>
               <p><?php echo $row['name']; ?></p>
               <p><?php echo $row['detail']; ?>
@@ -548,86 +456,100 @@
       <div class="tab mt-3">
         <ul>
           <li class="tab-item">
-            <button class="tab-link active" data-tab-target="#tab1" type="button">탭1</button>
+            <button class="tab-link active" data-tab-target="#tab1" type="button">공지사항</button>
           </li>
           <li class="tab-item">
-            <button class="tab-link" data-tab-target="#tab2" type="button">탭2</button>
+            <button class="tab-link" data-tab-target="#tab2" type="button">수강생 후기</button>
           </li>
           <li class="tab-item">
-            <button class="tab-link" data-tab-target="#tab3" type="button">탭3</button>
+            <button class="tab-link" data-tab-target="#tab3" type="button">자주묻는 질문</button>
           </li>
         </ul>
         <div class="tab_con">
           <div class="active" id="tab1">
             <ul class="list">
+              <?php 
+                //공지사항 최신순으로 불러오는곳
+                $sql = "SELECT * FROM board ORDER BY datetime DESC LIMIT 4";
+                $result = mysqli_query($conn,$sql);
+                $total_review= mysqli_num_rows($result);
+
+                while($row = mysqli_fetch_array($result)){ 
+                  $title = $row['title'];
+                  $date = $row['datetime'];
+
+                  // 현재 날짜와 데이터베이스에서 가져온 날짜 사이의 차이를 계산
+                  $currentDate = new DateTime(); // 현재 날짜
+                  $postDate = new DateTime($date); // 데이터베이스에서 가져온 날짜
+                  $interval = $currentDate->diff($postDate); // 날짜 차이 계산
+                  $daysDifference = $interval->days; // 차이 일수
+                  
+                  // 날짜 차이가 3일 이하인 경우에만 'active' 클래스를 표시
+                  $activeClass = ($daysDifference <= 3) ? 'active' : '';
+              ?>
               <li>
-                <span>07.01</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span class="active">N</span>
+                <span><?php echo (new DateTime($row['datetime']))->format('m.d');?></span>
+                <a href="#" title="제목"><?php echo $title; ?></a>
+                <span class="<?php echo $activeClass; ?>">N</span>
               </li>
-              <li>
-                <span>06.25</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span class="active">N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭1 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
+              <?php }?>
             </ul>
           </div>
           <div id="tab2">
             <ul class="list">
+              <?php 
+                //수강생후기 최신순으로 불러오는곳
+                $sql = "SELECT * FROM review ORDER BY datetime DESC LIMIT 4";
+                $result = mysqli_query($conn,$sql);
+                $total_review= mysqli_num_rows($result);
+
+                while($row = mysqli_fetch_array($result)){ 
+                  $title = $row['review'];
+                  $date = $row['datetime'];
+
+                  // 현재 날짜와 데이터베이스에서 가져온 날짜 사이의 차이를 계산
+                  $currentDate = new DateTime(); // 현재 날짜
+                  $postDate = new DateTime($date); // 데이터베이스에서 가져온 날짜
+                  $interval = $currentDate->diff($postDate); // 날짜 차이 계산
+                  $daysDifference = $interval->days; // 차이 일수
+                  
+                  // 날짜 차이가 3일 이하인 경우에만 'active' 클래스를 표시
+                  $activeClass = ($daysDifference <= 3) ? 'active' : '';
+              ?>
               <li>
-                <span>07.01</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span class="active">N</span>
+                <span><?php echo (new DateTime($row['datetime']))->format('m.d');?></span>
+                <a href="#" title="제목"><?php echo $title; ?></a>
+                <span class="<?php echo $activeClass; ?>">N</span>
               </li>
-              <li>
-                <span>06.25</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭2 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
+              <?php }?>
             </ul>
           </div>
           <div id="tab3">
             <ul class="list">
+              <?php 
+                //질문 최신순으로 불러오는곳
+                $sql = "SELECT * FROM question ORDER BY question_time DESC LIMIT 4";
+                $result = mysqli_query($conn,$sql);
+
+                while($row = mysqli_fetch_array($result)){ 
+                  $title = $row['question'];
+                  $date = $row['question_time'];
+
+                  // 현재 날짜와 데이터베이스에서 가져온 날짜 사이의 차이를 계산
+                  $currentDate = new DateTime(); // 현재 날짜
+                  $postDate = new DateTime($date); // 데이터베이스에서 가져온 날짜
+                  $interval = $currentDate->diff($postDate); // 날짜 차이 계산
+                  $daysDifference = $interval->days; // 차이 일수
+                  
+                  // 날짜 차이가 3일 이하인 경우에만 'active' 클래스를 표시
+                  $activeClass = ($daysDifference <= 3) ? 'active' : '';
+              ?>
               <li>
-                <span>07.01</span>
-                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
-                <span class="active">N</span>
+                <span><?php echo (new DateTime($row['question_time']))->format('m.d');?></span>
+                <a href="#" title="제목"><?php echo $title; ?></a>
+                <span class="<?php echo $activeClass; ?>">N</span>
               </li>
-              <li>
-                <span>06.25</span>
-                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
-                <span class="active">N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
-              <li>
-                <span>06.15</span>
-                <a href="#" title="제목">탭3 제목을 입력해주세요.</a>
-                <span>N</span>
-              </li>
+              <?php }?>
             </ul>
           </div>
         </div>

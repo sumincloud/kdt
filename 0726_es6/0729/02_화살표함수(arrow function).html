@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_화살표함수(arrow function)</title>
+</head>
+<body>
+  <h2>02_화살표함수(arrow function)</h2>
+  <p>화살표 함수란 기존의 함수에서 es6에서 새롭게 나온 함수의 형태이다.</p>
+
+  <h3>기존함수 작성과 실행</h3>
+  <pre>
+    function 함수명(매개변수1, 매개변수2...){  //1번 방식
+      실행할 내용;
+    }
+
+    const 변수명 = function(){ //2번 방식
+      실행할 내용;
+    }
+
+    //함수명으로 호출하여 실행
+    함수명();
+  </pre>
+
+  <h3>es6문법에서 새로 추가된 화살표함수 작성과 실행</h3>
+  <pre>
+    const 변수명 =()=>{
+      실행할 내용;
+    }
+  </pre>
+  <p>- 화살표 함수를 쓰면 구문을 더 짧고 간결하게 작성 가능합니다. </p>
+
+  <script>
+    const hello =()=>{
+      let a = 10;
+      let b = 100;
+      document.write('문자열 결합연산자를 활용한 방법 : ');
+      document.write(a+b+'<br>');
+      document.write(`백틱문자를 활용한 방법 : ${a+b}<br>`);
+      document.write('<span>화살표 함수입니다.<span>');
+    }
+    hello();//110
+  </script>
+
+  <h3>매개변수가 한개인 유형</h3>
+  <pre>
+    함수명 = 매개변수 => {표현식};
+    함수명 = (매개변수) => {표현식};
+  </pre>
+  <p>매개변수가 한개일 경우는 굳이 담지 않아도 된다. 괄호()를 안써도 상관없다.</p>
+
+  <script>
+    square = x => {
+      return x * x; //3*3=9
+    }
+    console.log(square(3)); //9
+
+    square2 = (x, y) =>{
+      return x*y;
+    }
+    console.log(square2(3,8)); //24
+  </script>
+
+  <h3>화살표 함수와 this키워드</h3>
+  <ul>
+    <li>this(이것) - 해당 키워드가 속한 객체를 참조할 때 사용</li>
+    <li>혼자 써있다면 전역 객체를 의미</li>
+    <li>함수에서는 전역 객체를 의미</li>
+    <li>메서드 내부에서는 메서드를 소유한 객체를 의미</li>
+    <li>이벤트는 이벤트를 받는 객체 의미</li>
+  </ul>
+
+  <script>
+    let x = this; //브라우저 객체를 의미
+    console.log(x); //전역에서 this키워드를 사용하여 출력하기(window객체)
+
+    //객체는 속성값 메서드가 존재
+    this.alert('window메서드를 사용하여 메세지 띄우기');
+
+    const myFunction = ()=> {
+      return this; //전역에서 this키워드를 사용하여 출력하기(window객체)
+    }
+    console.log(myFunction);
+
+    const person = {
+      firstName:'홍',
+      lastName:'길동',
+      id:1234,
+      fullName:function(){
+        return this.firstName+''+this.lastName;
+      }
+    }
+    console.log(person.fullName()); //홍길동
+
+    //백틱문자(``)
+    // function myName(name,age){
+    //   return '안녕하세요 저는' + name + '이고, 나이는 ' + age + '입니다.';
+    // }
+
+    const myName=(name,age)=>{
+      return `안녕하세요 저는 ${name} 이고, 나이는 ${age} 입니다.`;
+    }
+
+    console.log(myName('홍길동',30));
+
+
+  </script>
+</body>
+</html>
