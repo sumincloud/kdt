@@ -100,7 +100,7 @@
                 <div onclick="location.href='./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>'" style="cursor:pointer;">
                   <!-- 강의 썸네일 이미지 -->
                   <a href="./cook_academy_detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
-                    <img src="./uploads/class_detail/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                    <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
                   </a>
                   <!-- 강의 이름 -->
                   <div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_비구조화 할당</title>
+</head>
+<body>
+  <h2>04_비구조화 할당</h2>
+  <p>비구조화할당이란? 배열이나 객체의 속성 혹은 값을 해체하여 그 값을 변수에 각각 담아 사용하는 자바스크립트 표현식입니다.</p>
+
+<script>
+  //배열 객체 생성하기
+  const fruit = ['사과','배','딸기','귤','오렌지','수박','참외'];
+  const yoil = ['일','월','화','수','목','금','토'];
+
+  //배열 데이터 출력
+  document.write(`${fruit}<br>`);
+  document.write(`${fruit[0]}<br>`);
+  document.write(`${yoil}<br>`);
+  document.write(`${yoil[2]}<br>`);
+</script>
+
+  <h3>비구조화 할당방식으로 데이터 출력하기</h3>
+  <pre>
+    #비구조화 할당 방식 배열 선언 및 호출 문법
+    const [변수명1, 변수명2, 변수명3] = [값1, 값2, 값3];
+  </pre>
+
+  <script>
+    document.write('<hr>');
+    //1. 구조 할당방식
+    const animalList = ['cat', 'dog', 'tiger'];
+    document.write(animalList);
+    document.write(animalList[0]);
+    document.write(animalList[1]);
+    document.write(animalList[2]);
+
+    document.write('<hr>');
+
+    //2. 비구조화 방식 - 4줄을 1줄로 출력
+    const [cat1,dog1,tiger1] = ['cat', 'dog', 'tiger'];
+    document.write(cat1);
+    document.write(dog1);
+    document.write(tiger1);
+  </script>
+</body>
+</html>

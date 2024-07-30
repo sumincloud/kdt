@@ -71,7 +71,7 @@
           </a>
         </li>
         <li>
-          <a href="#" title="검색">
+          <a href="search.php" title="검색">
             <i class="bi bi-search"></i>
             <span>검색</span>
           </a>

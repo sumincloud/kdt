@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_자바스크립트 es6_class문법</title>
+</head>
+<body>
+  <h2>03_자바스크립트 es6_class문법</h2>
+  <p>자바언어에서는 클래스 객체를 만들기 위한 설계도.</p>
+  <p>객체를 생성하기 위한 필드와 메서드가 정의되어 있다.</p>
+  <p>클래스는 일종의 함수이지만, function키워드 대신 class키워드를 사용한다.</p>
+  <p>속성 constructor()메서드 내부에 할당한다.</p>
+  <p>class는 사실상 함수(function)이기 때문에 함수선언과 변수선언식 둘다 선언이 가능하다.</p>
+  <pre>
+    문법)
+    class 클래스명{
+      constructor(){
+        this.속성명 = 값;
+      }
+      메서드명(){
+
+      }
+    }
+  </pre>
+  <p>class문법에서는 클래스명 작성시 무조건 '첫글자는 대문자'로 작성한다.</p>
+  <pre>
+    문법) 클래스 호출(실행)
+    const 인스턴스명 = new 클래스명();
+  </pre>
+
+  <h2>부모클래스를 상속 받는 자손클래스</h2>
+  <p>상속 : 부모 클래스의 멤버를 자식 클래스에게 물려주는 것.</p>
+  <p>부모클래스 : 상위클래스, 슈퍼클래스(super)라고 함.</p>
+  <p>자손클래스 : 하위클래스, 파생클래스라고 함.</p>
+  <p>부모와 자손을 나눠서 관리하는 이유는 재사용해서 새로운 클래스(class)를 만들기 때문에 중복되는 코드를 줄여주고 유지보수의 시간을 단축하기 위함이다.</p>
+
+  <script>
+    //1. class생성하기
+    class Car{
+      constructor(name){
+        this.brand=name;
+      }
+      present(){
+        return '나는 ' + this.brand + '를 구매하였다.';
+      }
+    }
+    //2. 자손클래스
+    class Model extends Car{
+      constructor(name, mod){
+        super(name); //super()메서드는 부모 클래스를 의미함. 
+        this.model = mod;
+      }
+      show(){
+        return this.present() + '내가 구매한 자동차 모델은 ' + this.model + '입니다.<br>';
+      }
+    }
+    //3. 클래스명을 호출하여 내용 출력하기
+    const mycar = new Car('현대자동차');
+    document.write(mycar.brand+'<br>');
+
+    //새로운 인스턴스로 객체를 생성하여 호출해서 내용을 출력할 수 있다.
+    const mycar01 = new Model('기아자동차','k5');
+    document.write(mycar01.show());
+
+    const mycar02 = new Model('광주모터스','캐스퍼');
+    document.write(mycar02.show());
+
+  </script>
+</body>
+</html>
