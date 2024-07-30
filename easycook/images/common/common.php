@@ -34,11 +34,6 @@
   <!-- 제이쿼리 -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <style>
-    body{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-    }
     .cart_box{
       background: #ccc;
       border: 1px solid #aaa;
@@ -61,11 +56,10 @@
   </div>
 
 
-  <div>실제 찜버튼 기능되는 찜버튼</div>
-  <!-- 실제 찜버튼 기능 되는 찜버튼 -->
+  <div>실제 찜버튼 기능되는 찜버튼(아래)</div>
   <?php
     /* 해당 카테고리의 상품 10개 */
-    $sql = "SELECT * FROM academy_list WHERE class_status = '개설' LIMIT 10";
+    $sql = "SELECT * FROM academy_list WHERE class_status = '현재강의' LIMIT 2";
     $result = mysqli_query($conn, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -234,7 +228,7 @@
   <ul class="card-list">
     <!-- 태그에 맞는 강의 가져와서 리스트로 넣기 -->
     <?php
-      $sql = "select * from academy_list where category2='자격증'";
+      $sql = "select * from academy_list where category2='자격증' LIMIT 2";
       $result = mysqli_query($conn, $sql);
 
       while ($row = mysqli_fetch_array($result)) {
@@ -296,6 +290,31 @@
   </div>
 
 
+  <!-- 카드리스트 박스 스타일 -->
+  <div class="card-list-box">
+    <?php
+      /* 해당 카테고리의 상품 10개 */
+      $sql = "SELECT * FROM academy_list WHERE category1 LIKE '%기능사%' LIMIT 6";
+      $result = mysqli_query($conn, $sql);
+
+      while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+    <div>
+      <div class="cart" data-no="<?php echo $row['class_no']; ?>">
+        <img src="./<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
+      </div>
+      <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
+        <img src="../../uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+        <div class="con-text">
+          <p class="con-title"><?php echo $row['name']; ?></p>
+          <p class="con-sub"><?php echo $row['detail']; ?></p>
+        </div>
+      </a>
+    </div>
+    <?php
+      }
+    ?>
+  </div>
 
 
 </body>

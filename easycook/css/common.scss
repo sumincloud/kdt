@@ -365,3 +365,54 @@ $button-gap: 10px;
 }
 
 
+//카드리스트 박스 스타일
+.card-list-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // 자동으로 열을 설정
+  gap: 30px 15px;
+  margin: 0;
+
+  > div {
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+
+    // 이미지 스타일
+    a > img {
+      width: 100%;
+      border-radius: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .cart {
+      position: absolute; // 필요에 따라 위치 조정
+      top: 10px;
+      right: 10px;
+      z-index: 10; // 필요한 경우
+      cursor: pointer;
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+
+      .con-text {
+        .con-title {
+          font-size: $fs-medium;
+          font-weight: $fw-bold;
+          line-height: 140%;
+          margin-top: 8px;
+          @include text-over(2);
+        }
+
+        .con-sub {
+          font-size: $fs-small;
+          margin-top: 8px;
+          @include text-over(1);
+        }
+      }
+    }
+  }
+}
