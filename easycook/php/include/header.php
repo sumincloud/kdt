@@ -345,25 +345,25 @@
           </div>
         </li>
         <li class="depth1">
-          <a href="./intro.php" title="소개">소개</a>
+          <a href="./intro.php?cata=소개&tab=소개" title="소개">소개</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./intro.php?cata=소개" title="소개">소개</a></li>
-              <li><a href="./intro.php?cata=강사진" title="강사진">강사진</a></li>
+              <li><a href="./intro.php?cata=소개&tab=소개" title="소개">소개</a></li>
+              <li><a href="./intro.php?cata=소개&tab=강사진" title="강사진">강사진</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="./community.php" title="커뮤니티">커뮤니티</a>
+          <a href="./community.php?comu=커뮤니티&tab=후기" title="커뮤니티">커뮤니티</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./community.php?comu=후기" title="후기">후기</a></li>
-              <li><a href="./community.php?comu=FAQ" title="FAQ">FAQ</a></li>
-              <li><a href="./community.php?comu=Q&A" title="Q&A">Q&A</a></li>
-              <li><a href="./community.php?comu=상담신청" title="상담신청">상담신청</a></li>
-              <li><a href="./community.php?comu=공지사항" title="공지사항">공지사항</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=후기" title="수강생 후기">후기</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=FAQ" title="자주묻는 질문">FAQ</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=QA" title="QA">Q&A</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=상담신청" title="상담신청">상담신청</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=공지사항" title="공지사항">공지사항</a></li>
             </ul>
           </div>
         </li>

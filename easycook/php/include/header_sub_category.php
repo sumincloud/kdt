@@ -83,8 +83,8 @@
         <option value="./academy.php?category1=기능사">요리</option>
         <option value="./academy.php?category1=바리스타">바리스타</option>
         <option value="./academy.php?category1=베이커리">베이커리</option>
-        <option value="./intro.php?cata=소개">소개</option>
-        <option value="./community.php?comu=후기">커뮤니티</option>
+        <option value="./intro.php?cata=소개&tab=소개">소개</option>
+        <option value="./community.php?comu=커뮤니티&tab=후기">커뮤니티</option>
       </select>
     </div>
 

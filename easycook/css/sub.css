@@ -9,6 +9,10 @@
   top: 40px ; left: 0px;
   /* background: cornflowerblue; */
 }
+.profile_img_size > img{
+  width: 40px; height: 42px;
+  border-radius: 30px;
+}
 
 /* .cook .con{} */
 
@@ -116,7 +120,6 @@
 /*---------------------------------------------------------*/
 /*준비중입니다 서식*/
 .intro_teacher{
-  width: 90%;
   padding-top:15%;
   text-align: center;
   padding-bottom:16%;
@@ -204,6 +207,12 @@
   margin-bottom: 24px;
 }
 
+.cook_tail .img_size, #page2 .img_size{
+  width: 100% !important;
+}
+
+#page2{width: 90%; margin: 0 auto;}
+
 .cook_tail ul li{
   margin:7px 0px;
 }
@@ -218,17 +227,34 @@
   width: 90%;
   margin: 50px auto;
 }
-
-.cook_review p:first-child{}
-.cook_review p:first-child > img{
-  width: 42px;
-  transform: translatey(13px);
-  margin-right: 15px;
+.cook_review ul{
+  margin-top: 40px;
 }
-.cook_review p:nth-child(2){margin-top: 15px; color: #686868;}
-.cook_review p:nth-child(2) >span{margin-right: 10px;}
-.cook_review p:nth-child(3){
-  margin-top: 20px;
+
+.cook_review li{margin-bottom: 50px; position: relative;}
+.cook_review li> p{margin: 5px 0px;}
+.cook_review li .comu_review{margin-top: 20px;}
+.cook_review p:nth-child(2){
+  position: absolute;
+  top: 0px; left:55px;
+  margin-top: 15px;
+}
+
+.cook_review .day_gray{color: var(--gray);}
+
+.cook_review .review_img{
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+  margin-top: 34px;
+}
+.cook_review .review_img::-webkit-scrollbar{
+  display: none;
+}
+
+.cook_review .review_img img{
+  width: 100px; height: 100px;
+  border-radius: 5px; margin-right: 12px;
 }
 
 /*해당과정 바로 상담 신청 (이메일) 부분 서식*/
@@ -376,10 +402,17 @@
 .review_list .review_detail p{
   margin-bottom: 20px;
 }
+
 /*이미지 서식*/
 .review_list .review_detail .review_img{
   display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
 }
+.review_list .review_detail .review_img::-webkit-scrollbar{
+  display: none;
+}
+
 .review_list .review_detail img{
   width: 100px; height: 100px;
   border-radius: 5px; margin-right: 12px;
@@ -410,3 +443,247 @@
 .review_list .review_detail .ud_btn a:last-child{background-color: var(--gray);}
 
 
+/*후기 수정*/
+.review_photo .image_preview{
+  left: 100px !important;
+  top: 0px !important;
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.review_photo .image_preview::-webkit-scrollbar{
+  display: none;
+}
+
+.review_photo > .image_preview > img{
+  width: 60px;
+  height: 60px !important;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/*---------------------------------------------*/
+/*커뮤니티 상세페이지 서식*/
+.community ,.community_con .intro_teacher{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.community li{
+  position: relative;
+  margin: 50px 0px;
+}
+.community li > p{
+  margin: 10px 0px;
+}
+.community li >div{
+  position: absolute;
+  top: 5px; left: 55px;
+}
+.community li >div p:first-child{
+  margin-bottom: 5px;
+  font-size: var(--fs-small);
+}
+.community li >div p:nth-child(2){
+  color: var(--red);
+  font-weight: var(--fw-normal);
+}
+
+.community .review_img{
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.community .review_img::-webkit-scrollbar{
+  display: none;
+}
+
+.community .review_img img{
+  width: 100px; height: 100px;
+  border-radius: 5px; margin-right: 12px;
+}
+
+/*이건 0일전 서식*/
+.community .day_gray{color: var(--gray);}
+.community .comu_review{margin: 20px 0px 0px 0px;}
+
+
+/*---------------------------------------------*/
+.in_quire{
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+
+.in_quire h2{
+  font-size: var(--fs-xlarge);
+  font-weight: var(--fw-bold);
+  margin-bottom: 30px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.in_quire input[type=text]{
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.in_quire form{
+  border-top: 2px solid var(--darkbrown);
+}
+.in_quire textarea{
+  width: 100%;
+  height: 300px;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  margin-bottom: 13px;
+  padding: 10px;
+
+}
+.in_quire .btn-box-l{
+  border-top: 0.5px solid var(--darkbrown) !important;
+  padding-top: 13px;
+
+}
+
+
+/*---------------------------------------------*/
+/*문의 보기*/
+
+.in_quire .ina{
+  border-top: 2px solid var(--darkbrown);
+  border-bottom: 1px solid var(--darkbrown);
+}
+.in_quire .inb{
+  border-top: 2px solid var(--darkbrown);
+  border-bottom: 2px solid var(--darkbrown);
+}
+
+.in_quire .inq_view ul{
+  border-bottom: 1px solid var(--darkbrown);
+  padding:  0px 10px;
+}
+
+/*위에 p를 가로정렬하기위에 li태그에 flex*/
+.in_quire .inq_view li{ 
+  display: flex;
+}
+
+/*첫번째 li서식*/
+.in_quire .inq_view li:first-child{
+  font-size: var(--fs-small);
+  /* font-weight: var(--fw-semi-bold); */
+  margin: 16px 0px 6px 0px;
+}
+.in_quire .inq_view li:first-child p:first-child{
+  margin-right: 20px;
+}
+/*문의 제목*/
+.in_quire .inq_view li:nth-child(2){
+  font-size: var(--fs-large);
+  font-weight: var(--fw-semi-bold);
+  margin-bottom: 25px;
+}
+/*마지막li만 좌우로 갈라지게 하는용도*/
+.in_quire .inq_view li:last-child{
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: var(--fs-small);
+
+}
+
+/*좌우 여백*/
+.in_quire .inq_view >p{
+  padding: 28px 10px ;
+}
+.in_quire .answer_b{
+  padding: 28px 10px ;
+
+}
+.in_quire .inq_edit{
+  border-top: none !important;
+
+
+}
+
+
+/*버튼 색상 수정버튼있을때*/
+.in_quire .edit {
+  border-top: none !important;
+}
+.in_quire  .ina1{
+  background: var(--yellow) !important;
+  color: var(--black) !important;
+}
+
+
+/* -----------------inquire_list.php------------------------- */
+.inquire_list{
+  width: 90%;
+  margin: 0 auto;
+}
+.inquire_list > h2 {
+  margin-top: 28px;
+  font-size: var(--fs-large);
+  font-weight: var(--fw-semi-bold);}
+
+.inquire_list > p:first-child {
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-light);
+  padding-top: 13px;}
+
+.inquire_table{
+  line-height: 30px;
+}
+.inquire_table thead tr{
+  border-top: 3px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  text-align: center;
+}
+.inquire_table caption{
+  text-indent: -999999px;
+  font-size: 1px;
+}
+.inquire_table tbody tr td{
+  text-align: center;
+}
+
+.inquire_table tbody tr td:nth-child(2) span{
+  display: block;  width: 80px;
+  border-radius: 10px;
+  font-size: var(--fs-small);
+}
+
+.inquire_table tbody tr td:nth-child(3){
+  text-align: left;
+}
+.inquire_table tbody tr td:nth-child(3) span{
+  display: block; width:fit-content;
+  line-height: 20px;
+  text-align: center;
+  font-size: var(--fs-small);
+}
+.question_r1{
+  background-color: var(--red);
+  color: var(--white);
+}
+.question_r2{
+  background-color: var(--darkbrown);
+  color: var(--white);
+}
+
+/* 페이지네이션 */
+.page-link{
+  color: var(--darkbrown);
+  border: none;
+}
+.pagination{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
