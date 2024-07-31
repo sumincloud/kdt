@@ -80,9 +80,9 @@
 
     <div id="select">
       <select id="category-select" class="form-select" onchange="if(this.value) location.href=(this.value);">
-        <option value="./class_list.php?category1=기능사">요리</option>
-        <option value="./class_list.php?category1=바리스타">바리스타</option>
-        <option value="./class_list.php?category1=제과제빵">제과제빵</option>
+        <option value="./academy.php?category1=기능사">요리</option>
+        <option value="./academy.php?category1=바리스타">바리스타</option>
+        <option value="./academy.php?category1=베이커리">베이커리</option>
         <option value="./intro.php?cata=소개">소개</option>
         <option value="./community.php?comu=후기">커뮤니티</option>
       </select>

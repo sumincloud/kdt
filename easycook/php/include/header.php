@@ -306,46 +306,46 @@
       <!-- 카테고리 목록 -->
       <ul class="depth">
         <li class="depth1">
-          <a href="#" title="depth1" class="active">요리</a>
+          <a href="./academy.php?category1=기능사" title="depth1" class="active">요리</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./cook_academy.php?catagory2=국비" title="국비">국비</a></li>
-              <li><a href="./cook_academy.php?catagory2=일반" title="일반">일반</a></li>
-              <li><a href="./cook_academy.php?catagory2=창업" title="창업">창업</a></li>
-              <li><a href="./cook_academy.php?catagory2=취미" title="취미">취미</a></li>
-              <li><a href="./cook_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
+              <li><a href="./academy.php?category1=기능사&type=국비" title="국비">국비</a></li>
+              <li><a href="./academy.php?category1=기능사&type=일반" title="일반">일반</a></li>
+              <li><a href="./academy.php?category1=기능사&type=창업" title="창업">창업</a></li>
+              <li><a href="./academy.php?category1=기능사&type=취미" title="취미">취미</a></li>
+              <li><a href="./academy.php?category1=기능사&type=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="바리스타">바리스타</a>
+          <a href="./academy.php?category1=바리스타" title="바리스타">바리스타</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./coffee_academy.php?catagory2=국비" title="국비">국비</a></li>
-              <li><a href="./coffee_academy.php?catagory2=일반" title="일반">일반</a></li>
-              <li><a href="./coffee_academy.php?catagory2=창업" title="창업">창업</a></li>
-              <li><a href="./coffee_academy.php?catagory2=취미" title="취미">취미</a></li>
-              <li><a href="./coffee_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
+              <li><a href="./academy.php?category1=바리스타&type=국비" title="국비">국비</a></li>
+              <li><a href="./academy.php?category1=바리스타&type=일반" title="일반">일반</a></li>
+              <li><a href="./academy.php?category1=바리스타&type=창업" title="창업">창업</a></li>
+              <li><a href="./academy.php?category1=바리스타&type=취미" title="취미">취미</a></li>
+              <li><a href="./academy.php?category1=바리스타&type=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="제과제빵">제과제빵</a>
+          <a href="./academy.php?category1=베이커리" title="베이커리">베이커리</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
-              <li><a href="./bread_academy.php?catagory2=국비" title="국비">국비</a></li>
-              <li><a href="./bread_academy.php?catagory2=일반" title="일반">일반</a></li>
-              <li><a href="./bread_academy.php?catagory2=창업" title="창업">창업</a></li>
-              <li><a href="./bread_academy.php?catagory2=취미" title="취미">취미</a></li>
-              <li><a href="./bread_academy.php?catagory2=자격증" title="자격증">자격증</a></li>
+              <li><a href="./academy.php?category1=베이커리&type=국비" title="국비">국비</a></li>
+              <li><a href="./academy.php?category1=베이커리&type=일반" title="일반">일반</a></li>
+              <li><a href="./academy.php?category1=베이커리&type=창업" title="창업">창업</a></li>
+              <li><a href="./academy.php?category1=베이커리&type=취미" title="취미">취미</a></li>
+              <li><a href="./academy.php?category1=베이커리&type=자격증" title="자격증">자격증</a></li>
             </ul>
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="소개">소개</a>
+          <a href="./intro.php" title="소개">소개</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->
@@ -355,7 +355,7 @@
           </div>
         </li>
         <li class="depth1">
-          <a href="#" title="커뮤니티">커뮤니티</a>
+          <a href="./community.php" title="커뮤니티">커뮤니티</a>
           <div class="depth2">
             <ul>
               <!-- 카테고리 페이지로 이동 -->

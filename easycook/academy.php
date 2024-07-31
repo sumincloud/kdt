@@ -20,7 +20,9 @@
 
   // 카테고리1 값 읽기
   $category1 = isset($_GET['category1']) ? $_GET['category1'] : '';
-  
+
+  // 필터 값 읽기
+  $type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -71,11 +73,11 @@
         <label for="type-filter" style="display:none;">종류</label>
         <select id="type-filter" class="form-select" style="width:80px;">
           <option value="">전체</option>
-          <option value="국비">국비</option>
-          <option value="일반">일반</option>
-          <option value="창업">창업</option>
-          <option value="취미">취미</option>
-          <option value="자격증">자격증</option>
+          <option value="국비" <?php echo $type == '국비' ? 'selected' : ''; ?>>국비</option>
+          <option value="일반" <?php echo $type == '일반' ? 'selected' : ''; ?>>일반</option>
+          <option value="창업" <?php echo $type == '창업' ? 'selected' : ''; ?>>창업</option>
+          <option value="취미" <?php echo $type == '취미' ? 'selected' : ''; ?>>취미</option>
+          <option value="자격증" <?php echo $type == '자격증' ? 'selected' : ''; ?>>자격증</option>
         </select>
       </div>
       <div class="filter-dropdown">
