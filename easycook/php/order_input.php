@@ -18,7 +18,15 @@
   date_default_timezone_set('Asia/Seoul');
   $datetime = date('Y-m-d H:i:s', time());
 
-  // 동일한 class_no가 있는지 확인
+
+  // 1. 신청한 강의의 teacher_code 조회
+  $teacher_code_sql = "SELECT teacher_code FROM academy_list WHERE class_no = '$class_no'";
+  $teacher_code_result = mysqli_query($conn, $teacher_code_sql);
+  $teacher_code_row = mysqli_fetch_assoc($teacher_code_result);
+  $teacher_code = $teacher_code_row['teacher_code'];
+
+
+  // 2. 동일한 class_no가 있는지 확인
   $check_sql = "SELECT * FROM `order` WHERE class_no = '$class_no' AND id = '$id'";
   $result = mysqli_query($conn, $check_sql);
 
@@ -30,7 +38,7 @@
           </script>";
   } else {
     // order 테이블에 데이터 추가
-    $sql = "INSERT INTO `order` (class_no, id, name, datetime) VALUES ('$class_no', '$id', '$name', '$datetime')";
+    $sql = "INSERT INTO `order` (class_no, id, name, teacher_code, datetime, student_status) VALUES ('$class_no', '$id', '$name', '$teacher_code', '$datetime', '수강중')";
     if (mysqli_query($conn, $sql)) {
       echo "<script>
             window.location.href = '../order_complete.php';

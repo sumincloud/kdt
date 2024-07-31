@@ -22,6 +22,7 @@
   $category1 = isset($_GET['category1']) ? $_GET['category1'] : '';
 
   // 필터 값 읽기
+  $cate = isset($_GET['cate']) ? htmlspecialchars($_GET['cate']) : '';
   $type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
 
   // 정렬 기준 설정
@@ -51,8 +52,6 @@
       border-radius: 50px;
     }
 
-
-
     #class{
       padding: 0 20px;
     }
@@ -61,7 +60,7 @@
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header_sub_category.php');?>
+  <?php include('./php/include/header_sub.php');?>
 
 
   <!-- 메인서식 -->
@@ -70,9 +69,18 @@
     <section id="filter">
       <div style="display:flex; flex-wrap:wrap; gap: 10px;">
         <div class="filter-dropdown">
+          <label for="cate-filter" style="display:none;">카테고리</label>
+          <select id="cate-filter" class="form-select" style="width:90px;">
+            <option value="">전체</option>
+            <option value="요리" <?php echo $cate == '요리' ? 'selected' : ''; ?>>요리</option>
+            <option value="바리스타" <?php echo $cate == '바리스타' ? 'selected' : ''; ?>>바리스타</option>
+            <option value="베이커리" <?php echo $cate == '베이커리' ? 'selected' : ''; ?>>베이커리</option>
+          </select>
+        </div>
+        <div class="filter-dropdown">
           <label for="type-filter" style="display:none;">종류</label>
           <select id="type-filter" class="form-select" style="width:80px;">
-            <option value="">전체</option>
+            <option value="">종류</option>
             <option value="국비" <?php echo $type == '국비' ? 'selected' : ''; ?>>국비</option>
             <option value="일반" <?php echo $type == '일반' ? 'selected' : ''; ?>>일반</option>
             <option value="창업" <?php echo $type == '창업' ? 'selected' : ''; ?>>창업</option>
@@ -97,8 +105,8 @@
             <option value="하">하</option>
           </select>
         </div>
-
       </div>
+
 
 
       <div class="filter-dropdown" style="margin-left: auto;">
@@ -142,6 +150,7 @@
   <script>
     $(document).ready(function() {
       function loadClasses() {
+        var cate = $('#cate-filter').val();
         var type = $('#type-filter').val();
         var date = $('#date-filter').val();
         var difficulty = $('#difficulty-filter').val();
@@ -151,7 +160,7 @@
           url: './php/academy_filter.php',
           method: 'GET',
           data: {
-            category1: '<?php echo $category1; ?>',
+            category1: cate,
             type: type,
             date: date,
             difficulty: difficulty,
@@ -163,7 +172,7 @@
         });
       }
 
-      $('#type-filter, #date-filter, #difficulty-filter, #sort-filter').change(function() {
+      $('#cate-filter, #type-filter, #date-filter, #difficulty-filter, #sort-filter').change(function() {
         loadClasses();
       });
 

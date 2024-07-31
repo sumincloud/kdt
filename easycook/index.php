@@ -98,21 +98,21 @@
     <section id="sec02">
       <div>
         <div>
-          <a href="#" title="요리">
+          <a href="./academy.php?category1=기능사&type=전체" title="요리">
             <img src="./images/main/index_sec02_1.png" alt="요리">
             <p>요리</p>
           </a>
         </div>
         <div>
-          <a href="#" title="커피">
-            <img src="./images/main/index_sec02_2.png" alt="커피">
-            <p>커피</p>
+          <a href="./academy.php?category1=바리스타&type=전체" title="바리스타">
+            <img src="./images/main/index_sec02_2.png" alt="바리스타">
+            <p>바리스타</p>
           </a>
         </div>
         <div>
-          <a href="#" title="제과제빵">
-            <img src="./images/main/index_sec02_3.png" alt="제과제빵">
-            <p>제과제빵</p>
+          <a href="./academy.php?category1=베이커리&type=전체" title="베이커리">
+            <img src="./images/main/index_sec02_3.png" alt="베이커리">
+            <p>베이커리</p>
           </a>
         </div>
       </div>
@@ -122,14 +122,23 @@
     <section id="sec03">
       <div class="title">
         <h2>실시간 인기 강의</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy_all.php?sort=인기순" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper2">
           <div class="swiper-wrapper">
             <?php
-              /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE class_status = '현재강의' LIMIT 10";
+              /* 주문 수를 기준으로 정렬된 개강전 강의 10개 */
+              $currentDate = date('Y-m-d');
+              $sql = "
+                SELECT a.*, COUNT(o.class_no) AS order_count
+                FROM academy_list a
+                LEFT JOIN `order` o ON a.class_no = o.class_no
+                WHERE a.start_date >= '$currentDate' 
+                GROUP BY a.class_no
+                ORDER BY order_count DESC
+                LIMIT 10
+              ";
               $result = mysqli_query($conn, $sql);
               // 카운터 변수 초기화
               $counter = 1;
@@ -169,16 +178,17 @@
     <section id="sec04">
       <div class="title">
         <h2>마감임박 강의</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy_all.php?sort=마감임박순" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
             <?php
-              /* 현재 날짜부터 start_date까지 얼마 안남은 순으로 상품 10개 */
+              /* 현재 날짜부터 start_date까지 얼마 안남은 순으로 개강 전 상품 10개 */
+              $currentDate = date('Y-m-d');
               $sql = "SELECT *, DATEDIFF(start_date, NOW()) AS days_left 
                       FROM academy_list 
-                      WHERE class_status = '현재강의' 
+                      WHERE start_date >= '$currentDate' 
                       ORDER BY days_left ASC 
                       LIMIT 10";
               $result = mysqli_query($conn, $sql);
@@ -305,14 +315,23 @@
     <section id="sec07">
       <div class="title">
         <h2>인기 요리 강의</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=기능사&type=전체" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
             <?php
-              /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE category1 LIKE '%기능사%' LIMIT 10";
+              /* 주문 수를 기준으로 정렬된 개강전 강의 10개 */
+              $currentDate = date('Y-m-d');
+              $sql = "
+                SELECT a.*, COUNT(o.class_no) AS order_count
+                FROM academy_list a
+                LEFT JOIN `order` o ON a.class_no = o.class_no
+                WHERE a.category1 LIKE '%기능사%' AND a.start_date >= '$currentDate'
+                GROUP BY a.class_no
+                ORDER BY order_count DESC
+                LIMIT 10
+              ";
               $result = mysqli_query($conn, $sql);
 
               while ($row = mysqli_fetch_assoc($result)) {
@@ -348,8 +367,17 @@
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
             <?php
-              /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE category1 = '바리스타' LIMIT 10";
+              /* 주문 수를 기준으로 정렬된 개강전 강의 10개 */
+              $currentDate = date('Y-m-d');
+              $sql = "
+                SELECT a.*, COUNT(o.class_no) AS order_count
+                FROM academy_list a
+                LEFT JOIN `order` o ON a.class_no = o.class_no
+                WHERE a.category1 = '바리스타' AND a.start_date >= '$currentDate'
+                GROUP BY a.class_no
+                ORDER BY order_count DESC
+                LIMIT 10
+              ";
               $result = mysqli_query($conn, $sql);
 
               while ($row = mysqli_fetch_assoc($result)) {
@@ -385,8 +413,17 @@
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
             <?php
-              /* 해당 카테고리의 상품 10개 */
-              $sql = "SELECT * FROM academy_list WHERE category1 = '베이커리' LIMIT 10";
+              /* 주문 수를 기준으로 정렬된 개강전 강의 10개 */
+              $currentDate = date('Y-m-d');
+              $sql = "
+                SELECT a.*, COUNT(o.class_no) AS order_count
+                FROM academy_list a
+                LEFT JOIN `order` o ON a.class_no = o.class_no
+                WHERE a.category1 = '베이커리' AND a.start_date >= '$currentDate'
+                GROUP BY a.class_no
+                ORDER BY order_count DESC
+                LIMIT 10
+              ";
               $result = mysqli_query($conn, $sql);
 
               while ($row = mysqli_fetch_assoc($result)) {
@@ -420,12 +457,21 @@
     <section id="sec11">
       <div class="title">
         <h2>국비과정 베스트</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy_all.php?type=국비" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3 row">
         <?php
-          /* 해당 카테고리의 상품 3개 */
-          $sql = "SELECT * FROM academy_list WHERE category2 = '국비' LIMIT 3";
+          /* 주문 수를 기준으로 정렬된 개강전 강의 3개 */
+          $currentDate = date('Y-m-d');
+          $sql = "
+            SELECT a.*, COUNT(o.class_no) AS order_count
+            FROM academy_list a
+            LEFT JOIN `order` o ON a.class_no = o.class_no
+            WHERE a.category2 = '국비' AND a.start_date >= '$currentDate'
+            GROUP BY a.class_no
+            ORDER BY order_count DESC
+            LIMIT 3
+          ";
           $result = mysqli_query($conn, $sql);
 
           while ($row = mysqli_fetch_assoc($result)) {
@@ -451,7 +497,7 @@
     <section id="sec12">
       <div class="title">
         <h2>커뮤니티</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./community.php?comu=커뮤니티&tab=후기" title="더 보기">더 보기 +</a>
       </div>
       <div class="tab mt-3">
         <ul>

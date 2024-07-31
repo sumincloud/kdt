@@ -12,6 +12,7 @@ $category1 = isset($_GET['category1']) ? $_GET['category1'] : '';
 $type = isset($_GET['type']) ? $_GET['type'] : '';
 $date = isset($_GET['date']) ? $_GET['date'] : '';
 $difficulty = isset($_GET['difficulty']) ? $_GET['difficulty'] : '';
+$sort = isset($_GET['sort']) ? $_GET['sort'] : '최신순'; // 기본값 '최신순'
 
 $whereClauses = [];
 
@@ -28,13 +29,47 @@ if ($difficulty !== '') {
     $whereClauses[] = "grade = '$difficulty'";
 }
 
+// 현재날짜 조회 후 현재날짜 이후의 강의들만 불러옴
+$currentDate = date('Y-m-d');
+$whereClauses[] = "start_date > '$currentDate'";
+
+
 $whereSql = implode(' AND ', $whereClauses);
 
 if ($whereSql) {
     $whereSql = 'WHERE ' . $whereSql;
 }
 
-$sql = "SELECT * FROM academy_list $whereSql";
+// 최신등록순을 기본으로 출력함
+//$sql = "SELECT * FROM academy_list $whereSql ORDER BY datetime DESC";
+
+
+// 정렬 기준에 따른 쿼리 작성
+switch ($sort) {
+  case '인기순':
+    $sql = "
+      SELECT a.*, COUNT(o.class_no) AS order_count
+      FROM academy_list a
+      LEFT JOIN `order` o ON a.class_no = o.class_no
+      $whereSql
+      GROUP BY a.class_no
+      ORDER BY order_count DESC
+    ";
+    break;
+  case '마감임박순':
+    $sql = "
+      SELECT *, DATEDIFF(start_date, NOW()) AS days_left 
+      FROM academy_list a
+      $whereSql
+      ORDER BY days_left ASC
+    ";
+    break;
+  case '최신순':
+  default:
+    $sql = "SELECT * FROM academy_list $whereSql ORDER BY datetime DESC";
+    break;
+}
+
 $result = mysqli_query($conn, $sql);
 
 $cart_class_no = [];
