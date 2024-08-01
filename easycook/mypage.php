@@ -322,8 +322,8 @@
                       <!-- 버튼이 들어가는 경우에만 삽입 -->
                       <div>
                         <div class="btn-box-s mt-4">
-                          <button class="btn-s line">실습실 예약</button>
-                          <button class="btn-s line">문의하기</button>
+                          <a href="./reserve.php?class_no=<?php echo $row['class_no'] ?>" class="btn-s line">실습실 예약</a>
+                          <a href="./inquire.php?class_no=<?php echo $row['class_no'] ?>" class="btn-s line">문의하기</a>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
                           <button class="btn-l attend" data-class-no="<?= $row['class_no']; ?>" 
@@ -392,7 +392,7 @@
                       <!-- 버튼이 들어가는 경우에만 삽입 -->
                       <div>
                         <div class="btn-box-s mt-4">
-                          <a href="#" class="btn-s line">실습실 예약</a>
+                          <a href="./reserve.php?class_no=<?php echo $row['class_no'] ?>" class="btn-s line">실습실 예약</a>
                           <a href="./inquire.php?class_no=<?php echo $row['class_no'] ?>" class="btn-s line">문의하기</a>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
