@@ -286,13 +286,13 @@
                     </a>
                   </li>
                   <li>
-                    <a href='#' title='나의 문의'>
+                    <a href='./inquire_list.php' title='나의 문의'>
                       <i class='bi bi-chat-square-dots'></i>
                       <span>나의 문의</span>
                     </a>
                   </li>
                   <li>
-                    <a href='#' title='나의 후기'>
+                    <a href='./review_list.php' title='나의 후기'>
                       <i class='bi bi-pencil-square'></i>
                       <span>나의 후기</span>
                     </a>
