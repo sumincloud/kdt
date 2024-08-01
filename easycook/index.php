@@ -248,7 +248,7 @@
     <section id="sec06">
       <div class="title">
         <h2>수강생 후기</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./community.php?comu=커뮤니티&tab=후기" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper5">

@@ -64,6 +64,7 @@
         $attend_check[] = $row['class_no'];
       }
     }
+
   } else {
     $now_class_list = [];
     $past_class_list = [];
@@ -254,13 +255,13 @@
             </a>
           </li>
           <li>
-            <a href='inquire_list.php' title='나의 문의'>
+            <a href='./inquire_list.php' title='나의 문의'>
               <i class='bi bi-chat-square-dots'></i>
               <span>나의 문의</span>
             </a>
           </li>
           <li>
-            <a href='review_list.php' title='나의 후기'>
+            <a href='./review_list.php' title='나의 후기'>
               <i class='bi bi-pencil-square'></i>
               <span>나의 후기</span>
             </a>
@@ -353,6 +354,13 @@
                   <li>지난 강의가 없습니다.</li>
                 <?php else: ?>
                   <?php foreach ($past_class_list as $row): ?>
+                    <?php
+                      // 전에 쓴 리뷰가 존재하는지 확인
+                      $classNo = $row['class_no'];
+                      $query = "SELECT 1 FROM review WHERE class_no = '$classNo' AND id = '$id'";
+                      $result = mysqli_query($conn, $query);
+                      $isReviewed = mysqli_num_rows($result) > 0;
+                    ?>
                     <li>
                       <div onclick="location.href='./myclass_info.php?class_no=<?= $row['class_no']; ?>'" style="cursor:pointer;">
                         <!-- 강의 썸네일 이미지 -->
@@ -384,12 +392,16 @@
                       <!-- 버튼이 들어가는 경우에만 삽입 -->
                       <div>
                         <div class="btn-box-s mt-4">
-                          <button class="btn-s line">실습실 예약</button>
-                          <button class="btn-s line">문의하기</button>
+                          <a href="#" class="btn-s line">실습실 예약</a>
+                          <a href="./inquire.php?class_no=<?php echo $row['class_no'] ?>" class="btn-s line">문의하기</a>
                         </div>
                         <div class="btn-box-l mt-2 mb-2">
                           <!--후기작성으로 이동-->
-                          <a href="./review_write.php?class_no=<?= $row['class_no']; ?>" class="btn-l">후기작성</a>
+                          <a href="./review_write.php?class_no=<?= $row['class_no']; ?>" 
+                          class="btn-l" 
+                          <?= $isReviewed ? 'style="background:#aaa; pointer-events:none;"' : ''; ?>>
+                          <?= $isReviewed ? '후기작성 완료' : '후기작성'; ?>
+                          </a>
                         </div>
                       </div>
                     </li>

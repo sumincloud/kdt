@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07_es6_import_export모듈화</title>
+  <script src="test.js"></script>
+  <script src="test2.js"></script>
+  <script>
+    //test함수 호출하기
+    document.write(test());
+  </script>
+</head>
+<body>
+  <h2>07_es6_import_export모듈화</h2>
+  <p>기본적으로 자바스크립트의 유효범위는 전역(global)으로 시작을 한다.</p>
+
+  <ul>
+    <li>자바스크립트 모듈화란? 다른 파일의 자바스크립트 기능을 특정파일에서 사용하는 것이다.</li>
+    <li>그 이유는 다른 파일에서 변수, 함수등 객체명이 같을 수 있습니다. 그래서 에러 혹은 값이 변경되는 문제가 발생할 수 있습니다.</li>
+    <li>자바스크립트는 준비 구문을 한번 쓰지만 제이쿼리는 준비구문(document.ready....)을 여러번 작성해서 각각의 라이브러리가 갖고 있는 변수가 겹치지 못하게 미리 막습니다.</li>
+    <li>자바스크립트는 네임스페이스 모듈화 패턴이나 프레임워크를 이용해서 막았으나 es6부터는 언어자체에서 모듈화 기능을 지원합니다.</li>
+  </ul>
+
+  <h3>1. export문법</h3>
+  <p>작성법) export 변수, 함수</p>
+  <p>export는 다른 파일에서 가져다 쓸 수 있도록 내보내기위한 키워드이다. 즉 모듈을 내보낼 때 사용.</p>
+  <script>
+    let n = 10;
+    export {n}; //미리 선언된 변수값을 내보낼 수 있음.
+    export let str = '안녕하세요';//변수 선언과 동시에 내보낼 수 있음.
+    //Named export방식이라고 함.
+
+    let c = 10;
+    let d = 20;
+    export default a; //default는 모듈당 하나만 사용할 수 있음. 나머지는 Named export방식 사용
+
+    export {d}
+  </script>
+
+  <h3>2. import문법</h3>
+  <p>import는 export된 변수나 함수를 현재 문서로 불러오는 키워드이다.</p>
+  <p>작성법 1) import {불러올 변수 또는 함수명} from '파일경로'</p>
+  <p>작성법 2) import {변수명1, 변수명2} from '파일경로'</p>
+  <p>작성법 3) import 변수명 as 별명 from '파일경로'</p>
+
+  <script type="module">
+    import  {num} from './test3.js'; //모듈 가져오기
+    console.log(num);
+  </script>
+
+  <pre>
+    //1. 내부스트립트 사용시
+    <script type="module"></script>
+
+    //2. 외부스크립트 사용시
+    <script type="module" src="파일경로"></script>
+  </pre>
+</body>
+</html>

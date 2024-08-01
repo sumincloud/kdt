@@ -149,6 +149,10 @@ html {
   background: #ffffff;
   color: #EF2F15;
 }
+.btn-box-s .btn-s.fill {
+  background: #EF2F15;
+  color: #000000;
+}
 
 .btn-box-l {
   width: 100%;

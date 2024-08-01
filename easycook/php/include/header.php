@@ -367,6 +367,9 @@
             </ul>
           </div>
         </li>
+        <div style="padding: 30px 20px; border-top:1px solid #ccc; width: calc(40% - 20px);">
+          <a href="./academy_all.php" title="전체강의" style="color:#666;">전체강의</a>
+        </div>
       </ul>
     </div>
   </nav>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_es6_promise객체</title>
+  <style>
+    strong{color:#f00;}
+    pre{
+      background:#000;color:#fff;
+      padding:10px 0px;
+    }
+  </style>
+</head>
+<body>
+  <h2>09_es6_promise객체</h2>
+  <ul>
+    <li>Promise는 Producing code(생성코드)와 Consuming code(소비코드)를 연결하는 javascript객체이다.</li>
+    <li>Producing code(생성코드)는 시간이 걸릴 수 있는 코드</li>
+    <li>Consuming code(소비코드)는  결과를 기다려야 하는 코드</li>
+    <li>Promise객체는 Producing code(생성코드)와 Consuming code(소비코드)에 대한 호출이 모두 포함된다.</li>
+    <li>es6문법에서 추가된 객체이다.</li>
+    <li>실행 결과에 대한 '상태정보'를 담고 있으며, 작업의 결과가 promise객체에 저장되고, promise객체를 통해 작업이 '성공'되었는지 '실패'되었는지를 알 수 있다.</li>
+  </ul>
+
+  <pre>
+    //문법
+    let 인스턴스 변수명 = new Promise(function(testResolve, testReject)){
+      //Producing code작성하기
+        testResolve(); //성공을 한 경우 실행
+        testReject(); //에러가 발생한 경우 실행
+    }
+
+    //Consuming code작성
+    인스턴스 변수명.then(
+      function(value){/* 성공을 한 경우 코드*/}
+      function(error){/* 에러가 있을때 코드*/}
+    )
+  </pre>
+
+  <h3>promise객체 속성</h3>
+  <ul>
+    <li>promise객체는 크게 '보류중', '실행', '거부' 이렇게 사용할 수 있다.</li>
+    <li>state 또는 result라는 속성을 통해 위 명령을 줄 수 있다.</li>
+    <li>'보류중'인 동안에는 결과가 정의되지 않는다.</li>
+    <li>'실행'되면 결과값이 출력된다.</li>
+    <li>'거부'되면 결과는 오류 객체로 처리가 된다.</li>
+  </ul>
+
+  <h3>promise객체의 메서드 -  then, catch, finally</h3>
+  <ul>
+    <li>then - promise객체가 fulfilled상태가 되면 실행할 콜백함수를 등록하는 메서드</li>
+    <li>catch - promise객체가 rejected상태가 되면 실행할 콜백함수를 등록하는 메서드</li>
+    <li>finally - 어떤 작업의 성공이나, 실패 여부와 상관없이 항상 실행하고 싶은 콜백함수를 등록하는 메서드 </li>
+  </ul>
+
+  <h3>promise객체를 사용하는 이유</h3>
+  <ul>
+    <li>Promise는 구조가 간단해 반환값을 찾아 사용하기 쉽습니다</li>
+    <li>비동기 작업을 순차적으로 처리하기 위함.</li>
+    <li>callback함수가 많아지면 코드의 가독성이 나빠지는데 이것을 보완하기 위함.</li>
+  </ul>
+
+  <h3>실습1. promise객체 사용하기</h3>
+  <div id="test"></div>
+
+  <script>
+    const test = document.getElementById('test');
+    //test.innerHTML='<strong>안녕하세요.</strong>';
+
+    function output(x){
+      test.innerHTML=x;
+    }
+
+    //output = '<strong>안녕하세요.</strong>';
+
+    let testPromise = new Promise(function(testResolve, testReject){
+      let num = prompt('양수를 입력하세요.','정수입력');
+      if(num>0){
+        testResolve('양수를 잘 입력하셨네요.');
+      }else{
+        testReject('숫자를 잘못입력하셨습니다. 다시 확인하고 입력하세요.');
+      }
+    });
+
+    //then메서드 : promise 객체가 fulfilled 상태가 되면 실행할 콜백함수를 등록하는 메서드 입니다.
+    testPromise.then(
+      function(value){
+        output(value);
+      },function(error){
+        output(error);
+      }
+    )
+  </script>
+
+  <h3>실습2. setTimeout을 통한 비동기 처리하기 예제에 promise객체로 사용하기</h3>
+  <p>일반함수 값 : <span id="test01"></span></p>
+  <p>setTimeout 값 : <span id="test02"></span></p>
+
+  <h3>실습3. then catch finally 메서드 기본 예</h3>
+  <script>
+    //setTimeout(test, 3000); 맞는 문법
+    //setTimeout(test(), 3000); 틀린 문법
+
+    //문서객체 선언
+    const t1 = document.getElementById('test01');
+    const t2 = document.getElementById('test02');
+
+    //일반함수로 내용출력
+    function outPut01(){
+      t1.innerHTML='저는 일반함수입니다.';
+    }
+
+    //promise객체로 내용출력
+    const outPut02 = new Promise(function(testResolve, testReject){
+      setTimeout(function(){
+        testResolve('저는 setTimeout에서 실행되었습니다.');
+      }, 500);
+    });
+
+    //일반함수, promise객체 내용 출력하기
+    outPut01();  //일반함수
+    outPut02.then(function(value){ //promise객체실행
+      t2.innerHTML=value;
+    });
+
+    //-----------------------------------------------------------------
+    //실습3.
+    function starbucks(coffename) {
+      const p = new Promise((resolve, reject) => {
+        if (coffename === "아메리카노") {
+          resolve("아메리카노 한잔입니다.");
+        } else {
+          reject("해당메뉴는 없습니다.");
+        }
+      });
+
+      return p;
+    };
+
+    starbucks("아메리카노") // 아메리카노 -> then + finally // 카페라떼 -> catch + finally
+    .then((resolve) => console.log(resolve)) // 아메리카노 한잔입니다. 감사합니다.
+    .catch((reject) => console.log(reject)) // 해당메뉴는 없습니다. 감사합니다.
+    .finally(() => console.log("감사합니다."));
+  </script>
+</body>
+</html>
