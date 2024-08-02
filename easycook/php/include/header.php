@@ -9,214 +9,219 @@
     $profile = htmlspecialchars($_SESSION['profile']);
   }
 ?>
-<style>
 
-	/* ----------------상단 헤더------------ */
-	header{
-    position: fixed;
-		width: 100%; height: 70px;
-		background: var(--white);
-		border-bottom: 1px solid var(--gray);
-		top:0;
-		z-index: 1000;
-	}
-	header > div{
-    position: absolute;
-		width: 100%; height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		top: 50%;
-		transform: translateY(-50%);
-    padding: 0 var(--p_20);
-	}
-  /* 1400px 이상일때 헤더크기 */
-  @media (min-width: 1400px) {
-    header > div{
-      width: 1400px;
-      left:50%;
-      transform: translate(-50%, -50%);
+<head>
+  <style>
+  
+    /* ----------------상단 헤더------------ */
+    header{
+      position: fixed;
+      width: 100%; height: 70px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray);
+      top:0;
+      z-index: 1000;
     }
-  }
+    header > div{
+      position: absolute;
+      width: 100%; height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 var(--p_20);
+    }
+    /* 1400px 이상일때 헤더크기 */
+    @media (min-width: 1400px) {
+      header > div{
+        width: 1400px;
+        left:50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  
+    header > div h1{
+      height: 100%;
+    }
+    header > div h1 > a{
+      display: block;
+    }
+    header > div h1 > a img{
+      width: 115px;
+      height: 40px;
+    }
+    header > div ul{
+      display:flex;
+      justify-content:center;
+    }
+    header > div ul li{
+      width: 40px;
+      text-align: center;
+      cursor: pointer;
+    }
+    header > div ul li a{
+      display: block;
+    }
+    header > div ul li i{
+      line-height: 40px;
+      font-size: 30px;
+    }
+    header > div ul .bi-bell::before{
+      transform: scale(0.8);
+    }
+  
+  
+    /* ----------------사이드바 메뉴------------ */
+    .side{
+      width:100%; height: 100vh;
+      position: absolute;
+      z-index: 100;
+      right:-100%;
+      transition: 0.5s;
+      background: #fff;
+    }
+    .side.open{
+      right:0;
+    }
+    /* 닫기 버튼 */
+    #toggle_close{
+      position: absolute;
+      top:30px; right: 30px;
+      cursor: pointer;
+    }
+    #toggle_close i{
+      font-size: var(--fs-xlarge);
+    }
+    /* -------------로그인 타이틀 부분--------- */
+    .side .info{
+      padding: 80px 20px 30px 20px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .side .info dd{
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .side .info img{
+      width: 50px; height: 50px;
+      border-radius:50%;
+    }
+    .side .info a{
+      color:#666;
+      text-wrap:nowrap;
+    }
+    .side .info dd a:first-of-type{
+      color: var(--black);
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-large);
+      margin-right: auto;
+    }
+  
+    /* -------------카테고리 부분------------ */
+    .side .depth{
+      position: relative;
+      background: var(--light-gray);
+      padding: 30px 20px;
+      height: 100vh;
+    }
+    /* 큰 카테고리 */
+    .side .depth1 {
+      margin-bottom:40px;
+    }
+    .side .depth1 > a{
+      position: relative;
+      z-index: 500;
+      font-size:var(--fs-medium-large);
+      background: none;
+      color: #000;
+      padding: 15px 20px;
+      width: calc(40% + 20px);
+      border-radius: 50px
+    }
+    .side .depth1 > a.active{
+      display:block;
+      background: var(--red);
+      color: #fff;
+    }
+    /* 작은 카테고리 */
+    .side .depth2{
+      display: none;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0;
+      left: 40%;
+      padding: 45px 0 0 60px;
+      background: #fff;
+    }
+    .side .depth2 li{
+      margin-bottom: 40px;
+    }
+    .side .depth2 a {
+      padding: 15px 0;
+      font-size:var(--fs-medium-large);
+    }
+    .side .depth2 a:hover {
+      color: var(--red);
+    }
+  
+    /* -----------로그인 밑에 아이콘들----------- */
+    .icon_menu{
+      width: 100%;
+      background: #fff;
+      margin-top: 20px;
+    }
+    .icon_menu ul{
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      padding: 0;
+    }
+    .icon_menu ul li{
+      text-align: center;
+      width: 60px; height: 60px;
+      list-style: none;
+    }
+    .icon_menu a{
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      color: #666;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    /* 아이콘 크기 조정 */
+    .icon_menu ul li i{
+      font-size: var(--fs-xlarge);
+      color: var(--black);
+    }
+    .bi-heart::before{
+      transform: scale(0.9);
+    }
+    .bi-person::before{
+      transform: scale(1.1);
+    }
+  
+    /* 글씨 스타일 조정 */
+    .icon_menu ul li span{
+      text-align: center;
+      font-size: var(--fs-small);
+      font-weight: var(--fw-light);
+      color: var(--black);
+      text-wrap: nowrap;
+      margin-top: 5px;
+    }
+  
+  
+  </style>
+</head>
 
-  header > div h1{
-    height: 100%;
-  }
-  header > div h1 > a{
-    display: block;
-  }
-  header > div h1 > a img{
-    width: 115px;
-    height: 40px;
-  }
-	header > div ul{
-		display:flex;
-		justify-content:center;
-	}
-  header > div ul li{
-    width: 40px;
-    text-align: center;
-    cursor: pointer;
-  }
-  header > div ul li a{
-    display: block;
-  }
-	header > div ul li i{
-    line-height: 40px;
-    font-size: 30px;
-	}
-  header > div ul .bi-bell::before{
-    transform: scale(0.8);
-  }
 
-
-	/* ----------------사이드바 메뉴------------ */
-	.side{
-		width:100%; height: 100vh;
-		position: absolute;
-		z-index: 100;
-		right:-100%;
-		transition: 0.5s;
-    background: #fff;
-	}
-  .side.open{
-    right:0;
-  }
-  /* 닫기 버튼 */
-	#toggle_close{
-		position: absolute;
-		top:30px; right: 30px;
-		cursor: pointer;
-	}
-  #toggle_close i{
-    font-size: var(--fs-xlarge);
-  }
-  /* -------------로그인 타이틀 부분--------- */
-  .side .info{
-    padding: 80px 20px 30px 20px;
-    border-bottom: 1px solid var(--light-gray);
-  }
-  .side .info dd{
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .side .info img{
-    width: 50px; height: 50px;
-    border-radius:50%;
-  }
-  .side .info a{
-    color:#666;
-    text-wrap:nowrap;
-  }
-  .side .info dd a:first-of-type{
-    color: var(--black);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-large);
-    margin-right: auto;
-  }
-
-  /* -------------카테고리 부분------------ */
-  .side .depth{
-    position: relative;
-    background: var(--light-gray);
-    padding: 30px 20px;
-    height: 100vh;
-  }
-  /* 큰 카테고리 */
-	.side .depth1 {
-		margin-bottom:40px;
-	}
-	.side .depth1 > a{
-    position: relative;
-    z-index: 500;
-		font-size:var(--fs-medium-large);
-    background: none;
-    color: #000;
-    padding: 15px 20px;
-    width: calc(40% + 20px);
-    border-radius: 50px
-	}
-  .side .depth1 > a.active{
-    display:block;
-    background: var(--red);
-    color: #fff;
-  }
-  /* 작은 카테고리 */
-	.side .depth2{
-    display: none;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    right: 0;
-    left: 40%;
-    padding: 45px 0 0 60px;
-    background: #fff;
-	}
-	.side .depth2 li{
-    margin-bottom: 40px;
-	}
-	.side .depth2 a {
-    padding: 15px 0;
-		font-size:var(--fs-medium-large);
-	}
-	.side .depth2 a:hover {
-		color: var(--red);
-	}
-
-  /* -----------로그인 밑에 아이콘들----------- */
-  .icon_menu{
-    width: 100%;
-    background: #fff;
-    margin-top: 20px;
-  }
-  .icon_menu ul{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    padding: 0;
-  }
-  .icon_menu ul li{
-    text-align: center;
-    width: 60px; height: 60px;
-    list-style: none;
-  }
-  .icon_menu a{
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    color: #666;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-  /* 아이콘 크기 조정 */
-  .icon_menu ul li i{
-    font-size: var(--fs-xlarge);
-    color: var(--black);
-  }
-  .bi-heart::before{
-    transform: scale(0.9);
-  }
-  .bi-person::before{
-    transform: scale(1.1);
-  }
-
-  /* 글씨 스타일 조정 */
-  .icon_menu ul li span{
-    text-align: center;
-    font-size: var(--fs-small);
-    font-weight: var(--fw-light);
-    color: var(--black);
-    text-wrap: nowrap;
-    margin-top: 5px;
-  }
-
-
-</style>
 <header>
   <div>
     <h1>
@@ -409,6 +414,14 @@
     $('.depth1 > a.active').next('.depth2').show();
 
 
+    // ----------모든 <style> 태그를 찾아서 <head>로 이동---------
+    $('style').each(function() {
+      // <head>가 존재하는지 확인
+      if ($('head').length) {
+        // <style> 태그를 <head>로 이동
+        $('head').append($(this));
+      }
+    });
 
 
 
