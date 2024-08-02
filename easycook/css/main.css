@@ -151,7 +151,7 @@ html {
 }
 .btn-box-s .btn-s.fill {
   background: #EF2F15;
-  color: #000000;
+  color: #ffffff;
 }
 
 .btn-box-l {
@@ -325,6 +325,12 @@ html {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   white-space: normal;
+}
+
+.bread_c {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-top: 13px;
 }
 
 /* -------공통 서식 -------*/

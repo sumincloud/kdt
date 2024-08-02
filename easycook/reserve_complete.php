@@ -1,12 +1,22 @@
 <?php
   include('./php/include/dbconn.php');
+
+  // URL 쿼리 문자열에서 데이터 가져오기
+  $date = $_GET['date'];
+  $room = $_GET['room'];
+  $start = $_GET['start'];
+  $end = $_GET['end'];
+
+  // 날짜 형식 변환
+  $dateObj = DateTime::createFromFormat('Y-m-d', $date);
+  $formattedDate = $dateObj ? $dateObj->format('Y.m.d') : $date;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>예약완료</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
     <!-- 메인서식 연결 -->
@@ -37,12 +47,12 @@
         font-size:var(--fs-medium-large);
         margin-bottom:62px;
       }
-      @media (min-width: 1400px) {
+      @media (min-width: 768px) {
         .re_com {
-          width: 1400px;
+          width: 768px;
         }
         .re_com article{
-          width:50%;
+          width:60%;
           margin:0 auto;
           text-align:center;
           padding-top:180px;
@@ -55,6 +65,16 @@
       }
       .checkmark-container svg .circle, .checkmark-container svg .checkmark{
         stroke: var(--green);
+      }
+
+      /* 테이블 서식 */
+      .info-table{
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+      .info-table td{
+        text-align: left;
       }
     </style>
 </head>
@@ -73,7 +93,22 @@
           </svg>
         </div>
         <h2>예약 완료</h2>
-        <p>2024.07.10 101호 12:00 ~ 13:00(데이터 연결하기)</p>
+        <table class="table info-table">
+          <tbody>
+            <tr>
+              <th>날짜</th>
+              <td><?php echo htmlspecialchars($formattedDate); ?></td>
+            </tr>
+            <tr>
+              <th>시간</th>
+              <td><?php echo htmlspecialchars($start); ?> - <?php echo htmlspecialchars($end); ?></td>
+            </tr>
+            <tr>
+              <th>장소</th>
+              <td><?php echo htmlspecialchars($room); ?>호</td>
+            </tr>
+          </tbody>
+        </table>
         <div class="btn-box-l">
           <a href="./reserve_list.php" class="btn-l" style="background: var(--green);">나의 예약으로</a>
         </div>

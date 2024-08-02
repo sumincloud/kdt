@@ -325,4 +325,10 @@ html {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   white-space: normal;
+}
+
+.bread_c {
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding-top: 13px;
 }/*# sourceMappingURL=common.css.map */

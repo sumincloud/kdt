@@ -9,7 +9,10 @@
       $id = $_SESSION['id'];
       $name = $_SESSION['name'];
     }else{
-      $id = null;
+      echo "<script>
+              alert('로그인이 필요한 서비스입니다.');
+              window.location.href = './login.php';
+            </script>";
     }
 
     // question count
@@ -48,11 +51,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-    <!-- 공통 헤드정보 삽입 -->
-    <?php include('./php/include/head.php'); ?>
-    <!-- 서식 연결 -->
-    <link rel="stylesheet" href="./css/sub.css">
+  <title>나의 예약</title>
+  <!-- 공통 헤드정보 삽입 -->
+  <?php include('./php/include/head.php'); ?>
+  <style>
+    section{
+      padding: 0 20px;
+    }
+    /* 768px 이상일때 요소배치 */
+    @media (min-width: 768px) {
+      section{
+        width: 600px;
+        margin: 50px auto 0 auto;
+      }
+    }
+    .reserve_list > h2{
+      font-size: var(--fs-large);
+      font-weight: var(--fw-bold);
+      padding: 40px 0 10px 0;
+      text-align: center;
+    }
+    .table>:not(caption)>*>*{
+      padding: 12px;
+      vertical-align: middle;
+    }
+    .reserve_list .table{
+      border-top: 2px solid #000;
+    }
+    .reserve_list .table thead{
+      text-align: center;
+    }
+    .reserve_list .table tbody{
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+
+    /* 상태버튼 */
+    .status_btn{
+      background:var(--red);
+      color:#fff;
+      padding:5px;
+      text-wrap:nowrap;
+      border-radius:5px;
+    }
+    .status_btn_disabled {
+      background-color: #ccc; 
+      color: #666;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .status_btn_disabled:hover {
+      background-color: #ccc;
+      text-decoration: none;
+    }
+
+  </style>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -61,72 +115,61 @@
   <!-- 나의 문의 내역 -->
   <main>
     <section class="reserve_list">
-      <p>홈&#62; 마이페이지&#62; <b>나의 예약</b></p>
-      <h2>나의 예약 총 <?php echo $max_Num[0]; ?>개</h2>
+      <p class="bread_c">홈 &#62; 마이페이지 &#62; <b>나의 예약</b></p>
+      <h2>나의 예약</h2>
       <!-- 테이블 시작 -->
       <article class="reserve_detail">
         <table class="table table-hover table-responsive reserve_table mt-3 mb-3">
-          <caption>나의 문의 리스트</caption>
+          <caption style="display:none;">나의 예약 리스트</caption>
           <thead>
             <tr>
               <th>번호</th>
-              <th>예약내용</th>
+              <th>날짜</th>
+              <th>시간</th>
+              <th>장소</th>
               <th>상태</th>
             </tr>
           </thead>
           <tbody>
           <!-- 전체강의 보기 -->
           <?php 
-            // 현재시간
-            $timeNow = date('H:i:s');
-            // echo $timeNow;
+            // 현재 시간
+            $currentDateTime = new DateTime();
 
-            //room 불러오는곳
-            $sql = "select * from room where id='$id' order by no DESC limit $start, $list_num;";
+            // room 불러오는곳
+            $sql = "SELECT * FROM room WHERE id='$id' ORDER BY no DESC LIMIT $start, $list_num;";
             $result = mysqli_query($conn, $sql);
-            while($q=mysqli_fetch_row($result)){
 
-            //시간 비교하기
-            $qTime = new DateTime($q[4]);
+            while($q = mysqli_fetch_row($result)) {
+              // 예약 날짜와 시간을 형식화
+              $date = date("Y.m.d", strtotime($q[3]));
+              $startTime = date("H:i", strtotime($q[4]));
+              $endTime = date("H:i", strtotime($q[5]));
+              $roomNumber = htmlspecialchars($q[2]);
 
-              if($qTime < $timeNow){
-                print 
+              // 시간 비교
+              $reserveDateTime = new DateTime($q[3] . ' ' . $q[4]); // 예약 날짜와 시작 시간 결합
+              $isExpired = $reserveDateTime < $currentDateTime;
+
+              // 버튼 텍스트와 스타일 결정
+              $buttonText = $isExpired ? '종료' : '취소';
+              $buttonClass = $isExpired ? 'status_btn status_btn_disabled' : 'status_btn';
+
+              print 
               "<tr>
+                <td>$max_Num[0]</td>
+                <td>$date</td>
+                <td>$startTime - $endTime</td>
+                <td style='text-wrap:nowrap;'>$roomNumber<span>호</span></td>
                 <td>
-                  <a href='inquire_view.php?no=".$q[0]."' title=''>".$max_Num[0]."</a>
-                </td>
-                <td>
-                  <a href='inquire_view.php?no=".$q[0]."' title=''>"
-                  .date("Y-m-d",strtotime($q[3]))."&#x3000;"
-                  .date("H:i",strtotime($q[4]))."~".date("H:i",strtotime($q[5]))."&#x3000;"
-                  .$q[2]."호&#x3000;"
-                  ."</a>
-                </td>
-                <td>
-                  <a href='inquire_view.php?no=".$q[0]."' title=''>
-                    <span class='question_r1'>예약취소</span>
-                  </a>
+                  <a href='./php/reserve_delete.php?no=".$q[0]."' title='예약취소버튼' class='$buttonClass'>$buttonText</a>
                 </td>
               </tr>";
-              }else{
-                print 
-              "<tr>
-                <td><a href=inquire_view.php?no=".$q[0]."' title=''>".$max_Num[0]."</a></td>
-                <td>
-                  <a href='inquire_view.php?no=".$q[0]."' title=''>"
-                  .date("Y-m-d",strtotime($q[3]))."&#x3000;"
-                  .date("H:i",strtotime($q[4]))."~".date("H:i",strtotime($q[5]))."&#x3000;"
-                  .$q[2]."호&#x3000;"
-                  ."</a>
-                </td>
-                <td>
-                  <a href='qinquire_view.php?no=".$q[0]."' title=''><span class='question_r2'>종료</span></a>
-                </td>
-              </tr>";
-            };
-            $max_Num[0] --;
-            };
+
+              $max_Num[0]--;
+            }
           ?>
+
         </table>
 
         <!-- 페이지 네이션 -->
