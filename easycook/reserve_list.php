@@ -107,6 +107,30 @@
       text-decoration: none;
     }
 
+    /* 페이지네이션 서식 */
+    .pagination {
+      border: none; /* 테두리 없애기 */
+    }
+    .pagination .page-link {
+      color: #000;
+      font-weight: normal;
+      border: none;
+    }
+    .pagination .page-item.active .page-link {
+      font-weight: bold; 
+      background: none;
+      border: none;
+    }
+    .pagination .page-item.disabled .page-link {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+    .pagination .page-link:hover {
+      text-decoration: none;
+    }
+    .disabled>.page-link, .page-link.disabled{
+      background: none;
+    }
   </style>
 </head>
 <body>
@@ -176,39 +200,35 @@
 
         </table>
 
-        <!-- 페이지 네이션 -->
-        <nav aria-label="페이지네이션" class="padding50 mt-3 mb-3" style="position: relative;">
-          <ul class="pagination justify-content-center">
+      <!-- 페이지 네이션 -->
+      <nav aria-label="페이지네이션" class="padding50 mt-3 mb-3" style="position: relative;">
+        <ul class="pagination justify-content-center">
 
-          <?php //페이지네이션이 들어가는 곳
-            //이전페이지
-            if($page <= 1){ ?> 
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page=<?php echo ($page-1); ?>" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
-              <?php } 
-              else{ ?> 
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page-1); ?>" class="page-link "><i class="bi bi-chevron-left"></i></a></li>
-              <?php };
-              ?> 
-          <?php //여기서부터 페이지 번호출력하기
-            for($print_page=$s_pageNum;$print_page<=$e_pageNum;$print_page++){?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $print_page; ?>" class="page-link">
-                <?php echo $print_page ?>
-              </a></li>
-            <?php }; ?>  
+          <!-- 이전 페이지 버튼 -->
+          <?php if($page > 1) { ?>
+            <li class="page-item"><a href="reserve_list.php?page=<?php echo ($page - 1); ?>" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
+          <?php } else { ?>
+            <li class="page-item disabled"><span class="page-link"><i class="bi bi-chevron-left"></i></span></li>
+          <?php } ?>
 
-            <!-- 다음 버튼 나오는 곳 -->
-            <?php if($page>=$total_page){ ?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $total_page; ?>" title="다음페이지로" class="page-link"><i class="bi bi-chevron-right"></i></i></a></li>
-            <?php }else{ ?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page+1); ?>" class="page-link ">
-              <i class="bi bi-chevron-right"></i></a></li>
-          <?php };    
-          ?>    
-          </ul>
-        </nav>  
+          <!-- 페이지 번호 출력 -->
+          <?php for($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++) { ?>
+            <li class="page-item <?php if($page == $print_page) echo 'active'; ?>">
+              <a href="reserve_list.php?page=<?php echo $print_page; ?>" class="page-link"><?php echo $print_page; ?></a>
+            </li>
+          <?php } ?>
+
+          <!-- 다음 페이지 버튼 -->
+          <?php if($page < $total_page) { ?>
+            <li class="page-item"><a href="reserve_list.php?page=<?php echo ($page + 1); ?>" class="page-link"><i class="bi bi-chevron-right"></i></a></li>
+          <?php } else { ?>
+            <li class="page-item disabled"><span class="page-link"><i class="bi bi-chevron-right"></i></span></li>
+          <?php } ?>
+          
+        </ul>
 
         <!-- 바로가기 가기 -->
-        <div class="btn-box-l mb-5">
+        <div class="btn-box-l mb-5 mt-5">
           <a href="mypage.php" class="btn-l gray">마이페이지로</a>
         </div>
       </article>
