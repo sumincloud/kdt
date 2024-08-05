@@ -253,9 +253,9 @@
             </a>
           </li>
           <li>
-            <a href='./cart.php' title='찜목록'>
-              <i class='bi bi-heart'></i>
-              <span>찜목록</span>
+            <a href='./reserve_list.php' title='실습실'>
+              <i class='bi bi-door-closed'></i>
+              <span>실습실</span>
             </a>
           </li>
           <li>
