@@ -139,6 +139,11 @@
 
   <main>
     <section>
+      <p class="bread_c">
+        <a href="./index.php" title="홈">홈</a> &#62; 
+        <a href="./mypage.php" title="마이페이지">마이페이지</a> &#62; 
+        <b><a href="./order_list.php" title="신청목록">신청목록</a></b>
+      </p>
       <h2>신청 목록</h2>
       <!-- 상품목록 카드 스타일 -->
       <ul class="card-list">

@@ -98,3 +98,14 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // ----------모든 <style> 태그를 찾아서 <head>로 이동---------
+  $('style').each(function() {
+    // <head>가 존재하는지 확인
+    if ($('head').length) {
+      // <style> 태그를 <head>로 이동
+      $('head').append($(this));
+    }
+  });
+</script>

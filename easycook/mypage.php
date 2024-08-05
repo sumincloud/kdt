@@ -213,6 +213,10 @@
 
   <main>
     <section>
+      <p class="bread_c">
+        <a href="./index.php" title="홈">홈</a> &#62; 
+        <b><a href="./mypage.php" title="마이페이지">마이페이지</a></b>
+      </p>
       <h2>마이페이지</h2>
       <?php
         if (isset($_SESSION['id'])) {

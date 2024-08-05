@@ -44,7 +44,7 @@
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/index_sec01_1.png" alt="이미지">
+            <img src="./images/main/visual_1.png" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec01_2.png" alt="이미지">
+            <img src="./images/main/visual_2.png" alt="이미지">
             <div>
               <span>제과제빵</span>
               <p>세상의 모든<br>
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec01_3.png" alt="이미지">
+            <img src="./images/main/visual_3.png" alt="이미지">
             <div>
               <span>창업</span>
               <p>외식 창업을 위한<br>
@@ -74,7 +74,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec01_4.png" alt="이미지">
+            <img src="./images/main/visual_4.png" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -99,19 +99,19 @@
       <div>
         <div>
           <a href="./academy.php?category1=기능사&type=전체" title="요리">
-            <img src="./images/main/index_sec02_1.png" alt="요리">
+            <img src="./images/main/cate_icon_1.png" alt="요리">
             <p>요리</p>
           </a>
         </div>
         <div>
           <a href="./academy.php?category1=바리스타&type=전체" title="바리스타">
-            <img src="./images/main/index_sec02_2.png" alt="바리스타">
+            <img src="./images/main/cate_icon_2.png" alt="바리스타">
             <p>바리스타</p>
           </a>
         </div>
         <div>
           <a href="./academy.php?category1=베이커리&type=전체" title="베이커리">
-            <img src="./images/main/index_sec02_3.png" alt="베이커리">
+            <img src="./images/main/cate_icon_3.png" alt="베이커리">
             <p>베이커리</p>
           </a>
         </div>
@@ -222,16 +222,16 @@
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_1.png" alt="이미지">
+            <img src="./images/main/ad_1.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_2.png" alt="이미지">
+            <img src="./images/main/ad_2.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_3.png" alt="이미지">
+            <img src="./images/main/ad_3.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_4.png" alt="이미지">
+            <img src="./images/main/ad_4.png" alt="이미지">
           </div>
 
         </div>
@@ -451,7 +451,7 @@
     </section>
     <!-- 10. 모바일앱 띠배너 -->
     <section id="sec10">
-      <img src="./images/main/index_sec10_1.png" alt="이미지">
+      <img src="./images/main/app_ad_1.png" alt="이미지">
     </section>
     <!-- 11. 국비과정 베스트 -->
     <section id="sec11">

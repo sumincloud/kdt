@@ -77,7 +77,7 @@
           </a>
         </li>
         <li>
-          <a href="#" title="상담">
+          <a href="community.php?comu=커뮤니티&tab=상담신청" title="상담">
             <i class="bi bi-chat-dots"></i>
             <span>상담</span>
           </a>
@@ -102,12 +102,12 @@
   <script>
     $(document).ready(function() {
       // 현재 페이지의 URL 경로 가져오기
-      const currentPath = window.location.pathname;
+      const currentPath = decodeURIComponent(window.location.pathname + window.location.search);
 
       // 각 링크에 대해 반복
       $("footer nav ul li a").each(function() {
         // 링크의 href 속성에서 경로를 가져오기
-        const href = $(this).attr("href");
+        const href = decodeURIComponent($(this).attr("href"));
 
         // 현재 페이지 URL과 링크의 href 비교
         if (currentPath.endsWith(href)) {
@@ -117,4 +117,15 @@
         }
       });
     });
+
+
+    // ----------모든 <style> 태그를 찾아서 <head>로 이동---------
+    $('style').each(function() {
+      // <head>가 존재하는지 확인
+      if ($('head').length) {
+        // <style> 태그를 <head>로 이동
+        $('head').append($(this));
+      }
+    });
+
   </script>

@@ -48,7 +48,7 @@
       display: block;
     }
     header > div h1 > a img{
-      width: 115px;
+      width: unset;
       height: 40px;
     }
     header > div ul{

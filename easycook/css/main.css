@@ -329,7 +329,7 @@ html {
 
 .bread_c {
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 400;
   padding-top: 13px;
 }
 
@@ -820,18 +820,18 @@ section {
 }
 
 /* 1400px 이상일때 요소배치 */
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   #sec02, #sec03, #sec04, #sec06, #sec07, #sec08, #sec09, #sec11, #sec12 {
-    width: 1400px;
+    width: 1200px;
     margin: 50px auto 0 auto;
   }
   #sec01 .swiper-slide > div {
-    width: 1400px;
+    width: 1200px;
     left: 50%;
     transform: translateX(-50%);
   }
   #sec01 .slide-btn {
-    width: 1400px;
+    width: 1200px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
@@ -839,8 +839,26 @@ section {
   .swiper-button-next, .swiper-button-prev {
     display: block;
     color: #000000;
+    text-align: center;
+    height: 40px;
+  }
+  .swiper-button-next {
+    right: -5px;
+  }
+  .swiper-button-prev {
+    left: -5px;
   }
   .swiper-button-prev::after {
     display: block;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .mySwiper2, .mySwiper3, .mySwiper4, .mySwiper5 {
+    padding: 0 22px !important;
+  }
+  #sec06 .mySwiper5 {
+    padding: 10px 22px !important;
   }
 }/*# sourceMappingURL=main.css.map */

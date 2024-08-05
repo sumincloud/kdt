@@ -13,7 +13,11 @@
   width: 40px; height: 42px;
   border-radius: 30px;
 }
-
+/* .bread_c{
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-light);
+  padding-top: 13px;
+} */
 /* .cook .con{} */
 
 /*footer내리기위해 높이주는 곳*/
@@ -131,6 +135,9 @@
   margin-bottom: 50px;
 }
 
+#map{
+  margin-bottom:40px;
+}
 /*--------------------------------------------------*/
 /*detail.php 여기서부터는 강의 상세페이지*/
 
@@ -229,39 +236,6 @@
   border-top: 1px solid var(--red);
 }
 
-/* .cook_review{
-  width: 90%;
-  margin: 50px auto;
-}
-.cook_review ul{
-  margin-top: 40px;
-}
-
-.cook_review li{margin-bottom: 50px; position: relative;}
-.cook_review li> p{margin: 5px 0px;}
-.cook_review li .comu_review{margin-top: 20px;}
-.cook_review p:nth-child(2){
-  position: absolute;
-  top: 0px; left:55px;
-  margin-top: 15px;
-}
-
-.cook_review .day_gray{color: var(--gray);}
-
-.cook_review .review_img{
-  display: flex;
-  overflow: hidden;
-  overflow-x: scroll;
-  margin-top: 34px;
-}
-.cook_review .review_img::-webkit-scrollbar{
-  display: none;
-}
-
-.cook_review .review_img img{
-  width: 100px; height: 100px;
-  border-radius: 5px; margin-right: 12px;
-} */
 
 /*해당과정 바로 상담 신청 (이메일) 부분 서식*/
 .inquire{
@@ -470,6 +444,10 @@
 
 /*---------------------------------------------*/
 /*커뮤니티 상세페이지 서식*/
+.community{
+  width: 90%;
+  margin: 0 auto;
+}
 .community .community_con .intro_teacher{
   width: 90%;
   margin: 0 auto;
@@ -512,6 +490,189 @@
 /*이건 0일전 서식*/
 .community .day_gray{color: var(--gray);}
 .community .comu_review{margin: 20px 0px 0px 0px;}
+
+/*이건 상담신청서식*/
+.community_con #page1{
+  width: 100%;
+  height: 150px;
+  background-image: url(../images/sub/inq_send.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.community_con #page1 > h2{
+  font-size: var(--fs-medium-large);
+  font-weight: var(--fw-semi-bold);
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.community_con #page1 > p:nth-child(2){
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-light);
+}
+
+.community_con #page1 > p:nth-child(3){
+  width: 288px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-light);
+  padding: 10px ;
+  background: rgba(255,255,255,0.2);
+  border-radius: 30px;
+  margin:  0 auto;
+  margin-top: 20px;
+}
+
+.community_con #page2 p{
+  font-size: var(--fs-medium-large);
+  font-weight: var(--fw-semi-bold);
+  margin-top: 20px;
+}
+
+.community_con #page2 ul{
+  display: flex;
+  width: 300px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.community_con #page2 input[type=radio]{
+  display: none;
+}
+.community_con #page2 ul label{
+  width: 85px;
+  padding:12px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.hiden{
+  border: none !important;
+
+}
+.community_con #page2 .time_on{
+  border: 1px solid var(--red);
+  color: var(--red);font-weight: var(--fw-semi-bold);
+}
+
+/*여기는 고객센터 공지사항 자주 묻는 질문 부분*/
+.community_con #page1_2{
+  width: 100%;
+  height: 150px;
+  background-image: url(../images/sub/inq_center.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.community_con #page1_2 > h2{
+  font-size: var(--fs-medium-large);
+  font-weight: var(--fw-semi-bold);
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.community_con #page1_2 > p:nth-child(2){
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-light);
+}
+
+.community_con #page1_2 > ul{
+  display: flex;
+  width: 288px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.community_con #page1_2 ul>li> a{
+  padding: 10px ;
+  display: inline-block;
+  width: 144px;
+  color: var(--white);
+}
+
+.community_con #page1_2 .inq_on{
+  font-weight: var(--fw-semi-bold);
+  background: var(--red);
+  border-radius: 30px;
+  height: 100%;
+}
+
+/*커뮤니티 공지사항 부분 서식*/
+
+.notice{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.notice > ul{
+  margin-top: 26px;
+}
+
+.notice > ul> li{
+  display: flex;
+  height: 55px;
+  padding: 20px 10px 10px 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.notice > ul> li p:nth-child(2){
+  width: 80%;
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-normal);
+  margin-left: 20px;
+  text-overflow: ellipsis;/*...이 나오게하는 속성*/
+  white-space: nowrap;/*한줄로 쭉나오게 하는속성*/
+  overflow: hidden;/*가로영역 벗어난 글자숨기기*/
+}
+.notice > ul> li p:first-child{
+  font-size: var(--fs-small);
+  font-weight: var(--fw-normal);
+}
+
+/*커뮤니티 자주묻는질문 부분*/
+.faq{
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.faq span{
+  font-size: var(--fs-medium-large);
+  font-weight: var(--);
+}
+.faq .s_toggleQ{
+  height: 55px;
+  border-bottom: 1px solid var(--gray);
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-normal);
+  text-overflow: ellipsis;/*...이 나오게하는 속성*/
+  white-space: nowrap;/*한줄로 쭉나오게 하는속성*/
+  overflow: hidden;/*가로영역 벗어난 글자숨기기*/
+  line-height: 50px;
+}
+.faq .s_toggleQ span{
+  padding-right: 10px;
+}
+
+.faq .s_toggle{
+  border-bottom: 1px solid var(--gray);
+  padding: 15px 0px 15px 20px;
+  position: relative;
+  display: none;
+}
+.faq .s_toggle img{
+  width: 97%;
+}
+.faq .s_toggle span{
+  position: absolute;
+  left: 20px;
+  transform: translate(-20px ,0px);
+  font-weight: var(--fw-semi-bold);
+}
 
 
 /*---------------------------------------------*/
@@ -640,7 +801,8 @@
 .inquire_list > p:first-child {
   font-size: var(--fs-xsmall);
   font-weight: var(--fw-light);
-  padding-top: 13px;}
+  padding-top: 13px;
+}
 
 .inquire_table{
   line-height: 30px;
@@ -695,33 +857,5 @@
 }
 
 /*----------------------------------------------------*/
-/*커뮤니티 공지사항 부분 서식*/
 
-.notice{
-  width: 90%;
-  margin: 0 auto;
-}
 
-.notice > ul{
-  margin-top: 26px;
-}
-
-.notice > ul> li{
-  display: flex;
-  height: 55px;
-  padding: 20px 10px 10px 10px;
-  border-bottom: 1px solid #d9d9d9;
-}
-.notice > ul> li p:nth-child(2){
-  width: 80%;
-  font-size: var(--fs-medium-large);
-  font-weight: var(--fw-semi-bold);
-  margin-left: 20px;
-  text-overflow: ellipsis;/*...이 나오게하는 속성*/
-  white-space: nowrap;/*한줄로 쭉나오게 하는속성*/
-  overflow: hidden;/*가로영역 벗어난 글자숨기기*/
-}
-.notice > ul> li p:first-child{
-  font-size: var(--fs-small);
-  font-weight: var(--fw-normal);
-}
