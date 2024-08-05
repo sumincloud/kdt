@@ -28,17 +28,6 @@
       transform: translate(-50%, -50%);
     }
   }
-
-  header > div h1{
-    height: 100%;
-  }
-  header > div h1 > a{
-    display: block;
-  }
-  header > div h1 > a img{
-    width: unset;
-    height: 40px;
-  }
   header > div div{
     width: 40px;
     text-align: center;

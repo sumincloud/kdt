@@ -91,9 +91,10 @@
     .status_btn{
       background:var(--red);
       color:#fff;
-      padding:5px;
+      padding:6px;
       text-wrap:nowrap;
       border-radius:5px;
+      border:none;
     }
     .status_btn_disabled {
       background-color: #ccc; 
@@ -133,8 +134,11 @@
           <tbody>
           <!-- 전체강의 보기 -->
           <?php 
+            // 아시아/서울 타임존 설정
+            $timezone = new DateTimeZone('Asia/Seoul');
+
             // 현재 시간
-            $currentDateTime = new DateTime();
+            $currentDateTime = new DateTime('now', $timezone);
 
             // room 불러오는곳
             $sql = "SELECT * FROM room WHERE id='$id' ORDER BY no DESC LIMIT $start, $list_num;";
@@ -142,7 +146,7 @@
 
             while($q = mysqli_fetch_row($result)) {
               // 예약 날짜와 시간을 형식화
-              $date = date("Y.m.d", strtotime($q[3]));
+              $date = date("Y-m-d", strtotime($q[3]));
               $startTime = date("H:i", strtotime($q[4]));
               $endTime = date("H:i", strtotime($q[5]));
               $roomNumber = htmlspecialchars($q[2]);
@@ -156,13 +160,13 @@
               $buttonClass = $isExpired ? 'status_btn status_btn_disabled' : 'status_btn';
 
               print 
-              "<tr>
+              "<tr id='no-$q[0]'>
                 <td>$max_Num[0]</td>
                 <td>$date</td>
                 <td>$startTime - $endTime</td>
                 <td style='text-wrap:nowrap;'>$roomNumber<span>호</span></td>
                 <td>
-                  <a href='./php/reserve_delete.php?no=".$q[0]."' title='예약취소버튼' class='$buttonClass'>$buttonText</a>
+                  <button onclick='Cancle($q[0])' class='$buttonClass'>$buttonText</button>
                 </td>
               </tr>";
 
@@ -205,8 +209,7 @@
 
         <!-- 바로가기 가기 -->
         <div class="btn-box-l mb-5">
-          <a href="reserve_check.php" class="btn-l">예약하기</a>
-          <a href="mypage.php" class="btn-l">마이페이지로</a>
+          <a href="mypage.php" class="btn-l gray">마이페이지로</a>
         </div>
       </article>
     </section>
@@ -217,5 +220,29 @@
   <!-- 공통바텀바삽입 -->
   <?php include('./php/include/bottom.php');?>
 
+  <script>
+    //신청취소 누르면 삭제하는 기능
+    function Cancle(No) {
+      if (confirm('예약을 취소하시겠습니까?')){
+        $.ajax({
+          url: './php/reserve_delete.php',
+          type: 'POST',
+          data: {
+            no: No,
+            action: 'remove'
+          },
+          success: function(response) {
+            console.log(response);
+            alert('예약이 취소되었습니다.');
+            // 삭제 성공 후 리스트에서 항목 제거
+            $('#no-' + No).remove();
+          },
+          error: function(xhr, status, error) {
+            console.error('요청 실패:', error);
+          }
+        });
+      }
+    }
+  </script>
 </body>
 </html>

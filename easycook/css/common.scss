@@ -230,6 +230,10 @@ $button-gap: 10px;
       background: $red;
       color: $white; // 추가로 텍스트 색상 변경
     }
+    &.gray {
+      background: $gray;
+      color: $black; // 추가로 텍스트 색상 변경
+    }
   }
 }
 
@@ -247,6 +251,14 @@ $button-gap: 10px;
       border: 1px solid $red;
       background: $white;
       color: $red; // 추가로 텍스트 색상 변경
+    }
+    &.fill {
+      background: $red;
+      color: $white; // 추가로 텍스트 색상 변경
+    }
+    &.gray {
+      background: $gray;
+      color: $black; // 추가로 텍스트 색상 변경
     }
   }
 }

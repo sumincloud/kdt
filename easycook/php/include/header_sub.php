@@ -31,13 +31,16 @@
 
   header > div h1{
     height: 100%;
+    width: 120px;
   }
   header > div h1 > a{
     display: block;
+    height: 100%;
   }
   header > div h1 > a img{
-    width: 115px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   header > div div{
     width: 40px;

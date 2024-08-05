@@ -361,6 +361,14 @@ if (isset($_SESSION['id'])) {
         var roomNo = $('input[name="room"]:checked').val(); // 선택한 실습실
         // console.log('Selected Date:', selectedDate);
         // console.log('Room No:', roomNo);
+
+        // 현재 시간 가져오기
+        var now = new Date();
+        var currentDate = now.toISOString().split('T')[0]; // YYYY-MM-DD 형식
+        var currentHour = now.getHours();
+        var currentMinute = now.getMinutes();
+        var currentTime = (currentHour < 10 ? '0' : '') + currentHour + ':' + (currentMinute < 10 ? '0' : '') + currentMinute;
+
         $.ajax({
           url: './php/reserve_status.php',
           method: 'GET',
@@ -374,24 +382,38 @@ if (isset($_SESSION['id'])) {
               var max = 8; // 정원 수
               var label = $(this).next('label');
               label.find('span:last').text(count + '/' + max);
+              
+              // 현재 시간 이후의 시간 슬롯 비활성화
+              var timeSlotStart = timeSlot.split('-')[0];
+              
+              // 선택한 날짜와 현재 날짜를 비교
+              if (selectedDate < currentDate || (selectedDate === currentDate && timeSlotStart <= currentTime)) {
+                label.addClass('disabled-slot');
+                $(this).prop('checked', false); // 체크 해제
+                $(this).prop('disabled', true);
+              } else {
+                label.removeClass('disabled-slot');
+                $(this).prop('disabled', false);
+                
+                // 예약 정원이 가득 찬 경우 label에 비활성화 클래스 추가
+                if (count >= max) {
+                  label.addClass('disabled-slot');
+                  $(this).prop('checked', false); // 체크 해제
+                  $(this).prop('disabled', true);
+                } else {
+                  label.removeClass('disabled-slot');
+                  $(this).prop('disabled', false);
+                }
 
-          // 예약 정원이 가득 찬 경우 label에 비활성화 클래스 추가
-          if (count >= max) {
-            label.addClass('disabled-slot');
-            $(this).prop('checked', false); // 체크 해제
-            $(this).prop('disabled', true);
-          } else {
-            label.removeClass('disabled-slot');
-            $(this).prop('disabled', false);
-          }
-            });
-          },
+              }
 
-          error: function() {
-            console.error('예약 현황을 가져오는 데 실패했습니다.');
-          }
         });
+      },
+      error: function() {
+        console.error('예약 현황을 가져오는 데 실패했습니다.');
       }
+    });
+  }
 
       // 페이지 로드 시 예약 현황 업데이트
       updateReservationStatus();
