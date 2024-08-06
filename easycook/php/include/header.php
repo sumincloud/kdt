@@ -87,6 +87,9 @@
     .side.open{
       right:0;
     }
+    .a_side.open{
+      right:0;
+    }
     /* 닫기 버튼 */
     #toggle_close{
       position: absolute;
@@ -101,7 +104,7 @@
       padding: 80px 20px 30px 20px;
       border-bottom: 1px solid var(--light-gray);
     }
-    .side .info dd{
+    .side .info > div{
       display: flex;
       gap: 10px;
       justify-content: space-between;
@@ -115,7 +118,7 @@
       color:#666;
       text-wrap:nowrap;
     }
-    .side .info dd a:first-of-type{
+    .side .info > div a:first-of-type{
       color: var(--black);
       font-weight: var(--fw-bold);
       font-size: var(--fs-large);
@@ -219,8 +222,75 @@
       text-wrap: nowrap;
       margin-top: 5px;
     }
-  
-  
+
+    /*---------------알림창-------------- */
+    header .a_side{
+      top:0px;
+      display:block;
+      transform:translateY(-61px);
+      padding:61px 0px 0px 0px ;
+      right: -100%;
+      background: pink;
+    }
+    .a_side > div{
+      height:70px;
+      border-bottom:1px solid var(--gray);
+      background: #fff;
+    }
+    /*알림과 X 가로 정렬 */
+    .a_side h2, .a_side > div > p{
+      display: inline-block;
+    }
+    .a_side h2{
+      font-size:var(--fs-xlarge);
+      font-weight:var(--fw-bold);
+      padding:20px;
+    }
+    .a_side > div > p{float:right;padding:20px;}
+    .a_side > div > p i{
+      cursor: pointer;
+      font-size:var(--fs-xlarge);
+      font-weight:var(--fw-bold);
+      
+    }
+
+    /*알림창 내용 */
+    .a_side ul{
+      display: inline-block;
+      width:100%;
+      margin:0 auto;
+      background: #fff;
+      padding: 20px;
+      height: 100vh;
+    }
+    .a_side ul>li{
+      width:100%;
+      height: 85px;
+      text-align:left;
+      border:1px solid var(--gray);
+      border-radius:5px;
+      margin-top:10px;
+      
+    }
+    .a_side ul>li >p:first-child{
+      font-size:var(--fs-medium);
+      font-weight:var(--fw-bold);
+      padding:10px 0px 0px 10px ;
+    }
+    .a_side ul>li >p:nth-child(2){
+      display: inline-block;
+      float:right;
+      font-size:var(--fs-small);
+      font-weight:var(--fw-light);
+      transform:translate(-10px,-15px);
+    }
+    .a_side ul>li >p:last-child{
+      font-size:var(--fs-medium);
+      font-weight:var(--fw-normal);
+      padding:25px 10px 0px 10px;
+    }
+
+    
   </style>
 </head>
 
@@ -233,7 +303,7 @@
       </a>
     </h1>
     <ul>
-      <li>
+      <li id="alram">
         <a href="#" title="알림">
           <i class="bi bi-bell"></i>
         </a>
@@ -251,8 +321,8 @@
         <div id="toggle_close">
           <i class="bi bi-x-lg"></i>
         </div>
-        <dl class="info">
-          <dd>
+        <div class="info">
+          <div>
             <?php
               if (isset($_SESSION['id'])) {
                 echo "
@@ -269,11 +339,11 @@
                 ";
               }
             ?>
-          </dd>
+          </div>
           <?php
             if (isset($_SESSION['id'])) {
               echo "
-              <nav class='icon_menu'>
+              <div class='icon_menu'>
                 <ul>
                   <li>
                     <a href='./mypage.php' title='나의 정보'>
@@ -306,7 +376,7 @@
                     </a>
                   </li>
                 </ul>
-              </nav>";
+              </div>";
             }
           ?>
         </dl>
@@ -375,12 +445,53 @@
             </ul>
           </div>
         </li>
-        <div style="padding: 30px 20px; border-top:1px solid #ccc; width: calc(40% - 20px);">
+        <li style="padding: 30px 20px; border-top:1px solid #ccc; width: calc(40% - 20px);">
           <a href="./academy_all.php" title="전체강의" style="color:#666;">전체강의</a>
-        </div>
+        </li>
       </ul>
     </div>
   </nav>
+
+
+  <!--알림창-->
+  <div class="a_side">
+    <div>
+      <!--여기 높이 70 아래보더 1px 색상은 그레이-->
+      <h2>알림</h2>
+      <!--X 버튼 displya:inline요소 주기 p 사이즈는 padding이나 i에 폰트사이즈로-->
+      <p id="toggle_close2">
+        <i class="bi bi-x-lg"></i>
+      </p>
+    </div>
+
+    <!--알림 내용-->
+    <ul>
+      <li>
+        <p>추석연휴 안내</p>
+        <p>2024-07-30</p>
+        <p>9월달 추석 휴강일 안내드립니다. </p>
+      </li>
+      <li>
+        <p>추석연휴 안내</p>
+        <p>2024-07-30</p>
+        <p>9월달 추석 휴강일 안내드립니다. </p>
+      </li>
+      <li>
+        <p>추석연휴 안내</p>
+        <p>2024-07-30</p>
+        <p>9월달 추석 휴강일 안내드립니다. </p>
+      </li>
+      <li>
+        <p>추석연휴 안내</p>
+        <p>2024-07-30</p>
+        <p>9월달 추석 휴강일 안내드립니다. </p>
+      </li>
+    </ul>
+  </div>
+
+
+
+
 </header>
 
 
@@ -395,6 +506,15 @@
     $('#toggle_close').click(function(){
       $('.side').removeClass('open');
     })
+    //알림창 열고 닫기
+    $('#alram').click(function(){
+      $('.a_side').addClass('open');
+    })
+    $('#toggle_close2 i').click(function(){
+      $('.a_side').removeClass('open');
+    })
+
+
 
     // depth1 클릭 이벤트
     $('.depth1 > a').click(function(e) {

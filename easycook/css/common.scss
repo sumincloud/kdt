@@ -103,7 +103,7 @@ html {
 
 // 별점
 .star {
-  text-wrap: nowrap;
+  white-space: nowrap;
   i {
     color: $red;
     opacity: 0.2;

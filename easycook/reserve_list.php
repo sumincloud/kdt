@@ -140,8 +140,12 @@
   <!-- 나의 문의 내역 -->
   <main>
     <section class="reserve_list">
-      <p class="bread_c">홈 &#62; 마이페이지 &#62; <b>나의 예약</b></p>
-      <h2>나의 예약</h2>
+      <p class="bread_c">
+        <a href="./index.php" title="홈">홈</a> &#62; 
+        <a href="./mypage.php" title="마이페이지">마이페이지</a> &#62; 
+        <b><a href="./reserve_list.php" title="나의 실습실 예약">실습실</a></b>
+      </p>
+      <h2>나의 실습실 예약</h2>
       <!-- 테이블 시작 -->
       <article class="reserve_detail">
         <table class="table table-hover table-responsive reserve_table mt-3 mb-3">
@@ -163,6 +167,7 @@
 
             // 현재 시간
             $currentDateTime = new DateTime('now', $timezone);
+            
 
             // room 불러오는곳
             $sql = "SELECT * FROM room WHERE id='$id' ORDER BY no DESC LIMIT $start, $list_num;";
@@ -176,7 +181,8 @@
               $roomNumber = htmlspecialchars($q[2]);
 
               // 시간 비교
-              $reserveDateTime = new DateTime($q[3] . ' ' . $q[4]); // 예약 날짜와 시작 시간 결합
+              $reserveDateTime = new DateTime($q[3] . ' ' . $q[4],  $timezone); // 예약 날짜와 시작 시간 결합
+
               $isExpired = $reserveDateTime < $currentDateTime;
 
               // 버튼 텍스트와 스타일 결정

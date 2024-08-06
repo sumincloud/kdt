@@ -43,7 +43,7 @@ html {
 }
 
 .star {
-  text-wrap: nowrap;
+  white-space: nowrap;
 }
 .star i {
   color: #EF2F15;

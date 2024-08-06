@@ -40,6 +40,7 @@
   <main>
     <!-- 1. 메인배너 슬라이드 -->
     <section id="sec01">
+      <h3 style="display:none;">메인배너 슬라이드</h3>
       <!-- Swiper -->
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
@@ -96,6 +97,7 @@
     </section>
     <!-- 2. 카테고리 -->
     <section id="sec02">
+      <h3 style="display:none;">카테고리</h3>
       <div>
         <div>
           <a href="./academy.php?category1=기능사&type=전체" title="요리">
@@ -218,6 +220,7 @@
     </section>
     <!-- 5. 광고배너 -->
     <section id="sec05">
+      <h3 style="display:none;">광고배너</h3>
       <!-- Swiper -->
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
@@ -246,6 +249,7 @@
     </section>
     <!-- 6. 수강생 후기 -->
     <section id="sec06">
+      <h3 style="display:none;">수강생 후기</h3>
       <div class="title">
         <h2>수강생 후기</h2>
         <a href="./community.php?comu=커뮤니티&tab=후기" title="더 보기">더 보기 +</a>
@@ -361,7 +365,7 @@
     <section id="sec08">
       <div class="title">
         <h2>인기 바리스타 강의</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=바리스타&type=전체" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
@@ -407,7 +411,7 @@
     <section id="sec09">
       <div class="title">
         <h2>인기 베이커리 강의</h2>
-        <a href="#" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=베이커리&type=전체" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
@@ -451,6 +455,7 @@
     </section>
     <!-- 10. 모바일앱 띠배너 -->
     <section id="sec10">
+      <h3 style="display:none;">띠배너</h3>
       <img src="./images/main/app_ad_1.png" alt="이미지">
     </section>
     <!-- 11. 국비과정 베스트 -->

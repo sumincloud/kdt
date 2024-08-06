@@ -74,15 +74,23 @@
         <a href="#" title="개인정보처리방침">개인정보처리방침</a>
         <a href="#" title="수강료 안내">수강료 안내</a>
       </div>
-      <div class="col-12 col-md-6 mt-4 mb-4" style="line-height: 160%;">
-        <p>Company.Easy Cook(이지쿡)</p>
-        <p>Address. 0000 0000 00-0 0층</p>
-        Owner. 000
-        <p>Business License. 2024 0000 0000 0000000<br>
-        Personal Information Manager. 000<br>
-        Email.00000@0000.000<br>
-        Phone Number. 000-0000-0000</p>
-        <p>Copyright ⓒ Easy Cook, All Rights Reserved.</p>
+      <div class="col-12 col-md-6 mt-4 mb-4 d-flex" style="line-height: 160%;">
+        <div>
+          <p>Company.Easy Cook(이지쿡)</p>
+          <p>
+            Address. 0000 0000 00-0 0층<br>
+            Business License. 2024 0000 0000 0000000<br>
+            Owner. 000
+          </p>
+        </div>
+        <div>
+          <p>
+            Personal Information Manager. 000<br>
+            Email.00000@0000.000<br>
+            Phone Number. 000-0000-0000
+          </p>
+          <p>Copyright ⓒ Easy Cook, All Rights Reserved.</p>
+        </div>
       </div>
       <div class="col-12 col-md-6 logo-box">
         <div class="logo-img">
