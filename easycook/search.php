@@ -6,12 +6,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>이지쿡 - 검색</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
 
-    <!-- 메인서식 연결 -->
-    <link rel="stylesheet" href="./css/main.css">
+    <!-- 서식 연결 -->
     <link rel="stylesheet" type="text/css" href="./css/search.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -54,16 +53,16 @@
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_1.png" alt="이미지">
+            <img src="./images/main/ad_1.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_2.png" alt="이미지">
+            <img src="./images/main/ad_2.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_3.png" alt="이미지">
+            <img src="./images/main/ad_3.png" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/index_sec05_4.png" alt="이미지">
+            <img src="./images/main/ad_4.png" alt="이미지">
           </div>
         </div>
       </div>
