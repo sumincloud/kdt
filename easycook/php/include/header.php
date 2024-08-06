@@ -22,7 +22,7 @@
       top:0;
       z-index: 1000;
     }
-    header > div{
+    header .h_box{
       position: absolute;
       width: 100%; height: 40px;
       display: flex;
@@ -34,43 +34,43 @@
     }
     /* 1400px 이상일때 헤더크기 */
     @media (min-width: 1400px) {
-      header > div{
+      header .h_box{
         width: 1400px;
         left:50%;
         transform: translate(-50%, -50%);
       }
     }
   
-    header > div h1{
+    header .h_box h1{
       height: 100%;
       width: 120px;
     }
-    header > div h1 > a{
+    header .h_box h1 > a{
       display: block;
       height: 100%;
     }
-    header > div h1 > a img{
+    header .h_box h1 > a img{
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    header > div ul{
+    header .h_box ul{
       display:flex;
       justify-content:center;
     }
-    header > div ul li{
+    header .h_box ul li{
       width: 40px;
       text-align: center;
       cursor: pointer;
     }
-    header > div ul li a{
+    header .h_box ul li a{
       display: block;
     }
-    header > div ul li i{
+    header .h_box ul li i{
       line-height: 40px;
       font-size: 30px;
     }
-    header > div ul .bi-bell::before{
+    header .h_box ul .bi-bell::before{
       transform: scale(0.8);
     }
   
@@ -84,11 +84,21 @@
       transition: 0.5s;
       background: #fff;
     }
+    /* 1025px PC/데스크탑 (큰 화면) */
+    @media (min-width: 1025px) {
+      .side{
+        width: 600px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      }
+    }
     .side.open{
       right:0;
     }
     .a_side.open{
-      right:0;
+      position: fixed;
+      display:block;
+      z-index: 10000;
+      background: #fff;
     }
     /* 닫기 버튼 */
     #toggle_close{
@@ -226,11 +236,21 @@
     /*---------------알림창-------------- */
     header .a_side{
       top:0px;
-      display:block;
-      transform:translateY(-61px);
-      padding:61px 0px 0px 0px ;
-      right: -100%;
-      background: pink;
+      display:none;
+      width: 100%;
+      padding: 30px 20px 20px 20px;
+    }
+    /* 1025px PC/데스크탑 (큰 화면) */
+    @media (min-width: 1025px) {
+      .a_side{
+        width: 600px !important;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        right:0;
+      }
+      .a_side > div{
+        border-bottom: none !important;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      }
     }
     .a_side > div{
       height:70px;
@@ -238,16 +258,18 @@
       background: #fff;
     }
     /*알림과 X 가로 정렬 */
-    .a_side h2, .a_side > div > p{
+    .a_side h2, #toggle_close2{
       display: inline-block;
     }
     .a_side h2{
       font-size:var(--fs-xlarge);
       font-weight:var(--fw-bold);
-      padding:20px;
+      padding:10px;
     }
-    .a_side > div > p{float:right;padding:20px;}
-    .a_side > div > p i{
+    #toggle_close2{
+      float:right;padding:10px;
+    }
+    #toggle_close2 i{
       cursor: pointer;
       font-size:var(--fs-xlarge);
       font-weight:var(--fw-bold);
@@ -258,9 +280,8 @@
     .a_side ul{
       display: inline-block;
       width:100%;
-      margin:0 auto;
+      margin:20px auto 0 auto;
       background: #fff;
-      padding: 20px;
       height: 100vh;
     }
     .a_side ul>li{
@@ -296,7 +317,7 @@
 
 
 <header>
-  <div>
+  <div class="h_box">
     <h1>
       <a href="./index.php" title="메인페이지로 이동">
         <img src="./images/common/logo.png" alt="로고">
@@ -304,9 +325,9 @@
     </h1>
     <ul>
       <li id="alram">
-        <a href="#" title="알림">
+        <div title="알림">
           <i class="bi bi-bell"></i>
-        </a>
+        </div>
       </li>
       <li id="list">
         <i class="bi bi-list"></i>
@@ -455,14 +476,12 @@
 
   <!--알림창-->
   <div class="a_side">
-    <div>
-      <!--여기 높이 70 아래보더 1px 색상은 그레이-->
-      <h2>알림</h2>
-      <!--X 버튼 displya:inline요소 주기 p 사이즈는 padding이나 i에 폰트사이즈로-->
-      <p id="toggle_close2">
-        <i class="bi bi-x-lg"></i>
-      </p>
-    </div>
+    <!--여기 높이 70 아래보더 1px 색상은 그레이-->
+    <h2>알림</h2>
+    <!--X 버튼 displya:inline요소 주기 p 사이즈는 padding이나 i에 폰트사이즈로-->
+    <p id="toggle_close2">
+      <i class="bi bi-x-lg"></i>
+    </p>
 
     <!--알림 내용-->
     <ul>
@@ -487,6 +506,8 @@
         <p>9월달 추석 휴강일 안내드립니다. </p>
       </li>
     </ul>
+
+
   </div>
 
 
