@@ -2,11 +2,11 @@
   include('./php/include/dbconn.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡 - 검색</title>
+  <title>이지쿡</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
 
@@ -34,35 +34,36 @@
       <article>
         <h2 class="hide">최근 검색어</h2>
         <div class="swiper mySwiper6">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">#자격증</li>
-            <li class="swiper-slide">#베이커리</li>
-            <li class="swiper-slide">#바리스타</li>
-            <li class="swiper-slide">#한식조리</li>
-            <li class="swiper-slide">#중식조리</li>
-            <li class="swiper-slide">#비건</li>
-            <li class="swiper-slide">#국비반</li>
-            <li class="swiper-slide">#양식조리</li>
-          </ul>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">#자격증</div>
+            <div class="swiper-slide">#베이커리</div>
+            <div class="swiper-slide">#바리스타</div>
+            <div class="swiper-slide">#한식조리</div>
+            <div class="swiper-slide">#중식조리</div>
+            <div class="swiper-slide">#비건</div>
+            <div class="swiper-slide">#국비반</div>
+            <div class="swiper-slide">#양식조리</div>
+          </div>
         </div>
       </article>
     </section>
     <!--광고배너-->
     <section id="sec05">
+      <h2 style="display:none;">광고배너</h2>
       <!-- Swiper -->
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/ad_1.png" alt="이미지">
+            <img src="./images/main/ad_1.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_2.png" alt="이미지">
+            <img src="./images/main/ad_2.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_3.png" alt="이미지">
+            <img src="./images/main/ad_3.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_4.png" alt="이미지">
+            <img src="./images/main/ad_4.jpg" alt="이미지">
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/visual_1.png" alt="이미지">
+            <img src="./images/main/visual_1.jpg" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/visual_2.png" alt="이미지">
+            <img src="./images/main/visual_2.jpg" alt="이미지">
             <div>
               <span>제과제빵</span>
               <p>세상의 모든<br>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/visual_3.png" alt="이미지">
+            <img src="./images/main/visual_3.jpg" alt="이미지">
             <div>
               <span>창업</span>
               <p>외식 창업을 위한<br>
@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/visual_4.png" alt="이미지">
+            <img src="./images/main/visual_4.jpg" alt="이미지">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -225,16 +225,16 @@
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="./images/main/ad_1.png" alt="이미지">
+            <img src="./images/main/ad_1.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_2.png" alt="이미지">
+            <img src="./images/main/ad_2.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_3.png" alt="이미지">
+            <img src="./images/main/ad_3.jpg" alt="이미지">
           </div>
           <div class="swiper-slide">
-            <img src="./images/main/ad_4.png" alt="이미지">
+            <img src="./images/main/ad_4.jpg" alt="이미지">
           </div>
 
         </div>
