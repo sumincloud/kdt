@@ -7,11 +7,11 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡 소개</title>
+  <title>이지쿡</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
     <link rel="stylesheet" href="./css/sub.css" type="text/css">
@@ -40,7 +40,7 @@
           <img src="./images/sub/intro_1.png" alt="휴게실 사진">
           <div>
             <h2>쉽고 재미있는 요리학원 이지쿡</h2>
-            <p>인간의 배움은 비단 학교와 책에서 끝나는 것이 아니기에 이지쿡 아카데미는 쉽고 재미있는 요리를 향한 꿈을 함께할 동반자가 되어 드릴 것 입니다.믿을 수 있는 멘토와 좋은 환경 그리고 어려운것을 쉽게할 줄 아는 강사진과 함께 한 사람의 상상과 꿈이 현장에서 실현될 수 있도록 평생의 공부를 돕는 것, 그것이 이지쿡 아카데미의 목표입니다.</p>
+            <p>인간의 배움은 비단 학교와 책에서 끝나는 것이 아니기에 이지쿡 아카데미는 쉽고 재미있는 요리를 향한 꿈을 함께할 동반자가 되어 드릴 것 입니다. 믿을 수 있는 멘토와 좋은 환경 그리고 어려운것을 쉽게할 줄 아는 강사진과 함께 한 사람의 상상과 꿈이 현장에서 실현될 수 있도록 평생의 공부를 돕는 것, 그것이 이지쿡 아카데미의 목표입니다.</p>
           </div>
             <img src="./images/sub/intro_2.png" alt="제과제빵강의실 사진">
             <div>                

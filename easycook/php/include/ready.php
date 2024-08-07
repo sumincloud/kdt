@@ -30,7 +30,7 @@
       font-size:var(--fs-medium-large);
       margin-bottom:62px;
     }
-    @media (min-width: 1400px) {
+    /* @media (min-width: 1400px) {
       .re_com {
         width: 1400px;
       }
@@ -40,7 +40,7 @@
         text-align:center;
         padding-top:180px;
       }
-    }
+    } */
   </style>
 
   <section class="re_com">
