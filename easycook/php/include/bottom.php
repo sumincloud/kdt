@@ -14,6 +14,8 @@
       justify-content: space-evenly;
       width: 100%;
       padding: 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     footer > nav ul li{
       text-align: center;

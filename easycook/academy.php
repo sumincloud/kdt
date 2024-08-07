@@ -41,6 +41,8 @@
     #filter {
       display: flex;
       padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .filter-dropdown .form-select {
       cursor: pointer;
@@ -55,6 +57,9 @@
 
     #class{
       padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 100vh;
     }
   </style>
 

@@ -1,7 +1,8 @@
 <?php
   session_start();
   include('./php/include/dbconn.php');
-  $id = $_SESSION['id'];
+  $id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+
   $class_no = $_GET['class_no'];
 
   $sql = "select * from academy_list where class_no = '$class_no'";

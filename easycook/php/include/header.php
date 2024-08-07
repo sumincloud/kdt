@@ -81,8 +81,8 @@
       position: absolute;
       z-index: 100;
       right:-100%;
-      transition: 0.5s;
       background: #fff;
+      transition: 0.5s ease-in-out;
     }
     /* 1025px PC/데스크탑 (큰 화면) */
     @media (min-width: 1025px) {
@@ -94,6 +94,7 @@
     .side.open{
       right:0;
     }
+    
     .a_side.open{
       position: fixed;
       display:block;
@@ -527,6 +528,7 @@
     $('#toggle_close').click(function(){
       $('.side').removeClass('open');
     })
+
     //알림창 열고 닫기
     $('#alram').click(function(){
       $('.a_side').addClass('open');

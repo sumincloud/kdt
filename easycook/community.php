@@ -70,8 +70,16 @@
     </section>
 
     <section>
+      <h2 class="hide">커뮤니티 페이지</h2>
       <article class="community_con">
+        <h2 class="hide">커뮤니티 페이지</h2>
         <?php if($tab == '후기') {?>
+          <article class="page1" id="page1_1">
+            <h2>수강생 후기</h2>
+            <p>이지쿡은 마케팅 목적으로 조작된 글을 작성하지 않습니다.</p>
+            <p>수강생의 생생한 후기를 확인해보세요.</p>
+          </article>
+
           <div class="community">
             <ul>
               <?php 
@@ -95,7 +103,7 @@
                   <p class="profile_img_size">
                     <!--이미지 바꾸기-->
                     <!-- <img src="./images/sub/user.png"> -->
-                    <img src="./uploads/profile/<?php echo $row3['profile'] ?>">
+                    <img src="./uploads/profile/<?php echo $row3['profile'] ?>" alt="유저 프로필 사진">
                   </p>
 
                   <div>
@@ -180,7 +188,7 @@
 
         <?php }else if($tab == '상담신청') { ?>
           <!--위에 사진이랑 말있는곳-->
-          <article id="page1">
+          <article class="page1">
             <h2>상담 신청</h2>
             <p>더 자세한 상담은 방문상담을 신청하세요.</p>
             <p>방문상담을 위해 아래에 정보를 입력해 주세요.</p>
@@ -261,7 +269,7 @@
               "pluginKey": "b6fe6414-7ada-4d01-9b81-bd54fcacd091"
             });
           </script>
-          <article id="page1_2">
+          <article class="page1" id="page1_2">
             <h2>고객 센터</h2>
             <p>궁금한 내용을 확인해보세요</p>
             <!--탭컨텐츠 공지사항 자주묻는 질문 버튼-->

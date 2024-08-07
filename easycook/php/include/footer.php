@@ -9,6 +9,7 @@
   }
   footer .container{
     padding: 0 var(--p_20);
+    max-width: 1200px;
 
   }
   footer .link{

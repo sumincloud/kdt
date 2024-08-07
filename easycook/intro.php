@@ -14,8 +14,6 @@
   <title>이지쿡 소개</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
-    <!-- 메인서식 연결 -->
-    <link rel="stylesheet" href="./css/main.css" type="text/css">
     <link rel="stylesheet" href="./css/sub.css" type="text/css">
     <!--sub 페이지 css 하나에 우겨넣기-->
 </head>
@@ -81,7 +79,19 @@
         $('.tab_menu a').removeClass('on');
         $(this).addClass('on');
       });
+
+      $('style').each(function() {
+    // <head>가 존재하는지 확인
+    if ($('head').length) {
+      // <style> 태그를 <head>로 이동
+      $('head').append($(this));
+    }
+  }); 
     });
+
+
+  // ----------모든 <style> 태그를 찾아서 <head>로 이동---------
+
   </script>
 
 </body>
