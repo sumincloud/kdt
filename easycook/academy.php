@@ -73,6 +73,7 @@
   <main>
 
     <section id="filter">
+      <h3 style="display:none;">필터 섹션</h3>
       <div style="display:flex; flex-wrap:wrap; gap: 10px;">
         <div class="filter-dropdown">
           <label for="type-filter" style="display:none;">종류</label>
@@ -118,6 +119,7 @@
 
     <!-- 강의 목록 -->
     <section id="class">
+      <h3 style="display:none;">강의목록</h3>
       <div class="mb-5">
         <div class="card-list-box">
           <!-- 여기에 리스트 들어감 -->
