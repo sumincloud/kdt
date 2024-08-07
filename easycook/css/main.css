@@ -420,12 +420,6 @@ section {
   height: 400px;
 }
 
-/* 1200px 이상일때 배너크기 */
-@media (min-width: 1200px) {
-  #sec01 {
-    height: 600px;
-  }
-}
 #sec01 > div {
   width: 100%;
   height: 100%;
@@ -838,7 +832,7 @@ section {
   width: 70%;
 }
 
-/* 1400px 이상일때 요소배치 */
+/* 1200px 이상일때 요소배치 */
 @media (min-width: 1200px) {
   #sec02, #sec03, #sec04, #sec06, #sec07, #sec08, #sec09, #sec11, #sec12 {
     width: 1200px;
@@ -879,5 +873,11 @@ section {
   }
   #sec06 .mySwiper5 {
     padding: 10px 22px !important;
+  }
+  #sec02 .swiper-wrapper, #sec03 .swiper-wrapper, #sec04 .swiper-wrapper, #sec06 .swiper-wrapper, .mySwiper3 .swiper-wrapper {
+    overflow: hidden;
+  }
+  #sec06 .swiper-wrapper {
+    padding: 10px;
   }
 }/*# sourceMappingURL=main.css.map */
