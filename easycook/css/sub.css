@@ -94,7 +94,7 @@
   height: 40px;
   margin: 0 auto;
   padding: 0px !important;
-  max-width: 1200px;
+  max-width: 1025px;
 }
 .t_con > .tabs > .t_mnu{
   border: none;
@@ -183,7 +183,7 @@
   border-collapse: separate;
   padding-left: 20px;
   padding-right: 20px;
-  max-width: 1200px;
+  max-width: 1025px;
   margin: 0 auto;
 }
 
