@@ -443,3 +443,9 @@ section{
     padding: 10px; //그림자 영역 살림
   }
 }
+
+
+/* 푸터 최대너비 1200px 설정 */
+footer .container{
+  max-width: 1200px !important; 
+}

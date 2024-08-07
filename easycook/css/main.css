@@ -880,4 +880,8 @@ section {
   #sec06 .swiper-wrapper {
     padding: 10px;
   }
+}
+/* 푸터 최대너비 1200px 설정 */
+footer .container {
+  max-width: 1200px !important;
 }/*# sourceMappingURL=main.css.map */

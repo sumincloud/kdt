@@ -9,8 +9,7 @@
   }
   footer .container{
     padding: 0 var(--p_20);
-    max-width: 1200px;
-
+    max-width: 1025px; /* 기본 푸터너비 1025, index에서는 1200따로 설정 */
   }
   footer .link{
     display: flex;
