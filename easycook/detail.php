@@ -229,7 +229,7 @@
           <div id="tab3" class="tab-pane">
             <div class="inquire">
               <h2>해당과정 바로 상담 (신청)</h2>
-              <form name="" method="post" action="./php/inquire_send.php">
+              <form method="post" action="./php/inquire_send.php">
                 <!--강의 내용 hidden으로 담아서 보내기-->
                 <input type="hidden" value="<?php echo $row['name']?>" name="academy_name">
 

@@ -692,9 +692,11 @@
 
 /*---------------------------------------------*/
 .in_quire{
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 45px;
+  padding: 0 20px;
+  max-width: 1025px;
 }
 
 .in_quire h2{
@@ -727,7 +729,6 @@
 
 }
 .in_quire .btn-box-l{
-  border-top: 0.5px solid var(--darkbrown) !important;
   padding-top: 13px;
 
 }
@@ -783,7 +784,11 @@
   padding: 28px 10px ;
 }
 .in_quire .answer_b{
-  padding: 28px 10px ;
+  padding: 20px ;
+  background: #EDEDED;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 
 }
 .in_quire .inq_edit{
@@ -805,30 +810,25 @@
 
 /* -----------------inquire_list.php------------------------- */
 .inquire_list{
-  width: 90%;
+  max-width: 1025px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .inquire_list > h2 {
   margin-top: 28px;
   font-size: var(--fs-large);
   font-weight: var(--fw-semi-bold);}
 
-.inquire_list > p:first-child {
-  font-size: var(--fs-xsmall);
-  font-weight: var(--fw-light);
-  padding-top: 13px;
-}
-
 .inquire_table{
   line-height: 30px;
+}
+.inquire_table thead{
+  white-space: nowrap;
 }
 .inquire_table thead tr{
   border-top: 3px solid var(--black);
   border-bottom: 1px solid var(--black);
   text-align: center;
-}
-.inquire_table thead tr th:nth-child(2){
-  width: 100px;
 }
 
 .inquire_table caption{
@@ -839,12 +839,12 @@
 .inquire_table tbody tr td{
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
-
-
 .inquire_table tbody tr td:nth-child(2) span{
-  display: block;  width: 80px;
+  display: block;
+  width: 60px;
   border-radius: 10px;
   font-size: var(--fs-small);
 
@@ -854,11 +854,15 @@
   text-align: left;
 }
 .inquire_table tbody tr td:nth-child(3) a{
-  display: inline-block;
-  width: 80px;
-  text-overflow: ellipsis;/*...이 나오게하는 속성*/
-  white-space: nowrap;/*한줄로 쭉나오게 하는속성*/
-  overflow: hidden;/*가로영역 벗어난 글자숨기기*/
+  display: block;
+}
+.inquire_table tbody tr td:nth-child(3) a b{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  white-space: normal;
 }
 .inquire_table tbody tr td:nth-child(3) span{
   display: block; width:fit-content;
