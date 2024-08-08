@@ -44,7 +44,7 @@
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
           <a href="./academy.php?category1=바리스타&type=전체" class="swiper-slide">
-            <img src="./images/main/visual_1.jpg" alt="이미지">
+            <img src="./images/main/visual_1.jpg" alt="이미지" loading="lazy">
             <div>
               <span>바리스타</span>
               <p>당신의 첫 번째<br>
@@ -54,7 +54,7 @@
             </div>
           </a>
           <a href="./academy.php?category1=베이커리&type=전체" class="swiper-slide">
-            <img src="./images/main/visual_2.jpg" alt="이미지">
+            <img src="./images/main/visual_2.jpg" alt="이미지" loading="lazy">
             <div>
               <span>베이커리</span>
               <p>세상의 모든<br>
@@ -151,7 +151,7 @@
                   <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
                 </div>
                 <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
-                  <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                  <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지" loading="lazy">
                   <div class="con-text">
                     <p class="con-title"><?php echo $row['name']; ?></p>
                     <p class="con-sub"><?php echo $row['teacher']; ?></p>
@@ -201,7 +201,7 @@
                 <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
-                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지" loading="lazy">
                 <div class="con-text">
                   <p class="con-title"><?php echo $row['name']; ?></p>
                   <p class="con-sub"><?php echo $row['detail']; ?></p>
@@ -224,16 +224,16 @@
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
           <a href="#" class="swiper-slide">
-            <img src="./images/main/ad_1.jpg" alt="이미지">
+            <img src="./images/main/ad_1.jpg" alt="이미지" loading="lazy">
           </a>
           <a href="#" class="swiper-slide">
-            <img src="./images/main/ad_2.jpg" alt="이미지">
+            <img src="./images/main/ad_2.jpg" alt="이미지" loading="lazy">
           </a>
           <a href="#" class="swiper-slide">
-            <img src="./images/main/ad_3.jpg" alt="이미지">
+            <img src="./images/main/ad_3.jpg" alt="이미지" loading="lazy">
           </a>
           <a href="#" class="swiper-slide">
-            <img src="./images/main/ad_4.jpg" alt="이미지">
+            <img src="./images/main/ad_4.jpg" alt="이미지" loading="lazy">
           </a>
 
         </div>
@@ -279,7 +279,7 @@
             ?>
             <div class="swiper-slide">
               <div class="profile">
-                <img src="./uploads/profile/<?php echo $profile_review; ?>" alt="프로필 이미지">
+                <img src="./uploads/profile/<?php echo $profile_review; ?>" alt="프로필 이미지" loading="lazy">
                 <div>
                   <!--별점-->
                   <div>
@@ -344,7 +344,7 @@
                 <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
-                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지" loading="lazy">
                 <div class="con-text">
                   <p class="con-title"><?php echo $row['name']; ?></p>
                   <p class="con-sub"><?php echo $row['detail']; ?></p>
@@ -390,7 +390,7 @@
                 <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
-                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지" loading="lazy">
                 <div class="con-text">
                   <p class="con-title"><?php echo $row['name']; ?></p>
                   <p class="con-sub"><?php echo $row['detail']; ?></p>
@@ -436,7 +436,7 @@
                 <img src="./images/common/<?php echo in_array($row['class_no'], $cart_class_no) ? 'heart_r' : 'heart_w'; ?>.png" alt="찜버튼">
               </div>
               <a href="./detail.php?class_no=<?php echo $row['class_no']; ?>" title="상품">
-                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="이미지" loading="lazy">
                 <div class="con-text">
                   <p class="con-title"><?php echo $row['name']; ?></p>
                   <p class="con-sub"><?php echo $row['detail']; ?></p>
@@ -456,7 +456,7 @@
     <section id="sec10">
       <h3 style="display:none;">띠배너</h3>
       <a href="#" title="띠배너">
-        <img src="./images/main/app_ad_1.png" alt="이미지">
+        <img src="./images/main/app_ad_1.png" alt="이미지" loading="lazy">
       </a>
     </section>
     <!-- 11. 국비과정 베스트 -->
