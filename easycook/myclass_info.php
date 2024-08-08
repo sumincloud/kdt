@@ -62,6 +62,11 @@
         $progress_days = $total_days;
     }
 
+    // 출석과 지각을 제외한 결석 수 계산
+    $attendance_and_late_days = $attendance_count['출석'] + $attendance_count['지각'];
+    $attendance_count['결석'] = $progress_days - $attendance_and_late_days;
+
+
     // 출석률 계산
     $attend_rate = ($attendance_count['출석'] / $total_days) * 100;
 

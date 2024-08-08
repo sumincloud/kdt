@@ -21,28 +21,38 @@
       border-bottom: 1px solid var(--gray);
       top:0;
       z-index: 1000;
+      overflow: hidden;
+      transition: height 0.3s ease;
     }
+    header:hover{
+      height: 400px;
+    }
+
     header .h_box{
       position: absolute;
-      width: 100%; height: 40px;
+      width: 100%;
       display: flex;
-      align-items: center;
+      /* align-items: center; */
       justify-content: space-between;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 15px;
+      /* top: 50%; */
+      /* transform: translateY(-50%); */
       padding: 0 var(--p_20);
+      background: pink;
+      height: auto;
     }
-    /* 1400px 이상일때 헤더크기 */
-    @media (min-width: 1400px) {
+    /* 1025px 이상일때 헤더크기 */
+    @media (min-width: 1025px) {
       header .h_box{
-        width: 1400px;
+        min-width: 1025px;
+        max-width:1200px;
         left:50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
       }
     }
   
     header .h_box h1{
-      height: 100%;
+      height: 40px;
       width: 120px;
     }
     header .h_box h1 > a{
@@ -54,23 +64,23 @@
       height: 100%;
       object-fit: cover;
     }
-    header .h_box ul{
+    header .h_box > ul{
       display:flex;
       justify-content:center;
     }
-    header .h_box ul li{
+    header .h_box > ul li{
       width: 40px;
       text-align: center;
       cursor: pointer;
     }
-    header .h_box ul li a{
+    header .h_box > ul li a{
       display: block;
     }
-    header .h_box ul li i{
+    header .h_box > ul li i{
       line-height: 40px;
       font-size: 30px;
     }
-    header .h_box ul .bi-bell::before{
+    header .h_box > ul .bi-bell::before{
       transform: scale(0.8);
     }
   
@@ -312,6 +322,79 @@
       padding:25px 10px 0px 10px;
     }
 
+
+    /* ----------pc버전 gnb 메뉴바 추가--------- */
+    .gnb_box{
+      width: 70%;
+    }
+    .gnb{
+      display: flex;
+      height: 100%;
+    }
+    .gnb > li{
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .gnb > li > a{
+      line-height: 40px;
+      white-space: nowrap; /* 글씨 줄바꿈 방지 */
+      color: var(--text_color_1);
+      font-weight: bolder;
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* 호버시 밑줄 나오게 */
+    .gnb > li > a::after {
+      content: " ";
+      display: block;
+      margin-top: -3px;
+      width: 100%;
+      transform: scaleX(0);
+      transition: 0.8s;
+    }
+    .gnb > li:nth-of-type(1) > a::after{
+      border-bottom: 3px solid var(--main_color_1);
+    }
+    .gnb > li:nth-of-type(2) > a::after{
+      border-bottom: 3px solid var(--main_color_2);
+    }
+    .gnb > li:nth-of-type(3) > a::after{
+      border-bottom: 3px solid var(--main_color_3);
+    }
+    .gnb > li:nth-of-type(4) > a::after{
+      border-bottom: 3px solid var(--sub_color_1);
+    }
+    .gnb > li:nth-of-type(5) > a::after{
+      border-bottom: 3px solid var(--sub_color_2);
+    }
+    .gnb > li:hover > a::after{
+      transform: scaleX(1);
+    }
+
+
+
+    /* 서브메뉴 */
+    .lnb{
+      margin: 20px 0 20px 0;
+    }   /* 서브메뉴 위아래 여백 */
+    .lnb > li{
+      line-height: 40px;
+      width: 100%;
+    }
+    .lnb > li > a{
+      white-space: nowrap;
+      text-align: center;
+      width: 180px;
+    }
+    .lnb > li > a:hover{
+      text-decoration: underline;
+    }
+
+
     
   </style>
 </head>
@@ -324,6 +407,62 @@
         <img src="./images/common/logo.png" alt="로고">
       </a>
     </h1>
+
+    <!-- pc버전일때 보이는 gnb -->
+    <nav class="gnb_box">
+      <ul class="gnb">
+        <li>
+          <a href="#" title="웅진소개">웅진소개</a>
+          <ul class="lnb">
+            <li><a href="#" title="웅진소개">웅진소개</a></li>
+            <li><a href="#" title="CI">CI</a></li>
+            <li><a href="#" title="연혁">연혁</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./family_site.html" title="계열사">계열사</a>
+          <ul class="lnb">
+            <li><a href="./family_site.html" title="웅진 IT">웅진 IT</a></li>
+            <li><a href="#" title="웅진씽크빅">웅진씽크빅</a></li>
+            <li><a href="#" title="웅진북센">웅진북센</a></li>
+            <li><a href="#" title="렉스필드컨트리클럽">렉스필드컨트리클럽</a></li>
+            <li><a href="#" title="웅진플레이도시">웅진플레이도시</a></li>
+            <li><a href="#" title="웅진컴퍼스">웅진컴퍼스</a></li>
+            <li><a href="#" title="웅진헬스원">웅진헬스원</a></li>
+            <li><a href="#" title="놀이의 발견">놀이의 발견</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" title="지속가능경영">지속가능경영</a>
+          <ul class="lnb">
+            <li><a href="#" title="웅진재단">웅진재단</a></li>
+            <li><a href="#" title="사회공헌">사회공헌</a></li>
+            <li><a href="#" title="윤리경영">윤리경영</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="http://chaesuehyun.dothome.co.kr/bbs/bbs/board.php?bo_table=news" title="소식">소식</a>
+          <ul class="lnb">
+            <li><a href="http://chaesuehyun.dothome.co.kr/bbs/bbs/board.php?bo_table=news&sca=%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD" title="공지사항">공지사항</a></li>
+            <li><a href="http://chaesuehyun.dothome.co.kr/bbs/bbs/board.php?bo_table=news&sca=%EC%96%B8%EB%A1%A0%EB%B3%B4%EB%8F%84" title="언론보도">언론보도</a></li>
+            <li><a href="http://chaesuehyun.dothome.co.kr/bbs/bbs/board.php?bo_table=news&sca=%ED%99%8D%EB%B3%B4+%EC%9E%90%EB%A3%8C%EC%8B%A4" title="홍보자료실">홍보자료실</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./hire_site.html" title="인재채용">인재채용</a>
+          <ul class="lnb">
+            <li><a href="./hire_site.html" title="인재상">인재상</a></li>
+            <li><a href="#" title="인사제도">인사제도</a></li>
+            <li><a href="#" title="직무소개">직무소개</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+
+
+
+
     <ul>
       <li id="alram">
         <div title="알림">
@@ -505,14 +644,10 @@
         <p>9월달 추석 휴강일 안내드립니다. </p>
       </li>
     </ul>
-
-
   </div>
-
-
-
-
 </header>
+
+
 
 
 
@@ -566,7 +701,6 @@
         $('head').append($(this));
       }
     });
-
 
 
 
