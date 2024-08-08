@@ -460,10 +460,8 @@
             <ul>
               <!-- 카테고리 페이지로 이동 -->
               <li><a href="./community.php?comu=커뮤니티&tab=후기" title="수강생 후기">후기</a></li>
-              <li><a href="./community.php?comu=커뮤니티&tab=FAQ" title="자주묻는 질문">FAQ</a></li>
-              <li><a href="./community.php?comu=커뮤니티&tab=QA" title="QA">Q&A</a></li>
               <li><a href="./community.php?comu=커뮤니티&tab=상담신청" title="상담신청">상담신청</a></li>
-              <li><a href="./community.php?comu=커뮤니티&tab=공지사항" title="공지사항">공지사항</a></li>
+              <li><a href="./community.php?comu=커뮤니티&tab=고객센터&Fm=공지사항" title="고객센터">고객센터</a></li>
             </ul>
           </div>
         </li>

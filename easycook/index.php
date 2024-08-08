@@ -223,18 +223,18 @@
       <!-- Swiper -->
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_1.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_2.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_3.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_4.jpg" alt="이미지">
-          </div>
+          </a>
 
         </div>
         <div class="slide-btn">
@@ -455,7 +455,9 @@
     <!-- 10. 모바일앱 띠배너 -->
     <section id="sec10">
       <h3 style="display:none;">띠배너</h3>
-      <img src="./images/main/app_ad_1.png" alt="이미지">
+      <a href="#" title="띠배너">
+        <img src="./images/main/app_ad_1.png" alt="이미지">
+      </a>
     </section>
     <!-- 11. 국비과정 베스트 -->
     <section id="sec11">

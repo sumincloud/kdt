@@ -207,6 +207,15 @@
       color: #888;
     }
 
+    /* 로그아웃 버튼 */
+    .btn-outline-secondary:hover,
+    .btn-outline-secondary:focus,
+    .btn-outline-secondary:active {
+      box-shadow: none;
+      background-color: transparent;
+      border-color: #000; /* 회색 테두리 색상 */
+      color: #000;
+    }
   </style>
 </head>
 <body>
@@ -228,7 +237,7 @@
               <img id='profile_img' src='./uploads/profile/$profile' alt='프로필이미지'>
               <div>
                 <p>$name 님 환영합니다!</p>
-                <p>작은 안내메세지를 보여주세요.</p>
+                <p>오늘 하루도 화이팅:)</p>
               </div>
             </div>
             <i class='bi bi-chevron-right'></i>
@@ -418,26 +427,17 @@
                   <li>로그인이 필요한 서비스입니다.</li>
               <?php endif; ?>
             </ul>
-
           </div>
-
         </div>
-        <script>
-          $(document).ready(function() {
-            $('.tab-link').on('click', function() {
-              $('.tab-link').removeClass('active');
-              $(this).addClass('active');
-              
-              // 모든 탭 콘텐츠 숨기기
-              $('.tab_con > div').removeClass('active');
-              // 데이터 속성으로 타겟팅된 탭 콘텐츠 보이기
-              var target = $(this).data('tab-target');
-              $(target).addClass('active');
-            });
-          });
-        </script>
       </div>
     </section>
+
+    <?php if (isset($_SESSION['id'])): ?>
+      <div style="text-align:center;">
+        <a href='./php/logout.php' class="btn btn-outline-secondary" title='로그아웃'>로그아웃</a>
+      </div>
+    <?php endif; ?>
+
 
   </main>
 
@@ -446,6 +446,23 @@
 
   <script>
     $(document).ready(function() {
+
+      //탭 콘텐츠 버튼
+      $('.tab-link').on('click', function() {
+        $('.tab-link').removeClass('active');
+        $(this).addClass('active');
+        
+        // 모든 탭 콘텐츠 숨기기
+        $('.tab_con > div').removeClass('active');
+        // 데이터 속성으로 타겟팅된 탭 콘텐츠 보이기
+        var target = $(this).data('tab-target');
+        $(target).addClass('active');
+      });
+
+
+
+
+
       //----------프로필 타이틀 눌렀을때 페이지 이동-----------
 
       // $_SESSION['id'] 값 가져오기
