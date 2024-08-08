@@ -428,20 +428,31 @@ section{
     line-height: 40px;
   }
 
-
   .mySwiper2, .mySwiper3, .mySwiper5{
     padding: 0 22px !important;
   }
   #sec06 .mySwiper5{
     padding:10px 22px !important;
   }
-
-  #sec02 .swiper-wrapper, #sec03 .swiper-wrapper, #sec04 .swiper-wrapper, #sec06 .swiper-wrapper, .mySwiper3 .swiper-wrapper{
-    /* overflow: hidden; */
-  }
   #sec06 .swiper-wrapper{
     padding: 10px; //그림자 영역 살림
   }
+
+
+  //페이지네이션 버튼 뒤에 흰배경 만들기
+  .swiper-button-next::before, .swiper-button-prev::before{
+    content: ""; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 500px;
+    background: #fff;
+    z-index: -1;
+  }
+
+
 }
 
 
@@ -449,3 +460,6 @@ section{
 footer .container{
   max-width: 1200px !important; 
 }
+
+
+

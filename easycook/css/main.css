@@ -874,11 +874,19 @@ section {
   #sec06 .mySwiper5 {
     padding: 10px 22px !important;
   }
-  #sec02 .swiper-wrapper, #sec03 .swiper-wrapper, #sec04 .swiper-wrapper, #sec06 .swiper-wrapper, .mySwiper3 .swiper-wrapper {
-    /* overflow: hidden; */
-  }
   #sec06 .swiper-wrapper {
     padding: 10px;
+  }
+  .swiper-button-next::before, .swiper-button-prev::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 500px;
+    background: #fff;
+    z-index: -1;
   }
 }
 /* 푸터 최대너비 1200px 설정 */
