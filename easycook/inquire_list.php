@@ -48,7 +48,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡</title>
+  <title>이지쿡 | 나의 문의</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
     <!-- 서식 연결 -->
@@ -75,6 +75,7 @@
       <h2>내가 쓴 문의 총 <?php echo $max_Num[0]; ?>개</h2>
       <!-- 테이블 시작 -->
       <article class="review_detail">
+        <h2 style="display:none;">리뷰목록</h2>
         <table class="table table-hover table-responsive inquire_table mt-3 mb-3">
           <caption>나의 문의 리스트</caption>
           <thead>

@@ -433,7 +433,7 @@
     </section>
 
     <?php if (isset($_SESSION['id'])): ?>
-      <div style="text-align:center;">
+      <div style="text-align:center; margin-bottom: 80px;">
         <a href='./php/logout.php' class="btn btn-outline-secondary" title='로그아웃'>로그아웃</a>
       </div>
     <?php endif; ?>

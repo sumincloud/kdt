@@ -22,7 +22,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡</title>
+  <title>이지쿡 | 문의하기</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
     <!-- 서브서식 연결 -->
@@ -41,13 +41,13 @@
       </p>
 
       <h2 class="hide">문의 하기</h2>
-      <article class="">
+      <article>
         <h2>문의 하기</h2>
         <form action="./php/inquire_input.php" method="post">
           <input type="hidden" value=" <?php echo $class_no ?>" name="class_no">
           <input type="hidden" value=" <?php echo $id ?>" name="id">
           <input type="text"  placeholder="제목을 입력해주세요" name="question">
-          <textarea class="" name="question_memo" value=""  placeholder="질문 내용을 입력해주세요"></textarea>
+          <textarea name="question_memo"  placeholder="질문 내용을 입력해주세요"></textarea>
 
           <!-- 등록 버튼 -->
           <p class="btn-box-l">

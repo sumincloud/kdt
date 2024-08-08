@@ -47,11 +47,11 @@
     $cnt = $start + 1;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나의 예약</title>
+  <title>이지쿡 | 실습실 예약</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
   <style>
@@ -143,6 +143,7 @@
       <h2>나의 실습실 예약</h2>
       <!-- 테이블 시작 -->
       <article class="reserve_detail">
+        <h3 style="display:none;">실습실 예약 리스트</h3>
         <table class="table table-hover table-responsive reserve_table mt-3 mb-3">
           <caption style="display:none;">나의 예약 리스트</caption>
           <thead>
