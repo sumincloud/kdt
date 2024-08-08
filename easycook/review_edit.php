@@ -16,11 +16,11 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡</title>
+  <title>이지쿡 | 나의 후기</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
   <!-- 서브서식 연결 -->
@@ -74,75 +74,75 @@
         </ul>
       </article>
 
-      <form id="reviewForm" action="./php/review_edit_input.php" method="post" multiple accept="image/*" enctype="multipart/form-data">
-        <!--session로그인정보에서 id 랑 name을 넣기-->
-      <input type='hidden' name='no' value='<?php echo $no ?>'>
-      <input type='hidden' name='student_id' value='<?php echo $id ?>'>
-      <input type='hidden' name='student_name' value='<?php echo $name ?>'>
-      <input type='hidden' name='files_2' value='<?php echo $row['img'] ?>'>
-      <!--get방식으로 가져온 class_no를 여기에 넣어서 보내버리기-->
-      <input type='hidden' name='class_no' value='<?php echo $class_no?>'>
-        <article class="review_star star">
-          <h2>별점 등록</h2>
-          <!--별점 기능-->
-          <!--데이터베이스에서 가져온 별점값-->
-          <!-- <input type="hidden" id="starRating_db" value="<?php echo $row['star'] ?>"> -->
+      <form id="reviewForm" action="./php/review_edit_input.php" method="post" enctype="multipart/form-data">
+          <!--session로그인정보에서 id 랑 name을 넣기-->
+        <input type='hidden' name='no' value='<?php echo $no ?>'>
+        <input type='hidden' name='student_id' value='<?php echo $id ?>'>
+        <input type='hidden' name='student_name' value='<?php echo $name ?>'>
+        <input type='hidden' name='files_2' value='<?php echo $row['img'] ?>'>
+        <!--get방식으로 가져온 class_no를 여기에 넣어서 보내버리기-->
+        <input type='hidden' name='class_no' value='<?php echo $class_no?>'>
+          <article class="review_star star">
+            <h2>별점 등록</h2>
+            <!--별점 기능-->
+            <!--데이터베이스에서 가져온 별점값-->
+            <!-- <input type="hidden" id="starRating_db" value="<?php echo $row['star'] ?>"> -->
 
-            <input type="hidden" id="starRating" name="starRating" value="<?php echo $row['star'] ?>">
-            <input type="checkbox" id="checkbox1" class="hide" onclick="changeFormat(1)">
-            <label for="checkbox1"><i class="bi bi-star-fill star_size" ></i></label>
-            <input type="checkbox" id="checkbox2" class="hide" onclick="changeFormat(2)">
-            <label for="checkbox2"><i class="bi bi-star-fill star_size"></i></label>
-            <input type="checkbox" id="checkbox3" class="hide" onclick="changeFormat(3)">
-            <label for="checkbox3"><i class="bi bi-star-fill star_size"></i></label>
-            <input type="checkbox" id="checkbox4" class="hide" onclick="changeFormat(4)">
-            <label for="checkbox4"><i class="bi bi-star-fill star_size"></i></label>
-            <input type="checkbox" id="checkbox5" class="hide" onclick="changeFormat(5)">
-            <label for="checkbox5"><i class="bi bi-star-fill star_size"></i></label>
-            <p></p>
-        </article>
+              <input type="hidden" id="starRating" name="starRating" value="<?php echo $row['star'] ?>">
+              <input type="checkbox" id="checkbox1" class="hide" onclick="changeFormat(1)">
+              <label for="checkbox1"><i class="bi bi-star-fill star_size" ></i></label>
+              <input type="checkbox" id="checkbox2" class="hide" onclick="changeFormat(2)">
+              <label for="checkbox2"><i class="bi bi-star-fill star_size"></i></label>
+              <input type="checkbox" id="checkbox3" class="hide" onclick="changeFormat(3)">
+              <label for="checkbox3"><i class="bi bi-star-fill star_size"></i></label>
+              <input type="checkbox" id="checkbox4" class="hide" onclick="changeFormat(4)">
+              <label for="checkbox4"><i class="bi bi-star-fill star_size"></i></label>
+              <input type="checkbox" id="checkbox5" class="hide" onclick="changeFormat(5)">
+              <label for="checkbox5"><i class="bi bi-star-fill star_size"></i></label>
+              <p></p>
+          </article>
 
-        <article class="review_photo">
+          <article class="review_photo">
 
-          <h2>사진 (선택)</h2>
-          <label for="file_input" class="photo"></label>
-          <input type="file" id="file_input" name="files[]" class="hide" multiple accept="image/*">
-          <i class="bi bi-camera camera"></i>
-          <p>
-            <span id="fileCount">0</span>/5
-          </p>
-          <div id="image_preview">
-            <?php foreach (explode(",",$row['img']) as $file) { ?>
-    
-              <?php if($file == ''){ ?>
-                <img src="./uploads/review/<?php echo $file; ?>" alt="" class="hide">
-              <?php }else{ ?>
-                <img src="./uploads/review/<?php echo $file; ?>" alt="">
+            <h2>사진 (선택)</h2>
+            <label for="file_input" class="photo"></label>
+            <input type="file" id="file_input" name="files[]" class="hide" multiple accept="image/*">
+            <i class="bi bi-camera camera"></i>
+            <p>
+              <span id="fileCount">0</span>/5
+            </p>
+            <div id="image_preview">
+              <?php foreach (explode(",",$row['img']) as $file) { ?>
+      
+                <?php if($file == ''){ ?>
+                  <img src="./uploads/review/<?php echo $file; ?>" alt="" class="hide">
+                <?php }else{ ?>
+                  <img src="./uploads/review/<?php echo $file; ?>" alt="">
+                <?php } ?>
+
+                <!--이건 이미지 값 보내기-->
+                <!-- <?php foreach (explode(",", $photo_files) as $file) { ?>
+                <input type="hidden" name="photos[]" value="<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>">
+              <?php } ?> -->
+
               <?php } ?>
+            </div>
+          </article>
 
-              <!--이건 이미지 값 보내기-->
-              <!-- <?php foreach (explode(",", $photo_files) as $file) { ?>
-              <input type="hidden" name="photos[]" value="<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>">
-            <?php } ?> -->
+          <article class="re_view">
 
-            <?php } ?>
-          </div>
-        </article>
-
-        <article class="re_view">
-
-          <h2>후기 내용</h2>
-          <textarea class="" name="re_view" value="re_view"><?php echo nl2br($row['review']) ?></textarea>
-        </article>
+            <h2>후기 내용</h2>
+            <textarea name="re_view"><?php echo nl2br($row['review']) ?></textarea>
+          </article>
 
 
 
 
-        <!-- 등록 버튼 -->
-        <p class="btn-box-l">
-          <input type="submit" id="submitBtn" value="수정" class="btn-l">
-          <input type="button"  value="취소" class="btn-l">
-        </p>
+          <!-- 등록 버튼 -->
+          <p class="btn-box-l">
+            <input type="submit" id="submitBtn" value="수정" class="btn-l">
+            <input type="button"  value="취소" class="btn-l">
+          </p>
       </form>
 
     </section>

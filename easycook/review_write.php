@@ -19,11 +19,11 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>이지쿡 | 나의 후기</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
   <!-- 서브서식 연결 -->
@@ -48,13 +48,13 @@
             <div>
               <!-- 강의 썸네일 이미지 -->
               <a href="#" title="상세페이지로 이동" style="pointer-events: none;">
-                <img src="./uploads/class_main/<?php echo $row2['thumnail_img']; ?>" alt="강의 썸네일 사진">
+                <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" alt="강의 썸네일 사진">
               </a>
               <!-- 강의 이름 -->
               <div>
                 <h2>
                   <a href="#" title="상세페이지로 이동" style="pointer-events: none;">
-                    <?php echo $row2['name']; ?>
+                    <?php echo $row['name']; ?>
                   </a>
                 </h2>
 
@@ -77,7 +77,7 @@
         </ul>
       </article>
 
-      <form id="reviewForm" action="./php/review_write_input.php" method="post" multiple accept="image/*" enctype="multipart/form-data">
+      <form id="reviewForm" action="./php/review_write_input.php" method="post" enctype="multipart/form-data">
         <!--session로그인정보에서 id 랑 name을 넣기-->
       <input type='hidden' name='student_id' value='<?php echo $id ?>'>
       <input type='hidden' name='student_name' value='<?php echo $name ?>'>
@@ -115,7 +115,7 @@
 
         <article class="re_view">
           <h2>후기 내용</h2>
-          <textarea class="" name="re_view" value="re_view"></textarea>
+          <textarea name="re_view"></textarea>
         </article>
 
         <!-- 등록 버튼 -->
