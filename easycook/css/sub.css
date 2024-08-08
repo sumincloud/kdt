@@ -251,8 +251,10 @@
 
 /*해당과정 바로 상담 신청 (이메일) 부분 서식*/
 .inquire{
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1025px;
 }
 
 .inquire h2{
@@ -368,22 +370,21 @@
   background-blend-mode: multiply; 
 }
 
-.review_list{width: 90%; margin: 0 auto;}
+.review_list{
+  width: 100%; margin: 0 auto;
+  max-width: 1025px;
+  padding: 0 20px;
+}
 .review_list > h2{
   margin-top: 28px;
   font-size: var(--fs-large);font-weight: var(--fw-semi-bold);
 }
-.review_list > p:first-child{
-  font-size: var(--fs-xsmall); 
-  font-weight: var(--fw-light); 
-  padding-top: 13px;
-}
-.review_list > p:first-child b{font-weight: var(--fw-bold);}
 .review_list > p:nth-child(3){
-  font-size: var(--fs-xsmall); 
+  font-size: var(--fs-small); 
   font-weight: var(--fw-light); 
   color: var(--gray);
-  margin-bottom: 34px;
+  padding-bottom: 10px;
+
 }
 .review_list .review_detail  h2{
   font-size: var(--fs-medium);
@@ -393,7 +394,7 @@
 
 /*이건 p 공통서식 간격*/
 .review_list .review_detail p{
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 /*이미지 서식*/
@@ -413,6 +414,8 @@
 
 .review_list .review_detail li{
   position: relative;
+  border-bottom: 1px solid var(--gray);
+  padding-top: 20px;
 }
 
 
@@ -426,9 +429,9 @@
   right: 0px; top: 30px;
 }
 .review_list .review_detail .ud_btn a{
-  padding: 5px 7px;
+  padding: 5px 10px;
   border-radius: 5px;
-  font-size: var(--fs-xsmall);
+  font-size: var(--fs-small);
   font-weight: var(--light);
 }
 

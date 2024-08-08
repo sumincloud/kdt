@@ -9,7 +9,7 @@
   <?php include('./php/include/head.php'); ?>
   <style>
     section{
-      max-width: 1400px;
+      max-width: 1025px;
       margin: 0 auto;
       padding: 0 20px;
     }

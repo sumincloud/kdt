@@ -57,13 +57,8 @@
   <style>
     section{
       padding: 0 20px;
-    }
-    /* 768px 이상일때 요소배치 */
-    @media (min-width: 768px) {
-      section{
-        width: 600px;
-        margin: 50px auto 0 auto;
-      }
+      max-width: 1025px;
+      margin: 0 auto;
     }
     .reserve_list > h2{
       font-size: var(--fs-large);

@@ -72,6 +72,8 @@
     /* -----------신청목록 서식------------ */
     section{
       padding: 0 20px;
+      max-width: 1025px;
+      margin: 0 auto;
     }
     section > h2{
       font-size: var(--fs-large);
