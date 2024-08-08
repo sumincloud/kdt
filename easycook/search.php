@@ -12,7 +12,6 @@
 
     <!-- 서식 연결 -->
     <link rel="stylesheet" type="text/css" href="./css/search.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -23,9 +22,11 @@
     <section class="search">
       <h2 class="hide">검색창</h2>
       <article >
-        <input type="search" class="search_bar">
-        <h2 class="hide">검색창</h2>
-        <i class="bi bi-search"></i>
+        <form action="search_output.php" name="강의 검색" method="post">
+          <input type="search" class="search_bar" name="search_key">
+          <h2 class="hide">검색창</h2>
+          <i class="bi bi-search"></i>
+        </form>
       </article>
     </section>
     <!--최근검색어-->
@@ -35,14 +36,13 @@
         <h2 class="hide">최근 검색어</h2>
         <div class="swiper mySwiper6">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">#자격증</div>
-            <div class="swiper-slide">#베이커리</div>
-            <div class="swiper-slide">#바리스타</div>
-            <div class="swiper-slide">#한식조리</div>
-            <div class="swiper-slide">#중식조리</div>
-            <div class="swiper-slide">#비건</div>
-            <div class="swiper-slide">#국비반</div>
-            <div class="swiper-slide">#양식조리</div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=자격증" title="자격증(으)로 검색하기">자격증</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=베이커리" title="베이커리(으)로 검색하기">베이커리</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=바리스타" title="바리스타(으)로 검색하기">바리스타</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=한식조리" title="한식조리(으)로 검색하기">한식조리</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=중식조리" title="중식조리(으)로 검색하기">중식조리</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=국비" title="국비(으)로 검색하기">국비반</a></div>
+            <div class="swiper-slide">#<a href="search_output.php?search_key2=주말" title="주말(으)로 검색하기">주말반</a></div>
           </div>
         </div>
       </article>
@@ -53,17 +53,24 @@
       <!-- Swiper -->
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_1.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_2.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_3.jpg" alt="이미지">
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="#" class="swiper-slide">
             <img src="./images/main/ad_4.jpg" alt="이미지">
+          </a>
+        </div>
+        <div class="slide-btn">
+          <div class="swiper-pagination swiper-pagination-fraction">
+            <span class="swiper-pagination-current"></span>
+            /
+            <span class="swiper-pagination-total"></span>
           </div>
         </div>
       </div>
@@ -74,18 +81,18 @@
       <article class="">
         <h2 class="hide">가장 많이 검색하고 있어요</h2>
         <ul>
-          <li><span>1</span>한식조리기능사</li>
-          <li><span>2</span>한식조리</li>
-          <li><span>3</span>홈베이킹</li>
-          <li><span>4</span>디저트</li>
-          <li><span>5</span>양식조리</li>
+          <li><span>1</span><a href="search_output.php?search_key2=한식조리기능사" title="한식조리기능사로 검색하기"> 한식조리기능사</a></li>
+          <li><span>2</span><a href="search_output.php?search_key2=한식조리" title="한식조리로 검색하기"> 한식조리</a></li>
+          <li><span>3</span><a href="search_output.php?search_key2=홈베이킹" title="홈베이킹로 검색하기"> 홈베이킹</a></li>
+          <li><span>4</span><a href="search_output.php?search_key2=디저트" title="디저트로 검색하기"> 디저트</a></li>
+          <li><span>5</span><a href="search_output.php?search_key2=양식조리" title="양식조리로 검색하기"> 양식조리</a></li>
         </ul>
         <ul>
-          <li><span>6</span>자격증</li>
-          <li><span>7</span>재직자과정</li>
-          <li><span>8</span>실업자</li>
-          <li><span>9</span>취미반</li>
-          <li><span>10</span>카페창업</li>
+          <li><span>6</span><a href="search_output.php?search_key2=자격증" title="자격증으로 검색하기"> 자격증</a></li>
+          <li><span>7</span><a href="search_output.php?search_key2=국비" title="국비로 검색하기"> 국비</a></li>
+          <li><span>8</span><a href="search_output.php?search_key2=취미" title="취미로 검색하기"> 취미</a></li>
+          <li><span>9</span><a href="search_output.php?search_key2=자격증" title="자격증으로 검색하기"> 자격증</a></li>
+          <li><span>10</span><a href="search_output.php?search_key2=중식조리" title="중식조리로 검색하기">중식조리</a></li>
         </ul>
       </article>
     </section>
@@ -94,9 +101,15 @@
   <!-- 공통바텀바삽입 -->
   <?php include('./php/include/bottom.php');?>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
 
   <script>
+    var swiper = new Swiper(".mySwiper6", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      freeMode: true,
+    });
+
     var swiper4 = new Swiper(".mySwiper4", {
       spaceBetween: 0,
       centeredSlides: true,
@@ -110,17 +123,6 @@
         clickable: true,
       },
   });
-
-
-    var swiper = new Swiper(".mySwiper6", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      freeMode: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
   </script>
 </body>
 </html>
