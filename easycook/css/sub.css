@@ -284,9 +284,11 @@
 /*---------------------------------------------------------*/
 /*여기는 후기 작성 페이지 서식*/
 .review_write{
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 60px;
+  max-width: 1025px;
+  padding: 0 20px;
 }
 .review_write > h2{
   font-size: var(--fs-xlarge);
@@ -691,6 +693,56 @@
   transform: translate(-20px ,0px);
   font-weight: var(--fw-semi-bold);
 }
+
+
+/*여기서부터 커뮤니티 상담신청 달력 서식*/
+#datepicker {
+  display: none;
+}
+.flatpickr-calendar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.flatpickr-rContainer{
+  width: 100%;
+}
+.flatpickr-month{
+  margin-bottom: 20px;
+}
+.flatpickr-prev-month, .flatpickr-next-month{
+  top: 6px !important;
+}
+.flatpickr-days{
+  width: 100%;
+}
+.dayContainer{
+  width: 100%;
+  min-width: unset;
+  max-width: unset;
+}
+.flatpickr-day{
+  width: calc(100% / 7);
+  max-width: calc(100% / 7);
+}
+.flatpickr-day.selected, .flatpickr-day.selected:hover{
+  background: var(--green);
+}
+
+/* 월과 연도 순서 변경 */
+.flatpickr-current-month {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-months {
+  order: 1;
+}
+.numInputWrapper {
+  order: 0;
+}
+/* 여기까지 커뮤니티 상담신청 달력 서식 */
 
 
 /*---------------------------------------------*/

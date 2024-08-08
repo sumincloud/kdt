@@ -29,7 +29,6 @@
 
   <!-- 메인서식 연결 -->
   <link rel="stylesheet" href="./css/main.css">
-
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -44,7 +43,7 @@
       <!-- Swiper -->
       <div class="swiper mySwiper1">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <a href="./academy.php?category1=바리스타&type=전체" class="swiper-slide">
             <img src="./images/main/visual_1.jpg" alt="이미지">
             <div>
               <span>바리스타</span>
@@ -53,18 +52,18 @@
               <p>바리스타 자격증에서 카페창업까지<br>
               120가지 커리큘럼을 경험하세요.</p>
             </div>
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="./academy.php?category1=베이커리&type=전체" class="swiper-slide">
             <img src="./images/main/visual_2.jpg" alt="이미지">
             <div>
-              <span>제과제빵</span>
+              <span>베이커리</span>
               <p>세상의 모든<br>
               디저트</p>
-              <p>제과제빵 원데이부터 전문가 과정까지<br>
+              <p>베이커리 원데이부터 전문가 과정까지<br>
               150가지 커리큘럼을 경험하세요.</p>
             </div>
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="./academy.php?category1=기능사&type=창업" class="swiper-slide">
             <img src="./images/main/visual_3.jpg" alt="이미지">
             <div>
               <span>창업</span>
@@ -73,17 +72,17 @@
               <p>성공과 실패는 이유가 있습니다. <br>
               창업 전 전문화된 컨설팅을 받아보세요.</p>
             </div>
-          </div>
-          <div class="swiper-slide">
+          </a>
+          <a href="./academy.php?category1=기능사&difficulty=하" class="swiper-slide">
             <img src="./images/main/visual_4.jpg" alt="이미지">
             <div>
-              <span>바리스타</span>
-              <p>당신의 첫 번째<br>
-              커피 커리어</p>
-              <p>바리스타 자격증에서 카페창업까지<br>
-              120가지 커리큘럼을 경험하세요.</p>
+              <span>요리</span>
+              <p>쉽게 배우는<br>
+              생활 요리</p>
+              <p>누구나 부담없이 요리를 기초부터 재밌게 <br>
+              배울 수 있는 과정입니다.</p>
             </div>
-          </div>
+          </a>
         </div>
         <div class="slide-btn">
           <div class="swiper-pagination swiper-pagination-fraction">
@@ -617,6 +616,32 @@
               $(target).addClass('active');
             });
           });
+
+            //--------1025px 이상일때 메인배너 이미지 변경------------
+          function updateImageSources() {
+          const images = document.querySelectorAll('#sec01 .swiper-slide img');
+          images.forEach(img => {
+              let src = img.getAttribute('src');
+              if (window.innerWidth >= 1025) {
+                // _pc가 붙은 경로로 변경
+                if (!src.includes('_pc')) {
+                  img.src = src.replace('.jpg', '_pc.jpg');
+                }
+              } else {
+                // _pc가 붙은 경로를 제거
+                if (src.includes('_pc')) {
+                  img.src = src.replace('_pc.jpg', '.jpg');
+                }
+              }
+            });
+          }
+          // 페이지 로드 시 이미지 업데이트
+          window.addEventListener('load', updateImageSources);
+          // 화면 크기 변경 시 이미지 업데이트
+          window.addEventListener('resize', updateImageSources);
+
+
+
         </script>
       </div>
 

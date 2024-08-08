@@ -193,7 +193,7 @@ html {
 }
 .card-list li > div:first-of-type > a {
   display: block;
-  width: 30%;
+  width: 50%;
   max-width: 400px;
   max-height: 150px;
   min-height: 100px;

@@ -24,6 +24,9 @@
   // 필터 값 읽기
   $type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : '';
 
+  // 필터 값 읽기
+  $difficulty = isset($_GET['difficulty']) ? htmlspecialchars($_GET['difficulty']) : '';
+
   // 정렬 기준 설정
   $sort = isset($_GET['sort']) ? $_GET['sort'] : '최신순'; // 기본값 '최신순'
 ?>
@@ -98,9 +101,9 @@
           <label for="difficulty-filter" style="display:none;">난이도</label>
           <select id="difficulty-filter" class="form-select" style="width:90px;">
             <option value="">난이도</option>
-            <option value="상">상</option>
-            <option value="중">중</option>
-            <option value="하">하</option>
+            <option value="상" <?php echo $difficulty == '상' ? 'selected' : ''; ?>>상</option>
+            <option value="중" <?php echo $difficulty == '중' ? 'selected' : ''; ?>>중</option>
+            <option value="하" <?php echo $difficulty == '하' ? 'selected' : ''; ?>>하</option>
           </select>
         </div>
 
