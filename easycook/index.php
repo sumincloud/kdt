@@ -482,7 +482,7 @@
 
           while ($row = mysqli_fetch_assoc($result)) {
         ?>
-          <div class="col-xl" onclick="location.href='./detail.php?class_no=<?php echo $row['class_no']; ?>';" style="cursor: pointer; background-image: url('<?php echo './uploads/class_main/' . $row['thumnail_img']; ?>');">
+          <div class="col" onclick="location.href='./detail.php?class_no=<?php echo $row['class_no']; ?>';" style="cursor: pointer; background-image: url('<?php echo './uploads/class_main/' . $row['thumnail_img']; ?>');">
             <div>
               <p><?php echo $row['name']; ?></p>
               <p><?php echo $row['detail']; ?>
@@ -619,7 +619,7 @@
             });
           });
 
-            //--------1025px 이상일때 메인배너 이미지 변경------------
+          //--------1025px 이상일때 메인배너 이미지 변경------------
           function updateImageSources() {
           const images = document.querySelectorAll('#sec01 .swiper-slide img');
           images.forEach(img => {

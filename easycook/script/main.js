@@ -46,10 +46,6 @@ var swiper2 = new Swiper(".mySwiper2", {
       spaceBetween: 12,
     },
     1025 : { //1025~1199일때 (pc일때 설정)
-      slidesPerView : 3.2,
-      spaceBetween: 12,
-    },
-    1200 : {  //1200 이상 일때 (큰pc일때 설정)
       slidesPerView : 4,
       spaceBetween: 12,
     }
@@ -78,10 +74,6 @@ var swiper3 = new Swiper(".mySwiper3", {
       spaceBetween: 12,
     },
     1025 : { //1025~1199일때 (pc일때 설정)
-      slidesPerView : 4.2,
-      spaceBetween: 12,
-    },
-    1200 : {  //1200 이상 일때 (큰 pc일때 설정)
       slidesPerView : 5,
       spaceBetween: 12,
     }
@@ -126,10 +118,6 @@ var swiper5 = new Swiper(".mySwiper5", {
       spaceBetween: 12,
     },
     1025 : {  //1025~1199 일때 (pc일때 설정)
-      slidesPerView : 3.2,
-      spaceBetween: 12,
-    },
-    1200 : {  //1200 이상 일때 (큰pc일때 설정)
       slidesPerView : 4,
       spaceBetween: 12,
     }

@@ -305,14 +305,14 @@ section{
 #sec11 .row{
   margin-right: 0;
   margin-left: 0;
-  gap: 20px;
+  gap: 15px;
   padding: 0 $p_20;
 }
 #sec11 .row>*{
   padding-left: 0;
   padding-right: 0;
 }
-#sec11 .col-xl{
+#sec11 .col{
   position: relative;
   width: 100%;
   height: 200px;
@@ -320,8 +320,19 @@ section{
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  flex: 1 1 100%;
 }
-#sec11 .col-xl::before {
+/* 1025px 이상일 때 3개의 열로 배치 */
+@media (min-width: 1025px) {
+  #sec11 .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+
+#sec11 .col::before {
   content: "";
   position: absolute;
   top: 0;
@@ -333,7 +344,7 @@ section{
   z-index: 1; 
 }
 
-#sec11 .col-xl > div{
+#sec11 .col > div{
   position: absolute;
   top: 0;
   right: 0;
@@ -347,21 +358,21 @@ section{
 }
 
 
-#sec11 .col-xl > div >*{
+#sec11 .col > div >*{
   color: $white;
   font-size: $fs-small;
   font-weight: $fw-light;
   line-height: 140%;
 }
-#sec11 .col-xl > div > p:first-of-type{
+#sec11 .col > div > p:first-of-type{
   font-size: $fs-medium-large;
   font-weight: $fw-normal;
   
 }
-#sec11 .col-xl > div > p:last-of-type{
+#sec11 .col > div > p:last-of-type{
   @include text-over(3); /* 3줄 말줄임 */
 }
-#sec11 .col-xl > div > span{
+#sec11 .col > div > span{
   padding: 5px 0;
   font-size: $fs-medium;
   color: $yellow;
@@ -393,73 +404,102 @@ section{
   width: 70%;
 }
 
+/* 1025px 이상일 때 공통 스타일 설정 */
+@media (min-width: 1025px) {
 
-/* 1200px 이상일때 요소배치 */
-@media (min-width: 1200px) {
-  #sec02, #sec03, #sec04, #sec06, #sec07, #sec08, #sec09, #sec11, #sec12{
+  /* 섹션 너비 및 중앙 정렬 */
+  #sec02, #sec03, #sec04, #sec06, #sec07, #sec08, #sec09, #sec11, #sec12 {
     width: 1200px;
-    margin: $m_50 auto 0 auto;
+    margin: $m_50 auto 0 auto; /* 여백 설정 */
   }
-  #sec01 .swiper-slide > div{
-    width: 1200px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  #sec01 .slide-btn{
+
+  /* Swiper 슬라이드 및 버튼 중앙 정렬 */
+  #sec01 .swiper-slide > div,
+  #sec01 .slide-btn {
     width: 1200px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 100;
   }
-  .swiper-button-next, .swiper-button-prev {
+
+  /* Swiper 버튼 스타일 */
+  .swiper-button-next,
+  .swiper-button-prev {
     display: block;
     color: $black;
     text-align: center;
     height: 40px;
   }
-  .swiper-button-next{right:-5px;}
-  .swiper-button-prev{left:-5px;}
 
-  .swiper-button-prev::after{
-    display: block;
-  }
-  .swiper-button-next:after, .swiper-button-prev:after{
+  .swiper-button-next { right: -5px; }
+  .swiper-button-prev { left: -5px; }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
     font-size: 30px;
     line-height: 40px;
   }
 
-  .mySwiper2, .mySwiper3, .mySwiper5{
-    padding: 0 22px !important;
-  }
-  #sec06 .mySwiper5{
-    padding:10px 22px !important;
-  }
-  #sec06 .swiper-wrapper{
-    padding: 10px; //그림자 영역 살림
-  }
-
-
-  //페이지네이션 버튼 뒤에 흰배경 만들기
-  .swiper-button-next::before, .swiper-button-prev::before{
-    content: ""; 
+  /* 페이지네이션 버튼 뒤에 흰 배경 추가 */
+  .swiper-button-next::before,
+  .swiper-button-prev::before {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; 
+    width: 100%;
     height: 500px;
     background: #fff;
     z-index: -1;
   }
 
+  /* Swiper 패딩 설정 */
+  .mySwiper2,
+  .mySwiper3,
+  .mySwiper5 {
+    padding: 0 22px !important;
+  }
 
+  #sec06 .mySwiper5 {
+    padding: 10px 22px !important;
+  }
+
+  #sec06 .swiper-wrapper {
+    padding: 10px; /* 그림자 영역 설정 */
+  }
+
+  /* 메인 배너 높이 변경 */
+  #sec01 {
+    height: 500px;
+    min-width: 1200px;
+  }
+  /* 광고배너 너비변경 */
+  #sec05, #sec10{
+    min-width: 1200px;
+  }
+
+  /* 바텀바 숨기기 */
+  #bottom {
+    display: none;
+  }
+
+  /* 푸터 최대 너비 설정 */
+  footer {
+    min-width: 1200px;
+  }
+
+  footer .container {
+    max-width: 1200px !important;
+  }
+
+  /* 바디 마진 설정 */
+  body {
+    margin-bottom: 0;
+  }
 }
 
 
-/* 푸터 최대너비 1200px 설정 */
-footer .container{
-  max-width: 1200px !important; 
-}
+
 
 
 

@@ -63,7 +63,7 @@
 
 
   <!-- 하단 바텀바 -->
-  <footer>
+  <footer id="bottom">
     <nav>
       <ul>
         <li>
