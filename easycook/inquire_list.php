@@ -44,7 +44,7 @@
     $cnt = $start + 1;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,6 +53,12 @@
     <?php include('./php/include/head.php'); ?>
     <!-- 서식 연결 -->
     <link rel="stylesheet" href="./css/sub.css">
+    <style>
+      .page-link{
+        background: none !important;
+        color: #000 !important;
+      }
+    </style>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -145,28 +151,28 @@
 
           <?php //페이지네이션이 들어가는 곳
             //이전페이지
-            if($page <= 1){ ?> 
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page=<?php echo ($page-1); ?>" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
+            if($page > 1){ ?> 
+              <li class="page-item"><a href="inquire_list.php?page=<?php echo ($page-1); ?>" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
               <?php } 
-              else{ ?> 
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page-1); ?>" class="page-link "><i class="bi bi-chevron-left"></i></a></li>
-              <?php };
-              ?> 
-          <?php //여기서부터 페이지 번호출력하기
-            for($print_page=$s_pageNum;$print_page<=$e_pageNum;$print_page++){?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $print_page; ?>" class="page-link">
-                <?php echo $print_page ?>
-              </a></li>
-            <?php }; ?>  
+              else { ?>
+                <li class="page-item disabled" style="opacity:0.3;"><a href="#" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
+              <?php } ?>
+
+            <?php // 페이지 번호 출력
+            for ($print_page = $s_pageNum; $print_page <= $e_pageNum; $print_page++) { ?>
+              <li class="page-item<?php echo ($page == $print_page) ? ' active' : ''; ?>">
+                <a href="inquire_list.php?page=<?php echo $print_page; ?>" class="page-link">
+                  <?php echo $print_page; ?>
+                </a>
+              </li>
+            <?php } ?> 
 
             <!-- 다음 버튼 나오는 곳 -->
-            <?php if($page>=$total_page){ ?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $total_page; ?>" title="다음페이지로" class="page-link"><i class="bi bi-chevron-right"></i></i></a></li>
-            <?php }else{ ?>
-              <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page+1); ?>" class="page-link ">
-              <i class="bi bi-chevron-right"></i></a></li>
-          <?php };    
-          ?>    
+            <?php if($page>$total_page){ ?>
+              <li class="page-item"><a href="inquire_list.php?page<?php echo $total_page; ?>" title="다음페이지로" class="page-link"><i class="bi bi-chevron-right"></i></i></a></li>
+            <?php } else { ?>
+              <li class="page-item disabled" style="opacity:0.3;"><a href="#" class="page-link"><i class="bi bi-chevron-right"></i></a></li>
+            <?php } ?>
           </ul>
         </nav>  
 

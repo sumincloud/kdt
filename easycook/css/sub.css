@@ -272,6 +272,8 @@
   border-radius: 5px;
   margin-bottom: 40px;
   margin-top: 5px;
+  font-weight: var(--fw-semi-bold);
+
 }
 .inquire input[type=submit]{
   width: 100%; background: var(--red);
@@ -284,11 +286,9 @@
 /*---------------------------------------------------------*/
 /*여기는 후기 작성 페이지 서식*/
 .review_write{
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   margin-bottom: 60px;
-  max-width: 1025px;
-  padding: 0 20px;
 }
 .review_write > h2{
   font-size: var(--fs-xlarge);
@@ -468,25 +468,7 @@
   min-height: 100vh;
 }
 
-@media (min-width: 1025px) {
-  .community_con, .intro_teacher {
-    width: 1025px !important;
-  }
-  .tab_con{
-    background: #EDEDED;
-  }
-  .tab_con > ul{
-    max-width: 1025px;
-    margin: 0 auto;
-  }
-  /* 이미지 부분 크기 */
-  .community_con .page1{
-    height: 230px !important;
-  }
-  .community_con .page1 > h2{
-    padding-top: 60px !important;
-  }
-}
+
 
 
 
@@ -510,7 +492,7 @@
 }
 .community li >div p:nth-child(2){
   color: var(--red);
-  font-weight: var(--fw-normal);
+  font-weight: var(--fw-bold);
 }
 
 .community .review_img{
@@ -573,15 +555,17 @@
 
 .community_con #page2 ul{
   display: flex;
-  width: 300px;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 .community_con #page2 input[type=radio]{
   display: none;
 }
+.community_con #page2 ul li{
+  width: 30%;
+}
 .community_con #page2 ul label{
-  width: 85px;
+  width: 100%;
   padding:12px 12px;
   border: 1px solid #ccc;
   text-align: center;
@@ -590,7 +574,6 @@
 }
 .hiden{
   border: none !important;
-
 }
 .community_con #page2 .time_on{
   border: 1px solid var(--red);
@@ -665,6 +648,7 @@
   font-weight: var(--);
 }
 .faq .s_toggleQ{
+  cursor: pointer;
   height: 55px;
   border-bottom: 1px solid var(--gray);
   font-size: var(--fs-medium);
@@ -694,13 +678,13 @@
   font-weight: var(--fw-semi-bold);
 }
 
-
 /*여기서부터 커뮤니티 상담신청 달력 서식*/
+/* 달력 서식 */
 #datepicker {
   display: none;
 }
 .flatpickr-calendar {
-  width: 100%;
+  width: 100% !important;
   box-sizing: border-box;
   padding: 10px;
 }
@@ -743,6 +727,47 @@
   order: 0;
 }
 /* 여기까지 커뮤니티 상담신청 달력 서식 */
+/*여기는 반응형 서식*/
+
+@media (min-width: 1025px) {
+  .community_con, .intro_teacher {
+    width: 1025px !important;
+  }
+  .tab_con{
+    background: #EDEDED;
+  }
+  .tab_con > ul{
+    max-width: 1025px;
+    margin: 0 auto;
+  }
+  /* 이미지 부분 크기 */
+  .community_con .page1{
+    height: 230px !important;
+  }
+  .community_con .page1 > h2{
+    padding-top: 60px !important;
+  }
+  .community_con #page2 ul{
+    display: flex;
+    width: 100% !important;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+  .community_con #page2 ul li{
+    width: 100px !important;
+  }
+}
+@media (min-width: 550px) {
+  .community_con #page2 ul li{
+    width: 100px !important;
+  }
+  .community_con #page2 ul{
+    display: flex;
+    width: 100% !important;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+}
 
 
 /*---------------------------------------------*/
