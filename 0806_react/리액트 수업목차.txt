@@ -1,0 +1,13 @@
+1일차
+1. react소개
+2. cdn방식을 통한 react문서 제작
+3. npm을 이용한 create react app설치-npm, node.js, app
+
+2일차
+1. 리액트 앱 살펴보기와 동작원리
+2. 웹앱 실행과 배포
+
+3일차
+1. 일반 dom, 가상 dom 차이 이해하기
+2. JSX문법
+3. 컴포넌트 제작

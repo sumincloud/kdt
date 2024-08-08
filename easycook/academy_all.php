@@ -77,7 +77,7 @@
           <label for="cate-filter" style="display:none;">카테고리</label>
           <select id="cate-filter" class="form-select" style="width:90px;">
             <option value="">전체</option>
-            <option value="요리" <?php echo $cate == '요리' ? 'selected' : ''; ?>>요리</option>
+            <option value="기능사" <?php echo $cate == '기능사' ? 'selected' : ''; ?>>요리</option>
             <option value="바리스타" <?php echo $cate == '바리스타' ? 'selected' : ''; ?>>바리스타</option>
             <option value="베이커리" <?php echo $cate == '베이커리' ? 'selected' : ''; ?>>베이커리</option>
           </select>

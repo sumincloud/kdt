@@ -875,7 +875,7 @@ section {
     padding: 10px 22px !important;
   }
   #sec02 .swiper-wrapper, #sec03 .swiper-wrapper, #sec04 .swiper-wrapper, #sec06 .swiper-wrapper, .mySwiper3 .swiper-wrapper {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   #sec06 .swiper-wrapper {
     padding: 10px;
