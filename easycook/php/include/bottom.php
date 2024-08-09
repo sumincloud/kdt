@@ -59,6 +59,13 @@
       color: var(--red);
     }
 
+    /* PC버전 바텀바 숨기기 */
+    @media (min-width: 1025px) {
+      #bottom{
+        display:none !important;
+      }
+    }
+
   </style>
 
 

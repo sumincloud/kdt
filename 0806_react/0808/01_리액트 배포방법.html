@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_리액트 배포방법</title>
+</head>
+<body>
+  <h2>01_리액트 배포방법</h2>
+  <p>완성된 리액트 프로젝트의 배포 방법에 대해 이해하고 각각 실습하기</p>
+  <p>xampp환경에서는 Apache서버를 실행후 브라우저에서 localhost or 127.0.0.1을 입력하면 html, php문서를 볼 수 있다. 하지만 리액트 환경에서는 build라는 컴파일 과정을 거쳐 앱을 배포한다.</p>
+  <ol>
+    <li>로컬컴퓨터</li>
+    <li>닷홈 서버</li>
+    <li>깃허브 레포지토리</li>
+  </ol>
+  
+  <h3>1. 로컬에서 실행(React 프로젝트 환경)</h3>
+  <p>vs code에서 'npm run build'하면 build폴더가 생성되면서 파일이 생성됨.</p>
+  <p>브라우저 주소창에 localhost:3000 or 127.0.0.1</p>
+
+  <h3>2. 닷홈 서버에 업로드하여 프로젝트 보기</h3>
+  <p>아래 소스코드를 package.json에 "homepage": "./"을 추가하고 'npm run build' 한 다음 ftp에 업로드하여 확인한다.</p>
+  <pre>
+          "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+          ]
+        },
+        "homepage": "./"
+      }
+  </pre>
+
+  <h3>3. github에 업로드 하여 배포하기</h3>
+  <p>github에 접속하여 레포지토리 생성하여 아래와 같이 배포한다. </p>
+  <pre>
+    레포지토리명 : react_class2
+    상세설명 : 리액트 수업
+    add a readme file 체크
+
+    git 레포지토리주소 복사
+    https://github.com/jeon9897/react_class2.git
+
+    ------------------------------------------------------
+
+    build폴더에서 작성해야 함.
+
+    git init(초기화)
+    git status (현 상태확인)
+      빨강 : 아직 파일, 폴더를 추적전(상태관리 전)
+    git add .
+      초록 : 상태관리상태
+
+    git commit -m '리엑트 수업'
+    git remote add origin '깃허브 주소'
+    git branch -m master main
+    git push origin +main
+
+    ------------------------------------------------------
+
+    업로드시 화면이 안나오면 아래 방법으로 해결
+
+    package.json파일을 열고
+    {
+      "name": "react_class",
+      "version": "0.1.0",
+      "private": true,
+      "homepage": "https://jeon9897.github.io/react_class2/",
+      "dependencies": {
+    }
+
+    파일 수정 후 'npm run build' 실행하여 다시 github에 업로드 함.
+  </pre>
+
+</body>
+</html>

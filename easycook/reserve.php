@@ -356,7 +356,7 @@ if (isset($_SESSION['id'])) {
 
       // 예약 데이터 가져오기
       function updateReservationStatus() {
-        var classNo = '<?= $class_no; ?>';
+        var classNo = '<?php json_encode($class_no); ?>';
         var selectedDate = $('#datepicker').val(); // 선택한 날짜
         var roomNo = $('input[name="room"]:checked').val(); // 선택한 실습실
         // console.log('Selected Date:', selectedDate);

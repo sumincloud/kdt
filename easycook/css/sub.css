@@ -376,22 +376,80 @@
   width: 100%; margin: 0 auto;
   max-width: 1025px;
   padding: 0 20px;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
 }
 .review_list > h2{
   margin-top: 28px;
   font-size: var(--fs-large);font-weight: var(--fw-semi-bold);
 }
 .review_list > p:nth-child(3){
+  display: inline;
   font-size: var(--fs-small); 
   font-weight: var(--fw-light); 
   color: var(--gray);
   padding-bottom: 10px;
-
 }
+
+/*말풍선*/
+.review_list  .hover_info{
+  display: none;
+  border: 1px solid var(--gray);
+  font-size: var(--fs-small); 
+  font-weight: var(--fw-light); 
+  padding: 10px;
+  z-index: 900;
+  top: 110px;
+  left:110px;
+	position: absolute;
+  border-radius: 0px 5px 5px 5px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+
+.review_list  .hover_info:after, .review_list  .hover_info:before {
+	top: 4px;
+	left: 0px;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.review_list  .hover_info:after {
+	border: 10px solid transparent;
+	border-bottom-color: #ffffff;
+	border-top: 0;
+	border-left: 0;
+  border-width: 15px;
+	margin-left:0px;
+	margin-top: -17.5px;
+}
+.review_list  .hover_info:before {
+
+  border: 19px solid transparent;
+	border-bottom-color: #d9d9d9;
+	border-top: 0;
+	border-left: 0;
+  border-width: 16px;
+	margin-left: -1px;
+	margin-top: -20px;
+}
+
+
+
 .review_list .review_detail  h2{
+  /* width: 70%; */
   font-size: var(--fs-medium);
   font-weight: var(--fw-semi-bold);
   margin-bottom: 5px;
+  /* text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; */
 }
 
 /*이건 p 공통서식 간격*/
@@ -439,6 +497,31 @@
 
 .review_list .review_detail .ud_btn a:first-child{background-color: var(--yellow);}
 .review_list .review_detail .ud_btn a:last-child{background-color: var(--gray);}
+
+
+/* 페이지네이션 서식 */
+.review_list #pagena{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.review_list .page-link{
+  color: #888;
+}
+.review_list .page-item{
+  background: none !important;
+}
+.review_list .disabled>.page-link, .page-link.disabled{
+  background: none !important;
+  opacity: 0;
+}
+.review_list .active>.page-link, .page-link.active{
+  background: none;
+  color: #000;
+}
+
+
 
 
 /*후기 수정*/
@@ -556,7 +639,7 @@
 .community_con #page2 ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .community_con #page2 input[type=radio]{
   display: none;
@@ -631,6 +714,7 @@
   text-overflow: ellipsis;/*...이 나오게하는 속성*/
   white-space: nowrap;/*한줄로 쭉나오게 하는속성*/
   overflow: hidden;/*가로영역 벗어난 글자숨기기*/
+  cursor: pointer;
 }
 .notice > ul> li p:first-child{
   font-size: var(--fs-small);
@@ -663,8 +747,9 @@
 }
 
 .faq .s_toggle{
+  background: #efefef;
   border-bottom: 1px solid var(--gray);
-  padding: 15px 0px 15px 20px;
+  padding: 15px 0px 15px 35px;
   position: relative;
   display: none;
 }

@@ -1,0 +1,21 @@
+npx i or install npx -g  (전역에서 사용할 수 있도록 설치)
+npx -v
+
+cd..
+react폴더에 test앱을 생성
+
+npx create-react-app 'test'
+
+-------------------------------------
+드라이브 변경      cd 드라이브명  =>   cd c:  엔터
+폴더 이동   c:/test  엔터
+상위폴더 이동   cd..  엔터
+루트폴더 이동   cd\  엔터
+c드라이브의 test폴더로 이동   =>  cd c:\test   
+npx create-react-app test
+
+npm run start
+
+작업종료  ctrl + C
+
+

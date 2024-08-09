@@ -22,18 +22,36 @@
   $row = mysqli_fetch_assoc($result);
 
   $name = $row['name'];
+
+  // academy_list 테이블에서 class_no에 해당하는 teacher_code 가져오기
+  $sql = "SELECT teacher_code FROM academy_list WHERE class_no='$class_no'";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+
   $teacher_code = $row['teacher_code'];
 
-  // 데이터 삽입 쿼리 작성
-  $sql = "INSERT INTO attendance (class_no, id, name, teacher_code, datetime) 
-          VALUES ('$class_no', '$id', '$name', '$teacher_code', '$datetime')";
+  $today_date = date('Y-m-d', time()); // 오늘 날짜
 
-  // 쿼리 실행
-  if (mysqli_query($conn, $sql)) {
-    echo json_encode(['status' => 'success', 'message' => '출석이 완료되었습니다.']);
-  } else {
-    echo json_encode(['status' => 'error', 'message' => '출석 실패: ' . mysqli_error($conn)]);
-  }
+  // 오늘 출석 기록이 있는지 확인
+  $sql = "SELECT * FROM attendance WHERE id='$id' AND class_no='$class_no' AND DATE(datetime)='$today_date'";
+  $result = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($result) > 0) {
+    // 오늘 이미 출석한 기록이 있음
+    echo json_encode(['status' => 'done', 'message' => '이미 출석을 완료하셨습니다.']);
+} else {
+    // 데이터 삽입 쿼리 작성
+    $sql = "INSERT INTO attendance (class_no, id, name, teacher_code, datetime) 
+            VALUES ('$class_no', '$id', '$name', '$teacher_code', '$datetime')";
+
+    // 쿼리 실행
+    if (mysqli_query($conn, $sql)) {
+        echo json_encode(['status' => 'success', 'message' => '출석이 완료되었습니다.']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => '출석 실패: ' . mysqli_error($conn)]);
+    }
+}
 
 
   // 데이터베이스 연결 종료

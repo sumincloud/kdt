@@ -77,7 +77,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>마이페이지</title>
+  <title>이지쿡 | 마이페이지</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
 
@@ -182,20 +182,20 @@
     }
 
     /* -----------강의 리스트 서식--------- */
-    #class{
+    .my_class{
       margin-top: 30px;
       padding: 0;
     }
-    #class .tab > ul{
+    .my_class .tab > ul{
       gap: 0;
     }
-    #class .tab > ul li button{
+    .my_class .tab > ul li button{
       border: none;
       border-bottom: 3px solid #ccc;
       background: #fff;
       color: #888;
     }
-    #class .tab > ul li button.active{
+    .my_class .tab > ul li button.active{
       border-bottom: 3px solid var(--red);
       color: var(--red);
     }
@@ -222,7 +222,7 @@
   <!-- 공통헤더삽입 -->
   <?php include('./php/include/header.php');?>
 
-  <main>
+  <main id="myPage">
     <section>
       <p class="bread_c">
         <a href="./index.php" title="홈">홈</a> &#62; 
@@ -285,7 +285,7 @@
       </nav>
     </section>
 
-    <section id="class">
+    <section class="my_class">
       <!-- 탭 컨텐츠 형식 -->
       <div class="tab">
         <ul>
@@ -448,88 +448,15 @@
     $(document).ready(function() {
 
       //탭 콘텐츠 버튼
-      $('.tab-link').on('click', function() {
-        $('.tab-link').removeClass('active');
+      $('#myPage .my_class .tab-link').on('click', function() {
+        $('#myPage .my_class .tab-link').removeClass('active');
         $(this).addClass('active');
         
         // 모든 탭 콘텐츠 숨기기
-        $('.tab_con > div').removeClass('active');
+        $('#myPage .my_class .tab_con > div').removeClass('active');
         // 데이터 속성으로 타겟팅된 탭 콘텐츠 보이기
         var target = $(this).data('tab-target');
         $(target).addClass('active');
-      });
-
-
-
-
-
-      //----------프로필 타이틀 눌렀을때 페이지 이동-----------
-
-      // $_SESSION['id'] 값 가져오기
-      var sessionId = '<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : ''; ?>';
-
-      // 프로필 타이틀 클릭 이벤트
-      $('.mytitle').click(function() {
-        if (sessionId) {
-          // 로그인된 경우 비밀번호 확인 페이지로
-          window.location.href = './register_edit_password.php';
-        } else {
-          // 로그인 안된경우 로그인페이지로
-          window.location.href = './login.php';
-        }
-      });
-
-      // 아이콘 메뉴 클릭 이벤트
-      $('.icon_menu a').click(function(e) {
-        e.preventDefault(); // 기본 클릭 이벤트 방지
-
-        if (sessionId) {
-          // 로그인된 경우 클릭한 링크의 href 속성 값으로 페이지 이동
-          window.location.href = $(this).attr('href');
-        } else {
-          // 로그인 안된경우 로그인페이지로 이동
-          alert('로그인이 필요합니다.');
-          window.location.href = './login.php';
-        }
-      });
-
-
-      // ----------출석체크 버튼 클릭 이벤트 처리---------
-      $('.attend').click(function() {
-        var button = $(this);
-        var classNo = button.data('class-no');
-
-
-        if (sessionId && (button.text().trim() === '출석체크')) {
-          // AJAX 요청 보내기
-          $.ajax({
-            url: './php/attendance_input.php',
-            type: 'POST',
-            data: {
-              class_no: classNo,
-              id: sessionId
-            },
-            success: function(response) {
-              // JSON 응답을 파싱
-              var php = JSON.parse(response);
-
-              // 서버 응답 처리
-              if (php.status === 'success') {
-                alert(php.message);
-                button.text('출석완료').attr('disabled', true).css('background', '#aaa');
-              } else {
-                alert(php.message);
-              }
-            },
-            error: function(xhr, status, error) {
-              alert('서버 오류: ' + error);
-            }
-          });
-
-        } else {
-          alert('로그인이 필요합니다.');
-          window.location.href = './login.php';
-        }
       });
 
 

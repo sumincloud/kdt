@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_콤포넌트의 개념과 사용법</title>
+  <style>
+    pre{background:#000;color:#fff;padding:15px;}
+  </style>
+</head>
+<body>
+  <h2>02_콤포넌트의 개념과 사용법</h2>
+  
+  <h3>1. 콤포넌트의 정의</h3>
+  <ul>
+    <li>재사용 가능한 UI콘텐츠이며 단순한 템플릿 이상의 구현체</li>
+    <li>콤포넌트는 부모에게서 값을 받아와서 보여주거나 사용할 수 있다. => props(속성)</li>
+    <li>컴포넌트 자신이 사용할 값을 정의하고 필요할 때 업데이트 => state(상태관리)</li>
+    <li>UI에서 보여줘야하는 값이 바뀌면 DOM에 변화를 줌</li>
+  </ul>
+
+  <p>#자손 콤포넌트를 부모가 사용하고자 할 때(연결방법)</p>
+  <pre>
+    import 콤포넌트명 from '파일경로';
+  </pre>
+
+  <p>#콤포넌트를 jsx문법으로 불러오기</p>
+  <pre>
+    <콤포넌트명 />
+  </pre>
+
+  <p>class형 콤포넌트 작성시 render(){ }함수 작성</p>
+  <pre>
+    render(){
+      UI를 구현해주는 함수로서 이곳에 리액트 내용을 작성함.
+    }
+  </pre>
+
+  <p>* return문은 jsx문법을 사용하여 추후 바벨(컴파일러)이 js코드로 변환시켜줄 값을 입력하는 영역</p>
+  <pre>
+    return(
+      값입력
+    );
+  </pre>
+
+  <p>* export 콤포넌트명 : 다른 js파일에서 부모 콤포넌트가 불러올 수 있도록 미리 내보내기를 해주는 구문</p>
+
+  <pre>
+    export default 콤포넌트명;
+  </pre>
+
+  <h3>2. 콤포넌트의 종류 - 함수(function)형, 클래스(class)형</h3>
+  <p>1. 클래스형 콤포넌트(class문법)</p>
+  <ul>
+    <li>render함수가 반드시 존재해야 함.</li>
+    <li>state를 사용한 상태값을 사용할 수 있다.</li>
+    <li>라이프 사이클 API의 사용이 가능.</li>
+  </ul>
+
+  <pre>
+    class 콤포넌트명 extends Component { 
+      render(){
+        return (
+          출력할 내용
+        );
+      }
+    }
+  </pre>
+
+  <p>2. 함수(function)형 콤포넌트</p>
+  <ul>
+    <li>클래스형 컴포넌트에 비해 선언하기가 편합니다.</li>
+    <li>메모리 자원을 클래스형 콤포넌트에 비해 덜 차지합니다.</li>
+    <li>빌드 후 배포시에 결과물의 크기가 작습니다.</li>
+  </ul>
+
+  <pre>
+    function 함수명(props){
+      return(
+        내용작성하기
+      );
+    }
+  </pre>
+
+  <h3>클래스형, 함수형 콤포넌트 사용시 어느 콤포넌트를 사용할까?</h3>
+  <p>사실상의 크기와 성능명에서 함수형과 클래스형의 차이는 그리 크지 않고, 함수형 컴포넌트에서 지원하지 않는 기능 또한 React의 버전 업데이트 이후 Hooks라는 기능을 통해 가능해지게 되었습니다.</p>
+  <p>그래서 두개의 콤포넌트는 사용자의 선택에 의해 결정된다고 보는것이 크고, 공식 메뉴얼에서는 함수형 콤포넌트는 hooks을 통해 컴포넌트를 작성하는 것을 권장하지만 모든 코드를 학습하기 위해서는 두루 사용해 보는 것이 좋다.</p>
+</body>
+</html>
