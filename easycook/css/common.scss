@@ -53,6 +53,12 @@ body {
   text-rendering: geometricPrecision;
   margin-bottom: 60px; /* 바텀바 높이만큼 띄우기 */
 }
+@media (min-width: 1025px) {
+  body{
+    margin-bottom: 0px;
+  }
+}
+
 main{
   margin-top: 70px; /* 헤더 높이만큼 띄우기 */
 }
