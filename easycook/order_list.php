@@ -57,14 +57,15 @@
     $class_list = [];
   }
 
-
+  // 현재 날짜를 가져오기
+  $today = date('Y-m-d');
 ?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>신청 목록</title>
+  <title>이지쿡 | 신청목록</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
 
@@ -188,7 +189,13 @@
                 <!-- 버튼이 들어가는 경우에만 삽입 -->
                 <div>
                   <div class="btn-box-s mt-4">
-                    <button class="btn-s" onclick="removeOrder('<?= $row['class_no']; ?>')">신청취소</button>
+                    <?php if ($row['start_date'] < $today): ?>
+                      <!-- 중도 포기 버튼 -->
+                      <button class="btn-s" onclick="abandonOrder('<?= $row['class_no']; ?>')" style="background: #666;">중도포기</button>
+                    <?php else: ?>
+                      <!-- 신청 취소 버튼 -->
+                      <button class="btn-s" onclick="removeOrder('<?= $row['class_no']; ?>')">신청취소</button>
+                    <?php endif; ?>
                     <button class="btn-s order_info" data-class-no="<?= $row['class_no']; ?>">결제정보</button>
                   </div>
                 </div>
@@ -276,6 +283,28 @@
       }
     }
 
+    // 중도포기 누르면 상태를 변경하는 기능
+    function abandonOrder(classNo) {
+      if (confirm('중도 포기를 하시겠습니까?')){
+        $.ajax({
+          url: './php/order_list_delete.php',
+          type: 'POST',
+          data: {
+            class_no: classNo,
+            action: 'abandon'
+          },
+          success: function(response) {
+            console.log(response);
+            alert('중도 포기가 완료되었습니다.');
+            // 중도 포기 후 리스트에서 항목 제거
+            $('#class-' + classNo).remove();
+          },
+          error: function(xhr, status, error) {
+            console.error('요청 실패:', error);
+          }
+        });
+      }
+    }
 
   </script>
 </body>

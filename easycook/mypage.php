@@ -89,10 +89,21 @@
       max-width: 1025px;
       margin: 0 auto;
     }
-    section > h2{
+    section .title_box{
+      padding: 40px 0 20px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    section .title_box a{
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+    section > div > h2{
       font-size: var(--fs-large);
       font-weight: var(--fw-bold);
-      padding: 40px 0 20px 0;
+      display: inline-block;
     }
     /* 타이틀 서식 */
     .mytitle{
@@ -229,7 +240,19 @@
         <a href="./index.php" title="홈">홈</a> &#62; 
         <b><a href="./mypage.php" title="마이페이지">마이페이지</a></b>
       </p>
-      <h2>마이페이지</h2>
+      <div class="title_box">
+        <h2>마이페이지</h2>
+        <?php if (isset($_SESSION['id'])): ?>
+        <div>
+          <a style="color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;" href='./php/logout.php' title='로그아웃'>로그아웃</a>
+          <?php
+          // $teacher_code가 존재하면 강사페이지 링크 추가
+          if ($teacher_code) {
+            echo "<a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+          }
+          ?>
+        </div>
+      </div>
       <?php
         if (isset($_SESSION['id'])) {
           echo "
@@ -256,6 +279,7 @@
           </div>";
         }
       ?>
+    <?php endif; ?>
       <nav class='icon_menu'>
         <ul>
           <li>
@@ -433,18 +457,7 @@
       </div>
     </section>
 
-    <?php if (isset($_SESSION['id'])): ?>
-      <div style="text-align:center; margin-bottom: 80px;">
-        <a href='./php/logout.php' class="btn btn-outline-secondary" title='로그아웃'>로그아웃</a>
-        <?php
-        // $teacher_code가 존재하면 강사페이지 링크 추가
-        if ($teacher_code) {
-          echo "<a class='btn btn-outline-secondary' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
-        }
-        ?>
 
-      </div>
-    <?php endif; ?>
 
 
   </main>
