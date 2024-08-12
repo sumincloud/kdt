@@ -1,11 +1,12 @@
 import React from 'react';
-import Study5 from './class/Study5';
+import Kully from './class/Kully';
+import './Style.css';
 
 function Main(props) {
   return (
     <>
-      <h3>리액트 5일차 수업내용</h3>
-      <Study5 />
+      <h3>마켓컬리</h3>
+      <Kully />
     </>
   );
 }

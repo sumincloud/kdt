@@ -7,6 +7,7 @@
   if (isset($_SESSION['id'])){
     $name = htmlspecialchars($_SESSION['name']);
     $profile = htmlspecialchars($_SESSION['profile']);
+    $teacher_code = isset($_SESSION['teacher_code']) ? $_SESSION['teacher_code'] : null;
   }
 ?>
 
@@ -100,6 +101,7 @@ header .h_box > div > ul .bi-bell::before {
   background: var(--white);
   transition: 0.5s ease-in-out;
   display:none; /* 일단 숨겨놓음 */
+  overflow-y: auto; /* 사이드 아래로 잘릴때 스크롤 되게 */
 }
 
 .side.open {
@@ -136,6 +138,7 @@ header .h_box > div > ul .bi-bell::before {
   gap: 10px;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .side .info img {
@@ -149,7 +152,7 @@ header .h_box > div > ul .bi-bell::before {
   white-space: nowrap;
 }
 
-.side .info > div a:first-of-type {
+.side .info > div > a:first-of-type {
   color: var(--black);
   font-weight: var(--fw-bold);
   font-size: var(--fs-large);
@@ -161,7 +164,7 @@ header .h_box > div > ul .bi-bell::before {
   position: relative;
   background: var(--light-gray);
   padding: 30px 20px;
-  height: 100vh;
+  height: 100%;
 }
 
 /* 큰 카테고리 */
@@ -444,6 +447,7 @@ header .a_side {
   cursor: pointer;
   margin: 0 20px;
   gap: 20px;
+  justify-content: space-between;
 }
 #my_side .mytitle > i{
   color: #aaa;
@@ -544,6 +548,7 @@ header .a_side {
 }
 #my_side .tab_con{
   padding: 20px;
+  height: 100%;
 }
 #my_side .tab_con .btn-s.line{
   border: 1px solid #888;
@@ -699,14 +704,23 @@ header .a_side {
                 echo "
                 <img src='./uploads/profile/$profile' alt='프로필이미지'>
                 <a href='./mypage.php' title='마이페이지'>$name 님 환영합니다.</a>
-                <a href='./php/logout.php' title='로그아웃'>로그아웃</a>
+                <span>
+
+                <a style='margin-right: 10px;' href='./php/logout.php' title='로그아웃'>로그아웃</a >
                 ";
+                // $teacher_code가 존재하면 강사페이지 링크 추가
+                if ($teacher_code) {
+                  echo "<a style='margin-right: 10px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+                }
+                "</span>";
               } else {
                 echo "
                 <img src='./uploads/profile/profile.png' alt='프로필이미지'>
                 <a href='./login.php' title='로그인'>로그인을 해주세요.</a>
-                <a href='./login.php' title='로그인'>로그인</a>
-                <a href='./register_pre.php' title='회원가입'>회원가입</a>
+                <span>
+                  <a style='margin-right: 10px;' href='./login.php' title='로그인'>로그인</a>
+                  <a style='margin-right: 10px;' href='./register_pre.php' title='회원가입'>회원가입</a>
+                </span>
                 ";
               }
             ?>
@@ -905,6 +919,8 @@ header .a_side {
                   <p>오늘 하루도 화이팅:)</p>
                 </div>
               </div>
+
+              <a class='btn btn-outline-secondary' href='./php/logout.php' title='로그아웃'>로그아웃</a>
               <i class='bi bi-chevron-right'></i>
             </div>";
           } else {
@@ -1290,6 +1306,10 @@ header .a_side {
         }
       });
 
+
+
+
+      
 
   })
 </script>

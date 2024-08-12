@@ -15,6 +15,7 @@
 
     $name = htmlspecialchars($row['name']);
     $profile = htmlspecialchars($row['profile']);
+    $teacher_code = isset($_SESSION['teacher_code']) ? $_SESSION['teacher_code'] : null;
 
     // 세션 정보를 업데이트
     $_SESSION['name'] = $name;
@@ -435,6 +436,13 @@
     <?php if (isset($_SESSION['id'])): ?>
       <div style="text-align:center; margin-bottom: 80px;">
         <a href='./php/logout.php' class="btn btn-outline-secondary" title='로그아웃'>로그아웃</a>
+        <?php
+        // $teacher_code가 존재하면 강사페이지 링크 추가
+        if ($teacher_code) {
+          echo "<a class='btn btn-outline-secondary' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+        }
+        ?>
+
       </div>
     <?php endif; ?>
 
