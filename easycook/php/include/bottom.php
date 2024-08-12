@@ -66,6 +66,26 @@
       }
     }
 
+    /* 탑버튼 서식 */
+    #topButton {
+      position: fixed; 
+      bottom: 70px;
+      right: 20px;
+      display: none;
+      background-color: var(--darkbrown);
+      color: white;
+      border: none;
+      box-shadow: 0 0 4px rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      padding: 15px;
+      cursor: pointer; 
+      font-size: 20px;
+      z-index: 1000;
+    }
+    #topButton:hover {
+      filter: brightness(2);
+    }
+
   </style>
 
 
@@ -108,6 +128,16 @@
   </footer>
 
 
+  <!-- 탑버튼 -->
+  <button id="topButton">
+    <i class="bi bi-chevron-up"></i>
+  </button>
+
+
+
+
+
+
   <script>
     $(document).ready(function() {
       // 현재 페이지의 URL 경로 가져오기
@@ -125,6 +155,23 @@
           $(this).removeClass("active");
         }
       });
+
+
+      //--------------탑버튼 서식-----------
+      var $topButton = $('#topButton');
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 20) {
+          $topButton.fadeIn();
+        } else {
+          $topButton.fadeOut();
+        }
+      });
+      $topButton.click(function() {
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+      });
+
+
+
     });
 
 

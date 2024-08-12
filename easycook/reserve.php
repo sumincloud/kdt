@@ -199,10 +199,10 @@ if (isset($_SESSION['id'])) {
                 </label>
               </div>
               <div class="swiper-slide form-group">
-                <input type="radio" id="room2" name="room" value="302">
+                <input type="radio" id="room2" name="room" value="102">
                 <label for="room2">
-                  <img src="./images/sub/room_302.jpg" alt="302호 이미지">
-                  <span>302호</span>
+                  <img src="./images/sub/room_102.jpg" alt="102호 이미지">
+                  <span>102호</span>
                 </label>
               </div>
             </div>

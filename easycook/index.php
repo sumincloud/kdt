@@ -456,7 +456,7 @@
     <section id="sec10">
       <h3 style="display:none;">띠배너</h3>
       <a href="#" title="띠배너">
-        <img src="./images/main/app_ad_1.png" alt="이미지" loading="lazy">
+        <img src="./images/main/app_ad_1.jpg" alt="이미지" loading="lazy">
       </a>
     </section>
     <!-- 11. 국비과정 베스트 -->
@@ -621,22 +621,29 @@
 
           //--------1025px 이상일때 메인배너 이미지 변경------------
           function updateImageSources() {
-          const images = document.querySelectorAll('#sec01 .swiper-slide img');
-          images.forEach(img => {
-              let src = img.getAttribute('src');
-              if (window.innerWidth >= 1025) {
-                // _pc가 붙은 경로로 변경
-                if (!src.includes('_pc')) {
-                  img.src = src.replace('.jpg', '_pc.jpg');
+          // 섹션별 이미지 업데이트
+          const updateImages = (selector, imageType) => {
+            const images = document.querySelectorAll(selector);
+            images.forEach(img => {
+                let src = img.getAttribute('src');
+                if (window.innerWidth >= 1025) {
+                  // _pc가 붙은 경로로 변경
+                  if (!src.includes('_pc')) {
+                    img.src = src.replace('.jpg', '_pc.jpg');
+                  }
+                } else {
+                  // _pc가 붙은 경로를 제거
+                  if (src.includes('_pc')) {
+                    img.src = src.replace('_pc.jpg', '.jpg');
+                  }
                 }
-              } else {
-                // _pc가 붙은 경로를 제거
-                if (src.includes('_pc')) {
-                  img.src = src.replace('_pc.jpg', '.jpg');
-                }
-              }
-            });
+              });
           }
+          // 각 섹션에 대한 이미지 소스 업데이트
+          updateImages('#sec01 .swiper-slide img');
+          updateImages('#sec05 .swiper-slide img');
+          updateImages('#sec10 img');
+        }
           // 페이지 로드 시 이미지 업데이트
           window.addEventListener('load', updateImageSources);
           // 화면 크기 변경 시 이미지 업데이트

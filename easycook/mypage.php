@@ -242,15 +242,20 @@
       </p>
       <div class="title_box">
         <h2>마이페이지</h2>
-        <?php if (isset($_SESSION['id'])): ?>
         <div>
-          <a style="color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;" href='./php/logout.php' title='로그아웃'>로그아웃</a>
-          <?php
-          // $teacher_code가 존재하면 강사페이지 링크 추가
-          if ($teacher_code) {
-            echo "<a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+        <?php if (isset($_SESSION['id'])){
+          echo "
+          
+            <a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./php/logout.php' title='로그아웃'>로그아웃</a>"?>
+
+            <?php
+            if ($teacher_code) {
+              echo "<a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+            }
+          }else{
+            echo "";
           }
-          ?>
+        ?>
         </div>
       </div>
       <?php
@@ -279,7 +284,6 @@
           </div>";
         }
       ?>
-    <?php endif; ?>
       <nav class='icon_menu'>
         <ul>
           <li>
