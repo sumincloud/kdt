@@ -162,7 +162,9 @@
 }
 /*--------------------------------------------------*/
 /*detail.php 여기서부터는 강의 상세페이지*/
-
+.community_con.detail{
+  width:100% !important;
+}
 .detail_top{
   width: 100%; height: 60vh;
   margin: 0 auto;
@@ -190,7 +192,6 @@
   max-width: 1025px;
   margin: 0 auto;
 }
-
 /* 내용 및 폰트 서식 */
 .detail_top .table thead{
   font-size: var(--fs-large);
@@ -244,6 +245,14 @@
   z-index: 500;
   gap: 0;
 }
+@media (min-width: 1025px) {
+  .detail_top .btn-box-s{
+    bottom: 0px;
+  }
+}
+
+
+
 .detail_top .btn-s{
   border-radius: 0;
 }

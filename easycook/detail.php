@@ -125,7 +125,7 @@
           
           <!-- 수강생 리뷰 -->
           <div id="tab2" class="tab-pane">
-            <div class="community_con">
+            <div class="community_con detail">
               <div class="community">
                 <ul>
                   <?php 
@@ -142,14 +142,17 @@
                         $row3 = mysqli_fetch_array($result3);
                   ?>
                     <li>
-                      <p class="profile_img_size">
-                        <img src="./uploads/profile/<?php echo $row3['profile'] ?>">
-                      </p>
+                      <div style="display: flex;align-items:center;gap:10px;">
+                        <p class="profile_img_size">
+                          <img src="./uploads/profile/<?php echo $row3['profile'] ?>">
+                        </p>
+  
+                        <p style="margin:0; color:#000; font-weight:normal;">
+                          <!--이름-->
+                          <?php echo $row2["name"] ?>
+                        </p>
 
-                      <p>
-                        <!--강의명-->
-                        <?php echo $row2["name"] ?>
-                      </p>
+                      </div>
                       
                       <!-- 별점 -->
                       <p class="day_gray">
