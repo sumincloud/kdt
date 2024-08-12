@@ -64,7 +64,7 @@
       <article class="tab_con intro">
         <h2 class="hide">커뮤니티 페이지</h2>
         <ul class="tab_menu">
-          <li><a href="?comu=<?php echo $comu; ?>&tab=후기" class="<?php echo ($tab == '후기') ? 'on' : ''; ?>">후기</a></li>
+          <li><a href="?comu=<?php echo $comu; ?>&tab=후기" class="<?php echo ($tab == '후기') ? 'on' : ''; ?>">수강생 후기</a></li>
           <li><a href="?comu=<?php echo $comu; ?>&tab=상담신청" class="<?php echo ($tab == '상담신청') ? 'on' : ''; ?>">상담신청</a></li>
           <li><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=공지사항" class="<?php echo ($tab == '고객센터') ? 'on' : ''; ?>">고객센터</a></li>
         </ul>

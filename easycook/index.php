@@ -541,7 +541,7 @@
               ?>
               <li>
                 <span><?php echo (new DateTime($row['datetime']))->format('m.d');?></span>
-                <a href="#" title="제목"><?php echo $title; ?></a>
+                <a href="./community.php?comu=커뮤니티&tab=고객센터&Fm=공지사항" title="제목"><?php echo $title; ?></a>
                 <span class="<?php echo $activeClass; ?>">N</span>
               </li>
               <?php }?>
@@ -570,7 +570,7 @@
               ?>
               <li>
                 <span><?php echo (new DateTime($row['datetime']))->format('m.d');?></span>
-                <a href="#" title="제목"><?php echo $title; ?></a>
+                <a href="./community.php?comu=커뮤니티&tab=후기" title="제목"><?php echo $title; ?></a>
                 <span class="<?php echo $activeClass; ?>">N</span>
               </li>
               <?php }?>
@@ -598,7 +598,7 @@
               ?>
               <li>
                 <span><?php echo (new DateTime($row['question_time']))->format('m.d');?></span>
-                <a href="#" title="제목"><?php echo $title; ?></a>
+                <a href="./community.php?comu=커뮤니티&tab=고객센터&Fm=자주묻는질문" title="제목"><?php echo $title; ?></a>
                 <span class="<?php echo $activeClass; ?>">N</span>
               </li>
               <?php }?>
