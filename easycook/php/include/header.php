@@ -102,7 +102,21 @@ header .h_box > div > ul .bi-bell::before {
   transition: 0.5s ease-in-out;
   display:none; /* 일단 숨겨놓음 */
   overflow-y: auto; /* 사이드 아래로 잘릴때 스크롤 되게 */
+  background: var(--light-gray);
 }
+.side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40%; /* 가상 배경을 left 40% 위치에 배치 */
+  width: 60%;
+  height: 100%;
+  background: #fff;
+  z-index: -1;
+}
+
+
+
 
 .side.open {
   right: 0;
@@ -131,6 +145,7 @@ header .h_box > div > ul .bi-bell::before {
 .side .info {
   padding: 80px 20px 30px 20px;
   border-bottom: 1px solid var(--light-gray);
+  background: #fff;
 }
 
 .side .info > div {
@@ -162,7 +177,6 @@ header .h_box > div > ul .bi-bell::before {
 /* -------------카테고리 부분------------ */
 .side .depth {
   position: relative;
-  background: var(--light-gray);
   padding: 30px 20px;
   height: 100%;
 }
@@ -440,6 +454,7 @@ header .a_side {
 /* -------------마이페이지 기존서식--------- */
 #my_side{
   padding-top: 70px;
+  background: #fff;
 }
 #my_side .mytitle{
   display: flex;
@@ -448,6 +463,7 @@ header .a_side {
   margin: 0 20px;
   gap: 20px;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 #my_side .mytitle > i{
   color: #aaa;
@@ -473,6 +489,14 @@ header .a_side {
   font-weight: var(--fw-normal);
   color: #888;
 }
+/* 로그아웃/강사페이지 버튼 */
+#my_side .mytitle_btn{
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+
 /* 프로필이미지 서식 */
 #my_side #profile_img{
   width: 50px; height: 50px;
@@ -705,13 +729,12 @@ header .a_side {
                 <img src='./uploads/profile/$profile' alt='프로필이미지'>
                 <a href='./mypage.php' title='마이페이지'>$name 님 환영합니다.</a>
                 <span>
-
-                <a style='margin-right: 10px;' href='./php/logout.php' title='로그아웃'>로그아웃</a >
-                ";
-                // $teacher_code가 존재하면 강사페이지 링크 추가
-                if ($teacher_code) {
-                  echo "<a style='margin-right: 10px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
-                }
+                  <a style='margin-right: 10px;' href='./php/logout.php' title='로그아웃'>로그아웃</a>
+                  ";
+                  // $teacher_code가 존재하면 강사페이지 링크 추가
+                  if ($teacher_code) {
+                    echo "<a style='margin-right: 10px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+                  }
                 "</span>";
               } else {
                 echo "
@@ -920,9 +943,16 @@ header .a_side {
                 </div>
               </div>
 
-              <a class='btn btn-outline-secondary' href='./php/logout.php' title='로그아웃'>로그아웃</a>
               <i class='bi bi-chevron-right'></i>
-            </div>";
+            </div>
+            <div class='mytitle_btn'>
+              <a class='btn btn-outline-secondary' href='./php/logout.php' title='로그아웃'>로그아웃</a>";
+              // $teacher_code가 존재하면 강사페이지 링크 추가
+              if ($teacher_code) {
+                echo "<a class='btn btn-outline-secondary' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+              }
+              echo "</div>";
+
           } else {
             echo "
             <div class='mytitle'>
