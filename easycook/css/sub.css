@@ -9,8 +9,12 @@
   top: 40px ; left: 0px;
   /* background: cornflowerblue; */
 }
+.profile_img_size{
+  display: inline-block;
+  margin: 0 !important;
+}
 .profile_img_size > img{
-  width: 40px; height: 42px;
+  width: 40px; height: 40px;
   border-radius: 30px;
 }
 /* .bread_c{
@@ -560,14 +564,17 @@
 }
 .community li{
   position: relative;
-  margin: 50px 0px;
+  margin: 20px 0px;
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
 }
 .community li > p{
   margin: 10px 0px;
 }
 .community li >div{
-  position: absolute;
-  top: 5px; left: 55px;
+  /* position: absolute;
+  top: 5px; left: 55px; */
+  display: inline-block;
 }
 .community li >div p:first-child{
   margin-bottom: 5px;
@@ -576,6 +583,7 @@
 .community li >div p:nth-child(2){
   color: var(--red);
   font-weight: var(--fw-bold);
+  margin-bottom: 10px;
 }
 
 .community .review_img{
@@ -594,7 +602,10 @@
 
 /*이건 0일전 서식*/
 .community .day_gray{color: var(--gray);}
-.community .comu_review{margin: 20px 0px 0px 0px;}
+.community .comu_review{
+  margin: 20px 0px 0px 0px;
+  line-height: 140%;
+}
 
 /*이건 상담신청서식*/
 .community_con .page1{

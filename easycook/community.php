@@ -5,7 +5,7 @@
   $tab = isset($_GET['tab']) ? trim($_GET['tab']) : '';
   $Fm = isset($_GET['Fm']) ? trim($_GET['Fm']) : '';
 
-  $sql = "select * from review";
+  $sql = "select * from review order by datetime DESC ";
   $result = mysqli_query($conn,$sql);
 
   $query = "select count(*) from board ";
@@ -48,9 +48,10 @@
   <title>이지쿡</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
+    <!-- flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!--sub 페이지 css 하나에 우겨넣기-->
     <link rel="stylesheet" href="./css/sub.css" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -63,9 +64,9 @@
       <article class="tab_con intro">
         <h2 class="hide">커뮤니티 페이지</h2>
         <ul class="tab_menu">
-          <li><a href="?comu=<?php echo $comu; ?>&tab=후기" class="<?php echo ($tab == '후기') ? 'on' : ''; ?>" title="후기">후기</a></li>
-          <li><a href="?comu=<?php echo $comu; ?>&tab=상담신청" class="<?php echo ($tab == '상담신청') ? 'on' : ''; ?>" title="상담신청">상담신청</a></li>
-          <li><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=공지사항" class="<?php echo ($tab == '고객센터') ? 'on' : ''; ?>" title="고객센터">고객센터</a></li>
+          <li><a href="?comu=<?php echo $comu; ?>&tab=후기" class="<?php echo ($tab == '후기') ? 'on' : ''; ?>">후기</a></li>
+          <li><a href="?comu=<?php echo $comu; ?>&tab=상담신청" class="<?php echo ($tab == '상담신청') ? 'on' : ''; ?>">상담신청</a></li>
+          <li><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=공지사항" class="<?php echo ($tab == '고객센터') ? 'on' : ''; ?>">고객센터</a></li>
         </ul>
       </article>
     </section>
@@ -219,6 +220,10 @@
 
               <p>오전</p>
               <ul>
+              <li >
+                  <input type="radio" name="inquire_time" id="T09" value="11:00">
+                  <label for="T09">09 : 00</label>
+                </li>
                 <li >
                   <input type="radio" name="inquire_time" id="T10" value="10:00">
                   <label for="T10" class="time_on">10 : 00</label>
@@ -226,6 +231,14 @@
                 <li>
                   <input type="radio" name="inquire_time" id="T11" value="11:00">
                   <label for="T11">11 : 00</label>
+                </li>
+                <li >
+                  <input type="radio" name="inquire_time" id="T11" value="11:00">
+                  <label for="T11"class="hiden"></label>
+                </li>
+                <li >
+                  <input type="radio" name="inquire_time" id="T11" value="11:00">
+                  <label for="T11"class="hiden"></label>
                 </li>
                 <li >
                   <input type="radio" name="inquire_time" id="T11" value="11:00">
@@ -279,8 +292,8 @@
             <p>궁금한 내용을 확인해보세요</p>
             <!--탭컨텐츠 공지사항 자주묻는 질문 버튼-->
             <ul class="tab_mnu2">
-              <li><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=공지사항" title="공지사항" class="<?php echo ($Fm == '공지사항') ? 'inq_on' : ''; ?>">공지사항</a></li>
-              <li ><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=자주묻는질문" title="자주묻는 질문" class="<?php echo ($Fm == '자주묻는질문') ? 'inq_on' : ''; ?>">자주묻는 질문</a></li>
+              <li><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=공지사항" title="" class="<?php echo ($Fm == '공지사항') ? 'inq_on' : ''; ?>">공지사항</a></li>
+              <li ><a href="?comu=<?php echo $comu; ?>&tab=고객센터&Fm=자주묻는질문" title="" class="<?php echo ($Fm == '자주묻는질문') ? 'inq_on' : ''; ?>">자주묻는 질문</a></li>
             </ul>
           </article>
           <!-- 고객센터안 탭컨텐츠 공지사항,자주 묻는 질문-->
@@ -319,15 +332,15 @@
               <?php //페이지네이션이 들어가는 곳
                 //이전페이지
                 if($page <= 1){ ?> 
-                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page=<?php echo ($page-1); ?>" class="page-link" title="이전페이지로"><i class="bi bi-chevron-left"></i></a></li>
+                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page=<?php echo ($page-1); ?>" class="page-link"><i class="bi bi-chevron-left"></i></a></li>
                   <?php } 
                   else{ ?> 
-                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page-1); ?>" class="page-link " title="이전페이지로"><i class="bi bi-chevron-left"></i></a></li>
+                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page-1); ?>" class="page-link "><i class="bi bi-chevron-left"></i></a></li>
                   <?php };
                   ?> 
               <?php //여기서부터 페이지 번호출력하기
                 for($print_page=$s_pageNum;$print_page<=$e_pageNum;$print_page++){?>
-                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $print_page; ?>" class="page-link" title="현재 페이지 버튼">
+                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $print_page; ?>" class="page-link">
                     <?php echo $print_page ?>
                   </a></li>
                 <?php }; ?>  
@@ -336,7 +349,7 @@
                 <?php if($page>=$total_page){ ?>
                   <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo $total_page; ?>" title="다음페이지로" class="page-link"><i class="bi bi-chevron-right"></i></i></a></li>
                 <?php }else{ ?>
-                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page+1); ?>" class="page-link "title="다음페이지로">
+                  <li class="page-item"><a href="notice_list.php?class_no='<?echo $class_no;?>'page<?php echo ($page+1); ?>" class="page-link ">
                   <i class="bi bi-chevron-right"></i></a></li>
               <?php };    
               ?>    
@@ -388,8 +401,8 @@
   <?php include('./php/include/bottom.php');?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-      <!-- flatpickr JS -->
-      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <!-- 한국어 locale JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
 
@@ -418,8 +431,8 @@
       // $('.s_toggle').slideToggle()
     })
 
-        // ----------달력-----------
-        flatpickr.localize(flatpickr.l10ns.ko);
+    // ----------달력-----------
+    flatpickr.localize(flatpickr.l10ns.ko);
     var today = new Date(); // 현재 날짜
 
     var fp = flatpickr("#datepicker", {
