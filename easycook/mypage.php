@@ -250,7 +250,7 @@
 
             <?php
             if ($teacher_code) {
-              echo "<a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+              echo "<a style='color:#666; padding:5px 10px; display:inline-block; border:1px solid #ccc; border-radius:5px;' href='./php/admin/index.php' title='강사페이지'>강사페이지</a>";
             }
           }else{
             echo "";

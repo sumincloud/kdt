@@ -111,8 +111,8 @@
         <!-- 아이디 찾기 -->
         <div class="container text-center mt-4 mb-5">
           <div class="row" style="text-wrap: nowrap; font-size:var(--fs-small);">
-            <div class="col border-end"><a href="#" class="link-secondary">아이디 찾기</a></div>
-            <div class="col border-end"><a href="#" class="link-secondary">비밀번호 찾기</a></div>
+            <div class="col border-end"><a href="./find_id.php" class="link-secondary">아이디 찾기</a></div>
+            <div class="col border-end"><a href="./find_password.php" class="link-secondary">비밀번호 찾기</a></div>
             <div class="col"><a href="./register_pre.php" class="link-secondary">회원가입</a></div>
           </div>
         </div>

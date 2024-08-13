@@ -24,7 +24,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡 | 강의검색</title>
+  <title>강의 검색 | 이지쿡</title>
   <!-- 공통 헤드정보 삽입 -->
   <?php include('./php/include/head.php'); ?>
   <style>
@@ -69,7 +69,11 @@
       <h2>강의 검색</h2>
       <article>
         <h3>
-          <?php $search_key = $_POST['search_key']; $search_key2 = $_GET['search_key2']; ?>
+          <?php 
+          $search_key = isset($_POST['search_key']) ? $_POST['search_key'] : null;
+          $search_key2 = isset($_GET['search_key2']) ? $_GET['search_key2'] : null;
+          ?>
+
           '<strong><?php echo $search_key.$search_key2; ?></strong>'(으)로 검색한 결과입니다.
         </h3>
         <p>

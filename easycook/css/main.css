@@ -862,6 +862,7 @@ section {
     width: 1200px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
   }
   /* Swiper 버튼 스타일 */
   .swiper-button-next,

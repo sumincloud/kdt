@@ -6,18 +6,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>이지쿡</title>
+  <title>이지쿡 | 검색창</title>
     <!-- 공통 헤드정보 삽입 -->
     <?php include('./php/include/head.php'); ?>
 
     <!-- 서식 연결 -->
     <link rel="stylesheet" type="text/css" href="./css/search.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+      .search_main{
+        height: 630px;
+      }
+    </style>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
   <?php include('./php/include/header.php');?>
 
-  <main>
+  <main class="search_main">
     <!--검색 창-->
     <section class="search">
       <h2 class="hide">검색창</h2>
@@ -53,24 +59,17 @@
       <!-- Swiper -->
       <div class="swiper mySwiper4">
         <div class="swiper-wrapper">
-          <a href="#" class="swiper-slide">
+          <div class="swiper-slide">
             <img src="./images/main/ad_1.jpg" alt="이미지">
-          </a>
-          <a href="#" class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
             <img src="./images/main/ad_2.jpg" alt="이미지">
-          </a>
-          <a href="#" class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
             <img src="./images/main/ad_3.jpg" alt="이미지">
-          </a>
-          <a href="#" class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
             <img src="./images/main/ad_4.jpg" alt="이미지">
-          </a>
-        </div>
-        <div class="slide-btn">
-          <div class="swiper-pagination swiper-pagination-fraction">
-            <span class="swiper-pagination-current"></span>
-            /
-            <span class="swiper-pagination-total"></span>
           </div>
         </div>
       </div>
@@ -101,15 +100,9 @@
   <!-- 공통바텀바삽입 -->
   <?php include('./php/include/bottom.php');?>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.5/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
-    var swiper = new Swiper(".mySwiper6", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      freeMode: true,
-    });
-
     var swiper4 = new Swiper(".mySwiper4", {
       spaceBetween: 0,
       centeredSlides: true,
@@ -123,6 +116,52 @@
         clickable: true,
       },
   });
+
+
+    var swiper = new Swiper(".mySwiper6", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      freeMode: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+
+          //--------1025px 이상일때 메인배너 이미지 변경------------
+          function updateImageSources() {
+          // 섹션별 이미지 업데이트
+          const updateImages = (selector, imageType) => {
+            const images = document.querySelectorAll(selector);
+            images.forEach(img => {
+                let src = img.getAttribute('src');
+                if (window.innerWidth >= 1025) {
+                  // _pc가 붙은 경로로 변경
+                  if (!src.includes('_pc')) {
+                    img.src = src.replace('.jpg', '_pc.jpg');
+                  }
+                } else {
+                  // _pc가 붙은 경로를 제거
+                  if (src.includes('_pc')) {
+                    img.src = src.replace('_pc.jpg', '.jpg');
+                  }
+                }
+              });
+          }
+          // 각 섹션에 대한 이미지 소스 업데이트
+          updateImages('#sec05 .swiper-slide img');
+        }
+          // 페이지 로드 시 이미지 업데이트
+          window.addEventListener('load', updateImageSources);
+          // 화면 크기 변경 시 이미지 업데이트
+          window.addEventListener('resize', updateImageSources);
+
+
+
+
+
+
   </script>
 </body>
 </html>

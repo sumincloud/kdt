@@ -589,6 +589,33 @@ header .a_side {
   color: #000;
 }
 
+/* 검색창 */
+#search_form{
+  width: 200px; height: 35px;
+  border: 1px solid var(--red);
+  border-radius: 20px;
+}
+.gnb_box .search_box{
+  position: absolute;
+  top: 90px; left:0;
+}
+.gnb_box .search_box .search_bar{
+  width:170px;
+  height: 30px;
+  text-indent: 10px;
+  border: none;
+  border-radius: 20px;
+}
+.search_box i {
+  float: right;
+  transform: translate(-12px, 8px);
+  color: var(--red);
+  cursor: pointer;
+  z-index: 100;
+}
+.search_box .search_bar:focus{
+  outline: none;
+}
 
 
 
@@ -649,6 +676,12 @@ header .a_side {
   
       <!-- pc버전일때 보이는 gnb -->
       <nav class="gnb_box">
+        <div class="search_box">
+          <form action="./search_output.php" name="강의 검색" method="post" id="search_form">
+            <input type="search" class="search_bar" name="search_key">
+            <i class="bi bi-search" onclick="submitForm()"></i>
+          </form>
+        </div>
         <ul class="gnb">
           <li>
             <a href="./academy.php?category1=기능사" title="요리">요리</a>
@@ -733,7 +766,7 @@ header .a_side {
                   ";
                   // $teacher_code가 존재하면 강사페이지 링크 추가
                   if ($teacher_code) {
-                    echo "<a style='margin-right: 10px;' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+                    echo "<a style='margin-right: 10px;' href='./php/admin/index.php' title='강사페이지'>강사페이지</a>";
                   }
                 "</span>";
               } else {
@@ -949,7 +982,7 @@ header .a_side {
               <a class='btn btn-outline-secondary' href='./php/logout.php' title='로그아웃'>로그아웃</a>";
               // $teacher_code가 존재하면 강사페이지 링크 추가
               if ($teacher_code) {
-                echo "<a class='btn btn-outline-secondary' href='./admin/index.php' title='강사페이지'>강사페이지</a>";
+                echo "<a class='btn btn-outline-secondary' href='./php/admin/index.php' title='강사페이지'>강사페이지</a>";
               }
               echo "</div>";
 
@@ -1335,11 +1368,15 @@ header .a_side {
           window.location.href = './login.php';
         }
       });
-
-
-
-
       
 
-  })
+    })
+    
+
+
+
+    //pc 검색 아이콘 클릭시 폼제출
+    function submitForm() {
+      document.getElementById('search_form').submit();
+    }
 </script>
