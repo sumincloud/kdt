@@ -41,16 +41,21 @@
       
       // 결과를 배열로 저장
       while ($row = mysqli_fetch_assoc($class_result)) {
-          // 각 강의의 결제 정보 가져오기
-          $class_no = intval($row['class_no']);
-          $order_info_sql = "SELECT name, datetime FROM `order` WHERE class_no = $class_no AND id = '$id'";
-          $order_info_result = mysqli_query($conn, $order_info_sql);
-          $order_info = mysqli_fetch_assoc($order_info_result);
-          $row['order_name'] = $order_info['name'];
-          $row['order_datetime'] = $order_info['datetime'];
+        $class_no = intval($row['class_no']);
+        //중도포기 강좌 조회
+        //$student_status = $row['student_status'];
+        
+        // 각 강의의 결제 정보와 중도포기상태 가져오기
+        $order_info_sql = "SELECT name, datetime, student_status FROM `order` WHERE class_no = $class_no AND id = '$id'";
+        $order_info_result = mysqli_query($conn, $order_info_sql);
+        $order_info = mysqli_fetch_assoc($order_info_result);
 
-          // 강의목록 저장
-          $class_list[] = $row;
+        $row['order_name'] = $order_info['name'];
+        $row['order_datetime'] = $order_info['datetime'];
+        $row['student_status'] = $order_info['student_status'];
+
+        // 강의목록 저장
+        $class_list[] = $row;
       }
     }
   } else {
@@ -134,6 +139,13 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    /* 중도포기 후 비활성화된 강의 항목 스타일 */
+    .disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
@@ -158,7 +170,7 @@
             <?php foreach ($class_list as $row): ?>
               <li id="class-<?= $row['class_no']; ?>" 
                 data-order-name="<?= $row['order_name'] ?>" 
-                data-order-datetime="<?= $row['order_datetime'] ?>">
+                data-order-datetime="<?= $row['order_datetime'] ?>" class="<?= $row['student_status'] === '중도포기' ? 'disabled' : '' ?>">
                 <div onclick="location.href='./detail.php?class_no=<?= $row['class_no']; ?>'" style="cursor:pointer;">
                   <!-- 강의 썸네일 이미지 -->
                   <a href="./detail.php?class_no=<?= $row['class_no']; ?>" title="상세페이지로 이동">
@@ -191,7 +203,7 @@
                   <div class="btn-box-s mt-4">
                     <?php if ($row['start_date'] < $today): ?>
                       <!-- 중도 포기 버튼 -->
-                      <button class="btn-s" onclick="abandonOrder('<?= $row['class_no']; ?>')" style="background: #666;">중도포기</button>
+                      <button class="btn-s stop" onclick="abandonOrder('<?= $row['class_no']; ?>')" style="background: var(--yellow); color: #333; font-weight: bold;">중도포기</button>
                     <?php else: ?>
                       <!-- 신청 취소 버튼 -->
                       <button class="btn-s" onclick="removeOrder('<?= $row['class_no']; ?>')">신청취소</button>
@@ -255,6 +267,21 @@
       });
 
 
+      // 페이지 로드 시 .disabled 클래스를 가진 강의의 버튼 상태 업데이트
+      $('.disabled').each(function() {
+        var classElement = $(this);
+        var button = classElement.find('.btn-s.stop');
+        
+        // 버튼의 텍스트와 스타일을 업데이트
+        button.text('중도포기 완료')
+              .css('background', '#999')
+              .css('cursor', 'not-allowed')
+      });
+
+      // 페이지 로드 시 .disabled 클래스를 가진 강의 항목을 리스트의 맨 아래로 이동
+      var disabledItems = $('.disabled').detach();
+      $('.card-list').append(disabledItems);
+
     });
 
 
@@ -295,9 +322,11 @@
           },
           success: function(response) {
             console.log(response);
-            alert('중도 포기가 완료되었습니다.');
-            // 중도 포기 후 리스트에서 항목 제거
-            $('#class-' + classNo).remove();
+            // 중도 포기 후 리스트에서 항목 비활성화
+            var classElement = $('#class-' + classNo);
+            classElement.addClass('disabled');
+            // 중도 포기 버튼 텍스트 변경
+            classElement.find('.btn-s.stop').text('중도포기 완료').css('background', '#999');
           },
           error: function(xhr, status, error) {
             console.error('요청 실패:', error);

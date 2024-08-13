@@ -22,8 +22,8 @@
     $_SESSION['profile'] = $profile;
 
     // --------------내 강의 정보 불러오는 부분----------------
-    // order 테이블에서 세션ID와 일치하는 class_no 값을 가져오기
-    $sql_my = "SELECT class_no FROM `order` WHERE id='$id'";
+    // order 테이블에서 세션ID와 일치하는 '수강중'인 class_no 값을 가져오기
+    $sql_my = "SELECT class_no FROM `order` WHERE id='$id' AND student_status='수강중'";
     $result_my = mysqli_query($conn, $sql_my);
 
     // class_no 값을 배열로 저장

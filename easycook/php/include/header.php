@@ -908,8 +908,8 @@ header .a_side {
         $profile = htmlspecialchars($row['profile']);
 
         // --------------내 강의 정보 불러오는 부분----------------
-        // order 테이블에서 세션ID와 일치하는 class_no 값을 가져오기
-        $sql = "SELECT class_no FROM `order` WHERE id='$id'";
+        // order 테이블에서 세션ID와 일치하는 '수강중'인 class_no 값을 가져오기
+        $sql = "SELECT class_no FROM `order` WHERE id='$id' AND student_status='수강중'";
         $result = mysqli_query($conn, $sql);
 
         // class_no 값을 배열로 저장
@@ -1005,6 +1005,12 @@ header .a_side {
               <a href='./order_list.php' title='신청목록'>
                 <i class='bi bi-bag-check'></i>
                 <span>신청목록</span>
+              </a>
+            </li>
+            <li>
+              <a href='./cart.php' title='찜목록'>
+                <i class='bi bi-heart'></i>
+                <span>찜목록</span>
               </a>
             </li>
             <li>
