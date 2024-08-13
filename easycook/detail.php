@@ -51,6 +51,17 @@
     header h1{
       display: none;
     }
+
+
+    #topButton{
+      bottom: 110px !important;
+    }
+    /* PC버전 탑버튼 위치 */
+    @media (min-width: 1025px) {
+      #topButton{
+      bottom: 65px !important;
+      }
+    }
   </style>
 
   <main style="margin:0;">
@@ -91,7 +102,7 @@
                 <td><?php echo $row['teacher']; ?></td>
               </tr>
               <tr>
-                <td>가격</td>
+                <td>수강료</td>
                 <td><span class="yellow"><?php echo number_format($row_price['price']); ?></span> 원</td>
               </tr>
             </tbody>

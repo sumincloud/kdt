@@ -127,9 +127,13 @@
           <img src="./images/common/icon_google.png" alt="구글 로그인">
           <span>구글로 로그인</span>
         </button>
-        <button class="btn-l">
-          <img src="./images/common/icon_kakao.png" alt="카카오 로그인" onclick="kakaoLogin()">
-          <span>카카오로 로그인</span>
+        <button class="btn-l" onclick="kakaoLogin()">
+          <img src="./images/common/icon_kakao.png" alt="카카오 로그인" >
+          <span>
+            <a href="javascript:void(0)" title="카카오로 로그인">
+              카카오로 로그인
+            </a>
+          </span>
         </button>
         <button class="btn-l">
           <img src="./images/common/icon_naver.png" alt="네이버 로그인">

@@ -62,7 +62,7 @@
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header.php');?>
+  <?php include('./php/include/header_sub.php');?>
 
   <!-- 나의 문의 내역 -->
   <main>

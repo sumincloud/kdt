@@ -126,11 +126,60 @@
     .disabled>.page-link, .page-link.disabled{
       background: none;
     }
+
+    /* 안내문구 */
+    .reserve_list  .hover_info{
+      display: none;
+      border: 1px solid var(--gray);
+      font-size: var(--fs-small); 
+      font-weight: var(--fw-light); 
+      padding: 10px;
+      z-index: 900;
+      top: 205px;
+      left:140px;
+      position: absolute;
+      border-radius: 0px 5px 5px 5px;
+      background: #fff;
+      transition: 0.3s;
+    }
+
+
+    .reserve_list  .hover_info:after, .reserve_list  .hover_info:before {
+      top: 4px;
+      left: 0px;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .reserve_list  .hover_info:after {
+      border: 10px solid transparent;
+      border-bottom-color: #ffffff;
+      border-top: 0;
+      border-left: 0;
+      border-width: 15px;
+      margin-left:0px;
+      margin-top: -17.5px;
+    }
+    .reserve_list  .hover_info:before {
+
+      border: 19px solid transparent;
+      border-bottom-color: #d9d9d9;
+      border-top: 0;
+      border-left: 0;
+      border-width: 16px;
+      margin-left: -1px;
+      margin-top: -20px;
+    }
+
   </style>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header.php');?>
+  <?php include('./php/include/header_sub.php');?>
 
   <!-- 나의 문의 내역 -->
   <main>
@@ -146,6 +195,8 @@
         <h3 style="display:none;">실습실 예약 리스트</h3>
         <table class="table table-hover table-responsive reserve_table mt-3 mb-3">
           <caption style="display:none;">나의 예약 리스트</caption>
+          <p class="hov_info">실습실 예약 안내 <i class="bi bi-info-circle"></i></p>
+          <div class="hover_info">실습실 예약은 수강한 이력이 있을 때 가능합니다.</div>
           <thead>
             <tr>
               <th>번호</th>
@@ -265,6 +316,19 @@
         });
       }
     }
+
+    $(document).ready(function(){
+      $('.hov_info').mouseenter(function(){
+        $('.hover_info').css('display', 'block');
+      }).mouseleave(function(){
+        $('.hover_info').css('display', 'none');
+      }).click(function() {
+        $('.hover_info').toggle(); // 클릭 시 보이기/숨기기
+      });
+    });
+
+
+
   </script>
 </body>
 </html>

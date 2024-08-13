@@ -80,7 +80,7 @@
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header.php');?>
+  <?php include('./php/include/header_sub.php');?>
 
   <main>
     <section class="re_com">

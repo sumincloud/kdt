@@ -318,7 +318,7 @@
     <section id="sec07">
       <div class="title">
         <h2>인기 요리 강의</h2>
-        <a href="./academy.php?category1=기능사&type=전체" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=기능사&type=전체&sort=인기순" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
@@ -364,7 +364,7 @@
     <section id="sec08">
       <div class="title">
         <h2>인기 바리스타 강의</h2>
-        <a href="./academy.php?category1=바리스타&type=전체" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=바리스타&type=전체&sort=인기순" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">
@@ -410,7 +410,7 @@
     <section id="sec09">
       <div class="title">
         <h2>인기 베이커리 강의</h2>
-        <a href="./academy.php?category1=베이커리&type=전체" title="더 보기">더 보기 +</a>
+        <a href="./academy.php?category1=베이커리&type=전체&sort=인기순" title="더 보기">더 보기 +</a>
       </div>
       <div class="mt-3">
         <div class="swiper mySwiper3">

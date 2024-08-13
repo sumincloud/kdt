@@ -14,6 +14,7 @@
     $sql = "select * from academy_list where class_no = '$class_no'";
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($result);
+    $class_no2 = $row['class_no'];
 
     // 출석 현황 조회
     $sql_attendance = "
@@ -78,8 +79,38 @@
           </script>";
   }
 
+    // 페이지네이션
+    $query = "select count(*) from board where class_no='$class_no'";
+    $result = mysqli_query($conn, $query);
+    $max_Num = mysqli_fetch_array($result);
 
-?>
+    // 전체 목록의 갯수
+    $num = $max_Num[0];
+    //한 페이지에 보여질 게시물 개수
+    $list_num = 5;      
+    //이전, 다음 버튼 클릭시 나오는 페이지 수
+    $page_num =3;      
+    //현재 페이지
+    $page = isset($_GET["page"])? $_GET["page"] : 1;      
+    // 전체페이지수 계산
+    $total_page = ceil($num / $list_num);      
+    //전체블럭 계산
+    $total_block = ceil($total_page / $page_num);      
+    //현재블럭번호 계산
+    $now_block = ceil($page / $page_num);      
+    //블럭당 시작페이지 번호$start
+    $s_pageNum = ($now_block - 1) * $page_num + 1;      
+    //데이터가 0인 경우
+    if($s_pageNum <= 0){ $s_pageNum = 1; };      
+    //블럭당 마지막페이지 번호
+    $e_pageNum = $now_block * $page_num;      
+    //마지막 번호가 전체 페이지번호보다 크다면 동일한 값을 준다.
+    if($e_pageNum > $total_page){ $e_pageNum = $total_page; };
+    
+    $start = ($page - 1) * $list_num;
+    $cnt = $start + 1;
+
+    ?>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -103,24 +134,42 @@
       padding: 40px 0 20px 0;
       text-align: center;
     }
-    .col{
-      max-width: 600px;
-      margin: 0 auto;
+    .back_gray{
+      background:#ededed;
+      padding-top:40px;
+    }
+    .back_gray .card{
+      margin-bottom:40px;
     }
     .card{
-      padding: 20px;
+      border:none;
+      /* padding: 0px 20px 0px 0px; */
+      /* background:none; */
+      /* margin-bottom:40px; */
     }
     .card img{
       max-height: 200px;
       object-fit: cover;
       border-radius: 5px;
+      margin-bottom:40px;
+      padding:0px 10px;
     }
     .card-body{
-      padding: 10px 10px 0 10px;
+      padding: 0px 20px 20px 20px !important;
     }
     .card-title{
       font-size: var(--fs-medium-large);
-      margin: 10px 0;
+      /* margin: 10px 0; */
+
+    }
+    /*공통 제목 초록배경 */
+    .com_title{
+      height:50px;
+      background:var(--green);
+      border-radius:5px 5px 0px 0px;
+      line-height:50px;
+      color:#fff;
+      font-weight:var(--fw-semi-bold);
     }
     .card-text{
       line-height: 160%;
@@ -193,6 +242,33 @@
       flex: 1;
       max-width: 600px;
       width: 100%;
+      white-space: nowrap;
+    }
+
+    /*공지사항 부분 스타일 */
+    .s_board{
+      min-height: 300px;
+    }
+    .s_board li{
+      width:90%;
+      margin:0 auto;
+      border-bottom:1px solid var(--gray);
+      padding:10px 0px;
+    }
+    .s_board li:last-child{
+      border-bottom: none;
+    }
+    .s_board li>p:first-child{
+      font-weight:var(--fw-bold);
+      margin-bottom:5px;
+    }
+
+    .container{padding:0px;}
+
+    /* 페이지네이션 */
+    .page-link{
+      color: var(--darkbrown);
+      border: none;
     }
 
   </style>
@@ -205,77 +281,119 @@
     <section class="container mt-5">
       <h2 class="mb-3">나의 강의정보</h2>
       <!-- 상품목록 카드 스타일 -->
-      <ul class="row">
-        <li class="col">
-          <div class="card">
-            <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" class="card-img-top" alt="강의 썸네일 사진">
-            <div class="card-body">
-              <p class="card-title"><strong><?php echo $row['name']; ?></strong></p>
-              <hr>
-              <p class="card-text">
-                  일정 : <?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?><br>
-                  차수 : <?php echo $row['nth']; ?>차<br>
-                  난이도 : <?php echo $row['grade']; ?><br>
-                  장소 : <?php echo $row['place']; ?><br>
-                  강사명 : <?php echo $row['teacher']; ?><br>
-                  연락처 : 02-1234-1234
-              </p>
-            </div>
+        <div class="card">
+          <img src="./uploads/class_main/<?php echo $row['thumnail_img']; ?>" class="card-img-top" alt="강의 썸네일 사진">
+          <div class="card-body">
+            <p class="card-title m_top"><strong><?php echo $row['name']; ?></strong></p>
+            <hr>
+            <p class="card-text">
+              일정 : <?php echo $row['start_date']; ?> ~ <?php echo $row['end_date']; ?><br>
+              차수 : <?php echo $row['nth']; ?>차<br>
+              난이도 : <?php echo $row['grade']; ?><br>
+              장소 : <?php echo $row['place']; ?><br>
+              강사명 : <?php echo $row['teacher']; ?><br>
+              연락처 : 02-1234-1234
+            </p>
           </div>
-          <div class="card" style="border:none;">
-            <div class="card-body">
-              <p class="card-title text-center"><strong>출석현황</strong></p>
-              <div class="attend_box mt-5">
-                <!-- 원형 그래프 -->
-                <div class="circle">
-                  <div class="outer">
-                    <div class="inner">
-                      <p><!-- 퍼센트 들어가는 부분 --></p>
-                    </div>
-                  </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160">
-                    <defs>
-                      <linearGradient id="gauge">
-                        <stop offset="0%" stop-color="#26A450"></stop>
-                        <stop offset="100%" stop-color="#26A450"></stop>
-                      </linearGradient>
-                    </defs>
-                    <circle class="circle_cap" cx="80" cy="80" r="70" stroke-linecap="round" style="stroke-dashoffset: 115.75px;"></circle>
-                  </svg>
-                </div>
-                <!-- 출석일자 -->
-                <div class="table-wrapper">
-                  <table class="table table-bordered text-center">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>출석</th>
-                        <th>지각</th>
-                        <th>결석</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><?php echo $attendance_count['출석']; ?>일</td>
-                        <td><?php echo $attendance_count['지각']; ?>일</td>
-                        <td><?php echo $attendance_count['결석']; ?>일</td>
-                      </tr>
-                      <tr>
-                        <td colspan="3" class="pt-4" style="color: #888;">
-                          <span style="margin-right:15px;">강의 진행률</span>
-                          <span><?php echo $progress_days; ?> / <?php echo $total_days; ?>일</span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+        </div>
+    </section>
+    <section class="back_gray">
+      <article class="card container">
+        <p class="card-title text-center com_title">공지사항</p>
+        <!--php문 반복문 쓰기 for(row2=mysqli 이거 ) 공지사항 불러오기-->
+        <ul class="s_board">
+          <?php  
+            $s_board = "select * from board where class_no = '$class_no2' order by no DESC limit $start, $list_num";
+            $s_result = mysqli_query($conn, $s_board);
+            if(mysqli_num_rows($s_result) > 0){
+            while($s_row = mysqli_fetch_array($s_result)){
+          ?>          
+          <li>
+            <p><?php echo $s_row['title']; ?></p>
+            <p><?php echo $s_row['datetime']; ?></p>
+          </li>
+          <?php }}else{
+                echo '<li class="text-center">게시글이 없습니다</li>';
+          } ?>
+        </ul>        
+        <!-- 페이지 네이션 -->
+        <nav aria-label="페이지네이션" class="padding50">
+          <ul class="pagination justify-content-center">
+          <?php //페이지네이션이 들어가는 곳
+            //이전페이지
+            if($page <= 1){ ?> 
+              <?php } 
+              else{ ?> 
+              <li class="page-item"><a href="myclass_info.php?class_no=<?php echo $class_no;?>&page=<?php echo ($page-1); ?>" title="이전페이지로" class="page-link "><i class="bi bi-chevron-left"></i></a></li>
+              <?php };?> 
+            <?php //여기서부터 페이지 번호출력하기
+            for($print_page=$s_pageNum;$print_page<=$e_pageNum;$print_page++){?>
+              <li class="page-item"><a href="myclass_info.php?class_no=<?php echo $class_no;?>&page=<?php echo $print_page; ?>" title="선택한페이지로" class="page-link">
+                <?php echo $print_page ?>
+              </a></li>
+            <?php }; ?>  
+            <!-- 다음 버튼 나오는 곳 -->
+            <?php if($page>=$total_page){ ?>
+            <?php }else{ ?>
+              <li class="page-item"><a href="myclass_info.php?class_no=<?php echo $class_no;?>&page=<?php echo ($page+1); ?>" title="다음페이지로" class="page-link " ><i class="bi bi-chevron-right"></i></a></li>
+          <?php };    ?>    
+          </ul>
+        </nav>
+      </article>
+      </nav>
+      <article class="card container" >
+        <p class="card-title text-center com_title">출석현황</p>
+        <div class="card-body">
+          <div class="attend_box mt-5">
+            <!-- 원형 그래프 -->
+            <div class="circle">
+              <div class="outer">
+                <div class="inner">
+                  <p><!-- 퍼센트 들어가는 부분 --></p>
                 </div>
               </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160">
+                <defs>
+                  <linearGradient id="gauge">
+                    <stop offset="0%" stop-color="#26A450"></stop>
+                    <stop offset="100%" stop-color="#26A450"></stop>
+                  </linearGradient>
+                </defs>
+                <circle class="circle_cap" cx="80" cy="80" r="70" stroke-linecap="round" style="stroke-dashoffset: 115.75px;"></circle>
+              </svg>
+            </div>
+            <!-- 출석일자 -->
+            <div class="table-wrapper">
+              <table class="table table-bordered text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th>출석</th>
+                    <th>지각</th>
+                    <th>결석</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><?php echo $attendance_count['출석']; ?>일</td>
+                    <td><?php echo $attendance_count['지각']; ?>일</td>
+                    <td><?php echo $attendance_count['결석']; ?>일</td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" class="pt-4" style="color: #888;">
+                      <span style="margin-right:15px;">강의 진행률</span>
+                      <span><?php echo $progress_days; ?> / <?php echo $total_days; ?>일</span>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
             </div>
           </div>
-          <div class="btn-box-l mb-5 mt-4">
-            <button class="btn-l gray_btn" onclick="history.back();">이전으로</button>
-          </div>
-        </li>
-      </ul>
+        </div>
+      </article>
+
+        <div class="btn-box-l mb-5 mt-4">
+          <button class="btn-l gray_btn" onclick="history.back();">이전으로</button>
+        </div>
     </section>
 
 

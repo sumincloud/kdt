@@ -57,6 +57,11 @@
         // 강의목록 저장
         $class_list[] = $row;
       }
+
+      // start_date를 기준으로 정렬 (내림차순)
+      usort($class_list, function($a, $b) {
+        return strtotime($b['start_date']) - strtotime($a['start_date']);
+      });
     }
   } else {
     $class_list = [];
@@ -150,7 +155,7 @@
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <?php include('./php/include/header.php');?>
+  <?php include('./php/include/header_sub.php');?>
 
   <main>
     <section>
@@ -201,13 +206,21 @@
                 <!-- 버튼이 들어가는 경우에만 삽입 -->
                 <div>
                   <div class="btn-box-s mt-4">
-                    <?php if ($row['start_date'] < $today): ?>
-                      <!-- 중도 포기 버튼 -->
-                      <button class="btn-s stop" onclick="abandonOrder('<?= $row['class_no']; ?>')" style="background: var(--yellow); color: #333; font-weight: bold;">중도포기</button>
-                    <?php else: ?>
-                      <!-- 신청 취소 버튼 -->
-                      <button class="btn-s" onclick="removeOrder('<?= $row['class_no']; ?>')">신청취소</button>
-                    <?php endif; ?>
+                    <?php
+                      if ($row['student_status'] === '중도포기') {
+                        // 중도포기 상태인 경우
+                        echo '<button class="btn-s" style="background: #aaa; color: #fff; font-weight: bold;" disabled>중도포기 완료</button>';
+                      } elseif ($row['end_date'] < $today) {
+                        // 강의 종료일이 오늘보다 이전일 때: 수강 완료 버튼
+                        echo '<button class="btn-s" style="background: var(--green); color: #fff; font-weight: bold;" disabled>수강완료</button>';
+                      } elseif ($row['start_date'] <= $today) {
+                        // 강의 시작일이 오늘 또는 그 이전일 때: 중도 포기 버튼
+                        echo '<button class="btn-s stop" onclick="abandonOrder(\'' . $row['class_no'] . '\')" style="background: var(--yellow); color: #333; font-weight: bold;">중도포기</button>';
+                      } else {
+                        // 강의 시작일이 오늘보다 이후일 때: 신청 취소 버튼
+                        echo '<button class="btn-s" onclick="removeOrder(\'' . $row['class_no'] . '\')">신청취소</button>';
+                      }
+                    ?>
                     <button class="btn-s order_info" data-class-no="<?= $row['class_no']; ?>">결제정보</button>
                   </div>
                 </div>
@@ -277,11 +290,17 @@
               .css('background', '#999')
               .css('cursor', 'not-allowed')
       });
-
+      
+      // 수강 완료 버튼이 있는 항목들을 아래로 이동
+      var completedItems = $('.card-list li').filter(function() {
+        return $(this).find('.btn-s').text() === '수강완료';
+      }).detach();
+      $('.card-list').append(completedItems);
+      
       // 페이지 로드 시 .disabled 클래스를 가진 강의 항목을 리스트의 맨 아래로 이동
       var disabledItems = $('.disabled').detach();
       $('.card-list').append(disabledItems);
-
+      
     });
 
 
