@@ -1,0 +1,13 @@
+/* Main 서식 */
+.main > h2{
+  background: #ccc;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* Stydy6 서식 */
+.text01{
+  color:blue;
+  font-size: 1rem;
+  font-weight: bold;
+}

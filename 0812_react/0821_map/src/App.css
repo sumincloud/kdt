@@ -1,0 +1,17 @@
+
+h1{
+  text-align:center;
+  color:#f00;
+  font-size:20px;
+}
+h2{
+  font-size:18px;
+  background:#ff0;color:#00f;padding:5px;
+}
+h3{
+  font-size:17px;
+  background:#ccc;padding:4px;
+}
+p{
+  font-size:16px;
+}
