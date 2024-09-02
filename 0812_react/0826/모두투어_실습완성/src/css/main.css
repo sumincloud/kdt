@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+/* 메인서식 */
+ul{
+  display:flex;
+  flex-wrap:wrap;
+}
+ul li{width:50%;list-style:none;}
+ul li img{width:200px;}

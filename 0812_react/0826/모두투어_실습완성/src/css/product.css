@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+main{
+  width:98%;
+  margin:0 auto;
+}
+main > h2{
+  text-align:center;
+  line-height:40px
+}
+.create{}
+.create p{
+  font-size:1.3em;
+  line-height:40px;
+}
+.create label{
+  display:inline-block;
+  font-weight:bold;
+  width:120px;
+  line-height:40px;
+}
+.create input[type=text]{
+  width:100%;
+  height:50px;
+  background:#e9e9e9;
+  border:none;
+}
+/* 내용입력 */
+.submit_btn{
+  background-color:#00a079;
+  color:#fff;border:none;
+  width:100%;height:50px;
+  margin:10px 0px;
+  font-size:0.94rem;
+}
+
+/* 상품목록 서식 */
+.product_list{
+  margin-bottom:0px auto 30px auto;
+}
+.product_list > li{
+  width:48.4%;
+  display:inline-block;
+  margin:0px 1.6% 30px 0px;
+  box-sizing:border-box;
+}
+.product_list img{
+  width:100%;
+  transition:0.3s;
+}
+.product_list img:hover{
+  filter: brightness(1.2);
+}
+
+.product_list p{
+  font-size:0.9rem;
+  font-weight:bold;
+  line-height:30px;
+}
+.product_list .price{
+  color:#f00;
+  font-size:1rem;
+  font-weight:bolder;
+  text-align:right;
+}
+.product_list .btn{
+  border:none;
+  padding:4px 5px;
+  background:rgb(60, 165, 3);
+  color:#fff;
+}

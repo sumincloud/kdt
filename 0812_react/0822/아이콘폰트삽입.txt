@@ -1,0 +1,11 @@
+1. 리액트 아이콘 설치하기
+npm i react-icons --save
+
+2. 삽입하고자 하는 아이콘 이름을 검색
+사이트 주소
+ https://react-icons.github.io/react-icons/
+
+//검색한 아이콘 이름을 페이지 상단에 삽입한다.
+<FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+
+3. 콤포넌트에 삽입한다.   <아이콘이름  />

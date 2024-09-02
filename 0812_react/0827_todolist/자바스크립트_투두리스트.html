@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트_투두리스트</title>
+  <style>
+    .wrapper{width:500px;}
+    .todo_list button{clear:both;}
+    input[type=text]{
+      width:87%;
+      border:3px solid orangered;
+      outline-style: none;
+      line-height:40px;
+    }
+    #btn{
+      float:right;
+      background:orangered;
+      border:none;color:#fff;
+      padding:16px 18px;
+    }
+    footer address{
+      font-style:normal;
+      text-align:center;
+    }
+    .todo_list{
+      width:100%;padding:0px;
+    }
+    .todo_list li{
+      list-style:none;
+      border:2px solid orangered;
+      line-height:60px;margin-bottom:-2px;
+    }
+    .todo_list li span{font-size:18px;}
+    .del_btn{
+      border:none;background:none;
+      font-weight:bold;font-size:16px;
+      float:right;clear:right;
+      padding:20px 14px 0px 0px;
+    }
+    .circle{
+      background-position:0px 0px;
+      display:inline-block;
+      width:90%;line-height:40px;
+      background-image:url('./images/circle.png');
+      transform:translateY(9px);
+      text-indent:40px;
+      background-repeat:no-repeat;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>오늘의 할 일은?</h1>
+      <div>
+        <input type="text" placeholder="오늘의 할일을 메모하세요" autofocus id="addValue">
+        <input type="submit" value="+" id="btn">
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <ul class="todo_list">
+          <li>
+            <span class="circle">코딩테스트</span>
+            <button class="del_btn">삭제</button>
+          </li>          
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <address>Copyright&copy;2024 자바스크립트 오늘의 할일 allrights reserved.</address>
+    </footer>
+  </div>
+
+  <script>
+    //1. 변수선언
+    const btn = document.getElementById('btn');//입력버튼
+    const d_btn = document.querySelector('.del_btn');//삭제버튼
+    const addValue = document.getElementById('addValue'); //입력내용
+    const result = document.querySelector('ul');
+
+    //2. 함수작성
+    btn.addEventListener('click',function(){
+      if(addValue.value==''){
+        alert('내용이 없습니다. 다시확인하세요');
+        return
+      }else{
+        //리스트 추가하기
+        addTo();
+      }      
+    });
+
+    //내용추가하기 위한 함수
+    function addTo(){
+      let list = document.createElement('li');
+      let del = document.createElement('button');
+      del.classList.add('del_btn');
+      del.innerText='삭제';
+
+      const span = document.createElement('span');
+      span.innerText=addValue.value;
+      span.classList.add('circle');
+
+      //li태그를 추가하면서 안에 span, del버튼을 넣어서 생성
+      list.appendChild(span);
+      list.appendChild(del);
+      result.appendChild(list); //ul태그안에 li태그 추가
+      
+      addValue.value='';
+      addValue.focus();
+
+      del.addEventListener('click',function(e){
+        let li_remove = e.target.parentElement;
+        li_remove.remove(); //부모태그인 li를 삭제하라
+      });
+    }    
+  </script>
+</body>
+</html>

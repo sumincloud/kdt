@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.todo_item{
+  display:flex;
+  align-items:center;
+  cursor:pointer;
+  line-height:40px;
+}
+.todo_item:hover{
+  background-color:#ccc;
+}
+.todo_item:hover .remove{
+  opacity:1;
+}
+.remove{
+  opacity:0;
+  font-weight:bold;
+  color:#f00;
+  margin-right:0.5rem;
+}
+.todo_text{
+  flex:1;
+}
+.checked{
+  text-decoration:line-through;
+  color:#00f;
+}
+.check_mark{
+  font-size:1.5rem;
+  line-height:1rem;
+  color:#f00;
+  font-weight:bold;
+}

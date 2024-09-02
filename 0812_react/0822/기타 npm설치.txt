@@ -1,0 +1,29 @@
+cd..   폴더 뒤로가기(상위폴더로 한단계 이동)
+cd\ 최상위 폴더로 이동
+
+새로운 프로젝트 생성하기
+npx create-react-app 폴더명
+npx create-react-app kully
+-------------------
+npm test
+npm run eject
+
+cd kully - 폴더로 이동
+npm start - 프로젝트 실행
+ctrl + C - 프로젝트 종료
+
+//제이쿼리 라이브러리 설치
+npm i jquery
+npm i swiper
+npm i router
+npm i sass
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @awesome.me/kit-KIT_CODE
+npm i --save @fortawesome/react-fontawesome@latest
+----------------------------------------------------------------
+1. npm install react-icons --save
+2. 리엑트 icon사이트에서 검색
+3. import { BiAdjust } from "react-icons/bi";
+4. <BiAdjust />
+
+

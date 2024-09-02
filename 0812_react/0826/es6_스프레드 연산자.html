@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>es6_스프레드(spread) 연산자</title>
+</head>
+<body>
+  <h2>es6_스프레드(spread) 연산자</h2>
+  <p>spread - 전파, 퍼짐, 전개, 유포, 차이, 늘어남, 퍼지게 하다, 퍼뜨리다......</p>
+  <p>javscript에서의 spread는 '객체' 또는 '배열'을 펼칠 수 있습니다.</p>
+
+  <script>
+    const car = {
+      name : '그렌저'
+    };
+
+    const car2 = {
+      name : '그렌저',
+      color : 'white'
+    }
+
+    // const car3 = {
+    //   name:'그렌저',
+    //   color:'white',
+    //   price:'3,000'
+    // }
+
+    const car4={
+      ...car,
+      color:'white'
+    }
+
+    console.log(car);
+    console.log(car2); //새로운 객체를 생성하여 속성값 추가
+    // console.log(car3);
+    console.log(car4);//스프레드 연산자로 객체 복사하여 속성값 추가
+
+    //스프레드 연산자는 배열에서도 사용가능
+    const fruits = ['사과','배','귤','감','오렌지','수박','바나나'];
+    const fruits_add = [...fruits, '포도','딸기'];
+
+    console.log(fruits);
+    console.log(fruits_add);
+  </script>
+</body>
+</html>

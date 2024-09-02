@@ -1,0 +1,56 @@
+todos : todo객체들이 들어있는 배열(내용출력)
+onToggle : 체크박스를 위한 함수(on/off)
+onRemove : 글목록을 삭제하기 위한 함수
+
+--------------------------------------
+TodoItem.jsx
+최적화 성능을 위해 class 컴포넌트로 제작하고
+
+ props값은 text, cheked, id, onToggle, onRemove를 선언한다.
+
+클릭 이벤트에 onToggle(id)값을 전달하고
+제목을 클릭하면 onRemove(id)값에 해당하는 요소에 checked가 되도록 설정한다.
+
+<div className={`todo_text${checked&&'checked'}`}>
+텍스트 글을 클릭시 체크되는 서식
+
+글자가 체크가 되면 체크표시가 나오도록 함.
+{checked && (<div className="check_mark">v</div>)}
+
+----------------------------------------------
+App.js
+state에 기본 배열값을 3개를(0,1,2) 추가하고  id기본값을 3으로 설정함.
+
+Form기능 추가
+ - 텍스트 내용이 변경되면 state변경
+ - 버튼이 클릭되면 새로운 todo생성(글목록)
+ - 글입력하는 양식에서 마우스 클릭말고 'enter'쳐도 글 입력되게 함.
+----------------------------------------------
+handleToggle함수, handleRemove함수
+
+handleToggle = (id) => {
+    const { todos } = this.state;
+    const index = todos.findIndex(todo => todo.id === id);
+
+    const selected = todos[index];
+
+    this.setState({
+      todos: [
+        ...todos.slice(0, index),
+        {
+          ...selected,
+          checked: !selected.checked
+        },
+        ...todos.slice(index + 1, todos.length)
+      ]
+    });
+  }
+------------------------
+handleRemove = (id) => {
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.filter(todo => todo.id !== id)
+    });
+  }
+
+
